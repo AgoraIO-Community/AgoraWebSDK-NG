@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>自定义音频采集 · AgoraWebSDK NG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## 功能介绍"/><meta name="docsearch:language" content="zh-CN"/><meta property="og:title" content="自定义音频采集 · AgoraWebSDK NG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="## 功能介绍"/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/zh-CN"><img class="logo" src="/img/logo.png" alt="AgoraWebSDK NG"/><h2 class="headerTitleWithLogo">AgoraWebSDK NG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/zh-CN/overview" target="_self">文档</a></li><li class=""><a href="/api/en" target="_self">API</a></li><li class=""><a href="https://agora.io" target="_self">Agora</a></li><li class=""><a href="/demo" target="_self">Demos</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/en/custom_audio">English</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>音频管理</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">入门</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/zh-CN/overview">概览</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/setup">集成 SDK</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/basic_call">实现基本通话</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">音频管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/zh-CN/volume">调整通话音量</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/audio_profile">设置音频属性</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/audio_effect_mixing">播放音效/混音</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/zh-CN/custom_audio">自定义音频采集</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">视频管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/zh-CN/video_profile">设置视频属性</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/image_enhancement">美颜</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/screensharing">屏幕共享</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/custom_video">自定义视频采集</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">高级媒体流管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/zh-CN/multi_user_video">七人以上视频场景</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/media_relay">跨直播间连麦</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/cdn_streaming">推流到 CDN</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/inject_stream">输入在线媒体流</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/cloud_proxy">使用云代理</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/channel_encryption">媒体流加密</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">设备管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/zh-CN/test_switch_device">音视频设备测试/切换</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">体验提升</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/zh-CN/call_quality">通话中质量监测</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/stream_fallback">视频流回退</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">自定义音频采集</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="功能介绍"></a><a href="#功能介绍" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>功能介绍</h2>
+<p>实时音视频传输过程中，Agora SDK 通常会启动默认的音视频模块进行采集。在以下场景中，你可能会发现默认的音视频模块无法满足开发需求：</p>
+<ul>
+<li>app 中已有自己的音频或视频模块</li>
+<li>希望使用非 Microphone 采集的音频源，比如裸 PCM 数据</li>
+<li>需要使用自定义的音频前处理库（变声等）</li>
+</ul>
+<p>本文介绍如何使用 Agora Web SDK NG 在项目中实现自定义的音频采集。</p>
+<h2><a class="anchor" aria-hidden="true" id="实现方法"></a><a href="#实现方法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>实现方法</h2>
+<p>在开始前，请确保已在你的项目中实现基本的实时音视频功能。详见 <a href="/docs/zh-CN/basic_call">实现音视频通话</a>。</p>
+<p>在创建本地音频轨道时，除了使用 <a href="/api/cn/interfaces/iagorartc.html#createmicrophoneaudiotrack">createMicrophoneAudioTrack</a> 通过麦克风来创建以外，SDK 还提供了 <a href="/api/cn/interfaces/iagorartc.html#createcustomaudiotrack">createCustomAudioTrack</a> 来让开发者通过传入一个 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> 对象来创建本地音频轨道。</p>
+<p>如果你想自己实现音频采集或者前处理，只需要获取到 <code>MediaStreamTrack</code> 对象，就可以通过这个接口来实现自定义音频采集。 例如，你可以自己调用 <code>getUserMedia</code> 方法来获取 <code>MediaStreamTrack</code>，再通过 <code>createCustomAudioTrack</code> 来获取可以在 SDK 中使用本地音频对象。</p>
+<pre><code class="hljs css language-js">navigator.mediaDevices.getUserMedia({ <span class="hljs-attr">video</span>: <span class="hljs-literal">false</span>, <span class="hljs-attr">audio</span>: <span class="hljs-literal">true</span> })
+  .then(<span class="hljs-function">(<span class="hljs-params">mediaStream</span>) =&gt;</span> {
+    <span class="hljs-keyword">const</span> audioMediaStreamTrack = mediaStream.getAudioTracks()[<span class="hljs-number">0</span>];
+    <span class="hljs-comment">// create custom audio track</span>
+    <span class="hljs-keyword">return</span> AgoraRTC.createCustomAudioTrack({
+      <span class="hljs-attr">mediaStreamTrack</span>: audioMediaStreamTrack,
+    });
+  })
+  .then(<span class="hljs-function">(<span class="hljs-params">localAudioTrack</span>) =&gt;</span> {
+    <span class="hljs-comment">// ...</span>
+  });
+</code></pre>
+<blockquote>
+<p>MediaStreamTrack 对象是指浏览器原生支持的 MediaStreamTrack 对象，具体用法和浏览器支持状况请参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/MediaStreamTrack">MediaStreamTrack API 说明</a>。</p>
+</blockquote>
+<p>同样，您也可以利用强大的 WebAudio API 来获取 MediaStreamTrack，以实现一些更定制化的音频处理。</p>
+<h2><a class="anchor" aria-hidden="true" id="相关-api"></a><a href="#相关-api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>相关 API</h2>
+<ul>
+<li><a href="/api/cn/interfaces/iagorartc.html#createcustomaudiotrack">createCustomAudioTrack</a></li>
+<li><a href="/api/cn/interfaces/ilocalaudiotrack.html">LocalAudioTrack</a></li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/audio_effect_mixing"><span class="arrow-prev">← </span><span>播放音效/混音</span></a><a class="docs-next button" href="/docs/zh-CN/video_profile"><span>设置视频属性</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#功能介绍">功能介绍</a></li><li><a href="#实现方法">实现方法</a></li><li><a href="#相关-api">相关 API</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.png" alt="AgoraWebSDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/zh-CN/overview.html">Getting Started</a><a href="/api/cn">API Reference</a></div><div><h5>More</h5><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>
