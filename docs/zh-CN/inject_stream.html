@@ -102,7 +102,7 @@
 </blockquote>
 <p>输入媒体流成功后，该媒体流会在直播频道内自动播放，频道内所有用户都会收到 <code>AgoraRTCClient.on(&quot;user-joined&quot;)</code> 和 <code>AgoraRTCClient.on(&quot;user-published&quot;)</code> 回调。</p></li>
 <li><p>频道内主播调用 <code>AgoraRTCClient.removeInjectStreamUrl</code> 方法从直播频道内删除指定的已输入在线媒体流。</p>
-<p>删除媒体流成功后，频道内所有用户都会收到  <code>AgoraRTCClient.on(&quot;user-unpublished&quot;)</code> 和 <code>AgoraRTCClient.on(&quot;user-leaved&quot;)</code> 回调。</p>
+<p>删除媒体流成功后，频道内所有用户都会收到  <code>AgoraRTCClient.on(&quot;user-unpublished&quot;)</code> 和 <code>AgoraRTCClient.on(&quot;user-left&quot;)</code> 回调。</p>
 <blockquote>
 <p>主播退出频道后，无需再调用 <code>removeInjectStreamUrl</code> 接口。</p>
 </blockquote></li>

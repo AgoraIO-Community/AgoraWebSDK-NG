@@ -92,7 +92,7 @@
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_token_privilege_did_expire" class="tsd-kind-icon">token-<wbr>privilege-<wbr>did-<wbr>expire</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_token_privilege_will_expire" class="tsd-kind-icon">token-<wbr>privilege-<wbr>will-<wbr>expire</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_user_joined" class="tsd-kind-icon">user-<wbr>joined</a></li>
-								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_user_leaved" class="tsd-kind-icon">user-<wbr>leaved</a></li>
+								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_user_left" class="tsd-kind-icon">user-<wbr>left</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_user_mute_updated" class="tsd-kind-icon">user-<wbr>mute-<wbr>updated</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_user_published" class="tsd-kind-icon">user-<wbr>published</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_user_unpublished" class="tsd-kind-icon">user-<wbr>unpublished</a></li>
@@ -714,10 +714,10 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="event_user_leaved" class="tsd-anchor"></a>
-					<h3>user-<wbr>leaved</h3>
+					<a name="event_user_left" class="tsd-anchor"></a>
+					<h3>user-<wbr>left</h3>
 					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">user-<wbr>leaved<span class="tsd-signature-symbol">(</span>user<span class="tsd-signature-symbol">: </span><a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a>, reason<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">user-<wbr>left<span class="tsd-signature-symbol">(</span>user<span class="tsd-signature-symbol">: </span><a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a>, reason<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1054,7 +1054,7 @@
 								</div>
 								<p>离开频道即挂断或退出通话。</p>
 								<p>调用该方法离开频道时，本地会触发 <a href="iagorartcclient.html#event_connection_state_change">AgoraRTCClient.on(&quot;connection-state-change&quot;)</a> 回调。</p>
-								<p>通信场景下的用户和直播场景下的主播离开频道后，远端会触发 <a href="iagorartcclient.html#event_user_leaved">AgoraRTCClient.on(&quot;user-leaved&quot;)</a> 回调。</p>
+								<p>通信场景下的用户和直播场景下的主播离开频道后，远端会触发 <a href="iagorartcclient.html#event_user_left">AgoraRTCClient.on(&quot;user-left&quot;)</a> 回调。</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
@@ -1556,7 +1556,7 @@ user.audioTrack.play();</code></pre>
 									<p>删除输入的在线媒体流。</p>
 								</div>
 								<p>该方法从直播中删除通过 <a href="iagorartcclient.html#addinjectstreamurl">addInjectStreamUrl</a> 输入的在线媒体流。
-								删除后频道內所有用户都会收到 <a href="iagorartcclient.html#event_user_leaved">AgoraRTCClient.on(&quot;user-leaved&quot;)</a> 和 [AgoraRTCClient.on(&quot;stream-removed&quot;)]{@link event_stream_removed} 回调。</p>
+								删除后频道內所有用户都会收到 <a href="iagorartcclient.html#event_user_left">AgoraRTCClient.on(&quot;user-left&quot;)</a> 和 [AgoraRTCClient.on(&quot;stream-removed&quot;)]{@link event_stream_removed} 回调。</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
@@ -1794,7 +1794,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite">
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"connection-state-change"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_connection_state_change" class="tsd-signature-type">event_connection_state_change</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"user-joined"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_user_joined" class="tsd-signature-type">event_user_joined</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"user-leaved"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_user_leaved" class="tsd-signature-type">event_user_leaved</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"user-left"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_user_left" class="tsd-signature-type">event_user_left</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"user-published"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_user_published" class="tsd-signature-type">event_user_published</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"user-unpublished"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_user_unpublished" class="tsd-signature-type">event_user_unpublished</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"user-mute-updated"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_user_mute_updated" class="tsd-signature-type">event_user_mute_updated</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
@@ -1851,10 +1851,10 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>event: <span class="tsd-signature-type">"user-leaved"</span></h5>
+									<h5>event: <span class="tsd-signature-type">"user-left"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <a href="iagorartcclient.html#event_user_leaved" class="tsd-signature-type">event_user_leaved</a></h5>
+									<h5>listener: <a href="iagorartcclient.html#event_user_left" class="tsd-signature-type">event_user_left</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -2226,7 +2226,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								</div>
 								<p>直播场景下，可以调用本方法设置或切换用户角色。</p>
 								<p>角色为 <code>host</code> 的用户没有限制，角色为 <code>audience</code> 的用户不能进行 <a href="iagorartcclient.html#publish">publish</a> 操作。</p>
-								<p>如果在加入频道后调用该方法切换用户角色，远端会触发 <a href="iagorartcclient.html#event_user_joined">AgoraRTCClient.on(&quot;user-joined&quot;)</a> 或者 <a href="iagorartcclient.html#event_user_leaved">AgoraRTCClient.on(&quot;user-leaved&quot;)</a> 回调。</p>
+								<p>如果在加入频道后调用该方法切换用户角色，远端会触发 <a href="iagorartcclient.html#event_user_joined">AgoraRTCClient.on(&quot;user-joined&quot;)</a> 或者 <a href="iagorartcclient.html#event_user_left">AgoraRTCClient.on(&quot;user-left&quot;)</a> 回调。</p>
 								<blockquote>
 									<p>注意事项：</p>
 									<ul>
@@ -2470,7 +2470,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								<a href="iagorartcclient.html#event_user_joined" class="tsd-kind-icon">user-<wbr>joined</a>
 							</li>
 							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="iagorartcclient.html#event_user_leaved" class="tsd-kind-icon">user-<wbr>leaved</a>
+								<a href="iagorartcclient.html#event_user_left" class="tsd-kind-icon">user-<wbr>left</a>
 							</li>
 							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="iagorartcclient.html#event_user_mute_updated" class="tsd-kind-icon">user-<wbr>mute-<wbr>updated</a>
