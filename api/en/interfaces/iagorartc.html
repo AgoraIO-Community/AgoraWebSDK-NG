@@ -167,7 +167,7 @@
 								<div class="lead">
 									<p>Creates an audio track from an audio file or <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer">AudioBuffer</a> object.</p>
 								</div>
-								<p>This method accepts both local and online audio files, and supports the following formats:</p>
+								<p>This method works with both the local and online audio files, supporting the following formats:</p>
 								<ul>
 									<li>MP3.</li>
 									<li>AAC.</li>
@@ -179,12 +179,12 @@
 								<li>
 									<h5>config: <a href="buffersourceaudiotrackinitconfig.html" class="tsd-signature-type">BufferSourceAudioTrackInitConfig</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Configurations of the file path, caching strategy, and encoder configuration.</p>
+										<p>Configurations such as the file path, caching strategies, and encoder configuration.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="ibuffersourceaudiotrack.html" class="tsd-signature-type">IBufferSourceAudioTrack</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Compared with other audio track objects, the returned audio track object supports methods to control the audio playback, including play, pause, seek, playback status query, and so on.</p>
+							<p>Unlike other audio track objects, this audio track object adds the methods for audio playback control, such as playing, pausing, seeking and playback status querying.</p>
 						</li>
 					</ul>
 				</section>
@@ -208,7 +208,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <a href="cameravideotrackinitconfig.html" class="tsd-signature-type">CameraVideoTrackInitConfig</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Configurations for the captured video, such as the capturing device and the encoder configuration.</p>
+										<p>Configurations for the captured video, such as the capture device and the encoder configuration.</p>
 									</div>
 								</li>
 							</ul>
@@ -230,14 +230,14 @@
 								<div class="lead">
 									<p>Creates a custom audio track.</p>
 								</div>
-								<p>Call this method to create an audio track from a custom <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> object.</p>
+								<p>This method creates a customized audio track from a <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> object.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>config: <a href="customaudiotrackinitconfig.html" class="tsd-signature-type">CustomAudioTrackInitConfig</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Configurations for the custom audio track.</p>
+										<p>Configurations for the customized audio track.</p>
 									</div>
 								</li>
 							</ul>
@@ -257,18 +257,18 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a custom video track.</p>
+									<p>Creates a customized video track.</p>
 								</div>
-								<p>Call this method to create a video track from a custom <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> object.</p>
+								<p>This method creates a customized video track from a <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> object.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>config: <a href="customvideotrackinitconfig.html" class="tsd-signature-type">CustomVideoTrackInitConfig</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Configurations for the custom video track. See <a href="customvideotrackinitconfig.html">CustomVideoTrackInitConfig</a>.</p>
+										<p>Configurations for the customized video track. See <a href="customvideotrackinitconfig.html">CustomVideoTrackInitConfig</a>.</p>
 										<blockquote>
-											<p>This method does not support video encoder configuration. You can only set the sending bitrate by <a href="customvideotrackinitconfig.html">config</a>.</p>
+											<p>You can set the sending bitrate for a customized video track by <a href="customvideotrackinitconfig.html">config</a>. Other video encoder configurations are not supported.</p>
 										</blockquote>
 									</div>
 								</li>
@@ -297,7 +297,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <a href="microphoneaudiotrackinitconfig.html" class="tsd-signature-type">MicrophoneAudioTrackInitConfig</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Configurations for the captured audio, such as the capturing device and the encoder configuration. See <a href="microphoneaudiotrackinitconfig.html">MicrophoneAudioTrackInitConfig</a>.</p>
+										<p>Configurations for the captured audio, such as the capture device and the encoder configuration. See <a href="microphoneaudiotrackinitconfig.html">MicrophoneAudioTrackInitConfig</a>.</p>
 									</div>
 								</li>
 							</ul>
@@ -347,7 +347,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a video track for screen-sharing.</p>
+									<p>Creates a video track for screen sharing.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -355,7 +355,7 @@
 								<li>
 									<h5>config: <a href="screenvideotrackinitconfig.html" class="tsd-signature-type">ScreenVideoTrackInitConfig</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Configurations for the screen-sharing video, such as encoder configuration and capturing configuration.</p>
+										<p>Configurations for the screen-sharing video, such as encoder configuration and capture configuration.</p>
 									</div>
 								</li>
 								<li>
@@ -367,7 +367,7 @@
 											<li><code>false</code>: Do not share the audio.<blockquote>
 													<p>Note:</p>
 													<ul>
-														<li>This function supports only Chrome 73 or later on Windows.</li>
+														<li>This function is only supported on Chrome 73 or later on Windows.</li>
 														<li>For the audio sharing to take effect, the user must check <strong>Share audio</strong> in the pop-up window when sharing the screen.</li>
 													</ul>
 												</blockquote>
@@ -378,7 +378,7 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">, </span><a href="ilocalaudiotrack.html" class="tsd-signature-type">ILocalAudioTrack</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">&gt;</span></h4>
 							<ul>
-								<li>A list that contains a video track for screen-sharing  and an audio track, if <code>withAudio</code> is <code>true</code>.</li>
+								<li>A list containing a video track for screen sharing and an audio track, if <code>withAudio</code> is <code>true</code>.</li>
 								<li>A video track for screen-sharing, if <code>withAudio</code> is <code>false</code> or undefined.</li>
 							</ul>
 						</li>
@@ -424,7 +424,7 @@
 								<p>Call this method to enable log upload to Agora’s server.</p>
 								<p>The log-upload function is disabled by default. To enable this function, you must call this method before calling all the other methods.</p>
 								<blockquote>
-									<p>If the user fails to join the channel, the log information is not available on Agora’s server.</p>
+									<p>If a user fails to join the channel, the log information (for that user) is unavailable on Agora&#39;s server.</p>
 								</blockquote>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

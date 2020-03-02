@@ -52,7 +52,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>用于控制视频流的播放配置</p>
+						<p>用于控制视频轨道的播放配置。</p>
 					</div>
 				</div>
 			</section>
@@ -88,14 +88,20 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>设置视频播放时的显示模式。</p>
+							<p>设置视频播放时的显示模式：</p>
 							<ul>
-								<li><code>&quot;cover&quot;</code>: 优先保证视窗被填满。视频尺寸等比缩放，直至整个视窗被视频填满。如果视频长宽与显示窗口不同，则视频流会按照显示视窗的比例进行周边裁剪或图像拉伸后填满视窗。可以参考 CSS 属性中 object-fit 的 cover 选项。</li>
-								<li><code>&quot;contain&quot;</code>: 优先保证视频内容全部显示。视频尺寸等比缩放，直至视频窗口的一边与视窗边框对齐。如果视频尺寸与显示视窗尺寸不一致，在保持长宽比的前提下，将视频进行缩放后填满视窗，缩放后的视频四周会有一圈黑边。可以参考 CSS 属性中 object-fit 的 contain 选项。</li>
-								<li><code>&quot;fill&quot;</code>: 保证视窗被填满的同时保证视频内容全部显示，但是不保证视频尺寸比例不变。视频的宽高会被拉伸至和视窗尺寸一致。可以参考 CSS 属性中 object-fit 的 fill 选项。</li>
+								<li><code>&quot;cover&quot;</code>: 优先保证视窗被填满。视频尺寸等比缩放，直至整个视窗被视频填满。如果视频长宽与显示窗口不同，则视频流会按照显示视窗的比例进行周边裁剪或图像拉伸后填满视窗。可以参考 CSS 属性中 <code>object-fit</code> 的 <code>cover</code> 选项。</li>
+								<li><code>&quot;contain&quot;</code>: 优先保证视频内容全部显示。视频尺寸等比缩放，直至视频窗口的一边与视窗边框对齐。如果视频尺寸与显示视窗尺寸不一致，在保持长宽比的前提下，将视频进行缩放后填满视窗，缩放后的视频四周会有一圈黑边。可以参考 CSS 属性中 <code>object-fit</code> 的 <code>contain</code> 选项。</li>
+								<li><code>&quot;fill&quot;</code>: 保证视窗被填满的同时保证视频内容全部显示，但是不保证视频尺寸比例不变。视频的宽高会被拉伸至和视窗尺寸一致。可以参考 CSS 属性中 <code>object-fit</code> 的 <code>fill</code> 选项。</li>
 							</ul>
 						</div>
-						<p>对于本地摄像头流来说，播放视频流默认使用 cover 模式，屏幕共享默认使用 contain 模式。 对于远端流来说，因为不知道流的类型，默认使用 cover 模式。</p>
+						<blockquote>
+							<p>注意事项：</p>
+							<ul>
+								<li>播放由摄像头采集的本地视频轨道，默认使用 cover 模式；播放用于屏幕共享的视频轨道，默认使用 contain 模式。</li>
+								<li>对于远端视频轨道，因为不知道轨道的类型，默认使用 cover 模式。</li>
+							</ul>
+						</blockquote>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -106,8 +112,19 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>播放时是否镜像，本地视频流默认开启</p>
+							<p>Sets whether to enable the mirror mode:</p>
+							<ul>
+								<li><code>true</code>: Enables the mirror mode.</li>
+								<li><code>false</code>: Disables the mirror mode.</li>
+							</ul>
 						</div>
+						<blockquote>
+							<p>Notes:</p>
+							<ul>
+								<li>For a local video track, the SDK enables the mirror mode by default.</li>
+								<li>For a remote video track, the SDK disables the mirror mode by default.</li>
+							</ul>
+						</blockquote>
 					</div>
 				</section>
 			</section>

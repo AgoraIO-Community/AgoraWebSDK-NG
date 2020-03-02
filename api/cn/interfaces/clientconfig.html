@@ -52,8 +52,9 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p><a href="iagorartc.html#createclient">createClient</a> 的配置参数对象，用于控制客户端的一些行为。</p>
+						<p>用于控制客户端行为的接口。</p>
 					</div>
+					<p>在调用 <a href="iagorartc.html#createclient">createClient</a> 创建客户端对象时，你需要配置该接口。</p>
 					<blockquote>
 						<p><a href="clientconfig.html#mode">mode</a> 和 <a href="clientconfig.html#codec">codec</a> 属性必须设置。</p>
 					</blockquote>
@@ -96,12 +97,12 @@
 						<div class="lead">
 							<p>浏览器使用的编码格式，有以下两种选择：</p>
 							<ul>
-								<li><code>&quot;vp8&quot;</code>: 浏览器使用 VP8 编码</li>
-								<li><code>&quot;h264&quot;</code>: 浏览器使用 H.264 编码</li>
+								<li><code>&quot;vp8&quot;</code>: 浏览器使用 VP8 编码。</li>
+								<li><code>&quot;h264&quot;</code>: 浏览器使用 H.264 编码。</li>
 							</ul>
 						</div>
 						<blockquote>
-							<p>Safari 12.1 之前版本不支持 VP8 编码。</p>
+							<p>Safari 12.1 及之前版本不支持 VP8 编码。</p>
 						</blockquote>
 					</div>
 				</section>
@@ -143,9 +144,11 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>如果您的 <a href="clientconfig.html#mode">mode</a> 设置的是 <code>live</code>, 可以通过本参数设置用户角色，默认角色为观众（audience）；</p>
+							<p>直播场景中的用户角色。</p>
 						</div>
+						<p>如果 <a href="clientconfig.html#mode">mode</a> 设置为 <code>live</code>, 可以通过本参数设置用户角色，默认角色为主播（host）；</p>
 						<p>角色为 <code>host</code> 的用户没有限制，角色为 <code>audience</code> 的用户不能进行 <a href="iagorartcclient.html#publish">publish</a> 操作。</p>
+						<p>在创建客户端之后，你可以随时调用 <a href="iagorartcclient.html#setclientrole">setClientRole</a> 来改变用户角色。</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">

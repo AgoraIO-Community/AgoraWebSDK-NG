@@ -52,7 +52,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>远端视频轨道，调用 <a href="iagorartcclient.html#subscribe">subscribe</a> 后通过 <a href="iagorartcremoteuser.html#videotrack">AgoraRTCRemoteUser.videoTrack</a> 对象获取</p>
+						<p>远端视频轨道，调用 <a href="iagorartcclient.html#subscribe">subscribe</a> 后通过 <a href="iagorartcremoteuser.html#videotrack">AgoraRTCRemoteUser.videoTrack</a> 对象获取。</p>
 					</div>
 				</div>
 			</section>
@@ -110,7 +110,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>当前该媒体流是否正在页面上播放</p>
+							<p>当前该媒体轨道是否正在页面上播放。</p>
 						</div>
 					</div>
 				</section>
@@ -123,7 +123,11 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>表示媒体流的类型，音频流还是视频流</p>
+							<p>标记媒体轨道的类型：</p>
+							<ul>
+								<li><code>&quot;audio&quot;</code>: 音频轨道。</li>
+								<li><code>&quot;video&quot;</code>: 视频轨道。</li>
+							</ul>
 						</div>
 					</div>
 				</section>
@@ -172,10 +176,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取浏览器原生的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> 对象</p>
+									<p>获取浏览器原生的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> 对象。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MediaStreamTrack</span></h4>
+							<p>(<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack</a>) 对象。</p>
 						</li>
 					</ul>
 				</section>
@@ -192,10 +197,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取远端视频轨道相关信息</p>
+									<p>获取远端视频轨道相关信息。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="remotevideotrackstats.html" class="tsd-signature-type">RemoteVideoTrackStats</a></h4>
+							<p><a href="remotevideotrackstats.html">RemoteVideoTrackStats</a>。</p>
 						</li>
 					</ul>
 				</section>
@@ -212,10 +218,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取由 SDK 生成的对于媒体流来说的唯一 ID</p>
+									<p>获取由 SDK 生成的对于媒体轨道来说的唯一 ID。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>媒体轨道 ID。</p>
 						</li>
 					</ul>
 				</section>
@@ -232,10 +239,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取发布这个远端轨道的远端用户 ID</p>
+									<p>获取发布这个远端轨道的远端用户 ID。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../globals.html#uid" class="tsd-signature-type">UID</a></h4>
+							<p>当前远端轨道对应的 <code>uid</code>。</p>
 						</li>
 					</ul>
 				</section>
@@ -348,7 +356,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>在页面上播放视频</p>
+									<p>Plays the video track on the web page.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -356,17 +364,17 @@
 								<li>
 									<h5>element: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>指定一个 DOM 元素，SDK 将在这个元素下创建 <code>&lt;video&gt;</code> 元素播放视频流，支持 2 种类型：</p>
+										<p>Specifies a DOM element. The SDK will create a <code>&lt;video&gt;</code> element under the specified DOM element to play the video track. You can specify a DOM element in either of following ways:</p>
 										<ul>
-											<li><code>string</code>: 指定该 DOM 元素的 id 值</li>
-											<li><code>HTMLElement</code>： 直接传入一个 DOM 元素对象</li>
+											<li><code>string</code>: Specify the ID of the DOM element.</li>
+											<li><code>HTMLElement</code>: Pass a DOM object.</li>
 										</ul>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <a href="videoplayerconfig.html" class="tsd-signature-type">VideoPlayerConfig</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>设置播放参数（镜像/显示模式），对于远端视频流，镜像默认关闭。</p>
+										<p>Sets the playback configurations, such as the display mode and mirror mode. By default, the SDK disables mirror mode for a remote video track.</p>
 									</div>
 								</li>
 							</ul>
@@ -416,7 +424,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>停止播放</p>
+									<p>停止播放。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

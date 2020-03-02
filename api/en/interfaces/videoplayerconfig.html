@@ -49,6 +49,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Video playback configurations for a video track.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -79,6 +86,23 @@
 					<div class="tsd-signature tsd-kind-icon">fit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"cover"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"contain"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"fill"</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Sets the video display mode:</p>
+							<ul>
+								<li><code>&quot;cover&quot;</code>: The image filles the height and width of the box, whilst maintaining its aspect ratio but often cropping the image in the process. For more information, see the <code>cover</code> option of <code>object-fit</code> in CSS.</li>
+								<li><code>&quot;contain&quot;</code>: The size of the image increases or decreases to fill the box whilst preserving its aspect-ratio. Areas that are not filled due to the disparity in the aspect ratio are filled with black. For more information, see the <code>contain</code> option of <code>object-fit</code> in CSS.</li>
+								<li><code>&quot;fill&quot;</code>: The image stretches to fit the box, regardless of its aspect-ratio. For more information, see the <code>fill</code> option of <code>object-fit</code> in CSS.</li>
+							</ul>
+						</div>
+						<blockquote>
+							<p>Notes:</p>
+							<ul>
+								<li>When playing the local camera video track, the SDK uses the cover mode by default; and when playing the local video of screen sharing, the SDK uses the contain mode by default.</li>
+								<li>When playing the remote video track, the SDK uses the cover mode by default.</li>
+							</ul>
+						</blockquote>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="mirror" class="tsd-anchor"></a>

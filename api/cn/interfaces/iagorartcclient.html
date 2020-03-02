@@ -298,7 +298,7 @@
 								<li>
 									<h5>curState: <a href="../globals.html#connectionstate" class="tsd-signature-type">ConnectionState</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>当前的连接状态</p>
+										<p>当前的连接状态。</p>
 									</div>
 								</li>
 								<li>
@@ -408,7 +408,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>SDK 重新建立发布/订阅音媒体连接结束回调。</p>
+									<p>SDK 重新建立媒体连接（用于发布和订阅）结束的回调。</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<div></div>
@@ -419,7 +419,7 @@
 								<li>
 									<h5>uid: <a href="../globals.html#uid" class="tsd-signature-type">UID</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>重新建立的发布/订阅媒体连接所对应的用户 ID。如果是本地 UID 说明是重新发布，如果是远端 UID 说明是重新订阅。</p>
+										<p>重新建立的媒体连接所对应的用户 ID。如果是本地 <code>uid</code> 说明是重新发布，如果是远端 <code>uid</code> 说明是重新订阅。</p>
 									</div>
 								</li>
 							</ul>
@@ -439,7 +439,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>SDK 开始尝试重新建立发布/订阅媒体连接的回调。</p>
+									<p>SDK 开始尝试重新建立媒体连接（用于发布和订阅）的回调。</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<div></div>
@@ -450,7 +450,7 @@
 								<li>
 									<h5>uid: <a href="../globals.html#uid" class="tsd-signature-type">UID</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>重新建立的发布/订阅媒体连接所对应的用户 ID。如果是本地 UID 说明是重新发布，如果是远端 UID 说明是重新订阅。</p>
+										<p>重新建立的媒体连接所对应的用户 ID。如果是本地 <code>uid</code> 说明是重新发布，如果是远端 <code>uid</code> 说明是重新订阅。</p>
 									</div>
 								</li>
 							</ul>
@@ -553,16 +553,16 @@
 								<li>
 									<h5>uid: <a href="../globals.html#uid" class="tsd-signature-type">UID</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>远端流对应的用户 ID</p>
+										<p>远端流对应的用户 ID。</p>
 									</div>
 								</li>
 								<li>
 									<h5>isFallbackOrRecover: <span class="tsd-signature-type">"fallback"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"recover"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>订阅流的回退类型：</p>
+										<p>订阅流是回退还是恢复：</p>
 										<ul>
-											<li>&quot;fallback&quot;: 从音视频流回退为纯音频流</li>
-											<li>&quot;recover&quot;: 从音频流恢复为音视频</li>
+											<li><code>&quot;fallback&quot;</code>: 从音视频流回退为纯音频流。</li>
+											<li><code>&quot;recover&quot;</code>: 从音频流恢复为音视频。</li>
 										</ul>
 									</div>
 								</li>
@@ -583,7 +583,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>视频流类型发生改变回调。</p>
+									<p>订阅的视频流类型发生改变回调。</p>
 								</div>
 								<p>视频流类型改变指视频大流（高码率、高分辨率）变为视频小流（低码率、低分辨率），或视频小流变为视频大流。</p>
 								<dl class="tsd-comment-tags">
@@ -595,7 +595,7 @@
 								<li>
 									<h5>uid: <a href="../globals.html#uid" class="tsd-signature-type">UID</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>远端流对应的用户 ID</p>
+										<p>远端流对应的用户 ID。</p>
 									</div>
 								</li>
 								<li>
@@ -603,8 +603,8 @@
 									<div class="tsd-comment tsd-typography">
 										<p>改变后的视频流类型:</p>
 										<ul>
-											<li>0: 视频大流，即高码率、高分辨率的视频流</li>
-											<li>1: 视频小流，即低码率、低分辨率的视频流</li>
+											<li>0: 视频大流，即高码率、高分辨率的视频流。</li>
+											<li>1: 视频小流，即低码率、低分辨率的视频流。</li>
 										</ul>
 									</div>
 								</li>
@@ -704,6 +704,9 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>user: <a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>加入频道的用户信息。</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -741,9 +744,20 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>user: <a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>离线的用户信息。</p>
+									</div>
 								</li>
 								<li>
 									<h5>reason: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>用户离线的原因。</p>
+										<ul>
+											<li><code>&quot;Quit&quot;</code>: 用户调用了 <a href="iagorartcclient.html#leave">leave</a> 主动离开频道。</li>
+											<li><code>&quot;ServerTimeOut&quot;</code>: 因过长时间收不到对方数据包，超时掉线。注意：由于 SDK 使用的是不可靠通道，也有可能对方主动离开本方没收到对方离开消息而误判为超时掉线。</li>
+											<li><code>&quot;BecomeAudience&quot;</code>: 用户角色从主播切换为观众。</li>
+										</ul>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -762,12 +776,12 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>远端流音视频流的 Mute 状态发生改变回调。</p>
+									<p>远端流音视频流的 mute 状态发生改变回调。</p>
 								</div>
-								<p>你可以通过 <a href="iagorartcremoteuser.html#audiomuted">user.audioMuted</a> 或者 <a href="iagorartcremoteuser.html#videomuted">user.videoMuted</a> 来获取当前音视频的 Mute 状态。</p>
+								<p>你可以通过 <a href="iagorartcremoteuser.html#audiomuted">user.audioMuted</a> 或者 <a href="iagorartcremoteuser.html#videomuted">user.videoMuted</a> 来获取当前音视频的 mute 状态。</p>
 								<ul>
-									<li>如果 <code>audioMuted</code> 为 <code>true</code>，说明远端正在发送静音包</li>
-									<li>如果 <code>videoMuted</code> 为 <code>true</code>, 说明远端正在发送黑屏包</li>
+									<li>如果 <code>audioMuted</code> 为 <code>true</code>，说明远端音频处于 mute 状态，正在发送静音包。</li>
+									<li>如果 <code>videoMuted</code> 为 <code>true</code>, 说明远端视频处于 mute 状态，正在发送黑屏包。</li>
 								</ul>
 								<p>该回调表示远端用户停止或恢复发送音频/视频，当远端用户调用 [LocalStream.setMuteState]{@link ILocalStream.setMuteState} 后会触发该回调。</p>
 								<dl class="tsd-comment-tags">
@@ -796,11 +810,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>该回调通知远端用户发布了新的音频流或者视频流</p>
+									<p>该回调通知远端用户发布了新的音频轨道或者视频轨道。</p>
 								</div>
-								<p> 你可以在该回调中订阅并播放远端用户的音视频流。详见 <a href="iagorartcclient.html#subscribe">subscribe</a> 和 <a href="iremotetrack.html#play">RemoteTrack.play</a>。</p>
+								<p>你可以在该回调中订阅并播放远端用户的音视频轨道。详见 <a href="iagorartcclient.html#subscribe">subscribe</a> 和 <a href="iremotetrack.html#play">RemoteTrack.play</a>。</p>
 								<blockquote>
-									<p>如果用户加入频道时频道内已经有其他用户的音视频流，也会收到该回调报告已经存在的远端流。</p>
+									<p>如果用户加入频道时频道内已经有其他用户的音视频轨道，也会收到该回调报告已经存在的远端轨道。</p>
 								</blockquote>
 								<pre><code class="language-javascript">client.on(<span class="hljs-string">"user-published"</span>, (uid, mediaType) =&gt; {
   client.subscribe(uid, mediaType);
@@ -813,11 +827,14 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>user: <a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>远端用户信息。</p>
+									</div>
 								</li>
 								<li>
 									<h5>mediaType: <span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>表示远端用户发布的是音频流还是视频流，如果为 <code>&quot;all&quot;</code> 说明同时发布了音视频流</p>
+										<p>表示远端用户发布的是音频轨道还是视频轨道，如果为 <code>&quot;all&quot;</code> 说明同时发布了音视频轨道。</p>
 									</div>
 								</li>
 							</ul>
@@ -837,7 +854,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>该回调通知远端用户取消发布了音频流或者视频流</p>
+									<p>该回调通知远端用户取消发布了音频或视频轨道。</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<div></div>
@@ -847,11 +864,14 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>user: <a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>远端用户信息。</p>
+									</div>
 								</li>
 								<li>
 									<h5>mediaType: <span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>表示远端用户取消发布的是音频流还是视频流，如果为 <code>&quot;all&quot;</code> 说明同时取消发布了音视频</p>
+										<p>表示远端用户取消发布的是音频轨道还是视频轨道，如果为 <code>&quot;all&quot;</code> 说明同时取消发布了音视频。</p>
 									</div>
 								</li>
 							</ul>
@@ -1098,6 +1118,9 @@ user.audioTrack.play();</code></pre>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>user: <a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>远端用户对象</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mediaType: <span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span></h5>
@@ -1165,6 +1188,9 @@ user.audioTrack.play();</code></pre>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>user: <a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>远端用户对象</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mediaType: <span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span></h5>

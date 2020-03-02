@@ -151,22 +151,12 @@
 								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_connection_state_change" class="tsd-kind-icon">connection-<wbr>state-<wbr>change</a></li>
 								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_crypt_error" class="tsd-kind-icon">crypt-<wbr>error</a></li>
 								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_exception" class="tsd-kind-icon">exception</a></li>
-								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_first_frame_decoded" class="tsd-kind-icon">first-<wbr>frame-<wbr>decoded</a></li>
-								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_media_reconnect_end" class="tsd-kind-icon">media-<wbr>reconnect-<wbr>end</a></li>
-								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_media_reconnect_start" class="tsd-kind-icon">media-<wbr>reconnect-<wbr>start</a></li>
 								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_microphone_changed" class="tsd-kind-icon">microphone-<wbr>changed</a></li>
 								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_network_quality" class="tsd-kind-icon">network-<wbr>quality</a></li>
-								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_source_state_change" class="tsd-kind-icon">source-<wbr>state-<wbr>change</a></li>
-								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_stream_fallback" class="tsd-kind-icon">stream-<wbr>fallback</a></li>
-								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_stream_type_changed" class="tsd-kind-icon">stream-<wbr>type-<wbr>changed</a></li>
 								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_token_privilege_did_expire" class="tsd-kind-icon">token-<wbr>privilege-<wbr>did-<wbr>expire</a></li>
 								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_token_privilege_will_expire" class="tsd-kind-icon">token-<wbr>privilege-<wbr>will-<wbr>expire</a></li>
 								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_track_ended" class="tsd-kind-icon">track-<wbr>ended</a></li>
-								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_user_joined" class="tsd-kind-icon">user-<wbr>joined</a></li>
-								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_user_leaved" class="tsd-kind-icon">user-<wbr>leaved</a></li>
 								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_user_mute_updated" class="tsd-kind-icon">user-<wbr>mute-<wbr>updated</a></li>
-								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_user_published" class="tsd-kind-icon">user-<wbr>published</a></li>
-								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_user_unpublished" class="tsd-kind-icon">user-<wbr>unpublished</a></li>
 								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_volume_indicator" class="tsd-kind-icon">volume-<wbr>indicator</a></li>
 							</ul>
 						</section>
@@ -181,6 +171,21 @@
 					<div class="tsd-signature tsd-kind-icon">Audio<wbr>Encoder<wbr>Configuration<wbr>Preset<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">keyof object</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The preset audio encoder configurations.</p>
+						</div>
+						<p>You can pass in the preset video encoder configurations when calling the <a href="interfaces/iagorartc.html#createcustomaudiotrack">AgoraRTC.createCustomAudioTrack</a>, <a href="interfaces/iagorartc.html#createmicrophoneaudiotrack">AgoraRTC.createMicrophoneAudioTrack</a>, or <a href="interfaces/iagorartc.html#createbuffersourceaudiotrack">AgoraRTC.createBufferSourceAudioTrack</a> methods.</p>
+						<p>The SDK uses <code>&quot;music_standard&quot;</code> by default.</p>
+						<ul>
+							<li><code>&quot;speech_low_quality&quot;</code>: Sample rate 16 kHz, mono, encoding rate 24 Kbps.</li>
+							<li><code>&quot;speech_standard&quot;</code>: Sample rate 32 kHz, mono, encoding rate 24 Kbps.</li>
+							<li><code>&quot;music_standard&quot;</code>: Sample rate 48 kHz, mono, encoding rate 40 Kbps.</li>
+							<li><code>&quot;standard_stereo&quot;</code>: Sample rate 48 kHz, stereo, encoding rate 64 Kbps.</li>
+							<li><code>&quot;high_quality&quot;</code>: Sample rate 48 kHz, mono, encoding rate 128 Kbps.</li>
+							<li><code>&quot;high_quality_stereo&quot;</code>: Sample rate 48 kHz, stereo, encoding rate 192 Kbps.</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="audiosourcestate" class="tsd-anchor"></a>
@@ -188,6 +193,17 @@
 					<div class="tsd-signature tsd-kind-icon">Audio<wbr>Source<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"stopped"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"playing"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"paused"</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The state of processing the audio buffer:</p>
+							<ul>
+								<li><code>&quot;stopped&quot;</code>: The SDK stops processing the audio buffer. The reasons may be: the SDK finishes processing the audio buffer, or the user manually triggers the stop signal.</li>
+								<li><code>&quot;playing&quot;</code>: The SDK is processing the audio buffer.</li>
+								<li><code>&quot;paused&quot;</code>: The SDK pauses processing the audio buffer.</li>
+							</ul>
+						</div>
+						<p>You can get the state with <a href="interfaces/ibuffersourceaudiotrack.html#event_source_state_change">BufferSourceAudioTrack.on(&quot;source-state-change&quot;)</a>.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="clientrole" class="tsd-anchor"></a>
@@ -195,6 +211,15 @@
 					<div class="tsd-signature tsd-kind-icon">Client<wbr>Role<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"audience"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"host"</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The user role in a live broadcast channel.</p>
+							<ul>
+								<li><code>&quot;host&quot;</code>: Host. A host can both publish streams and subscribe to streams.</li>
+								<li><code>&quot;audience&quot;</code>: Audience. An audience can only subscribe to streams.</li>
+							</ul>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="connectionstate" class="tsd-anchor"></a>
@@ -202,6 +227,24 @@
 					<div class="tsd-signature tsd-kind-icon">Connection<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"DISCONNECTED"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CONNECTING"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"RECONNECTING"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CONNECTED"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"DISCONNECTING"</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Connection state between the SDK and Agora&#39;s edge server.</p>
+						</div>
+						<p>You can get the connection state through <a href="interfaces/iagorartcclient.html#connectionstate">connectionState</a>.</p>
+						<p>The connection between the SDK and the edge server has the following states:</p>
+						<ul>
+							<li><code>&quot;DISCONNECTED&quot;</code>: The SDK is disconnected from the server.<ul>
+									<li>This is the initial state until you call [[Client.join]].</li>
+									<li>The SDK also enters this state after you call [[Client.leave]], when the user is banned, or when the connection fails.</li>
+								</ul>
+							</li>
+							<li><code>&quot;CONNECTING&quot;</code>: The SDK is connecting to the server. The SDK enters this state when you call [[Client.join]].</li>
+							<li><code>&quot;CONNECTED&quot;</code>: The SDK is connected to the server and joins a channel. The user can now publish streams or subscribe to streams in the channel.</li>
+							<li><code>&quot;RECONNECTING&quot;</code>: The SDK is reconnecting to the server. If the connection is lost because the network is down or switched, the SDK enters this state.</li>
+							<li><code>&quot;DISCONNECTING&quot;</code>: The SDK is disconnecting from the server. The SDK enters this state when you call [[Client.leave]].</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="devicestate" class="tsd-anchor"></a>
@@ -216,6 +259,17 @@
 					<div class="tsd-signature tsd-kind-icon">Encryption<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"aes-128-xts"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"aes-256-xts"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"aes-128-ecb"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"none"</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The encryption mode, which is used in the <a href="interfaces/iagorartcclient.html#setencryptionconfig">setEncryptionConfig</a> method call.</p>
+							<ul>
+								<li><code>&quot;aes-128-xts&quot;</code>: AES128XTS.</li>
+								<li><code>&quot;aes-256-xts&quot;</code>: AES256XTS.</li>
+								<li><code>&quot;aes-128-ecb&quot;</code>: AES128ECB.</li>
+								<li><code>&quot;none&quot;</code>: No encryption.</li>
+							</ul>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="sdk_codec" class="tsd-anchor"></a>
@@ -237,6 +291,67 @@
 					<div class="tsd-signature tsd-kind-icon">Screen<wbr>Encoder<wbr>Configuration<wbr>Preset<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">keyof object</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The preset video encoder configurations for screen sharing.</p>
+						</div>
+						<p>You can pass in the preset video encoder configurations when calling the <a href="interfaces/iagorartc.html#createscreenvideotrack">AgoraRTC.createScreenVideoTrack</a> method.</p>
+						<p>The following table lists all the preset video profiles for screen sharing. The SDK uses <code>&quot;480p_1&quot;</code> by default.</p>
+						<table>
+							<thead>
+								<tr>
+									<th>Video Profile</th>
+									<th>Resolution (Width×Height)</th>
+									<th>Frame Rate (fps)</th>
+								</tr>
+							</thead>
+							<tbody><tr>
+									<td>480p</td>
+									<td>640 × 480</td>
+									<td>5</td>
+								</tr>
+								<tr>
+									<td>480p_1</td>
+									<td>640 × 480</td>
+									<td>5</td>
+								</tr>
+								<tr>
+									<td>480p_2</td>
+									<td>640 × 480</td>
+									<td>30</td>
+								</tr>
+								<tr>
+									<td>720p</td>
+									<td>1280 × 720</td>
+									<td>5</td>
+								</tr>
+								<tr>
+									<td>720p_1</td>
+									<td>1280 × 720</td>
+									<td>5</td>
+								</tr>
+								<tr>
+									<td>720p_2</td>
+									<td>1280 × 720</td>
+									<td>30</td>
+								</tr>
+								<tr>
+									<td>1080p</td>
+									<td>1920 × 1080</td>
+									<td>5</td>
+								</tr>
+								<tr>
+									<td>1080p_1</td>
+									<td>1920 × 1080</td>
+									<td>5</td>
+								</tr>
+								<tr>
+									<td>1080p_2</td>
+									<td>1920 × 1080</td>
+									<td>30</td>
+								</tr>
+						</tbody></table>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="screensourcetype" class="tsd-anchor"></a>
@@ -258,6 +373,449 @@
 					<div class="tsd-signature tsd-kind-icon">Video<wbr>Encoder<wbr>Configuration<wbr>Preset<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">keyof object</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The preset video encoder configurations.</p>
+						</div>
+						<p>You can pass in the preset video encoder configurations when calling the <a href="interfaces/iagorartc.html#createcameravideotrack">AgoraRTC.createCameraVideoTrack</a> or <a href="interfaces/iagorartc.html#createscreenvideotrack">AgoraRTC.createScreenVideoTrack</a> method.</p>
+						<p>The following table lists all the preset video profiles. The SDK uses <code>&quot;480p_1&quot;</code> by default.</p>
+						<table>
+							<thead>
+								<tr>
+									<th>Video Profile</th>
+									<th>Resolution (Width×Height)</th>
+									<th>Frame Rate (fps)</th>
+									<th>Bitrate (Kbps）</th>
+									<th>Chrome</th>
+									<th>Firefox</th>
+									<th>Safari</th>
+								</tr>
+							</thead>
+							<tbody><tr>
+									<td>120p</td>
+									<td>160 × 120</td>
+									<td>15</td>
+									<td>65</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>120p_1</td>
+									<td>160 × 120</td>
+									<td>15</td>
+									<td>65</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>120p_3</td>
+									<td>120 × 120</td>
+									<td>15</td>
+									<td>50</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>180p</td>
+									<td>320 × 180</td>
+									<td>15</td>
+									<td>140</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>180p_1</td>
+									<td>320 × 180</td>
+									<td>15</td>
+									<td>140</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>180p_3</td>
+									<td>180 × 180</td>
+									<td>15</td>
+									<td>100</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>180p_4</td>
+									<td>240 × 180</td>
+									<td>15</td>
+									<td>120</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>240p</td>
+									<td>320 × 240</td>
+									<td>15</td>
+									<td>200</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>240p_1</td>
+									<td>320 × 240</td>
+									<td>15</td>
+									<td>200</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>240p_3</td>
+									<td>240 × 240</td>
+									<td>15</td>
+									<td>140</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>240p_4</td>
+									<td>424 × 240</td>
+									<td>15</td>
+									<td>220</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>360p</td>
+									<td>640 × 360</td>
+									<td>15</td>
+									<td>400</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>360p_1</td>
+									<td>640 × 360</td>
+									<td>15</td>
+									<td>400</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>360p_3</td>
+									<td>360 × 360</td>
+									<td>15</td>
+									<td>260</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>360p_4</td>
+									<td>640 × 360</td>
+									<td>30</td>
+									<td>600</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>360p_6</td>
+									<td>360 × 360</td>
+									<td>30</td>
+									<td>400</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>360p_7</td>
+									<td>480 × 360</td>
+									<td>15</td>
+									<td>320</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>360p_8</td>
+									<td>480 × 360</td>
+									<td>30</td>
+									<td>490</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>360p_9</td>
+									<td>640 × 360</td>
+									<td>15</td>
+									<td>800</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>360p_10</td>
+									<td>640 × 360</td>
+									<td>24</td>
+									<td>800</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>360p_11</td>
+									<td>640 × 360</td>
+									<td>24</td>
+									<td>1000</td>
+									<td>✓</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>480p</td>
+									<td>640 × 480</td>
+									<td>15</td>
+									<td>500</td>
+									<td>✓</td>
+									<td>✓</td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>480p_1</td>
+									<td>640 × 480</td>
+									<td>15</td>
+									<td>500</td>
+									<td>✓</td>
+									<td>✓</td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>480p_2</td>
+									<td>640 × 480</td>
+									<td>30</td>
+									<td>1000</td>
+									<td>✓</td>
+									<td>✓</td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>480p_3</td>
+									<td>480 × 480</td>
+									<td>15</td>
+									<td>400</td>
+									<td>✓</td>
+									<td>✓</td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>480p_4</td>
+									<td>640 × 480</td>
+									<td>30</td>
+									<td>750</td>
+									<td>✓</td>
+									<td>✓</td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>480p_6</td>
+									<td>480 × 480</td>
+									<td>30</td>
+									<td>600</td>
+									<td>✓</td>
+									<td>✓</td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>480p_8</td>
+									<td>848 × 480</td>
+									<td>15</td>
+									<td>610</td>
+									<td>✓</td>
+									<td>✓</td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>480p_9</td>
+									<td>848 × 480</td>
+									<td>30</td>
+									<td>930</td>
+									<td>✓</td>
+									<td>✓</td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>480p_10</td>
+									<td>640 × 480</td>
+									<td>10</td>
+									<td>400</td>
+									<td>✓</td>
+									<td>✓</td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>720p</td>
+									<td>1280 × 720</td>
+									<td>15</td>
+									<td>1130</td>
+									<td>✓</td>
+									<td>✓</td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>720p_1</td>
+									<td>1280 × 720</td>
+									<td>15</td>
+									<td>1130</td>
+									<td>✓</td>
+									<td>✓</td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>720p_2</td>
+									<td>1280 × 720</td>
+									<td>30</td>
+									<td>2000</td>
+									<td>✓</td>
+									<td>✓</td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>720p_3</td>
+									<td>1280 × 720</td>
+									<td>30</td>
+									<td>1710</td>
+									<td>✓</td>
+									<td>✓</td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>720p_5</td>
+									<td>960 × 720</td>
+									<td>15</td>
+									<td>910</td>
+									<td>✓</td>
+									<td>✓</td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>720p_6</td>
+									<td>960 × 720</td>
+									<td>30</td>
+									<td>1380</td>
+									<td>✓</td>
+									<td>✓</td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>1080p</td>
+									<td>1920 × 1080</td>
+									<td>15</td>
+									<td>2080</td>
+									<td>✓</td>
+									<td></td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>1080p_1</td>
+									<td>1920 × 1080</td>
+									<td>15</td>
+									<td>2080</td>
+									<td>✓</td>
+									<td></td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>1080p_2</td>
+									<td>1920 × 1080</td>
+									<td>30</td>
+									<td>3000</td>
+									<td>✓</td>
+									<td></td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>1080p_3</td>
+									<td>1920 × 1080</td>
+									<td>30</td>
+									<td>3150</td>
+									<td>✓</td>
+									<td></td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>1080p_5</td>
+									<td>1920 × 1080</td>
+									<td>60</td>
+									<td>4780</td>
+									<td>✓</td>
+									<td></td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>1440p</td>
+									<td>2560 × 1440</td>
+									<td>30</td>
+									<td>4850</td>
+									<td>✓</td>
+									<td></td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>1440p_1</td>
+									<td>2560 × 1440</td>
+									<td>30</td>
+									<td>4850</td>
+									<td>✓</td>
+									<td></td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>1440p_2</td>
+									<td>2560 × 1440</td>
+									<td>60</td>
+									<td>7350</td>
+									<td>✓</td>
+									<td></td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>4K</td>
+									<td>3840 × 2160</td>
+									<td>30</td>
+									<td>8910</td>
+									<td>✓</td>
+									<td></td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>4K_1</td>
+									<td>3840 × 2160</td>
+									<td>30</td>
+									<td>8910</td>
+									<td>✓</td>
+									<td></td>
+									<td>✓</td>
+								</tr>
+								<tr>
+									<td>4K_3</td>
+									<td>3840 × 2160</td>
+									<td>60</td>
+									<td>13500</td>
+									<td>✓</td>
+									<td></td>
+									<td>✓</td>
+								</tr>
+						</tbody></table>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -652,60 +1210,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-					<a name="event_first_frame_decoded" class="tsd-anchor"></a>
-					<h3>first-<wbr>frame-<wbr>decoded</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">first-<wbr>frame-<wbr>decoded<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-					<a name="event_media_reconnect_end" class="tsd-anchor"></a>
-					<h3>media-<wbr>reconnect-<wbr>end</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">media-<wbr>reconnect-<wbr>end<span class="tsd-signature-symbol">(</span>uid<span class="tsd-signature-symbol">: </span><a href="globals.html#uid" class="tsd-signature-type">UID</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>uid: <a href="globals.html#uid" class="tsd-signature-type">UID</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-					<a name="event_media_reconnect_start" class="tsd-anchor"></a>
-					<h3>media-<wbr>reconnect-<wbr>start</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">media-<wbr>reconnect-<wbr>start<span class="tsd-signature-symbol">(</span>uid<span class="tsd-signature-symbol">: </span><a href="globals.html#uid" class="tsd-signature-type">UID</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>uid: <a href="globals.html#uid" class="tsd-signature-type">UID</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
 					<a name="event_microphone_changed" class="tsd-anchor"></a>
 					<h3>microphone-<wbr>changed</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
@@ -739,72 +1243,6 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>stats: <a href="interfaces/networkquality.html" class="tsd-signature-type">NetworkQuality</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-					<a name="event_source_state_change" class="tsd-anchor"></a>
-					<h3>source-<wbr>state-<wbr>change</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">source-<wbr>state-<wbr>change<span class="tsd-signature-symbol">(</span>currentState<span class="tsd-signature-symbol">: </span><a href="globals.html#audiosourcestate" class="tsd-signature-type">AudioSourceState</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>currentState: <a href="globals.html#audiosourcestate" class="tsd-signature-type">AudioSourceState</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-					<a name="event_stream_fallback" class="tsd-anchor"></a>
-					<h3>stream-<wbr>fallback</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">stream-<wbr>fallback<span class="tsd-signature-symbol">(</span>uid<span class="tsd-signature-symbol">: </span><a href="globals.html#uid" class="tsd-signature-type">UID</a>, isFallbackOrRecover<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"fallback"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"recover"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>uid: <a href="globals.html#uid" class="tsd-signature-type">UID</a></h5>
-								</li>
-								<li>
-									<h5>isFallbackOrRecover: <span class="tsd-signature-type">"fallback"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"recover"</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-					<a name="event_stream_type_changed" class="tsd-anchor"></a>
-					<h3>stream-<wbr>type-<wbr>changed</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">stream-<wbr>type-<wbr>changed<span class="tsd-signature-symbol">(</span>uid<span class="tsd-signature-symbol">: </span><a href="globals.html#uid" class="tsd-signature-type">UID</a>, streamType<span class="tsd-signature-symbol">: </span><a href="enums/remotestreamtype.html" class="tsd-signature-type">RemoteStreamType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>uid: <a href="globals.html#uid" class="tsd-signature-type">UID</a></h5>
-								</li>
-								<li>
-									<h5>streamType: <a href="enums/remotestreamtype.html" class="tsd-signature-type">RemoteStreamType</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -854,49 +1292,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-					<a name="event_user_joined" class="tsd-anchor"></a>
-					<h3>user-<wbr>joined</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">user-<wbr>joined<span class="tsd-signature-symbol">(</span>user<span class="tsd-signature-symbol">: </span><a href="interfaces/iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>user: <a href="interfaces/iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-					<a name="event_user_leaved" class="tsd-anchor"></a>
-					<h3>user-<wbr>leaved</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">user-<wbr>leaved<span class="tsd-signature-symbol">(</span>user<span class="tsd-signature-symbol">: </span><a href="interfaces/iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a>, reason<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>user: <a href="interfaces/iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
-								</li>
-								<li>
-									<h5>reason: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
 					<a name="event_user_mute_updated" class="tsd-anchor"></a>
 					<h3>user-<wbr>mute-<wbr>updated</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
@@ -910,52 +1305,6 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>user: <a href="interfaces/iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-					<a name="event_user_published" class="tsd-anchor"></a>
-					<h3>user-<wbr>published</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">user-<wbr>published<span class="tsd-signature-symbol">(</span>user<span class="tsd-signature-symbol">: </span><a href="interfaces/iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a>, mediaType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>user: <a href="interfaces/iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
-								</li>
-								<li>
-									<h5>mediaType: <span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
-					<a name="event_user_unpublished" class="tsd-anchor"></a>
-					<h3>user-<wbr>unpublished</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">user-<wbr>unpublished<span class="tsd-signature-symbol">(</span>user<span class="tsd-signature-symbol">: </span><a href="interfaces/iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a>, mediaType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>user: <a href="interfaces/iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
-								</li>
-								<li>
-									<h5>mediaType: <span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1214,28 +1563,10 @@
 						<a href="globals.html#event_exception" class="tsd-kind-icon">event_<wbr>exception</a>
 					</li>
 					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_first_frame_decoded" class="tsd-kind-icon">event_<wbr>first_<wbr>frame_<wbr>decoded</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_media_reconnect_end" class="tsd-kind-icon">event_<wbr>media_<wbr>reconnect_<wbr>end</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_media_reconnect_start" class="tsd-kind-icon">event_<wbr>media_<wbr>reconnect_<wbr>start</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
 						<a href="globals.html#event_microphone_changed" class="tsd-kind-icon">event_<wbr>microphone_<wbr>changed</a>
 					</li>
 					<li class=" tsd-kind-function tsd-is-not-exported">
 						<a href="globals.html#event_network_quality" class="tsd-kind-icon">event_<wbr>network_<wbr>quality</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_source_state_change" class="tsd-kind-icon">event_<wbr>source_<wbr>state_<wbr>change</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_stream_fallback" class="tsd-kind-icon">event_<wbr>stream_<wbr>fallback</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_stream_type_changed" class="tsd-kind-icon">event_<wbr>stream_<wbr>type_<wbr>changed</a>
 					</li>
 					<li class=" tsd-kind-function tsd-is-not-exported">
 						<a href="globals.html#event_token_privilege_did_expire" class="tsd-kind-icon">event_<wbr>token_<wbr>privilege_<wbr>did_<wbr>expire</a>
@@ -1247,19 +1578,7 @@
 						<a href="globals.html#event_track_ended" class="tsd-kind-icon">event_<wbr>track_<wbr>ended</a>
 					</li>
 					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_user_joined" class="tsd-kind-icon">event_<wbr>user_<wbr>joined</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_user_leaved" class="tsd-kind-icon">event_<wbr>user_<wbr>leaved</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
 						<a href="globals.html#event_user_mute_updated" class="tsd-kind-icon">event_<wbr>user_<wbr>mute_<wbr>updated</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_user_published" class="tsd-kind-icon">event_<wbr>user_<wbr>published</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_user_unpublished" class="tsd-kind-icon">event_<wbr>user_<wbr>unpublished</a>
 					</li>
 					<li class=" tsd-kind-function tsd-is-not-exported">
 						<a href="globals.html#event_volume_indicator" class="tsd-kind-icon">event_<wbr>volume_<wbr>indicator</a>

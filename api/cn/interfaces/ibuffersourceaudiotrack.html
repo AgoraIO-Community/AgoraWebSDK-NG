@@ -54,7 +54,7 @@
 					<div class="lead">
 						<p>直接通过音频数据源创建的音频流，继承于 <a href="ilocalaudiotrack.html">LocalAudioTrack</a>, 在此之上提供了控制音频数据处理流程的功能（开始/暂停/跳转等等）。</p>
 					</div>
-					<p>可以通过 <a href="iagorartc.html#createbuffersourceaudiotrack">AgoraRTC.createBufferSourceAudioTrack</a> 来获取</p>
+					<p>可以通过 <a href="iagorartc.html#createbuffersourceaudiotrack">AgoraRTC.createBufferSourceAudioTrack</a> 来获取。</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -145,11 +145,11 @@
 								<li>
 									<h5>currentState: <a href="../globals.html#audiosourcestate" class="tsd-signature-type">AudioSourceState</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>一共有以下几种状态：</p>
+										<p>当前音频数据处理状态：</p>
 										<ul>
-											<li><code>&quot;stopped&quot;</code>: 播放停止（可能时手动停止，有可能时播放结束）</li>
-											<li><code>&quot;paused&quot;</code>： 播放暂停</li>
-											<li><code>&quot;playing&quot;</code>: 正在播放</li>
+											<li><code>&quot;stopped&quot;</code>: 音频源数据处理停止。可能是因为数据处理完毕，也可能是手动触发了停止。</li>
+											<li><code>&quot;paused&quot;</code>: 音频源数据暂停处理。</li>
+											<li><code>&quot;playing&quot;</code>: 音频源数据正在处理。</li>
 										</ul>
 									</div>
 								</li>
@@ -169,7 +169,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>当前音频数据源的处理状态（开始/暂停/停止）</p>
+							<p>当前音频数据源的处理状态（开始/暂停/停止）。</p>
 						</div>
 					</div>
 				</section>
@@ -181,7 +181,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>音频总时长 (单位：秒)</p>
+							<p>音频总时长，单位为秒。</p>
 						</div>
 					</div>
 				</section>
@@ -194,19 +194,19 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>TBD
-							标记该轨道是否被 mute</p>
-							<ul>
-								<li>对于视频流：mute 指黑屏</li>
-								<li>对于音频流：mute 指静音</li>
-							</ul>
+							<p>标记该轨道是否 Mute。</p>
 						</div>
-						<p>标记该轨道是否禁用。</p>
+						<p>Mute 后，本地轨道依然会发送音频/视频数据：</p>
+						<ul>
+							<li>Mute 视频轨道后，发送黑帧。</li>
+							<li>Mute 音频轨道后，发送静音帧。</li>
+						</ul>
 						<dl class="tsd-comment-tags">
 							<dt>returns</dt>
-							<dd><ul>
-									<li><code>true</code>: 该轨道禁用。</li>
-									<li><code>false</code>: 该轨道未禁用。</li>
+							<dd><p>该轨道的 Mute 状态：</p>
+								<ul>
+									<li><code>true</code>: 该轨道 Mute。</li>
+									<li><code>false</code>: 该轨道 Unmute。</li>
 								</ul>
 							</dd>
 						</dl>
@@ -221,7 +221,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>当前该媒体流是否正在页面上播放</p>
+							<p>当前该媒体轨道是否正在页面上播放。</p>
 						</div>
 					</div>
 				</section>
@@ -231,11 +231,6 @@
 					<div class="tsd-signature tsd-kind-icon">source<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">File</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AudioBuffer</span></div>
 					<aside class="tsd-sources">
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>创建时指定的 <a href="buffersourceaudiotrackinitconfig.html#source">source</a> 值</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="trackmediatype" class="tsd-anchor"></a>
@@ -246,7 +241,11 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>表示媒体流的类型，音频流还是视频流</p>
+							<p>标记媒体轨道的类型：</p>
+							<ul>
+								<li><code>&quot;audio&quot;</code>: 音频轨道。</li>
+								<li><code>&quot;video&quot;</code>: 视频轨道。</li>
+							</ul>
 						</div>
 					</div>
 				</section>
@@ -266,9 +265,9 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>关闭本地流，并释放相关采集设备。</p>
+									<p>关闭本地轨道，并释放相关采集设备。</p>
 								</div>
-								<p>一旦本地流被关闭，就无法再次使用。如需再次使用本地流，需要重新创建。</p>
+								<p>一旦本地轨道被关闭，就无法再次使用。如需再次使用本地轨道，需要重新创建。</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -286,10 +285,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取当前的音频处理的进度（单位：秒）</p>
+									<p>Gets the progress (seconds) of the audio buffer processing.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>The progress (seconds) of the audio buffer processing.</p>
 						</li>
 					</ul>
 				</section>
@@ -335,10 +335,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取浏览器原生的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> 对象</p>
+									<p>获取浏览器原生的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> 对象。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MediaStreamTrack</span></h4>
+							<p>(<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack</a>) 对象。</p>
 						</li>
 					</ul>
 				</section>
@@ -356,7 +357,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取音频流的质量相关信息</p>
+									<p>获取音频流的质量相关信息。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="localaudiotrackstats.html" class="tsd-signature-type">LocalAudioTrackStats</a></h4>
@@ -376,10 +377,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取由 SDK 生成的对于媒体流来说的唯一 ID</p>
+									<p>获取由 SDK 生成的对于媒体轨道来说的唯一 ID。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>媒体轨道 ID。</p>
 						</li>
 					</ul>
 				</section>
@@ -396,7 +398,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取当前本地流对应的 <code>uid</code>。</p>
+									<p>获取当前本地轨道对应的 <code>uid</code>。</p>
 								</div>
 								<blockquote>
 									<p>如果当前流没有发布，那么就不属于任何一个用户，该方法返回 <code>null</code>。</p>
@@ -406,7 +408,7 @@
 								<span class="tsd-signature-symbol"> | </span>
 								<a href="../globals.html#uid" class="tsd-signature-type">UID</a>
 							</h4>
-							<p>当前本地流对应的 <code>uid</code>。</p>
+							<p>当前本地轨道对应的 <code>uid</code>。</p>
 						</li>
 					</ul>
 				</section>
@@ -423,7 +425,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取本地音频流的音量等级</p>
+									<p>获取本地音频流的音量等级。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -554,7 +556,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>暂停处理音频数据</p>
+									<p>暂停处理音频数据。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -575,7 +577,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>播放本地音频流</p>
+									<p>播放本地音频轨道。</p>
 								</div>
 								<blockquote>
 									<p>播放音频时 SDK 不会创建任何 DOM 元素，所以无需像视频一样提供 DOM 元素。</p>
@@ -626,7 +628,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>恢复被暂停的音频数据处理</p>
+									<p>恢复被暂停的音频数据处理。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -645,7 +647,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>跳转到指定时间</p>
+									<p>跳转到指定时间。</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -653,7 +655,7 @@
 								<li>
 									<h5>time: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>指定的音频时间，单位秒</p>
+										<p>指定的音频时间，单位为秒。</p>
 									</div>
 								</li>
 							</ul>
@@ -674,19 +676,25 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>TBD
-									设置本地流的 Mute 状态</p>
-									<ul>
-										<li>对于视频流：mute 指黑屏</li>
-										<li>对于音频流：mute 指静音</li>
-									</ul>
+									<p>Sets the mute state of the local track.</p>
 								</div>
-								<p>设置本地轨道的启用/禁用状态。</p>
+								<p>After a local track is muted, it still sends audio or video data:</p>
+								<ul>
+									<li>A muted local audio track sends silenced audio frames.</li>
+									<li>A muted local video track sends black video frames.</li>
+								</ul>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>muted: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The mute state of the local track:</p>
+										<ul>
+											<li><code>true</code>: Mute the local track.</li>
+											<li><code>false</code>: Unmute the local track.</li>
+										</ul>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -706,7 +714,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>设置本地音频流的音量</p>
+									<p>设置本地音频流的音量。</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -734,11 +742,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>开始处理音频数据源</p>
+									<p>开始处理音频数据源。</p>
 								</div>
 								<blockquote>
-									<p>开始处理音频数据源说明我们已经将音频数据送入我们的处理节点，如果发布了远端此时可以听到该音源的声音。
-									但是只有在调用 <a href="ibuffersourceaudiotrack.html#play">play</a> 之后，我们才回将音频数据送入声卡，此时本地才能听到声音。</p>
+									<p>开始处理音频数据源说明我们已经将音频数据送入 SDK 的处理节点。如果此时该音频轨道已发布，远端可以听到该音源的声音。
+									只有在调用 <a href="ibuffersourceaudiotrack.html#play">play</a> 之后，音频数据才会送入声卡，此时本地才能听到该音源的声音。</p>
 								</blockquote>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -746,7 +754,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="audiosourceoptions.html" class="tsd-signature-type">AudioSourceOptions</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>设置是否需要循环播放/开始播放的位置</p>
+										<p>音频数据源处理的相关设置，包括是否需要循环播放/开始播放的位置。</p>
 									</div>
 								</li>
 							</ul>
@@ -767,7 +775,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>停止播放</p>
+									<p>停止播放。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -786,7 +794,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>停止处理音频数据</p>
+									<p>停止处理音频数据。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

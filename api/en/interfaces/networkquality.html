@@ -49,6 +49,15 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The last-mile network quality.</p>
+					</div>
+					<p>Last mile refers to the connection between the local device and Agora&#39;s edge server.</p>
+					<p>After the user joins the channel, the SDK triggers the [AgoraRTCClient.on(&quot;network-quality&quot;)]{@link IAgoraRTCClient.event_network_quality} callback once every two seconds and provides the uplink and downlink last mile network conditions of the user through this interface.</p>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -79,6 +88,21 @@
 					<div class="tsd-signature tsd-kind-icon">downlink<wbr>Network<wbr>Quality<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">0</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">1</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">2</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">3</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">4</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">5</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">6</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The downlink network quality.</p>
+						</div>
+						<p>It is calculated based on the uplink transmission bitrate, uplink packet loss rate, RTT (round-trip time) and jitter.</p>
+						<ul>
+							<li>0: The quality is unknown.</li>
+							<li>1: The quality is excellent.</li>
+							<li>2: The quality is quite good, but the bitrate is less than optimal.</li>
+							<li>3: Users may feel that the communication is slightly impaired.</li>
+							<li>4: Users can communicate with each other, but not very smoothly.</li>
+							<li>5: The quality is so poor that users can barely communicate.</li>
+							<li>6: The network is disconnected and users cannot communicate.</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="uplinknetworkquality" class="tsd-anchor"></a>
@@ -86,6 +110,21 @@
 					<div class="tsd-signature tsd-kind-icon">uplink<wbr>Network<wbr>Quality<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">0</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">1</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">2</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">3</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">4</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">5</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">6</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The uplink network quality.</p>
+						</div>
+						<p>It is calculated based on the uplink transmission bitrate, uplink packet loss rate, RTT (round-trip time) and jitter.</p>
+						<ul>
+							<li>0: The quality is unknown.</li>
+							<li>1: The quality is excellent.</li>
+							<li>2: The quality is quite good, but the bitrate is less than optimal.</li>
+							<li>3: Users may feel that the communication is slightly impaired.</li>
+							<li>4: Users can communicate with each other, but not very smoothly.</li>
+							<li>5: The quality is so poor that users can barely communicate.</li>
+							<li>6: The network is disconnected and users cannot communicate.</li>
+						</ul>
+					</div>
 				</section>
 			</section>
 		</div>

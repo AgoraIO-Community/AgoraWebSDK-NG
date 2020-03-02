@@ -112,7 +112,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>当前该媒体流是否正在页面上播放</p>
+							<p>当前该媒体轨道是否正在页面上播放。</p>
 						</div>
 					</div>
 				</section>
@@ -125,7 +125,11 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>表示媒体流的类型，音频流还是视频流</p>
+							<p>标记媒体轨道的类型：</p>
+							<ul>
+								<li><code>&quot;audio&quot;</code>: 音频轨道。</li>
+								<li><code>&quot;video&quot;</code>: 视频轨道。</li>
+							</ul>
 						</div>
 					</div>
 				</section>
@@ -174,10 +178,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取浏览器原生的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> 对象</p>
+									<p>获取浏览器原生的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> 对象。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MediaStreamTrack</span></h4>
+							<p>(<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack</a>) 对象。</p>
 						</li>
 					</ul>
 				</section>
@@ -194,10 +199,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取远端音频轨道相关信息</p>
+									<p>获取远端音频轨道相关信息。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="remoteaudiotrackstats.html" class="tsd-signature-type">RemoteAudioTrackStats</a></h4>
+							<p><a href="remoteaudiotrackstats.html">RemoteAudioTrackStats</a>。</p>
 						</li>
 					</ul>
 				</section>
@@ -214,10 +220,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取由 SDK 生成的对于媒体流来说的唯一 ID</p>
+									<p>获取由 SDK 生成的对于媒体轨道来说的唯一 ID。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>媒体轨道 ID。</p>
 						</li>
 					</ul>
 				</section>
@@ -234,10 +241,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取发布这个远端轨道的远端用户 ID</p>
+									<p>获取发布这个远端轨道的远端用户 ID。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../globals.html#uid" class="tsd-signature-type">UID</a></h4>
+							<p>当前远端轨道对应的 <code>uid</code>。</p>
 						</li>
 					</ul>
 				</section>
@@ -370,7 +378,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>播放远端音频</p>
+									<p>播放远端音频轨道。</p>
 								</div>
 								<blockquote>
 									<p>播放音频时 SDK 不会创建任何 DOM 元素，所以无需像视频一样提供 DOM 元素。</p>
@@ -429,7 +437,7 @@
 								<li>
 									<h5>volume: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>音量值，范围 [0, 1000]，0 代表静音，100 代表原始音量</p>
+										<p>音量值，范围 [0, 1000]，0 代表静音，100 代表原始音量。</p>
 									</div>
 								</li>
 							</ul>
@@ -450,7 +458,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>停止播放</p>
+									<p>停止播放。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

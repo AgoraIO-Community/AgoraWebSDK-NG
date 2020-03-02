@@ -169,7 +169,7 @@
 							<p>音频源数据处理状态，通过 <a href="interfaces/ibuffersourceaudiotrack.html#event_source_state_change">BufferSourceAudioTrack.on(&quot;source-state-change&quot;)</a> 获取。</p>
 						</div>
 						<ul>
-							<li><code>&quot;stopped&quot;</code>: 音频源数据处理停止（可能是数据处理完毕，也可能是手动触发了停止）。</li>
+							<li><code>&quot;stopped&quot;</code>: 音频源数据处理停止。可能是因为数据处理完毕，也可能是手动触发了停止。</li>
 							<li><code>&quot;playing&quot;</code>: 音频源数据正在处理。</li>
 							<li><code>&quot;paused&quot;</code>: 音频源数据暂停处理。</li>
 						</ul>
@@ -211,7 +211,7 @@
 							</li>
 							<li><code>&quot;CONNECTING&quot;</code>: 正在连接中。当调用 <a href="interfaces/iagorartcclient.html#join">join</a> 时为此状态。</li>
 							<li><code>&quot;CONNECTED&quot;</code>: 已连接。该状态表示用户已经加入频道，可以在频道内发布或订阅媒体流。</li>
-							<li><code>&quot;RECONNECTING&quot;</code>: 正在重连中。因网络断开或切换而导致 SDK 与服务器的连接中断，SDK 会自动重连，此时 App 会收到该回调，通知网络状态由 CONNECTED 变为 RECONNECTING。</li>
+							<li><code>&quot;RECONNECTING&quot;</code>: 正在重连中。因网络断开或切换而导致 SDK 与服务器的连接中断，SDK 会自动重连，此时连接状态变为 <code>&quot;RECONNECTING&quot;</code>。</li>
 							<li><code>&quot;DISCONNECTING&quot;</code>: 正在断开连接。在调用 <a href="interfaces/iagorartcclient.html#leave">leave</a> 的时候为此状态。</li>
 						</ul>
 					</div>
@@ -240,7 +240,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>加密方案，包含以下几种；</p>
+							<p>加密方案，在调用 <a href="interfaces/iagorartcclient.html#setencryptionconfig">setEncryptionConfig</a> 时使用。包含以下几种：</p>
 							<ul>
 								<li><code>&quot;aes-128-xts&quot;</code>: AES128XTS 加密方案。</li>
 								<li><code>&quot;aes-256-xts&quot;</code>: AES256XTS 加密方案。</li>

@@ -82,6 +82,7 @@
 							<h3>Local Track Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#createbuffersourceaudiotrack" class="tsd-kind-icon">create<wbr>Buffer<wbr>Source<wbr>Audio<wbr>Track</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#createcameravideotrack" class="tsd-kind-icon">create<wbr>Camera<wbr>Video<wbr>Track</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#createcustomaudiotrack" class="tsd-kind-icon">create<wbr>Custom<wbr>Audio<wbr>Track</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#createcustomvideotrack" class="tsd-kind-icon">create<wbr>Custom<wbr>Video<wbr>Track</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#createmicrophoneaudiotrack" class="tsd-kind-icon">create<wbr>Microphone<wbr>Audio<wbr>Track</a></li>
@@ -103,7 +104,6 @@
 							<h3>Other Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#checksystemrequirements" class="tsd-kind-icon">check<wbr>System<wbr>Requirements</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#createcameravideotrack" class="tsd-kind-icon">create<wbr>Camera<wbr>Video<wbr>Track</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#createchannelmediarelayconfiguration" class="tsd-kind-icon">create<wbr>Channel<wbr>Media<wbr>Relay<wbr>Configuration</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#getsupportedcodec" class="tsd-kind-icon">get<wbr>Supported<wbr>Codec</a></li>
 							</ul>
@@ -191,6 +191,34 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="ibuffersourceaudiotrack.html" class="tsd-signature-type">IBufferSourceAudioTrack</a><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>返回的音频轨道对象相对于普通的音频轨道对象增加了一些控制音频播放流程的方法。包括播放、暂停、跳转、实时播放状态获取等。</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="createcameravideotrack" class="tsd-anchor"></a>
+					<h3>create<wbr>Camera<wbr>Video<wbr>Track</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Camera<wbr>Video<wbr>Track<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><a href="cameravideotrackinitconfig.html" class="tsd-signature-type">CameraVideoTrackInitConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="icameravideotrack.html" class="tsd-signature-type">ICameraVideoTrack</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>通过摄像头采集的视频创建一个视频轨道。</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <a href="cameravideotrackinitconfig.html" class="tsd-signature-type">CameraVideoTrackInitConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>采集视频的配置，包括采集设备、编码配置等。详见 <a href="cameravideotrackinitconfig.html">CameraVideoTrackInitConfig</a>。</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="icameravideotrack.html" class="tsd-signature-type">ICameraVideoTrack</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -567,34 +595,6 @@
 								<li><code>true</code>: 支持。</li>
 								<li><code>false</code>: 不支持。</li>
 							</ul>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="createcameravideotrack" class="tsd-anchor"></a>
-					<h3>create<wbr>Camera<wbr>Video<wbr>Track</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Camera<wbr>Video<wbr>Track<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><a href="cameravideotrackinitconfig.html" class="tsd-signature-type">CameraVideoTrackInitConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="icameravideotrack.html" class="tsd-signature-type">ICameraVideoTrack</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>通过摄像头采集的视频创建一个视频轨道。</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <a href="cameravideotrackinitconfig.html" class="tsd-signature-type">CameraVideoTrackInitConfig</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>采集视频的配置，包括采集设备、编码配置等。详见 <a href="cameravideotrackinitconfig.html">CameraVideoTrackInitConfig</a>。</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="icameravideotrack.html" class="tsd-signature-type">ICameraVideoTrack</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>

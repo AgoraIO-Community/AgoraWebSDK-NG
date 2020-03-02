@@ -49,6 +49,17 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Interface for defining the behavior of a web client.</p>
+					</div>
+					<p>You need to configure it when calling the <a href="iagorartc.html#createclient">createClient</a> method to create a web client.</p>
+					<blockquote>
+						<p>The <a href="clientconfig.html#mode">mode</a> and <a href="clientconfig.html#codec">codec</a> properties are required.</p>
+					</blockquote>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -84,6 +95,18 @@
 					<div class="tsd-signature tsd-kind-icon">codec<span class="tsd-signature-symbol">:</span> <a href="../globals.html#sdk_codec" class="tsd-signature-type">SDK_CODEC</a></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The codec that the Web browser uses for encoding.</p>
+							<ul>
+								<li><code>&quot;vp8&quot;</code>: Use VP8 for encoding.</li>
+								<li><code>&quot;h264&quot;</code>: Use H.264 for encoding.</li>
+							</ul>
+						</div>
+						<blockquote>
+							<p>Safari 12.1 or earlier does not support the VP8 codec.</p>
+						</blockquote>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="httpretryconfig" class="tsd-anchor"></a>
@@ -98,6 +121,16 @@
 					<div class="tsd-signature tsd-kind-icon">mode<span class="tsd-signature-symbol">:</span> <a href="../globals.html#sdk_mode" class="tsd-signature-type">SDK_MODE</a></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The SDK differentiates channel profiles and applies different optimization algorithms accordingly. For example, it prioritizes smoothness and low latency for a video call, and prioritizes video quality for a video broadcast.</p>
+						</div>
+						<p>The SDK supports the following channel profiles:</p>
+						<ul>
+							<li><code>&quot;live&quot;</code>: Sets the channel profile as live broadcast. You need to go on to call <a href="iagorartcclient.html#setclientrole">setClientRole</a> to set the client as either a host or an audience. A host can send and receive audio or video, while an audience can only receive audio or video.</li>
+							<li><code>&quot;rtc&quot;</code>: Sets the channel profile as communication. It is used for a one-on-one call or a group call where all users in the channel can converse freely.</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="proxyserver" class="tsd-anchor"></a>
@@ -112,6 +145,13 @@
 					<div class="tsd-signature tsd-kind-icon">role<span class="tsd-signature-symbol">:</span> <a href="../globals.html#clientrole" class="tsd-signature-type">ClientRole</a></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The user role in a live broadcast channel.</p>
+						</div>
+						<p>If <a href="clientconfig.html#mode">mode</a> is set as <code>live</code>, use this property to set the user role. The default role is <code>host</code>.</p>
+						<p>A host can publish streams or subscribe to streams, while an audience can only subscribe to streams.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="turnserver" class="tsd-anchor"></a>

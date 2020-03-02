@@ -52,9 +52,9 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p><code>ILocalVideoTrack</code> 为本地视频轨道的基础类，提供了本地视频轨道的主要功能。</p>
+						<p><code>LocalVideoTrack</code> 为本地视频轨道的基础类，提供了本地视频轨道的主要功能。</p>
 					</div>
-					<p>你可以通过 <a href="iagorartc.html#createcustomvideotrack">AgoraRTC.createCustomVideoTrack</a> 或者 <a href="iagorartc.html#createscreenvideotrack">AgoraRTC.createScreenVideoTrack</a> 来获取 <code>ILocalVideoTrack</code>。</p>
+					<p>你可以通过 <a href="iagorartc.html#createcustomvideotrack">AgoraRTC.createCustomVideoTrack</a> 或者 <a href="iagorartc.html#createscreenvideotrack">AgoraRTC.createScreenVideoTrack</a> 来获取 <code>LocalVideoTrack</code>。</p>
 					<p>通过摄像头采集到的本地视频流对象 <a href="icameravideotrack.html">CameraVideoTrack</a> 继承于此接口，并在本接口的基础上提供了一些摄像头流独有的功能。</p>
 				</div>
 			</section>
@@ -121,19 +121,19 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>TBD
-							标记该轨道是否被 mute</p>
-							<ul>
-								<li>对于视频流：mute 指黑屏</li>
-								<li>对于音频流：mute 指静音</li>
-							</ul>
+							<p>标记该轨道是否 Mute。</p>
 						</div>
-						<p>标记该轨道是否禁用。</p>
+						<p>Mute 后，本地轨道依然会发送音频/视频数据：</p>
+						<ul>
+							<li>Mute 视频轨道后，发送黑帧。</li>
+							<li>Mute 音频轨道后，发送静音帧。</li>
+						</ul>
 						<dl class="tsd-comment-tags">
 							<dt>returns</dt>
-							<dd><ul>
-									<li><code>true</code>: 该轨道禁用。</li>
-									<li><code>false</code>: 该轨道未禁用。</li>
+							<dd><p>该轨道的 Mute 状态：</p>
+								<ul>
+									<li><code>true</code>: 该轨道 Mute。</li>
+									<li><code>false</code>: 该轨道 Unmute。</li>
 								</ul>
 							</dd>
 						</dl>
@@ -148,7 +148,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>当前该媒体流是否正在页面上播放</p>
+							<p>当前该媒体轨道是否正在页面上播放。</p>
 						</div>
 					</div>
 				</section>
@@ -161,7 +161,11 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>表示媒体流的类型，音频流还是视频流</p>
+							<p>标记媒体轨道的类型：</p>
+							<ul>
+								<li><code>&quot;audio&quot;</code>: 音频轨道。</li>
+								<li><code>&quot;video&quot;</code>: 视频轨道。</li>
+							</ul>
 						</div>
 					</div>
 				</section>
@@ -181,9 +185,9 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>关闭本地流，并释放相关采集设备。</p>
+									<p>关闭本地轨道，并释放相关采集设备。</p>
 								</div>
-								<p>一旦本地流被关闭，就无法再次使用。如需再次使用本地流，需要重新创建。</p>
+								<p>一旦本地轨道被关闭，就无法再次使用。如需再次使用本地轨道，需要重新创建。</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -231,10 +235,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取浏览器原生的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> 对象</p>
+									<p>获取浏览器原生的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> 对象。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MediaStreamTrack</span></h4>
+							<p>(<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack</a>) 对象。</p>
 						</li>
 					</ul>
 				</section>
@@ -251,10 +256,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取视频流的质量相关信息</p>
+									<p>获取本地视频轨道的相关信息。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="localvideotrackstats.html" class="tsd-signature-type">LocalVideoTrackStats</a></h4>
+							<p><a href="localvideotrackstats.html">LocalVideoTrackStats</a></p>
 						</li>
 					</ul>
 				</section>
@@ -271,10 +277,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取由 SDK 生成的对于媒体流来说的唯一 ID</p>
+									<p>获取由 SDK 生成的对于媒体轨道来说的唯一 ID。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>媒体轨道 ID。</p>
 						</li>
 					</ul>
 				</section>
@@ -291,7 +298,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取当前本地流对应的 <code>uid</code>。</p>
+									<p>获取当前本地轨道对应的 <code>uid</code>。</p>
 								</div>
 								<blockquote>
 									<p>如果当前流没有发布，那么就不属于任何一个用户，该方法返回 <code>null</code>。</p>
@@ -301,7 +308,7 @@
 								<span class="tsd-signature-symbol"> | </span>
 								<a href="../globals.html#uid" class="tsd-signature-type">UID</a>
 							</h4>
-							<p>当前本地流对应的 <code>uid</code>。</p>
+							<p>当前本地轨道对应的 <code>uid</code>。</p>
 						</li>
 					</ul>
 				</section>
@@ -414,7 +421,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>在页面上播放视频流</p>
+									<p>Plays the video track on the web page.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -422,17 +429,17 @@
 								<li>
 									<h5>element: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>指定一个 DOM 元素，SDK 将在这个元素下创建 <code>&lt;video&gt;</code> 元素播放视频流，支持 2 种类型：</p>
+										<p>Specifies a DOM element. The SDK will create a <code>&lt;video&gt;</code> element under the specified DOM element to play the video track. You can specify a DOM element in either of following ways:</p>
 										<ul>
-											<li><code>string</code>: 指定该 DOM 元素的 id 值</li>
-											<li><code>HTMLElement</code>： 直接传入一个 DOM 元素对象</li>
+											<li><code>string</code>: Specify the ID of the DOM element.</li>
+											<li><code>HTMLElement</code>: Pass a DOM object.</li>
 										</ul>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <a href="videoplayerconfig.html" class="tsd-signature-type">VideoPlayerConfig</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>设置播放参数（镜像/显示模式），对于本地视频流，镜像默认开启。</p>
+										<p>Sets the playback configurations, such as the display mode and mirror mode. By default, the SDK enables mirror mode for a local video track.</p>
 									</div>
 								</li>
 							</ul>
@@ -502,13 +509,17 @@
 								<li>
 									<h5>enabled: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>是否开启本地美颜功能</p>
+										<p>是否开启本地美颜功能：</p>
+										<ul>
+											<li><code>true</code>: 开启本地美颜。</li>
+											<li><code>false</code>: 关闭本地美颜。</li>
+										</ul>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="beautyeffectoptions.html" class="tsd-signature-type">BeautyEffectOptions</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>美颜效果选项</p>
+										<p>美颜效果选项。</p>
 									</div>
 								</li>
 							</ul>
@@ -529,19 +540,25 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>TBD
-									设置本地流的 Mute 状态</p>
-									<ul>
-										<li>对于视频流：mute 指黑屏</li>
-										<li>对于音频流：mute 指静音</li>
-									</ul>
+									<p>Sets the mute state of the local track.</p>
 								</div>
-								<p>设置本地轨道的启用/禁用状态。</p>
+								<p>After a local track is muted, it still sends audio or video data:</p>
+								<ul>
+									<li>A muted local audio track sends silenced audio frames.</li>
+									<li>A muted local video track sends black video frames.</li>
+								</ul>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>muted: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The mute state of the local track:</p>
+										<ul>
+											<li><code>true</code>: Mute the local track.</li>
+											<li><code>false</code>: Unmute the local track.</li>
+										</ul>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -561,7 +578,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>停止播放</p>
+									<p>停止播放。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

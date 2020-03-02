@@ -49,6 +49,18 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p><code>VideoEncoderConfiguration</code> is the interface that defines video encoder configurations.</p>
+					</div>
+					<p> You can customize video encoder configurations when calling the <a href="iagorartc.html#createcameravideotrack">AgoraRTC.createCameraVideoTrack</a> or <a href="iagorartc.html#createscreenvideotrack">AgoraRTC.createScreenVideoTrack</a> method.</p>
+					<p>The SDK provides preset video encoder configurations. For more information, see <a href="../globals.html#videoencoderconfigurationpreset">VideoEncoderConfigurationPreset</a>.</p>
+					<blockquote>
+						<p>The actual bitrate may be slightly different from the value that you set according to your operation system and browser. Agora suggests setting bitrate between 100 Kbps and 5000 Kbps.</p>
+					</blockquote>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -82,6 +94,11 @@
 					<div class="tsd-signature tsd-kind-icon">bitrate<wbr>Max<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies the maximum bitrate (Kbps).</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="bitratemin" class="tsd-anchor"></a>
@@ -89,6 +106,11 @@
 					<div class="tsd-signature tsd-kind-icon">bitrate<wbr>Min<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies the minimum bitrate (Kbps).</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="framerate" class="tsd-anchor"></a>
@@ -96,6 +118,13 @@
 					<div class="tsd-signature tsd-kind-icon">frame<wbr>Rate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="constrainlong.html" class="tsd-signature-type">ConstrainLong</a></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies the frame rate (fps).</p>
+						</div>
+						<p>You can pass in <code>number</code>, or a constraint, such as <code>{ max: 30, min: 5 }</code>.</p>
+						<p>For details about the constraint, see <a href="constrainlong.html">ConstrainLong</a>.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="height" class="tsd-anchor"></a>
@@ -103,6 +132,13 @@
 					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="constrainlong.html" class="tsd-signature-type">ConstrainLong</a></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies the height of the video.</p>
+						</div>
+						<p>You can pass in <code>number</code>, or a constraint, such as <code>{ max: 1280, min: 720 }</code>.</p>
+						<p>For details about the constraint, see <a href="constrainlong.html">ConstrainLong</a>.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="width" class="tsd-anchor"></a>
@@ -110,6 +146,13 @@
 					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="constrainlong.html" class="tsd-signature-type">ConstrainLong</a></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies the width of the video.</p>
+						</div>
+						<p>You can pass in <code>number</code>, or a constraint, such as <code>{ max: 1280, min: 720 }</code>.</p>
+						<p>For details about the constraint, see <a href="constrainlong.html">ConstrainLong</a>.</p>
+					</div>
 				</section>
 			</section>
 		</div>

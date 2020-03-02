@@ -49,6 +49,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p><code>IBufferSourceAudioTrack</code> is the interface for the local audio track from an audio file, which inherits the <a href="ilocalaudiotrack.html">LocalAudioTrack</a> interface and adds some functions for controlling the processing of the audio buffer, such as starting processing, stopping processing, and seeking to a specified time location.</p>
+					</div>
+					<p>You can create an audio track from an audio file by calling the <a href="iagorartc.html#createbuffersourceaudiotrack">AgoraRTC.createBufferSourceAudioTrack</a> method.</p>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -66,6 +74,12 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Events</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="ibuffersourceaudiotrack.html#event_source_state_change" class="tsd-kind-icon">source-<wbr>state-<wbr>change</a></li>
+							</ul>
+						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
@@ -106,6 +120,45 @@
 					</div>
 				</section>
 			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Events</h2>
+				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="event_source_state_change" class="tsd-anchor"></a>
+					<h3>source-<wbr>state-<wbr>change</h3>
+					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">source-<wbr>state-<wbr>change<span class="tsd-signature-symbol">(</span>currentState<span class="tsd-signature-symbol">: </span><a href="../globals.html#audiosourcestate" class="tsd-signature-type">AudioSourceState</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Occurs when the state of processing the audio buffer in <a href="ibuffersourceaudiotrack.html">BufferSourceAudioTrack</a> changes.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<div></div>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>currentState: <a href="../globals.html#audiosourcestate" class="tsd-signature-type">AudioSourceState</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The state of processing the audio buffer:</p>
+										<ul>
+											<li><code>&quot;stopped&quot;</code>: The SDK stops processing the audio buffer. The reasons may be: the SDK finishes processing the audio buffer, or the user manually triggers the stop signal.</li>
+											<li><code>&quot;paused&quot;</code>: The SDK pauses processing the audio buffer.</li>
+											<li><code>&quot;playing&quot;</code>: The SDK is processing the audio buffer.</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -114,6 +167,11 @@
 					<div class="tsd-signature tsd-kind-icon">current<wbr>State<span class="tsd-signature-symbol">:</span> <a href="../globals.html#audiosourcestate" class="tsd-signature-type">AudioSourceState</a></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The current state of processing the audio buffer.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="duration" class="tsd-anchor"></a>
@@ -121,6 +179,11 @@
 					<div class="tsd-signature tsd-kind-icon">duration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The total duration (seconds) of the audio.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="ismuted" class="tsd-anchor"></a>
@@ -129,6 +192,25 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="ilocaltrack.html">ILocalTrack</a>.<a href="ilocaltrack.html#ismuted">isMuted</a></p>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Marks whether the track is muted.</p>
+						</div>
+						<p>After a local track is muted, it still sends audio or video data:</p>
+						<ul>
+							<li>A muted local audio track sends silenced audio frames.</li>
+							<li>A muted local video track sends black video frames.</li>
+						</ul>
+						<dl class="tsd-comment-tags">
+							<dt>returns</dt>
+							<dd><p>The mute state of the track:</p>
+								<ul>
+									<li><code>true</code>: The track is muted.</li>
+									<li><code>false</code>: The track is unmuted.</li>
+								</ul>
+							</dd>
+						</dl>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="isplaying" class="tsd-anchor"></a>
@@ -137,6 +219,11 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="itrack.html">ITrack</a>.<a href="itrack.html#isplaying">isPlaying</a></p>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Marks whether the current track is playing on the webpage.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="source" class="tsd-anchor"></a>
@@ -144,6 +231,11 @@
 					<div class="tsd-signature tsd-kind-icon">source<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">File</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AudioBuffer</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The <a href="buffersourceaudiotrackinitconfig.html#source">source</a> that you specify when creating the audio track.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="trackmediatype" class="tsd-anchor"></a>
@@ -152,6 +244,15 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="itrack.html">ITrack</a>.<a href="itrack.html#trackmediatype">trackMediaType</a></p>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Marks the track type:</p>
+							<ul>
+								<li><code>&quot;audio&quot;</code>: Audio track.</li>
+								<li><code>&quot;video&quot;</code>: Video track.</li>
+							</ul>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -223,7 +324,13 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="itrack.html">ITrack</a>.<a href="itrack.html#getmediastreamtrack">getMediaStreamTrack</a></p>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> object.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MediaStreamTrack</span></h4>
+							<p>An <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> object.</p>
 						</li>
 					</ul>
 				</section>
@@ -239,7 +346,13 @@
 								<p>Inherited from <a href="ilocalaudiotrack.html">ILocalAudioTrack</a>.<a href="ilocalaudiotrack.html#getstats">getStats</a></p>
 								<p>Overrides <a href="ilocaltrack.html">ILocalTrack</a>.<a href="ilocaltrack.html#getstats">getStats</a></p>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the statistics of the local video track.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="localaudiotrackstats.html" class="tsd-signature-type">LocalAudioTrackStats</a></h4>
+							<p><a href="localaudiotrackstats.html">LocalAudioTrackStats</a>.</p>
 						</li>
 					</ul>
 				</section>
@@ -254,7 +367,13 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="itrack.html">ITrack</a>.<a href="itrack.html#gettrackid">getTrackId</a></p>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the track ID, a unique identifier generated by the SDK.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>The track ID.</p>
 						</li>
 					</ul>
 				</section>
@@ -296,7 +415,13 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ilocalaudiotrack.html">ILocalAudioTrack</a>.<a href="ilocalaudiotrack.html#getvolumelevel">getVolumeLevel</a></p>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the current audio level.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>The audio level. The value range is [0,1]. 1 is the highest audio level.</p>
 						</li>
 					</ul>
 				</section>
@@ -328,7 +453,7 @@
 					<a name="on" class="tsd-anchor"></a>
 					<h3>on</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"source-state-change"</span>, listener<span class="tsd-signature-symbol">: </span><a href="../globals.html#event_source_state_change" class="tsd-signature-type">event_source_state_change</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"source-state-change"</span>, listener<span class="tsd-signature-symbol">: </span><a href="ibuffersourceaudiotrack.html#event_source_state_change" class="tsd-signature-type">event_source_state_change</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
@@ -342,7 +467,7 @@
 									<h5>event: <span class="tsd-signature-type">"source-state-change"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <a href="../globals.html#event_source_state_change" class="tsd-signature-type">event_source_state_change</a></h5>
+									<h5>listener: <a href="ibuffersourceaudiotrack.html#event_source_state_change" class="tsd-signature-type">event_source_state_change</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -398,6 +523,11 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Pauses processing the audio buffer.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -414,6 +544,14 @@
 								<p>Inherited from <a href="ilocalaudiotrack.html">ILocalAudioTrack</a>.<a href="ilocalaudiotrack.html#play">play</a></p>
 								<p>Overrides <a href="itrack.html">ITrack</a>.<a href="itrack.html#play">play</a></p>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Plays the local audio track.</p>
+								</div>
+								<blockquote>
+									<p>When playing the audio track, the SDK does not create any DOM element. So you do not need to pass in any DOM element.</p>
+								</blockquote>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -449,6 +587,11 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Resumes processing the audio buffer.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -463,10 +606,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Seeks to the specified time location.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>time: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The specified time location (seconds).</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -505,10 +656,18 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ilocalaudiotrack.html">ILocalAudioTrack</a>.<a href="ilocalaudiotrack.html#setvolume">setVolume</a></p>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the volume of the local audio track.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>volume: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The volume. The value ranges from 0 (mute) to 1000 (maximum). A value of 100 is the original volume.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -525,10 +684,22 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Starts processing the audio buffer.</p>
+								</div>
+								<blockquote>
+									<p>Starting processing the audio buffer means that the processing node in the SDK has received the audio data. If the audio track has been published, the remote user can hear the audio.
+									Whether the local user can hear the audio depends on whether the SDK calls the <a href="ibuffersourceaudiotrack.html#play">play</a> method and sends the audio data to the sound card.</p>
+								</blockquote>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="audiosourceoptions.html" class="tsd-signature-type">AudioSourceOptions</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Options of processing the audio buffer.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -546,6 +717,11 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="itrack.html">ITrack</a>.<a href="itrack.html#stop">stop</a></p>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Stops playing the video track.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -560,6 +736,11 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Stops processing the audio buffer.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -581,6 +762,9 @@
 					<li class="current tsd-kind-interface">
 						<a href="ibuffersourceaudiotrack.html" class="tsd-kind-icon">IBuffer<wbr>Source<wbr>Audio<wbr>Track</a>
 						<ul>
+							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="ibuffersourceaudiotrack.html#event_source_state_change" class="tsd-kind-icon">source-<wbr>state-<wbr>change</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="ibuffersourceaudiotrack.html#currentstate" class="tsd-kind-icon">current<wbr>State</a>
 							</li>
