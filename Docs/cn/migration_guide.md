@@ -25,7 +25,7 @@ sidebar_label: 迁移指南
 这个改动影响多个 API 的使用，包括本地媒体对象的采集/发布音视频/订阅音视频等等，你可以在稍后的 [具体介绍](#发布本地的音视频) 中查阅这些操作在 Agora Web SDK NG 中要怎么使用。
 
 ### 频道内事件通知机制变化
-首先在我们在 Agora Web SDK NG 中对事件名的命名风格进行了统一，比如原来 Token 过期事件是 `onTokenPrivilegeWillExpire`，现在是 `token-privilege-will-expire`。还有对一些事件名称做了调整以便它可以更好地被理解，比如 `peer-online`/`peer-offline` 现在是 `user-joined`/`user-leaved`，`stream-added`/`stream-removed` 现在是 `user-published` / `user-unpublished` 等等，这些详细的列表你都可以稍后从[这里](#agora-web-sdk-ng-api-改动表) 查阅。
+首先在我们在 Agora Web SDK NG 中对事件名的命名风格进行了统一，比如原来 Token 过期事件是 `onTokenPrivilegeWillExpire`，现在是 `token-privilege-will-expire`。还有对一些事件名称做了调整以便它可以更好地被理解，比如 `peer-online`/`peer-offline` 现在是 `user-joined`/`user-left`，`stream-added`/`stream-removed` 现在是 `user-published` / `user-unpublished` 等等，这些详细的列表你都可以稍后从[这里](#agora-web-sdk-ng-api-改动表) 查阅。
 
 其次我们调整了事件回调携带参数的格式，官网版本的事件回调如果需要携带多个参数，会把这些参数统一包在一个对象中，但是 Agora Web SDK NG 会直接携带多个参数到回调函数中：
 ```js

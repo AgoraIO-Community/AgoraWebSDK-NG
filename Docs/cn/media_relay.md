@@ -36,7 +36,7 @@ Agora Web SDK NG 提供如下跨频道媒体流转发接口，支持将源频道
 **Note:**
 - 一个频道内可以有多个主播转发媒体流。哪个主播调用 `startChannelMediaRelay` 方法，SDK 就转发哪个主播的流。
 - 调用 `startChannelMediaRelay` 或 `updateChannelMediaRelay` 成功跨频道连麦后，目标频道的用户会收到 `AgoraRTCClient.on("user-published")` 回调。
-- 跨频道连麦中，如果目标频道的主播掉线或离开频道，源频道的主播会收到 `AgoraRTCClient.on("user-leaved")` 回调。
+- 跨频道连麦中，如果目标频道的主播掉线或离开频道，源频道的主播会收到 `AgoraRTCClient.on("user-left")` 回调。
 
 ### 示例代码
 `client` 是指通过 `AgoraRTC.createClient` 创建的本地客户端对象

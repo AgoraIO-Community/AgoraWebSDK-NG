@@ -43,7 +43,7 @@ sidebar_label: 输入在线媒体流
 
 2. 频道内主播调用 `AgoraRTCClient.removeInjectStreamUrl` 方法从直播频道内删除指定的已输入在线媒体流。
 
-   删除媒体流成功后，频道内所有用户都会收到  `AgoraRTCClient.on("user-unpublished")` 和 `AgoraRTCClient.on("user-leaved")` 回调。
+   删除媒体流成功后，频道内所有用户都会收到  `AgoraRTCClient.on("user-unpublished")` 和 `AgoraRTCClient.on("user-left")` 回调。
 
    > 主播退出频道后，无需再调用 `removeInjectStreamUrl` 接口。
 
