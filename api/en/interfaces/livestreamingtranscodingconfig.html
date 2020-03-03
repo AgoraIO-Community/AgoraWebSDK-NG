@@ -49,6 +49,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Configurations for user-specific CDN live audio/video transcoding in <a href="iagorartcclient.html#setlivetranscoding">AgoraRTCClient</a>.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -70,7 +77,6 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#backgroundcolor" class="tsd-kind-icon">background<wbr>Color</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#height" class="tsd-kind-icon">height</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#images" class="tsd-kind-icon">images</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#lowlatency" class="tsd-kind-icon">low<wbr>Latency</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#transcodingusers" class="tsd-kind-icon">transcoding<wbr>Users</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#videobitrate" class="tsd-kind-icon">video<wbr>Bitrate</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#videocodecprofile" class="tsd-kind-icon">video<wbr>Codec<wbr>Profile</a></li>
@@ -90,6 +96,12 @@
 					<div class="tsd-signature tsd-kind-icon">audio<wbr>Bitrate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Audio bitrate (Kbps) of the CDN live stream.</p>
+						</div>
+						<p>Positive integer. The default value is 48 and the highest value is 128.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="audiochannels" class="tsd-anchor"></a>
@@ -97,6 +109,19 @@
 					<div class="tsd-signature tsd-kind-icon">audio<wbr>Channels<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">1</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">2</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">3</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">4</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">5</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Number of audio channels for the CDN live stream.</p>
+						</div>
+						<p>Agora recommends choosing 1 or 2. Special players are required if you choose 3, 4 or 5.</p>
+						<ul>
+							<li>1: (Default) Mono</li>
+							<li>2: Dual sound channels</li>
+							<li>3: Three sound channels</li>
+							<li>4: Four sound channels</li>
+							<li>5: Five sound channels</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="audiosamplerate" class="tsd-anchor"></a>
@@ -104,6 +129,16 @@
 					<div class="tsd-signature tsd-kind-icon">audio<wbr>Sample<wbr>Rate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">32000</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">44100</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">48000</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Audio sampling rate:</p>
+						</div>
+						<ul>
+							<li>32000: 32 kHz</li>
+							<li>44100: (Default) 44.1 kHz</li>
+							<li>48000: 48 kHz</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="backgroundcolor" class="tsd-anchor"></a>
@@ -111,6 +146,12 @@
 					<div class="tsd-signature tsd-kind-icon">background<wbr>Color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The background color in RGB hex value.</p>
+						</div>
+						<p>Value only, do not include a #. The default value is 0x000000.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="height" class="tsd-anchor"></a>
@@ -118,6 +159,16 @@
 					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Height of the video.</p>
+						</div>
+						<p>Positive integer, the default value is 360.</p>
+						<ul>
+							<li>When pushing video streams to the CDN, set the value of width × height to at least 64 × 64, or the SDK adjusts it to 64 x 64.</li>
+							<li>When pushing audio streams to the CDN, set the value of width × height to 0 × 0.</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="images" class="tsd-anchor"></a>
@@ -125,13 +176,11 @@
 					<div class="tsd-signature tsd-kind-icon">images<span class="tsd-signature-symbol">:</span> <a href="livestreamingtranscodingwatermark.html" class="tsd-signature-type">LiveStreamingTranscodingWaterMark</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="lowlatency" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> low<wbr>Latency</h3>
-					<div class="tsd-signature tsd-kind-icon">low<wbr>Latency<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
-					<aside class="tsd-sources">
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Adds a watermark image to the CDN live stream.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="transcodingusers" class="tsd-anchor"></a>
@@ -139,6 +188,12 @@
 					<div class="tsd-signature tsd-kind-icon">transcoding<wbr>Users<span class="tsd-signature-symbol">:</span> <a href="livestreamingtranscodinguser.html" class="tsd-signature-type">LiveStreamingTranscodingUser</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Manages the user layout configuration in the CDN live streaming.</p>
+						</div>
+						<p>Agora supports a maximum of 17 transcoding users in a CDN streaming channel.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="videobitrate" class="tsd-anchor"></a>
@@ -146,6 +201,12 @@
 					<div class="tsd-signature tsd-kind-icon">video<wbr>Bitrate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Bitrate (Kbps) of the CDN live output video stream.</p>
+						</div>
+						<p>The default value is 400.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="videocodecprofile" class="tsd-anchor"></a>
@@ -153,6 +214,17 @@
 					<div class="tsd-signature tsd-kind-icon">video<wbr>Codec<wbr>Profile<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">66</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">77</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">100</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Video codec profile type.</p>
+						</div>
+						<p>Set it as <code>66</code>, <code>77</code>, or <code>100</code> (default). If you set this parameter to other values, Agora adjusts it to the default value <code>100</code>.</p>
+						<ul>
+							<li><code>66</code>: Baseline video codec profile. Generally used in video calls on mobile phones.</li>
+							<li><code>77</code>: Main video codec profile.Generally used in mainstream electronics, such as MP4 players, portable video players, PSP, and iPads.</li>
+							<li><code>100</code>: (Default) High video codec profile.Generally used in high - resolution broadcasts or television.</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="videoframerate" class="tsd-anchor"></a>
@@ -160,6 +232,12 @@
 					<div class="tsd-signature tsd-kind-icon">video<wbr>Framerate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Video frame rate (fps) of the output stream for CDN live.</p>
+						</div>
+						<p>The default value is 15. Agora adjusts all values over 30 to 30.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="videogop" class="tsd-anchor"></a>
@@ -167,6 +245,12 @@
 					<div class="tsd-signature tsd-kind-icon">video<wbr>Gop<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Video GOP in frames.</p>
+						</div>
+						<p>The default value is 30.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="width" class="tsd-anchor"></a>
@@ -174,6 +258,16 @@
 					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Width of the video.</p>
+						</div>
+						<p>Positive integer, the default value is 640.</p>
+						<ul>
+							<li>When pushing video streams to the CDN, set the value of width × height to at least 64 × 64, or the SDK adjusts it to 64 x 64.</li>
+							<li>When pushing audio streams to the CDN, set the value of width × height to 0 × 0.</li>
+						</ul>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -209,9 +303,6 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="livestreamingtranscodingconfig.html#images" class="tsd-kind-icon">images</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="livestreamingtranscodingconfig.html#lowlatency" class="tsd-kind-icon">low<wbr>Latency</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="livestreamingtranscodingconfig.html#transcodingusers" class="tsd-kind-icon">transcoding<wbr>Users</a>

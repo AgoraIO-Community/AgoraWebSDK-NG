@@ -52,7 +52,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Provides major functions for a voice/video call, such as joining a channel, publishing and subscribing to a stream.</p>
+						<p>Provides major functions for a voice/video call, such as joining a channel, publishing streams and subscribing to streams.</p>
 					</div>
 					<p>The <code>AgoraRTCClient</code> object is created by the <a href="iagorartc.html#createclient">createClient</a> method and represents a local client.</p>
 				</div>
@@ -61,7 +61,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="../classes/eventemitter.html" class="tsd-signature-type">EventEmitter</a>
+						<span class="tsd-signature-type">EventEmitter</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">IAgoraRTCClient</span>
@@ -77,14 +77,26 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Events</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_camera_changed" class="tsd-kind-icon">camera-<wbr>changed</a></li>
+								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_channel_media_relay_event" class="tsd-kind-icon">channel-<wbr>media-<wbr>relay-<wbr>event</a></li>
+								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_channel_media_relay_state" class="tsd-kind-icon">channel-<wbr>media-<wbr>relay-<wbr>state</a></li>
+								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_connection_state_change" class="tsd-kind-icon">connection-<wbr>state-<wbr>change</a></li>
+								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_crypt_error" class="tsd-kind-icon">crypt-<wbr>error</a></li>
+								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_exception" class="tsd-kind-icon">exception</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_media_reconnect_end" class="tsd-kind-icon">media-<wbr>reconnect-<wbr>end</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_media_reconnect_start" class="tsd-kind-icon">media-<wbr>reconnect-<wbr>start</a></li>
+								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_microphone_changed" class="tsd-kind-icon">microphone-<wbr>changed</a></li>
+								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_network_quality" class="tsd-kind-icon">network-<wbr>quality</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_stream_fallback" class="tsd-kind-icon">stream-<wbr>fallback</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_stream_type_changed" class="tsd-kind-icon">stream-<wbr>type-<wbr>changed</a></li>
+								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_token_privilege_did_expire" class="tsd-kind-icon">token-<wbr>privilege-<wbr>did-<wbr>expire</a></li>
+								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_token_privilege_will_expire" class="tsd-kind-icon">token-<wbr>privilege-<wbr>will-<wbr>expire</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_user_joined" class="tsd-kind-icon">user-<wbr>joined</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_user_left" class="tsd-kind-icon">user-<wbr>left</a></li>
+								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_user_mute_updated" class="tsd-kind-icon">user-<wbr>mute-<wbr>updated</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_user_published" class="tsd-kind-icon">user-<wbr>published</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_user_unpublished" class="tsd-kind-icon">user-<wbr>unpublished</a></li>
+								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_volume_indicator" class="tsd-kind-icon">volume-<wbr>indicator</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -101,44 +113,51 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#join" class="tsd-kind-icon">join</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#leave" class="tsd-kind-icon">leave</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#publish" class="tsd-kind-icon">publish</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#subscribe" class="tsd-kind-icon">subscribe</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#unpublish" class="tsd-kind-icon">unpublish</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#unsubscribe" class="tsd-kind-icon">unsubscribe</a></li>
+							</ul>
+							<h3>Channel Media Relay Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#startchannelmediarelay" class="tsd-kind-icon">start<wbr>Channel<wbr>Media<wbr>Relay</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#stopchannelmediarelay" class="tsd-kind-icon">stop<wbr>Channel<wbr>Media<wbr>Relay</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#updatechannelmediarelay" class="tsd-kind-icon">update<wbr>Channel<wbr>Media<wbr>Relay</a></li>
 							</ul>
 							<h3>Dual Stream Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#disabledualstream" class="tsd-kind-icon">disable<wbr>Dual<wbr>Stream</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#enabledualstream" class="tsd-kind-icon">enable<wbr>Dual<wbr>Stream</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#setlowstreamparameter" class="tsd-kind-icon">set<wbr>Low<wbr>Stream<wbr>Parameter</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#setremotevideostreamtype" class="tsd-kind-icon">set<wbr>Remote<wbr>Video<wbr>Stream<wbr>Type</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#setstreamfallbackoption" class="tsd-kind-icon">set<wbr>Stream<wbr>Fallback<wbr>Option</a></li>
+							</ul>
+							<h3>Inject Stream Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#addinjectstreamurl" class="tsd-kind-icon">add<wbr>Inject<wbr>Stream<wbr>Url</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#removeinjectstreamurl" class="tsd-kind-icon">remove<wbr>Inject<wbr>Stream<wbr>Url</a></li>
+							</ul>
+							<h3>Live Streaming Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#setlivetranscoding" class="tsd-kind-icon">set<wbr>Live<wbr>Transcoding</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#startlivestreaming" class="tsd-kind-icon">start<wbr>Live<wbr>Streaming</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#stoplivestreaming" class="tsd-kind-icon">stop<wbr>Live<wbr>Streaming</a></li>
 							</ul>
 							<h3>Other Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#addinjectstreamurl" class="tsd-kind-icon">add<wbr>Inject<wbr>Stream<wbr>Url</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#enableaudiovolumeindicator" class="tsd-kind-icon">enable<wbr>Audio<wbr>Volume<wbr>Indicator</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iagorartcclient.html#getlisteners" class="tsd-kind-icon">get<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#getrtcstats" class="tsd-kind-icon">getRTCStats</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iagorartcclient.html#off" class="tsd-kind-icon">off</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite"><a href="iagorartcclient.html#on" class="tsd-kind-icon">on</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iagorartcclient.html#once" class="tsd-kind-icon">once</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#publish" class="tsd-kind-icon">publish</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iagorartcclient.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#removeinjectstreamurl" class="tsd-kind-icon">remove<wbr>Inject<wbr>Stream<wbr>Url</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#renewtoken" class="tsd-kind-icon">renew<wbr>Token</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#setclientrole" class="tsd-kind-icon">set<wbr>Client<wbr>Role</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#setencryptionconfig" class="tsd-kind-icon">set<wbr>Encryption<wbr>Config</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#setlivetranscoding" class="tsd-kind-icon">set<wbr>Live<wbr>Transcoding</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#setremotevideostreamtype" class="tsd-kind-icon">set<wbr>Remote<wbr>Video<wbr>Stream<wbr>Type</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#setstreamfallbackoption" class="tsd-kind-icon">set<wbr>Stream<wbr>Fallback<wbr>Option</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#startchannelmediarelay" class="tsd-kind-icon">start<wbr>Channel<wbr>Media<wbr>Relay</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#startlivestreaming" class="tsd-kind-icon">start<wbr>Live<wbr>Streaming</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#stopchannelmediarelay" class="tsd-kind-icon">stop<wbr>Channel<wbr>Media<wbr>Relay</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#stoplivestreaming" class="tsd-kind-icon">stop<wbr>Live<wbr>Streaming</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#subscribe" class="tsd-kind-icon">subscribe</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#unpublish" class="tsd-kind-icon">unpublish</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#unsubscribe" class="tsd-kind-icon">unsubscribe</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#updatechannelmediarelay" class="tsd-kind-icon">update<wbr>Channel<wbr>Media<wbr>Relay</a></li>
 							</ul>
 							<h3>Proxy Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#setproxyserver" class="tsd-kind-icon">set<wbr>Proxy<wbr>Server</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#setturnserver" class="tsd-kind-icon">set<wbr>Turn<wbr>Server</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#startproxyserver" class="tsd-kind-icon">start<wbr>Proxy<wbr>Server</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#stopproxyserver" class="tsd-kind-icon">stop<wbr>Proxy<wbr>Server</a></li>
 							</ul>
@@ -148,6 +167,236 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Events</h2>
+				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="event_camera_changed" class="tsd-anchor"></a>
+					<h3>camera-<wbr>changed</h3>
+					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">camera-<wbr>changed<span class="tsd-signature-symbol">(</span>info<span class="tsd-signature-symbol">: </span><a href="deviceinfo.html" class="tsd-signature-type">DeviceInfo</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Occurs when a video capture device changes.</p>
+								</div>
+								<p>The SDK triggers this callback when a video capture device is added or removed.</p>
+								<pre><code class="language-javascript">client.on(<span class="hljs-string">"camera-changed"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Camera Changed"</span>, evt.state, evt.device);
+  });
+</code></pre>
+								<dl class="tsd-comment-tags">
+									<div></div>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>info: <a href="deviceinfo.html" class="tsd-signature-type">DeviceInfo</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Information of the video capture device.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="event_channel_media_relay_event" class="tsd-anchor"></a>
+					<h3>channel-<wbr>media-<wbr>relay-<wbr>event</h3>
+					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">channel-<wbr>media-<wbr>relay-<wbr>event<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../enums/channelmediarelayevent.html" class="tsd-signature-type">ChannelMediaRelayEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Reports events during the media stream relay.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<div></div>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <a href="../enums/channelmediarelayevent.html" class="tsd-signature-type">ChannelMediaRelayEvent</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The event code for media stream relay.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="event_channel_media_relay_state" class="tsd-anchor"></a>
+					<h3>channel-<wbr>media-<wbr>relay-<wbr>state</h3>
+					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">channel-<wbr>media-<wbr>relay-<wbr>state<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../enums/channelmediarelaystate.html" class="tsd-signature-type">ChannelMediaRelayState</a>, code<span class="tsd-signature-symbol">: </span><a href="../enums/channelmediarelayerror.html" class="tsd-signature-type">ChannelMediaRelayError</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Occurs when the state of the media stream relay changes.</p>
+								</div>
+								<p>The SDK reports the state and error code of the current media relay in this callback.</p>
+								<p>If the media relay is in an abnormal state, you can find the error code in <a href="../enums/channelmediarelayerror.html">ChannelMediaRelayError</a> (for example the token expires, or the reconnection fails.)</p>
+								<dl class="tsd-comment-tags">
+									<div></div>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>state: <a href="../enums/channelmediarelaystate.html" class="tsd-signature-type">ChannelMediaRelayState</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The state of the media relay.</p>
+									</div>
+								</li>
+								<li>
+									<h5>code: <a href="../enums/channelmediarelayerror.html" class="tsd-signature-type">ChannelMediaRelayError</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The error code.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="event_connection_state_change" class="tsd-anchor"></a>
+					<h3>connection-<wbr>state-<wbr>change</h3>
+					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">connection-<wbr>state-<wbr>change<span class="tsd-signature-symbol">(</span>curState<span class="tsd-signature-symbol">: </span><a href="../globals.html#connectionstate" class="tsd-signature-type">ConnectionState</a>, revState<span class="tsd-signature-symbol">: </span><a href="../globals.html#connectionstate" class="tsd-signature-type">ConnectionState</a>, reason<span class="tsd-signature-symbol">?: </span><a href="../enums/connectiondisconnectedreason.html" class="tsd-signature-type">ConnectionDisconnectedReason</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Occurs when the state of the connection between the SDK and the server changes.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<div></div>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>curState: <a href="../globals.html#connectionstate" class="tsd-signature-type">ConnectionState</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The current connection state.</p>
+									</div>
+								</li>
+								<li>
+									<h5>revState: <a href="../globals.html#connectionstate" class="tsd-signature-type">ConnectionState</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The previous connection state.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> reason: <a href="../enums/connectiondisconnectedreason.html" class="tsd-signature-type">ConnectionDisconnectedReason</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The reason of disconnection if <code>curState</code> is <code>&quot;DISCONNECTED&quot;</code>.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="event_crypt_error" class="tsd-anchor"></a>
+					<h3>crypt-<wbr>error</h3>
+					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">crypt-<wbr>error<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Occurs when the decryption fails.</p>
+								</div>
+								<p>The SDK triggers this callback when the decryption fails during subscribing to a stream. The failure is usually due to wrong encryption configurations. See <a href="iagorartcclient.html#setencryptionconfig">setEncryptionConfig</a> for details.</p>
+								<dl class="tsd-comment-tags">
+									<div></div>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="event_exception" class="tsd-anchor"></a>
+					<h3>exception</h3>
+					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">exception<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Reports exception events in the channel.</p>
+								</div>
+								<p>Exceptions are not errors, but usually mean quality issues.</p>
+								<p>This callback also reports recovery from an exception.</p>
+								<p>Each exception event has a corresponding recovery event, see the table below for details:</p>
+								<p><img src="https://web-cdn.agora.io/docs-files/1547180053430" alt=""></p>
+								<dl class="tsd-comment-tags">
+									<div></div>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">object</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>code<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+											<div class="tsd-comment tsd-typography">
+												<div class="lead">
+													<p>Event code.</p>
+												</div>
+											</div>
+										</li>
+										<li class="tsd-parameter">
+											<h5>msg<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+											<div class="tsd-comment tsd-typography">
+												<div class="lead">
+													<p>Event message.</p>
+												</div>
+											</div>
+										</li>
+										<li class="tsd-parameter">
+											<h5>uid<span class="tsd-signature-symbol">: </span><a href="../globals.html#uid" class="tsd-signature-type">UID</a></h5>
+											<div class="tsd-comment tsd-typography">
+												<div class="lead">
+													<p>The ID of the user who experiences the exception or recovery event.</p>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
 					<a name="event_media_reconnect_end" class="tsd-anchor"></a>
 					<h3>media-<wbr>reconnect-<wbr>end</h3>
@@ -203,6 +452,77 @@
 									<h5>uid: <a href="../globals.html#uid" class="tsd-signature-type">UID</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The ID of the user who restarts the connection. If this is the local <code>uid</code>, the connection is for publishing; if this is a remote <code>uid</code>, the connection is for subscribing.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="event_microphone_changed" class="tsd-anchor"></a>
+					<h3>microphone-<wbr>changed</h3>
+					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">microphone-<wbr>changed<span class="tsd-signature-symbol">(</span>info<span class="tsd-signature-symbol">: </span><a href="deviceinfo.html" class="tsd-signature-type">DeviceInfo</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Occurs when an audio capture device changes.</p>
+								</div>
+								<p>The SDK triggers this callback when an audio capture device is added or removed.</p>
+								<pre><code class="language-javascript">client.on(<span class="hljs-string">"microphone-changed"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Microphone Changed"</span>, evt.state, evt.device);
+  });
+</code></pre>
+								<dl class="tsd-comment-tags">
+									<div></div>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>info: <a href="deviceinfo.html" class="tsd-signature-type">DeviceInfo</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Information of the audio capture device.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="event_network_quality" class="tsd-anchor"></a>
+					<h3>network-<wbr>quality</h3>
+					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">network-<wbr>quality<span class="tsd-signature-symbol">(</span>stats<span class="tsd-signature-symbol">: </span><a href="networkquality.html" class="tsd-signature-type">NetworkQuality</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Reports the network quality of the local user once every two seconds.</p>
+								</div>
+								<p>This callback reports on the uplink and downlink network conditions of the local user.</p>
+								<blockquote>
+									<p>This is an experimental feature and the network quality rating is for reference only.</p>
+								</blockquote>
+								<dl class="tsd-comment-tags">
+									<div></div>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>stats: <a href="networkquality.html" class="tsd-signature-type">NetworkQuality</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The network quality of the local user.</p>
 									</div>
 								</li>
 							</ul>
@@ -289,6 +609,62 @@
 									</div>
 								</li>
 							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="event_token_privilege_did_expire" class="tsd-anchor"></a>
+					<h3>token-<wbr>privilege-<wbr>did-<wbr>expire</h3>
+					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">token-<wbr>privilege-<wbr>did-<wbr>expire<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Occurs when the token expires.</p>
+								</div>
+								<p>You should request a new token from your server and call <a href="iagorartcclient.html#renewtoken">renewToken</a> to pass a new token.</p>
+								<pre><code class="language-javascript">client.on(<span class="hljs-string">"token-privilege-did-expire"</span>, <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-comment">//After requesting a new token</span>
+  <span class="hljs-keyword">await</span> client.renewToken(token);
+});
+</code></pre>
+								<dl class="tsd-comment-tags">
+									<div></div>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="event_token_privilege_will_expire" class="tsd-anchor"></a>
+					<h3>token-<wbr>privilege-<wbr>will-<wbr>expire</h3>
+					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">token-<wbr>privilege-<wbr>will-<wbr>expire<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Occurs when the token expires in 30 seconds.</p>
+								</div>
+								<p>You should request a new token from your server and call <a href="iagorartcclient.html#renewtoken">renewToken</a> to pass a new token.</p>
+								<pre><code class="language-javascript">client.on(<span class="hljs-string">"token-privilege-will-expire"</span>, <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-comment">//After requesting a new token</span>
+  <span class="hljs-keyword">await</span> client.renewToken(token);
+});
+</code></pre>
+								<dl class="tsd-comment-tags">
+									<div></div>
+								</dl>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -387,6 +763,43 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="event_user_mute_updated" class="tsd-anchor"></a>
+					<h3>user-<wbr>mute-<wbr>updated</h3>
+					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">user-<wbr>mute-<wbr>updated<span class="tsd-signature-symbol">(</span>user<span class="tsd-signature-symbol">: </span><a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Occurs when a remote user changes the audio or video mute state.</p>
+								</div>
+								<p>The SDK triggers this callback when a remote user calls <a href="ilocaltrack.html#setmute">LocalTrack.setMute</a> to report that the remote user has stopped or resumed sending audio or video.</p>
+								<p>You can get the mute states through <a href="iagorartcremoteuser.html#audiomuted">user.audioMuted</a> and <a href="iagorartcremoteuser.html#videomuted">user.videoMuted</a>.</p>
+								<ul>
+									<li>If <code>audioMuted</code> is <code>true</code>, the remote user has muted audio, namely sending silent audio frames.</li>
+									<li>If <code>videoMuted</code> is <code>true</code>, the remote user has muted video, namely sending black video frames.</li>
+								</ul>
+								<dl class="tsd-comment-tags">
+									<div></div>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>user: <a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the remote user.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
 					<a name="event_user_published" class="tsd-anchor"></a>
 					<h3>user-<wbr>published</h3>
 					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
@@ -467,6 +880,42 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="event_volume_indicator" class="tsd-anchor"></a>
+					<h3>volume-<wbr>indicator</h3>
+					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">volume-<wbr>indicator<span class="tsd-signature-symbol">(</span>result<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Reports all the speaking remote users and their volumes.</p>
+								</div>
+								<p>It is disabled by default. You can enable this callback by calling <a href="iagorartcclient.html#enableaudiovolumeindicator">enableAudioVolumeIndicator</a>.
+								If enabled, it reports the volumes every two seconds regardless of whether there are users speaking.</p>
+								<p>The volume is an integer ranging from 0 to 100. Usually a user with volume above five is a speaking user.</p>
+								<pre><code class="language-javascript">client.on(<span class="hljs-string">"volume-indicator"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>)</span>{
+    result.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">volume, index</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${index}</span> UID <span class="hljs-subst">${volume.uid}</span> Level <span class="hljs-subst">${volume.level}</span>`</span>);
+  });
+});</code></pre>
+								<dl class="tsd-comment-tags">
+									<div></div>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>result: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
@@ -491,7 +940,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The state of connection between the SDK and the Agora server.</p>
+							<p>Connection state between the SDK and the Agora server.</p>
 						</div>
 					</div>
 				</section>
@@ -503,7 +952,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A list of remote users, providing the user ID and stream information of each remote user in the channel.</p>
+							<p>A list of remote users, providing the user ID and track information of each remote user in the channel.</p>
 						</div>
 						<p>The list is empty if the local user has not joined a channel.</p>
 					</div>
@@ -539,7 +988,7 @@
 									<p>Allows a user to join a channel.</p>
 								</div>
 								<p>Users in the same channel can talk to each other.</p>
-								<p>When joining a channel, the <a href="../globals.html#event_connection_state_change">AgoraRTCClient.on(&quot;connection-state-change&quot;)</a> callback is triggered on the local client.</p>
+								<p>When joining a channel, the <a href="iagorartcclient.html#event_connection_state_change">AgoraRTCClient.on(&quot;connection-state-change&quot;)</a> callback is triggered on the local client.</p>
 								<p>After joining a channel, if the user is in the communication profile, or is a host in the Live Broadcast profile, the <a href="iagorartcclient.html#event_user_joined">AgoraRTCClient.on(&quot;user-joined&quot;)</a> callback is triggered on the remote client.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -604,10 +1053,273 @@
 								<div class="lead">
 									<p>Allows a user to leave a channel.</p>
 								</div>
-								<p>When leaving the channel, the [AgoraRTCClient.on(&quot;connection-state-change&quot;)]{@link IAgoraRTCClient.event_connection_state_change} callback is triggered on the local client.</p>
+								<p>When leaving the channel, the <a href="iagorartcclient.html#event_connection_state_change">AgoraRTCClient.on(&quot;connection-state-change&quot;)</a> callback is triggered on the local client.</p>
 								<p>After leaving the channel, if the user is in the communication profile, or is a host in the live-broadcast profile, the <a href="iagorartcclient.html#event_user_left">AgoraRTCClient.on(&quot;user-left&quot;)</a> callback is triggered on the remote client.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="publish" class="tsd-anchor"></a>
+					<h3>publish</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">publish<span class="tsd-signature-symbol">(</span>tracks<span class="tsd-signature-symbol">: </span><a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol"> | </span><a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Publishes local audio and/or video tracks to a channel.</p>
+								</div>
+								<p>After publishing the local tracks, the <a href="iagorartcclient.html#event_user_published">AgoraRTCClient.on(&quot;user-published&quot;)</a> callback is triggered on the remote client.</p>
+								<p>In a live broadcast channel, only hosts can publish tracks.</p>
+								<blockquote>
+									<p>An <code>AgoraRTCClient</code> object can publish multiple audio tracks but only one video track. The SDK automatically mixes the audio tracks into one audio track.</p>
+								</blockquote>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>tracks: <a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol"> | </span><a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Local tracks created by <a href="iagorartc.html#createmicrophoneaudiotrack">AgoraRTC.createMicrophoneAudioTrack</a> / <a href="iagorartc.html#createcameravideotrack">AgoraRTC.createCameraVideoTrack</a> or other methods.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="subscribe" class="tsd-anchor"></a>
+					<h3>subscribe</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">subscribe<span class="tsd-signature-symbol">(</span>user<span class="tsd-signature-symbol">: </span><a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a>, mediaType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Subscribes to audio and/or video tracks of a remote user.</p>
+								</div>
+								<pre><code class="language-javascript"><span class="hljs-keyword">await</span> client.subscribe(user，<span class="hljs-string">"audio"</span>);
+user.audioTrack.play();</code></pre>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>user: <a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The remote user object.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mediaType: <span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The media type of the tracks to subscribe to.</p>
+										<ul>
+											<li><code>&quot;video&quot;</code>: Only subscribe to the video track.</li>
+											<li><code>“audio”</code>: Only subscribe to the audio track(s).</li>
+											<li><code>&quot;all&quot;</code> or empty: SUbscribe to all the tracks published by the remote user.</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>When the subscription succeeds, the subscribed tracks are updated to <a href="iagorartcremoteuser.html#audiotrack">user.audioTrack</a> and <a href="iagorartcremoteuser.html#videotrack">user.videoTrack</a>. You can go on to call <a href="iremoteaudiotrack.html#play">user.audioTrack.play</a> or <a href="iremotevideotrack.html#play">user.videoTrack.play</a> to play the tracks.</p>
+							<blockquote>
+								<p>The <code>Promise</code> object throws the <code>TRACK_IS_NOT_PUBLISHED</code> error if the specified tracks do not exist.</p>
+							</blockquote>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="unpublish" class="tsd-anchor"></a>
+					<h3>unpublish</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">unpublish<span class="tsd-signature-symbol">(</span>tracks<span class="tsd-signature-symbol">?: </span><a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol"> | </span><a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Unpublishes local audio and/or video tracks.</p>
+								</div>
+								<p>After unpublishing the local tracks, the <a href="iagorartcclient.html#event_user_unpublished">AgoraRTCClient.on(&quot;user-unpublished&quot;)</a> callback is triggered on the remote client.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> tracks: <a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol"> | </span><a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The tracks to be unpublished. If left empty, all the published tracks are unpublished.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="unsubscribe" class="tsd-anchor"></a>
+					<h3>unsubscribe</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">unsubscribe<span class="tsd-signature-symbol">(</span>user<span class="tsd-signature-symbol">: </span><a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a>, mediaType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Unsubscribes from the audio and/or tracks of a remote user.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>user: <a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The remote user object.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mediaType: <span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The media type of the tracks to unsubscribe from:</p>
+										<ul>
+											<li><code>&quot;video&quot;</code>: Only unsubscribe from the video track.</li>
+											<li><code>“audio”</code>: Only unsubscribe from the audio track(s).</li>
+											<li><code>&quot;all&quot;</code> or empty: Unsubscribe from all the tracks published by the remote user.</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The <code>Promise</code> object throws the <code>TRACK_IS_NOT_SUBSCRIBED</code> error if the specified tracks do not exist.</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Channel Media Relay Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="startchannelmediarelay" class="tsd-anchor"></a>
+					<h3>start<wbr>Channel<wbr>Media<wbr>Relay</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">start<wbr>Channel<wbr>Media<wbr>Relay<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="ichannelmediarelayconfiguration.html" class="tsd-signature-type">IChannelMediaRelayConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Starts relaying media streams across channels.</p>
+								</div>
+								<p>After this method call, the SDK triggers the following callbacks:</p>
+								<ul>
+									<li><a href="iagorartcclient.html#event_channel_media_relay_state">AgoraRTCClient.on(&quot;channel-media-relay-state&quot;)</a>, which reports the state and error code of the media stream relay.<ul>
+											<li>If the media stream relay fails, this callback returns <code>state</code> 3. Refer to <code>code</code> for the error code and call this method again.</li>
+										</ul>
+									</li>
+									<li><a href="iagorartcclient.html#event_channel_media_relay_event">AgoraRTCClient.on(&quot;channel-media-relay-event&quot;)</a>, which reports the events of the media stream relay.<ul>
+											<li>If the media stream relay starts successfully, this callback returns <code>code</code> 4, reporting that the SDK starts relaying the media stream to the destination channel.</li>
+										</ul>
+									</li>
+								</ul>
+								<blockquote>
+									<p>Note:</p>
+									<ul>
+										<li>Contact <a href="mailto:sales-us@agora.io">sales-us@agora.io</a> to enable this function.</li>
+										<li>We do not support string user IDs in this API.</li>
+										<li>Call this method only after joining a channel.</li>
+										<li>In a live-broadcast channel, only a host can call this method.</li>
+										<li>To call this method again after it succeeds, you must call <a href="iagorartcclient.html#stopchannelmediarelay">stopChannelMediaRelay</a> to quit the current relay.</li>
+									</ul>
+								</blockquote>
+								<pre><code class="language-javascript">client.startChannelMediaRelay(config).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"startChannelMediaRelay success"</span>);
+}).catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"startChannelMediaRelay failed"</span>, e);
+})</code></pre>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>config: <a href="ichannelmediarelayconfiguration.html" class="tsd-signature-type">IChannelMediaRelayConfiguration</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Configurations of the media stream relay.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A <code>Promise</code> object, which is resolved if the media relay starts successfully.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="stopchannelmediarelay" class="tsd-anchor"></a>
+					<h3>stop<wbr>Channel<wbr>Media<wbr>Relay</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">stop<wbr>Channel<wbr>Media<wbr>Relay<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Stops the media stream relay.</p>
+								</div>
+								<p>Once the relay stops, the user leaves all the destination channels.</p>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A <code>Promise</code> object, which is resolved if the relay stops successfully.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="updatechannelmediarelay" class="tsd-anchor"></a>
+					<h3>update<wbr>Channel<wbr>Media<wbr>Relay</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">update<wbr>Channel<wbr>Media<wbr>Relay<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="ichannelmediarelayconfiguration.html" class="tsd-signature-type">IChannelMediaRelayConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Updates the destination channels for media stream relay.</p>
+								</div>
+								<p>After the channel media relay starts, if you want to relay the media stream to more channels, or leave the current relay channel, you can call this method.</p>
+								<blockquote>
+									<p>Note:</p>
+									<ul>
+										<li>Call this method after <a href="iagorartcclient.html#startchannelmediarelay">startChannelMediaRelay</a>.</li>
+										<li>You can add a maximum of four destination channels to a relay.</li>
+									</ul>
+								</blockquote>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>config: <a href="ichannelmediarelayconfiguration.html" class="tsd-signature-type">IChannelMediaRelayConfiguration</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Configurations of the media stream relay.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A Promise object, which is resolved if the update succeeds. If the update fails, the media relay state is reset, and you need to call <a href="iagorartcclient.html#startchannelmediarelay">startChannelMediaRelay</a> again to restart the relay.</p>
 						</li>
 					</ul>
 				</section>
@@ -652,17 +1364,15 @@
 									<li>High-video stream: High bitrate, high resolution.</li>
 									<li>Low-video stream: Low bitrate, low resolution.</li>
 								</ul>
-								<p>We do not recommend using the track methods ([addTrack]{@link ILocalStream.addTrack}/[removeTrack]{@link ILocalStream.removeTrack}/[replaceTrack]{@link ILocalStream.replaceTrack}) on dual streams, which might cause different performance in the high-video and low-video streams.</p>
 								<blockquote>
 									<p>This method does not apply to the following streams:</p>
 									<ul>
-										<li>The stream created by defining the audioSource and videoSource properties.</li>
 										<li>The audio-only stream.</li>
 										<li>The screen-sharing stream.</li>
 									</ul>
 								</blockquote>
 								<pre><code class="language-javascript">client.enableDualStream().then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Enable dual stream success!"</span>);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Enable Dual stream success!"</span>);
 }).catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(err);
 })</code></pre>
@@ -709,9 +1419,91 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="setremotevideostreamtype" class="tsd-anchor"></a>
+					<h3>set<wbr>Remote<wbr>Video<wbr>Stream<wbr>Type</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Remote<wbr>Video<wbr>Stream<wbr>Type<span class="tsd-signature-symbol">(</span>uid<span class="tsd-signature-symbol">: </span><a href="../globals.html#uid" class="tsd-signature-type">UID</a>, streamType<span class="tsd-signature-symbol">: </span><a href="../enums/remotestreamtype.html" class="tsd-signature-type">RemoteStreamType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the video type of the remote stream.</p>
+								</div>
+								<p>If a remote user enables dual-stream mode, use this method to set which stream to subscribe to. The default setting is to subscribe to the high-video stream.</p>
+								<blockquote>
+									<p>This method only works when the remote client has enabled dual-stream mode (<a href="iagorartcclient.html#enabledualstream">enableDualStream</a>).</p>
+								</blockquote>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>uid: <a href="../globals.html#uid" class="tsd-signature-type">UID</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the remote user.</p>
+									</div>
+								</li>
+								<li>
+									<h5>streamType: <a href="../enums/remotestreamtype.html" class="tsd-signature-type">RemoteStreamType</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The remote video stream type. The following lists the video-stream types:</p>
+										<ul>
+											<li>0: High-bitrate, high-resolution video stream.</li>
+											<li>1: Low-bitrate, low-resolution video stream.</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="setstreamfallbackoption" class="tsd-anchor"></a>
+					<h3>set<wbr>Stream<wbr>Fallback<wbr>Option</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Stream<wbr>Fallback<wbr>Option<span class="tsd-signature-symbol">(</span>uid<span class="tsd-signature-symbol">: </span><a href="../globals.html#uid" class="tsd-signature-type">UID</a>, fallbackType<span class="tsd-signature-symbol">: </span><a href="../enums/remotestreamfallbacktype.html" class="tsd-signature-type">RemoteStreamFallbackType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets stream fallback option.</p>
+								</div>
+								<p>Use this method to set the fallback option for the subscribed video stream based on the network conditions.
+								Under poor network conditions, the SDK can choose to subscribe to the low-video stream or only the audio stream.</p>
+								<p>If the auto-fallback option is enabled, the SDK triggers the <a href="iagorartcclient.html#event_stream_type_changed">AgoraRTCClient.on(&quot;stream-type-changed&quot;)</a> callback when the remote stream changes from a high-video stream to a low-video stream or vice versa, and triggers the <a href="iagorartcclient.html#event_stream_fallback">AgoraRTCClient.on(&quot;stream-fallback&quot;)</a> callback when the remote stream changes from a video stream to an audio-only stream or vice versa.</p>
+								<blockquote>
+									<p>This method only works when the remote user has enabled the dual-stream mode by <a href="iagorartcclient.html#enabledualstream">enableDualStream</a>.</p>
+								</blockquote>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>uid: <a href="../globals.html#uid" class="tsd-signature-type">UID</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of the remote user.</p>
+									</div>
+								</li>
+								<li>
+									<h5>fallbackType: <a href="../enums/remotestreamfallbacktype.html" class="tsd-signature-type">RemoteStreamFallbackType</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The fallback option. See <a href="../enums/remotestreamfallbacktype.html">RemoteStreamFallbackType</a> for details.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Other Methods</h2>
+				<h2>Inject Stream Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="addinjectstreamurl" class="tsd-anchor"></a>
 					<h3>add<wbr>Inject<wbr>Stream<wbr>Url</h3>
@@ -722,19 +1514,169 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Injects an online media stream to a live broadcast.</p>
+								</div>
+								<p>After you call this method, the server pulls the online stream and injects it into a live channel. This is applicable to scenarios where all audience members in the channel can watch a live show and interact with each other. See <a href="/AgoraWebSDK-NG/docs/en/inject_stream">Inject Online Media Stream</a> for details.</p>
+								<p>If the online media stream is injected successfully, this stream is added to the channel, and all users in the channel receive the <a href="iagorartcclient.html#event_user_published">AgoraRTCClient.on(&quot;user-published&quot;)</a> and <a href="iagorartcclient.html#event_user_joined">AgoraRTCClient.on(&quot;user-joined&quot;)</a> callbacks with the <code>uid</code> 666.</p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>url: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The URL address to be injected to the ongoing live broadcast. Valid protocols are RTMP, HLS, and HTTP-FLV.</p>
+										<ul>
+											<li>Supported audio codec type: AAC.</li>
+											<li>Supported video codec type: H264(AVC).</li>
+										</ul>
+									</div>
 								</li>
 								<li>
 									<h5>config: <a href="injectstreamconfig.html" class="tsd-signature-type">InjectStreamConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Configurations for the injected stream.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="removeinjectstreamurl" class="tsd-anchor"></a>
+					<h3>remove<wbr>Inject<wbr>Stream<wbr>Url</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Inject<wbr>Stream<wbr>Url<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes the injected stream.</p>
+								</div>
+								<p>This method removes the HTTP/HTTPS URL address (added by <a href="iagorartcclient.html#addinjectstreamurl">addInjectStreamUrl</a>) from the live broadcast.</p>
+								<p>If the injected stream is removed successfully, all users in the channel receive the <a href="iagorartcclient.html#event_user_left">AgoraRTCClient.on(&quot;user-left&quot;)</a> and <a href="iagorartcclient.html#event_user_unpublished">AgoraRTCClient.on(&quot;user-unpublished&quot;)</a> callbacks.</p>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Live Streaming Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="setlivetranscoding" class="tsd-anchor"></a>
+					<h3>set<wbr>Live<wbr>Transcoding</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Live<wbr>Transcoding<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="livestreamingtranscodingconfig.html" class="tsd-signature-type">LiveStreamingTranscodingConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the video layout and audio settings for CDN live.</p>
+								</div>
+								<blockquote>
+									<p>Ensure that you <a href="/AgoraWebSDK-NG/docs/en/cdn_streaming/#prerequisites">enable the RTMP Converter service</a> before using this function.</p>
+								</blockquote>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>config: <a href="livestreamingtranscodingconfig.html" class="tsd-signature-type">LiveStreamingTranscodingConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Configurations for live transcoding, see <a href="livestreamingtranscodingconfig.html">LiveStreamingTranscodingConfig</a> for details.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="startlivestreaming" class="tsd-anchor"></a>
+					<h3>start<wbr>Live<wbr>Streaming</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">start<wbr>Live<wbr>Streaming<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, transcodingEnabled<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a URL for CDN live streaming.</p>
+								</div>
+								<p>Use this method to push a live stream to the CDN. See <a href="/AgoraWebSDK-NG/docs/en/cdn_streaming">Push Streams to the CDN</a> for details.</p>
+								<blockquote>
+									<p>Note:</p>
+									<ul>
+										<li>Only hosts in live-broadcast channels can call this method.</li>
+										<li>Push one live stream at a time. If you need to push several streams, ensure that the current stream starts successfully before pushing the next one.</li>
+									</ul>
+								</blockquote>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>url: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>URL address for the live stream. ASCII characters only. Supports the RTMP protocol.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> transcodingEnabled: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Marks whether to enable live transcoding. Transcoding sets the audio/video profiles and the picture-in-picture layout for the stream to be pushed to the CDN, and is often used for combining the audio and video streams of multiple hosts in CDN live streaming. If set as <code>true</code>, <a href="iagorartcclient.html#setlivetranscoding">setLiveTranscoding</a> must be called before this method.</p>
+										<ul>
+											<li><code>true</code>: Enable transcoding.</li>
+											<li><code>false</code>: (Default) Disable transcoding.</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="stoplivestreaming" class="tsd-anchor"></a>
+					<h3>stop<wbr>Live<wbr>Streaming</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">stop<wbr>Live<wbr>Streaming<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes an URL from CDN live streaming.</p>
+								</div>
+								<p>This method removes only one URL address each time it is called. To remove multiple URLs, call this method multiple times.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>url: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The URL to be removed.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Other Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="enableaudiovolumeindicator" class="tsd-anchor"></a>
 					<h3>enable<wbr>Audio<wbr>Volume<wbr>Indicator</h3>
@@ -750,7 +1692,7 @@
 									<p>Enables volume indicator.</p>
 								</div>
 								<p>This method enables the SDK to report the remote users who are speaking and their volumes regularly.</p>
-								<p>After the volume indicator is enabled, the SDK triggers the <a href="../globals.html#event_volume_indicator">AgoraRTCClient.on(&quot;volume-indicator&quot;)</a> callback to report the volumes every two seconds, regardless of whether there are active speakers.</p>
+								<p>After the volume indicator is enabled, the SDK triggers the <a href="iagorartcclient.html#event_volume_indicator">AgoraRTCClient.on(&quot;volume-indicator&quot;)</a> callback to report the volumes every two seconds, regardless of whether there are active speakers.</p>
 								<pre><code class="language-javascript">client.enableAudioVolumeIndicator();
 client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
   volumes.forEach(<span class="hljs-function">(<span class="hljs-params">volume, index</span>) =&gt;</span> {
@@ -771,12 +1713,20 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#getlisteners">getListeners</a></p>
+								<p>Inherited from EventEmitter.getListeners</p>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets all the listeners of a specified event.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>event: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The event name.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -793,7 +1743,13 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the statistics of the call.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="agorartcstats.html" class="tsd-signature-type">AgoraRTCStats</a></h4>
+							<p>The statistics of the call.</p>
 						</li>
 					</ul>
 				</section>
@@ -806,15 +1762,26 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#off">off</a></p>
+								<p>Inherited from EventEmitter.off</p>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes the listener for a specified event.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>event: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The event name.</p>
+									</div>
 								</li>
 								<li>
 									<h5>listener: <span class="tsd-signature-type">Function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The callback that you pass when listening for the event.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -825,31 +1792,31 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 					<a name="on" class="tsd-anchor"></a>
 					<h3>on</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"connection-state-change"</span>, listener<span class="tsd-signature-symbol">: </span><a href="../globals.html#event_connection_state_change" class="tsd-signature-type">event_connection_state_change</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"connection-state-change"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_connection_state_change" class="tsd-signature-type">event_connection_state_change</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"user-joined"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_user_joined" class="tsd-signature-type">event_user_joined</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"user-left"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_user_left" class="tsd-signature-type">event_user_left</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"user-published"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_user_published" class="tsd-signature-type">event_user_published</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"user-unpublished"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_user_unpublished" class="tsd-signature-type">event_user_unpublished</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"user-mute-updated"</span>, listener<span class="tsd-signature-symbol">: </span><a href="../globals.html#event_user_mute_updated" class="tsd-signature-type">event_user_mute_updated</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"user-mute-updated"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_user_mute_updated" class="tsd-signature-type">event_user_mute_updated</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"media-reconnect-start"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_media_reconnect_start" class="tsd-signature-type">event_media_reconnect_start</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"media-reconnect-end"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_media_reconnect_end" class="tsd-signature-type">event_media_reconnect_end</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"stream-type-changed"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_stream_type_changed" class="tsd-signature-type">event_stream_type_changed</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"stream-fallback"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_stream_fallback" class="tsd-signature-type">event_stream_fallback</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"channel-media-relay-state"</span>, listener<span class="tsd-signature-symbol">: </span><a href="../globals.html#event_channel_media_relay_state" class="tsd-signature-type">event_channel_media_relay_state</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"channel-media-relay-event"</span>, listener<span class="tsd-signature-symbol">: </span><a href="../globals.html#event_channel_media_relay_event" class="tsd-signature-type">event_channel_media_relay_event</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"volume-indicator"</span>, listener<span class="tsd-signature-symbol">: </span><a href="../globals.html#event_volume_indicator" class="tsd-signature-type">event_volume_indicator</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"crypt-error"</span>, listener<span class="tsd-signature-symbol">: </span><a href="../globals.html#event_crypt_error" class="tsd-signature-type">event_crypt_error</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"token-privilege-will-expire"</span>, listener<span class="tsd-signature-symbol">: </span><a href="../globals.html#event_token_privilege_will_expire" class="tsd-signature-type">event_token_privilege_will_expire</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"token-privilege-did-expire"</span>, listener<span class="tsd-signature-symbol">: </span><a href="../globals.html#event_token_privilege_did_expire" class="tsd-signature-type">event_token_privilege_did_expire</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"microphone-changed"</span>, listener<span class="tsd-signature-symbol">: </span><a href="../globals.html#event_microphone_changed" class="tsd-signature-type">event_microphone_changed</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"camera-changed"</span>, listener<span class="tsd-signature-symbol">: </span><a href="../globals.html#event_camera_changed" class="tsd-signature-type">event_camera_changed</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"network-quality"</span>, listener<span class="tsd-signature-symbol">: </span><a href="../globals.html#event_network_quality" class="tsd-signature-type">event_network_quality</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"exception"</span>, listener<span class="tsd-signature-symbol">: </span><a href="../globals.html#event_exception" class="tsd-signature-type">event_exception</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"channel-media-relay-state"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_channel_media_relay_state" class="tsd-signature-type">event_channel_media_relay_state</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"channel-media-relay-event"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_channel_media_relay_event" class="tsd-signature-type">event_channel_media_relay_event</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"volume-indicator"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_volume_indicator" class="tsd-signature-type">event_volume_indicator</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"crypt-error"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_crypt_error" class="tsd-signature-type">event_crypt_error</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"token-privilege-will-expire"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_token_privilege_will_expire" class="tsd-signature-type">event_token_privilege_will_expire</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"token-privilege-did-expire"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_token_privilege_did_expire" class="tsd-signature-type">event_token_privilege_did_expire</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"microphone-changed"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_microphone_changed" class="tsd-signature-type">event_microphone_changed</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"camera-changed"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_camera_changed" class="tsd-signature-type">event_camera_changed</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"network-quality"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_network_quality" class="tsd-signature-type">event_network_quality</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"exception"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_exception" class="tsd-signature-type">event_exception</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -857,14 +1824,14 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<h5>event: <span class="tsd-signature-type">"connection-state-change"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <a href="../globals.html#event_connection_state_change" class="tsd-signature-type">event_connection_state_change</a></h5>
+									<h5>listener: <a href="iagorartcclient.html#event_connection_state_change" class="tsd-signature-type">event_connection_state_change</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -879,7 +1846,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -894,7 +1861,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -909,7 +1876,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -924,7 +1891,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -932,14 +1899,14 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<h5>event: <span class="tsd-signature-type">"user-mute-updated"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <a href="../globals.html#event_user_mute_updated" class="tsd-signature-type">event_user_mute_updated</a></h5>
+									<h5>listener: <a href="iagorartcclient.html#event_user_mute_updated" class="tsd-signature-type">event_user_mute_updated</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -954,7 +1921,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -969,7 +1936,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -984,7 +1951,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -999,7 +1966,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -1007,14 +1974,14 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<h5>event: <span class="tsd-signature-type">"channel-media-relay-state"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <a href="../globals.html#event_channel_media_relay_state" class="tsd-signature-type">event_channel_media_relay_state</a></h5>
+									<h5>listener: <a href="iagorartcclient.html#event_channel_media_relay_state" class="tsd-signature-type">event_channel_media_relay_state</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -1022,14 +1989,14 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<h5>event: <span class="tsd-signature-type">"channel-media-relay-event"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <a href="../globals.html#event_channel_media_relay_event" class="tsd-signature-type">event_channel_media_relay_event</a></h5>
+									<h5>listener: <a href="iagorartcclient.html#event_channel_media_relay_event" class="tsd-signature-type">event_channel_media_relay_event</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -1037,14 +2004,14 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<h5>event: <span class="tsd-signature-type">"volume-indicator"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <a href="../globals.html#event_volume_indicator" class="tsd-signature-type">event_volume_indicator</a></h5>
+									<h5>listener: <a href="iagorartcclient.html#event_volume_indicator" class="tsd-signature-type">event_volume_indicator</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -1052,14 +2019,14 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<h5>event: <span class="tsd-signature-type">"crypt-error"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <a href="../globals.html#event_crypt_error" class="tsd-signature-type">event_crypt_error</a></h5>
+									<h5>listener: <a href="iagorartcclient.html#event_crypt_error" class="tsd-signature-type">event_crypt_error</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -1067,14 +2034,14 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<h5>event: <span class="tsd-signature-type">"token-privilege-will-expire"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <a href="../globals.html#event_token_privilege_will_expire" class="tsd-signature-type">event_token_privilege_will_expire</a></h5>
+									<h5>listener: <a href="iagorartcclient.html#event_token_privilege_will_expire" class="tsd-signature-type">event_token_privilege_will_expire</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -1082,14 +2049,14 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<h5>event: <span class="tsd-signature-type">"token-privilege-did-expire"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <a href="../globals.html#event_token_privilege_did_expire" class="tsd-signature-type">event_token_privilege_did_expire</a></h5>
+									<h5>listener: <a href="iagorartcclient.html#event_token_privilege_did_expire" class="tsd-signature-type">event_token_privilege_did_expire</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -1097,14 +2064,14 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<h5>event: <span class="tsd-signature-type">"microphone-changed"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <a href="../globals.html#event_microphone_changed" class="tsd-signature-type">event_microphone_changed</a></h5>
+									<h5>listener: <a href="iagorartcclient.html#event_microphone_changed" class="tsd-signature-type">event_microphone_changed</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -1112,14 +2079,14 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<h5>event: <span class="tsd-signature-type">"camera-changed"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <a href="../globals.html#event_camera_changed" class="tsd-signature-type">event_camera_changed</a></h5>
+									<h5>listener: <a href="iagorartcclient.html#event_camera_changed" class="tsd-signature-type">event_camera_changed</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -1127,14 +2094,14 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<h5>event: <span class="tsd-signature-type">"network-quality"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <a href="../globals.html#event_network_quality" class="tsd-signature-type">event_network_quality</a></h5>
+									<h5>listener: <a href="iagorartcclient.html#event_network_quality" class="tsd-signature-type">event_network_quality</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#on">on</a></p>
+								<p>Overrides EventEmitter.on</p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -1142,7 +2109,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<h5>event: <span class="tsd-signature-type">"exception"</span></h5>
 								</li>
 								<li>
-									<h5>listener: <a href="../globals.html#event_exception" class="tsd-signature-type">event_exception</a></h5>
+									<h5>listener: <a href="iagorartcclient.html#event_exception" class="tsd-signature-type">event_exception</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1158,38 +2125,30 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#once">once</a></p>
+								<p>Inherited from EventEmitter.once</p>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Listens for a specified event once.</p>
+								</div>
+								<p>When the event first happens, the callback that you pass is triggered. Then the event listener is removed.</p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>event: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The event name.</p>
+									</div>
 								</li>
 								<li>
 									<h5>listener: <span class="tsd-signature-type">Function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The callback to be triggered.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="publish" class="tsd-anchor"></a>
-					<h3>publish</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">publish<span class="tsd-signature-symbol">(</span>tracks<span class="tsd-signature-symbol">: </span><a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol"> | </span><a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>tracks: <a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol"> | </span><a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1202,29 +2161,23 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="../classes/eventemitter.html">EventEmitter</a>.<a href="../classes/eventemitter.html#removealllisteners">removeAllListeners</a></p>
+								<p>Inherited from EventEmitter.removeAllListeners</p>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes all listeners for a specified event.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The event name. If left empty, all the listers for all events are removed.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="removeinjectstreamurl" class="tsd-anchor"></a>
-					<h3>remove<wbr>Inject<wbr>Stream<wbr>Url</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">remove<wbr>Inject<wbr>Stream<wbr>Url<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1242,7 +2195,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								<div class="lead">
 									<p>Renews the token.</p>
 								</div>
-								<p>The token expires after a period of time once the token schema is enabled. When the SDK triggers the <a href="../globals.html#event_token_privilege_will_expire">AgoraRTCClient.on(&quot;token-privilege-will-expire&quot;)</a> or <a href="../globals.html#event_token_privilege_did_expire">AgoraRTCClient.on(&quot;token-privilege-did-expire&quot;)</a> callback, call this method to pass in a new token. Otherwise the SDK disconnects from the server.</p>
+								<p>The token expires after a period of time once the token schema is enabled. When the SDK triggers the <a href="iagorartcclient.html#event_token_privilege_will_expire">AgoraRTCClient.on(&quot;token-privilege-will-expire&quot;)</a> or <a href="iagorartcclient.html#event_token_privilege_did_expire">AgoraRTCClient.on(&quot;token-privilege-did-expire&quot;)</a> callback, call this method to pass in a new token. Otherwise the SDK disconnects from the server.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -1272,7 +2225,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<p>Sets the role of the user.</p>
 								</div>
 								<p>This method applies to the live-broadcast profile only.</p>
-								<p>Users in the <code>host</code> role can publish and subscribe to streams, while users in the <code>audience</code> role cannot publish streams.</p>
+								<p>Users in the <code>host</code> role can publish and subscribe to tracks, while users in the <code>audience</code> role cannot publish tracks.</p>
 								<p>If you call this method to switch the user role after joining a channel, the SDK triggers the <a href="iagorartcclient.html#event_user_joined">AgoraRTCClient.on(&quot;user-joined&quot;)</a> or <a href="iagorartcclient.html#event_user_left">AgoraRTCClient.on(&quot;user-left&quot;)</a> callback on the remote client.</p>
 								<blockquote>
 									<p>Note:</p>
@@ -1310,7 +2263,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<p>Sets the AES encryption configurations.</p>
 								</div>
 								<p>Use this method to enable the built-in encryption before joining a channel.</p>
-								<p>If the encryption configurations are incorrect, the SDK triggers the <a href="../globals.html#event_crypt_error">AgoraRTCClient.on(&quot;crypt-error&quot;)</a> callback when publishing or subscribing to a stream.</p>
+								<p>If the encryption configurations are incorrect, the SDK triggers the <a href="iagorartcclient.html#event_crypt_error">AgoraRTCClient.on(&quot;crypt-error&quot;)</a> callback when publishing tracks or subscribing to tracks.</p>
 								<blockquote>
 									<p>Note:</p>
 									<ul>
@@ -1339,306 +2292,9 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="setlivetranscoding" class="tsd-anchor"></a>
-					<h3>set<wbr>Live<wbr>Transcoding</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Live<wbr>Transcoding<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="livestreamingtranscodingconfig.html" class="tsd-signature-type">LiveStreamingTranscodingConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>config: <a href="livestreamingtranscodingconfig.html" class="tsd-signature-type">LiveStreamingTranscodingConfig</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="setremotevideostreamtype" class="tsd-anchor"></a>
-					<h3>set<wbr>Remote<wbr>Video<wbr>Stream<wbr>Type</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Remote<wbr>Video<wbr>Stream<wbr>Type<span class="tsd-signature-symbol">(</span>uid<span class="tsd-signature-symbol">: </span><a href="../globals.html#uid" class="tsd-signature-type">UID</a>, streamType<span class="tsd-signature-symbol">: </span><a href="../enums/remotestreamtype.html" class="tsd-signature-type">RemoteStreamType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>uid: <a href="../globals.html#uid" class="tsd-signature-type">UID</a></h5>
-								</li>
-								<li>
-									<h5>streamType: <a href="../enums/remotestreamtype.html" class="tsd-signature-type">RemoteStreamType</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="setstreamfallbackoption" class="tsd-anchor"></a>
-					<h3>set<wbr>Stream<wbr>Fallback<wbr>Option</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Stream<wbr>Fallback<wbr>Option<span class="tsd-signature-symbol">(</span>uid<span class="tsd-signature-symbol">: </span><a href="../globals.html#uid" class="tsd-signature-type">UID</a>, fallbackType<span class="tsd-signature-symbol">: </span><a href="../enums/remotestreamfallbacktype.html" class="tsd-signature-type">RemoteStreamFallbackType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>uid: <a href="../globals.html#uid" class="tsd-signature-type">UID</a></h5>
-								</li>
-								<li>
-									<h5>fallbackType: <a href="../enums/remotestreamfallbacktype.html" class="tsd-signature-type">RemoteStreamFallbackType</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="startchannelmediarelay" class="tsd-anchor"></a>
-					<h3>start<wbr>Channel<wbr>Media<wbr>Relay</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">start<wbr>Channel<wbr>Media<wbr>Relay<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="ichannelmediarelayconfiguration.html" class="tsd-signature-type">IChannelMediaRelayConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>config: <a href="ichannelmediarelayconfiguration.html" class="tsd-signature-type">IChannelMediaRelayConfiguration</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="startlivestreaming" class="tsd-anchor"></a>
-					<h3>start<wbr>Live<wbr>Streaming</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">start<wbr>Live<wbr>Streaming<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, transcodingEnabled<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>url: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> transcodingEnabled: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="stopchannelmediarelay" class="tsd-anchor"></a>
-					<h3>stop<wbr>Channel<wbr>Media<wbr>Relay</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">stop<wbr>Channel<wbr>Media<wbr>Relay<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="stoplivestreaming" class="tsd-anchor"></a>
-					<h3>stop<wbr>Live<wbr>Streaming</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">stop<wbr>Live<wbr>Streaming<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>url: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="subscribe" class="tsd-anchor"></a>
-					<h3>subscribe</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">subscribe<span class="tsd-signature-symbol">(</span>user<span class="tsd-signature-symbol">: </span><a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a>, mediaType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>user: <a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mediaType: <span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="unpublish" class="tsd-anchor"></a>
-					<h3>unpublish</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">unpublish<span class="tsd-signature-symbol">(</span>tracks<span class="tsd-signature-symbol">?: </span><a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol"> | </span><a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> tracks: <a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol"> | </span><a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="unsubscribe" class="tsd-anchor"></a>
-					<h3>unsubscribe</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">unsubscribe<span class="tsd-signature-symbol">(</span>user<span class="tsd-signature-symbol">: </span><a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a>, mediaType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>user: <a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mediaType: <span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="updatechannelmediarelay" class="tsd-anchor"></a>
-					<h3>update<wbr>Channel<wbr>Media<wbr>Relay</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">update<wbr>Channel<wbr>Media<wbr>Relay<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="ichannelmediarelayconfiguration.html" class="tsd-signature-type">IChannelMediaRelayConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>config: <a href="ichannelmediarelayconfiguration.html" class="tsd-signature-type">IChannelMediaRelayConfiguration</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Proxy Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="setproxyserver" class="tsd-anchor"></a>
-					<h3>set<wbr>Proxy<wbr>Server</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Proxy<wbr>Server<span class="tsd-signature-symbol">(</span>proxyServer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Deploys a proxy server.</p>
-								</div>
-								<p>You can also use cloud proxy by <a href="iagorartcclient.html#startproxyserver">startProxyServer</a>. See <a href="https://docs.agora.io/en/Interactive%20Broadcast/cloud_proxy_web?platform=Web">Use Cloud Proxy</a> for details.</p>
-								<blockquote>
-									<p>Note:</p>
-									<ul>
-										<li>Call this method before <a href="iagorartcclient.html#join">join</a>.</li>
-										<li>Proxy services by different service providers may result in slow performance if you are using the Firefox browser. Therefore, Agora recommends using the same service provider for the proxy services. If you use different service providers, Agora recommends not using the Firefox browser.</li>
-									</ul>
-								</blockquote>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>proxyServer: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Your proxy server domain name. ASCII characters only.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="setturnserver" class="tsd-anchor"></a>
-					<h3>set<wbr>Turn<wbr>Server</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Turn<wbr>Server<span class="tsd-signature-symbol">(</span>turnServer<span class="tsd-signature-symbol">: </span><a href="turnserverconfig.html" class="tsd-signature-type">TurnServerConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Deploys a TURN server.</p>
-								</div>
-								<p>You can also use cloud proxy by <a href="iagorartcclient.html#startproxyserver">startProxyServer</a>. See <a href="https://docs.agora.io/en/Interactive%20Broadcast/cloud_proxy_web?platform=Web">Use Cloud Proxy</a> for details.</p>
-								<blockquote>
-									<p>Call this method before <a href="iagorartcclient.html#join">join</a>.</p>
-								</blockquote>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>turnServer: <a href="turnserverconfig.html" class="tsd-signature-type">TurnServerConfig</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The TURN server settings.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="startproxyserver" class="tsd-anchor"></a>
 					<h3>start<wbr>Proxy<wbr>Server</h3>
@@ -1675,9 +2331,6 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<p>Disables cloud proxy.</p>
 								</div>
 								<p>This method must be called before joining the channel or after leaving the channel.</p>
-								<blockquote>
-									<p>This method disables all proxy settings, including those set by <a href="iagorartcclient.html#setproxyserver">setProxyServer</a> and <a href="iagorartcclient.html#setturnserver">setTurnServer</a>.</p>
-								</blockquote>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -1701,10 +2354,34 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 						<a href="iagorartcclient.html" class="tsd-kind-icon">IAgoraRTCClient</a>
 						<ul>
 							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartcclient.html#event_camera_changed" class="tsd-kind-icon">camera-<wbr>changed</a>
+							</li>
+							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartcclient.html#event_channel_media_relay_event" class="tsd-kind-icon">channel-<wbr>media-<wbr>relay-<wbr>event</a>
+							</li>
+							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartcclient.html#event_channel_media_relay_state" class="tsd-kind-icon">channel-<wbr>media-<wbr>relay-<wbr>state</a>
+							</li>
+							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartcclient.html#event_connection_state_change" class="tsd-kind-icon">connection-<wbr>state-<wbr>change</a>
+							</li>
+							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartcclient.html#event_crypt_error" class="tsd-kind-icon">crypt-<wbr>error</a>
+							</li>
+							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartcclient.html#event_exception" class="tsd-kind-icon">exception</a>
+							</li>
+							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="iagorartcclient.html#event_media_reconnect_end" class="tsd-kind-icon">media-<wbr>reconnect-<wbr>end</a>
 							</li>
 							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="iagorartcclient.html#event_media_reconnect_start" class="tsd-kind-icon">media-<wbr>reconnect-<wbr>start</a>
+							</li>
+							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartcclient.html#event_microphone_changed" class="tsd-kind-icon">microphone-<wbr>changed</a>
+							</li>
+							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartcclient.html#event_network_quality" class="tsd-kind-icon">network-<wbr>quality</a>
 							</li>
 							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="iagorartcclient.html#event_stream_fallback" class="tsd-kind-icon">stream-<wbr>fallback</a>
@@ -1713,16 +2390,28 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								<a href="iagorartcclient.html#event_stream_type_changed" class="tsd-kind-icon">stream-<wbr>type-<wbr>changed</a>
 							</li>
 							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartcclient.html#event_token_privilege_did_expire" class="tsd-kind-icon">token-<wbr>privilege-<wbr>did-<wbr>expire</a>
+							</li>
+							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartcclient.html#event_token_privilege_will_expire" class="tsd-kind-icon">token-<wbr>privilege-<wbr>will-<wbr>expire</a>
+							</li>
+							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="iagorartcclient.html#event_user_joined" class="tsd-kind-icon">user-<wbr>joined</a>
 							</li>
 							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="iagorartcclient.html#event_user_left" class="tsd-kind-icon">user-<wbr>left</a>
 							</li>
 							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartcclient.html#event_user_mute_updated" class="tsd-kind-icon">user-<wbr>mute-<wbr>updated</a>
+							</li>
+							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="iagorartcclient.html#event_user_published" class="tsd-kind-icon">user-<wbr>published</a>
 							</li>
 							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="iagorartcclient.html#event_user_unpublished" class="tsd-kind-icon">user-<wbr>unpublished</a>
+							</li>
+							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartcclient.html#event_volume_indicator" class="tsd-kind-icon">volume-<wbr>indicator</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="iagorartcclient.html#channelname" class="tsd-kind-icon">channel<wbr>Name</a>
@@ -1794,16 +2483,10 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								<a href="iagorartcclient.html#setlowstreamparameter" class="tsd-kind-icon">set<wbr>Low<wbr>Stream<wbr>Parameter</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="iagorartcclient.html#setproxyserver" class="tsd-kind-icon">set<wbr>Proxy<wbr>Server</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartcclient.html#setremotevideostreamtype" class="tsd-kind-icon">set<wbr>Remote<wbr>Video<wbr>Stream<wbr>Type</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartcclient.html#setstreamfallbackoption" class="tsd-kind-icon">set<wbr>Stream<wbr>Fallback<wbr>Option</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="iagorartcclient.html#setturnserver" class="tsd-kind-icon">set<wbr>Turn<wbr>Server</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartcclient.html#startchannelmediarelay" class="tsd-kind-icon">start<wbr>Channel<wbr>Media<wbr>Relay</a>

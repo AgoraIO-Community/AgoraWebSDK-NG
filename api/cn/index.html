@@ -189,17 +189,91 @@
 							<td>创建跨频道媒体流转发的配置对象</td>
 						</tr>
 				</tbody></table>
+				<a href="#主要模块" id="主要模块" style="color: inherit; text-decoration: none;">
+					<h2>主要模块</h2>
+				</a>
+				<a href="#agorartcclient" id="agorartcclient" style="color: inherit; text-decoration: none;">
+					<h3>AgoraRTCClient</h3>
+				</a>
+				<p>调用 <a href="interfaces/iagorartc.html#createclient">createClient</a> 创建一个本地客户端对象 <a href="interfaces/iagorartcclient.html">AgoraRTCClient</a>，代表一个通话中的本地用户。<code>AgoraRTCClient</code> 类提供音视频通话的核心功能，主要包含以下方法：</p>
+				<table>
+					<thead>
+						<tr>
+							<th>方法</th>
+							<th>描述</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><a href="interfaces/iagorartcclient.html#join">join</a></td>
+							<td>加入频道</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/iagorartcclient.html#leave">leave</a></td>
+							<td>离开频道</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/iagorartcclient.html#publish">publish</a></td>
+							<td>发布本地音视频轨道</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/iagorartcclient.html#unpublish">unpublish</a></td>
+							<td>取消发布本地音视频轨道</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/iagorartcclient.html#subscribe">subscribe</a></td>
+							<td>订阅远端用户的音视频轨道</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/iagorartcclient.html#unsubscribe">unsubscribe</a></td>
+							<td>取消订阅远端用户的音视频轨道</td>
+						</tr>
+				</tbody></table>
+				<a href="#localtrack-和-remotetrack" id="localtrack-和-remotetrack" style="color: inherit; text-decoration: none;">
+					<h3>LocalTrack 和 RemoteTrack</h3>
+				</a>
+				<p><a href="interfaces/ilocaltrack.html">LocalTrack</a> 对象 和 <a href="interfaces/iremotetrack.html">RemoteTrack</a> 对象分别代表本地和远端的音视频轨道对象。</p>
+				<p>获取本地轨道对象：</p>
+				<ul>
+					<li>调用 <a href="interfaces/iagorartc.html#createmicrophoneaudiotrack">AgoraRTC.createMicrophoneAudioTrack</a> 获取一个本地音频轨道对象。</li>
+					<li>调用 <a href="interfaces/iagorartc.html#createcameravideotrack">AgoraRTC.createCameraVideoTrack</a> 获取一个本地视频轨道对象。</li>
+				</ul>
+				<p>获取远端轨道对象的方式：调用 <a href="interfaces/iagorartcclient.html#subscribe">subscribe</a> 订阅远端用户后，从 <a href="interfaces/iagorartcremoteuser.html">AgoraRTCRemoteUser</a> 获取远端音频轨道对象和远端视频轨道对象。</p>
+				<p>音视频流由音视频轨道构成。Agora 服务限定一个 <code>AgoraRTCClient</code> 对象只能发布一个音视频流，包含最多一个视频轨道和一个音频轨道。一个 <code>AgoraRTCClient</code> 对象可以发布多个音频轨道，SDK 会自动混音，但是视频轨道只能发布一个。</p>
+				<table>
+					<thead>
+						<tr>
+							<th>方法</th>
+							<th>描述</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><a href="interfaces/ilocalvideotrack.html#play">LocalAudioTrack.play</a></td>
+							<td>播放本地音频轨道</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/ilocalvideotrack.html#play">LocalVideoTrack.play</a></td>
+							<td>播放本地视频轨道</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/iremoteaudiotrack.html#play">RemoteAudioTrack.play</a></td>
+							<td>播放远端音频轨道</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/iremotevideotrack.html#play">RemoteVideoTrack.play</a></td>
+							<td>播放远端视频轨道</td>
+						</tr>
+				</tbody></table>
 				<a href="#引入方式" id="引入方式" style="color: inherit; text-decoration: none;">
 					<h2>引入方式</h2>
 				</a>
-				<p>如果你通过 <code>&lt;script&gt;</code> 的方式引入我们的 SDK，可以通过访问 <code>AgoraRTC.createClient</code> 来获取导出的模块。</p>
-				<p>如果你通过 <code>npm</code> 或者模块化的方式引入我们的 SDK，可以通过以下方式访问 <code>AgoraRTC</code>:</p>
+				<p>如果你通过 <code>&lt;script&gt;</code> 的方式引入 Agora Web SDK NG，可以通过访问 <a href="interfaces/iagorartc.html#createclient">AgoraRTC.createClient</a> 来获取导出的模块。</p>
+				<p>如果你通过 <code>npm</code> 或者模块化的方式引入 Agora Web SDK NG，可以通过以下方式访问 <code>AgoraRTC</code>:</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> AgoraRTC <span class="hljs-keyword">from</span> <span class="hljs-string">"agora-web-sdk-ng"</span>;
 <span class="hljs-built_in">console</span>.log(AgoraRTC.createClient);</code></pre>
 				<a href="#类型模块（用于-typescript）" id="类型模块（用于-typescript）" style="color: inherit; text-decoration: none;">
 					<h2>类型模块（用于 Typescript）</h2>
 				</a>
-				<p>对于 Typescript 用户，我们提供了 <code>.d.ts</code> 文件导出详细的类型定义，你可以查看 API 文档的 <a href="./globals.html">Global</a> 页面，该页面列出了所有 SDK 导出的模块和类型。</p>
+				<p>对于 Typescript 开发者，我们提供了 <code>.d.ts</code> 文件导出详细的类型定义。你可以查看 API 文档的 <a href="./globals.html">Global</a> 页面，该页面列出了所有 SDK 导出的模块和类型。</p>
 				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> AgoraRTC, { IAgoraRTCClient } <span class="hljs-keyword">from</span> <span class="hljs-string">"agora-web-sdk-ng"</span>;
 
 <span class="hljs-keyword">const</span> client: IAgoraRTCClient = AgoraRTC.createClient();</code></pre>
@@ -344,9 +418,6 @@
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/remotevideotrackstats.html" class="tsd-kind-icon">Remote<wbr>Video<wbr>Track<wbr>Stats</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="interfaces/retryconfiguration.html" class="tsd-kind-icon">Retry<wbr>Configuration</a>
-					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/screenvideotrackinitconfig.html" class="tsd-kind-icon">Screen<wbr>Video<wbr>Track<wbr>Init<wbr>Config</a>
 					</li>
@@ -397,6 +468,12 @@
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#agorartc" class="tsd-kind-icon">AgoraRTC</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#support_screen_encoder_config_list" class="tsd-kind-icon">SUPPORT_<wbr>SCREEN_<wbr>ENCODER_<wbr>CONFIG_<wbr>LIST</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#support_video_encoder_config_list" class="tsd-kind-icon">SUPPORT_<wbr>VIDEO_<wbr>ENCODER_<wbr>CONFIG_<wbr>LIST</a>
 					</li>
 				</ul>
 			</nav>

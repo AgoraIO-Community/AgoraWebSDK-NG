@@ -49,6 +49,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Statistics of the call, which can be retrieved from <a href="iagorartcclient.html#getrtcstats">AgoraRTCClient.getRTCStats</a>.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -85,6 +92,11 @@
 					<div class="tsd-signature tsd-kind-icon">Duration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Call duration in seconds.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="outgoingavailablebandwidth" class="tsd-anchor"></a>
@@ -92,6 +104,11 @@
 					<div class="tsd-signature tsd-kind-icon">Outgoing<wbr>Available<wbr>Bandwidth<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The estimated bandwidth (Kbps) of the uplink network.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="rtt" class="tsd-anchor"></a>
@@ -99,6 +116,11 @@
 					<div class="tsd-signature tsd-kind-icon">RTT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>RTT (Round-Trip Time) between the SDK and Agora&#39;s edge server, in ms.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="recvbitrate" class="tsd-anchor"></a>
@@ -106,6 +128,11 @@
 					<div class="tsd-signature tsd-kind-icon">Recv<wbr>Bitrate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The total bitrate (bps) of the received audio and video, represented by an instantaneous value.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="recvbytes" class="tsd-anchor"></a>
@@ -113,6 +140,11 @@
 					<div class="tsd-signature tsd-kind-icon">Recv<wbr>Bytes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The total number of bytes received, represented by an aggregate value.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="sendbitrate" class="tsd-anchor"></a>
@@ -120,6 +152,11 @@
 					<div class="tsd-signature tsd-kind-icon">Send<wbr>Bitrate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The total bitrate (bps) of the sent audio and video, represented by an instantaneous value.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="sendbytes" class="tsd-anchor"></a>
@@ -127,6 +164,11 @@
 					<div class="tsd-signature tsd-kind-icon">Send<wbr>Bytes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The total number of bytes sent, represented by an aggregate value.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="usercount" class="tsd-anchor"></a>
@@ -134,6 +176,19 @@
 					<div class="tsd-signature tsd-kind-icon">User<wbr>Count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The number of users in the channel.</p>
+						</div>
+						<ul>
+							<li>Communication profile: The number of users in the channel.</li>
+							<li>Live Broadcast profile:<ul>
+									<li>If the local user is an audience: The number of users in the channel = The number of hosts in the channel + 1.</li>
+									<li>If the local user is a host: The number of users in the channel = The number of hosts in the channel.</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</section>
 			</section>
 		</div>

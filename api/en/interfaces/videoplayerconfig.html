@@ -52,7 +52,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Video playback configurations for a video track.</p>
+						<p>Playback configurations for a video track. Set the playback configurations for a video track when calling <a href="ilocalvideotrack.html#play">ILocalVideoTrack.play</a>.</p>
 					</div>
 				</div>
 			</section>
@@ -88,18 +88,18 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Sets the video display mode:</p>
+							<p>Sets video display mode:</p>
 							<ul>
-								<li><code>&quot;cover&quot;</code>: The image filles the height and width of the box, whilst maintaining its aspect ratio but often cropping the image in the process. For more information, see the <code>cover</code> option of <code>object-fit</code> in CSS.</li>
-								<li><code>&quot;contain&quot;</code>: The size of the image increases or decreases to fill the box whilst preserving its aspect-ratio. Areas that are not filled due to the disparity in the aspect ratio are filled with black. For more information, see the <code>contain</code> option of <code>object-fit</code> in CSS.</li>
+								<li><code>&quot;cover&quot;</code>: The image files the height and width of the box, while maintaining its aspect ratio but often cropping the image in the process. For more information, see the <code>cover</code> option of <code>object-fit</code> in CSS.</li>
+								<li><code>&quot;contain&quot;</code>: The size of the image increases or decreases to fill the box while preserving its aspect-ratio. Areas that are not filled due to the disparity in the aspect ratio are filled with black. For more information, see the <code>contain</code> option of <code>object-fit</code> in CSS.</li>
 								<li><code>&quot;fill&quot;</code>: The image stretches to fit the box, regardless of its aspect-ratio. For more information, see the <code>fill</code> option of <code>object-fit</code> in CSS.</li>
 							</ul>
 						</div>
 						<blockquote>
 							<p>Notes:</p>
 							<ul>
-								<li>When playing the local camera video track, the SDK uses the cover mode by default; and when playing the local video of screen sharing, the SDK uses the contain mode by default.</li>
-								<li>When playing the remote video track, the SDK uses the cover mode by default.</li>
+								<li>When playing the local camera video track, the SDK uses cover mode by default; when playing the local video track of screen sharing, the SDK uses contain mode by default.</li>
+								<li>When playing the remote video track, the SDK uses cover mode by default.</li>
 							</ul>
 						</blockquote>
 					</div>
@@ -110,6 +110,22 @@
 					<div class="tsd-signature tsd-kind-icon">mirror<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Sets whether to enable mirror mode:</p>
+							<ul>
+								<li><code>true</code>: Enable mirror mode.</li>
+								<li><code>false</code>: Disable mirror mode.</li>
+							</ul>
+						</div>
+						<blockquote>
+							<p>Notes:</p>
+							<ul>
+								<li>The SDK enables mirror mode for the local video track by default.</li>
+								<li>The SDK disables mirror mode for the remote video track by default.</li>
+							</ul>
+						</blockquote>
+					</div>
 				</section>
 			</section>
 		</div>

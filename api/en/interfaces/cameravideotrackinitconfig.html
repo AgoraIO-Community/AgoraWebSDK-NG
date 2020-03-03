@@ -49,6 +49,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The configurations for the video track from the video captured by a camera. Set these configurations when calling <a href="iagorartc.html#createcameravideotrack">AgoraRTC.createCameraVideoTrack</a>.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -80,6 +87,12 @@
 					<div class="tsd-signature tsd-kind-icon">camera<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies the camera ID.</p>
+						</div>
+						<p>You can get a list of available cameras by calling <a href="iagorartc.html#getcameras">AgoraRTC.getCameras</a>.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="encoderconfig" class="tsd-anchor"></a>
@@ -87,6 +100,16 @@
 					<div class="tsd-signature tsd-kind-icon">encoder<wbr>Config<span class="tsd-signature-symbol">:</span> <a href="videoencoderconfiguration.html" class="tsd-signature-type">VideoEncoderConfiguration</a><span class="tsd-signature-symbol"> | </span><a href="../globals.html#videoencoderconfigurationpreset" class="tsd-signature-type">VideoEncoderConfigurationPreset</a></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The video encoder configurations.</p>
+						</div>
+						<p>You can set the video encoder configurations in either of the following ways:</p>
+						<ul>
+							<li>Pass the preset video encoder configurations with <a href="../globals.html#videoencoderconfigurationpreset">VideoEncoderConfigurationPreset</a>.</li>
+							<li>Pass your customized audio encoder configurations with <a href="videoencoderconfiguration.html">VideoEncoderConfiguration</a>.</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="facingmode" class="tsd-anchor"></a>
@@ -94,6 +117,16 @@
 					<div class="tsd-signature tsd-kind-icon">facing<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"user"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"environment"</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether to user the front camera or the rear camera.</p>
+						</div>
+						<p>On mobile devices, you can set this parameter to choose between the front camera and the rear camera:</p>
+						<ul>
+							<li><code>&quot;user&quot;</code>: The front camera.</li>
+							<li><code>&quot;environment&quot;</code>: The rear camera.</li>
+						</ul>
+					</div>
 				</section>
 			</section>
 		</div>

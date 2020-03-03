@@ -49,6 +49,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Configurations for the injected online stream in <a href="iagorartcclient.html#addinjectstreamurl">AgoraRTCClient.addInjectStreamUrl</a>.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -85,6 +92,12 @@
 					<div class="tsd-signature tsd-kind-icon">audio<wbr>Bitrate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Audio bitrate (Kbps) of the added stream to the broadcast.</p>
+						</div>
+						<p>Positive integer. The default value is 48.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="audiochannels" class="tsd-anchor"></a>
@@ -92,6 +105,12 @@
 					<div class="tsd-signature tsd-kind-icon">audio<wbr>Channels<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Number of audio channels of the injected stream.</p>
+						</div>
+						<p>Positive integer. The default value is 1. The value range is [1, 2].</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="audiosamplerate" class="tsd-anchor"></a>
@@ -99,6 +118,19 @@
 					<div class="tsd-signature tsd-kind-icon">audio<wbr>Sample<wbr>Rate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Audio sampling rate of the added stream to the broadcast.</p>
+						</div>
+						<ul>
+							<li>32000: 32 kHz</li>
+							<li>44100: (Default) 44.1 kHz</li>
+							<li>48000: 48 kHz</li>
+						</ul>
+						<blockquote>
+							<p>Agora recommends that you stay with the default value and not reset it at this point of time.</p>
+						</blockquote>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="height" class="tsd-anchor"></a>
@@ -106,6 +138,12 @@
 					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Height of the injected stream.</p>
+						</div>
+						<p>The default value is 0, which is the same height as the original stream.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="videobitrate" class="tsd-anchor"></a>
@@ -113,6 +151,12 @@
 					<div class="tsd-signature tsd-kind-icon">video<wbr>Bitrate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Video bitrate (Kbps) of the injected stream.</p>
+						</div>
+						<p>Positive integer. The default value is 400.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="videoframerate" class="tsd-anchor"></a>
@@ -120,6 +164,12 @@
 					<div class="tsd-signature tsd-kind-icon">video<wbr>Framerate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Video frame rate (fps) of the injected stream.</p>
+						</div>
+						<p>Positive integer. The default value is 15.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="videogop" class="tsd-anchor"></a>
@@ -134,6 +184,12 @@
 					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Width of the injected stream.</p>
+						</div>
+						<p>The default value is 0, which is the same width as the original stream.</p>
+					</div>
 				</section>
 			</section>
 		</div>

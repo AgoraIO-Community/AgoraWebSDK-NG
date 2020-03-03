@@ -52,7 +52,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>通过本地音频文件/在线音频文件/<code>AudioBuffer</code>方式创建音频流时的配置参数，用于 <a href="iagorartc.html#createbuffersourceaudiotrack">AgoraRTC.createBufferSourceAudioTrack</a></p>
+						<p>通过本地音频文件/在线音频文件/<code>AudioBuffer</code>方式创建音频流时的配置参数，用于 <a href="iagorartc.html#createbuffersourceaudiotrack">AgoraRTC.createBufferSourceAudioTrack</a>。</p>
 					</div>
 				</div>
 			</section>
@@ -89,7 +89,11 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>是否缓存线上文件，默认关闭</p>
+							<p>是否缓存线上文件:</p>
+							<ul>
+								<li><code>true</code>: 缓存线上文件。</li>
+								<li><code>false</code>: （默认）不缓存线上文件。</li>
+							</ul>
 						</div>
 					</div>
 				</section>
@@ -101,9 +105,9 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>控制音频的编码配置，您可以传入 SDK 为您内置的一些编码配置（<a href="../globals.html#audioencoderconfigurationpreset">AudioEncoderConfigurationPreset</a>）。
-							也可以通过传入一个 <a href="audioencoderconfiguration.html">AudioEncoderConfiguration</a> 来自定义您的音频编码配置。</p>
+							<p>控制音频的编码配置。</p>
 						</div>
+						<p>你可以通过 <a href="../globals.html#audioencoderconfigurationpreset">AudioEncoderConfigurationPreset</a> 传入 SDK 内置的编码配置；也可以通过传入一个 <a href="audioencoderconfiguration.html">AudioEncoderConfiguration</a> 来自定义音频编码配置。</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -116,9 +120,9 @@
 						<div class="lead">
 							<p>音频数据源，支持 3 种类型：</p>
 							<ul>
-								<li><code>File</code>: 浏览器标准的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/File">File</a> 对象，表示一个本地文件</li>
-								<li><code>string</code>: 表示从线上 HTTPS 地址获取在线音频文件(请确保音频在线地址支持 HTTPS 和 CORS)</li>
-								<li><code>AudioBuffer</code>: 浏览器标准的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer">AudioBuffer</a> 对象表示 PCM 原始数据</li>
+								<li><code>File</code>: 浏览器标准的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/File">File</a> 对象，表示一个本地文件。</li>
+								<li><code>string</code>: 表示从线上 HTTPS 地址获取在线音频文件(请确保音频在线地址支持 HTTPS 和 CORS)。</li>
+								<li><code>AudioBuffer</code>: 浏览器标准的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer">AudioBuffer</a> 对象表示 PCM 原始数据。</li>
 							</ul>
 						</div>
 					</div>

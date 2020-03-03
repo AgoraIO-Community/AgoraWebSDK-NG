@@ -117,22 +117,17 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>标记该轨道是否 Mute。</p>
+							<p>标记该轨道是否 Mute：</p>
+							<ul>
+								<li><code>true</code>: 该轨道 Mute。</li>
+								<li><code>false</code>: 该轨道 Unmute。</li>
+							</ul>
 						</div>
 						<p>Mute 后，本地轨道依然会发送音频/视频数据：</p>
 						<ul>
 							<li>Mute 视频轨道后，发送黑帧。</li>
 							<li>Mute 音频轨道后，发送静音帧。</li>
 						</ul>
-						<dl class="tsd-comment-tags">
-							<dt>returns</dt>
-							<dd><p>该轨道的 Mute 状态：</p>
-								<ul>
-									<li><code>true</code>: 该轨道 Mute。</li>
-									<li><code>false</code>: 该轨道 Unmute。</li>
-								</ul>
-							</dd>
-						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
@@ -235,7 +230,7 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MediaStreamTrack</span></h4>
-							<p>(<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack</a>) 对象。</p>
+							<p>一个 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> 对象。</p>
 						</li>
 					</ul>
 				</section>
@@ -298,7 +293,7 @@
 									<p>获取当前本地轨道对应的 <code>uid</code>。</p>
 								</div>
 								<blockquote>
-									<p>如果当前流没有发布，那么就不属于任何一个用户，该方法返回 <code>null</code>。</p>
+									<p>如果当前轨道没有发布，那么就不属于任何一个用户，该方法返回 <code>null</code>。</p>
 								</blockquote>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span>
@@ -419,7 +414,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Plays the video track on the web page.</p>
+									<p>在页面上播放本地视频轨道。</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -427,17 +422,17 @@
 								<li>
 									<h5>element: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Specifies a DOM element. The SDK will create a <code>&lt;video&gt;</code> element under the specified DOM element to play the video track. You can specify a DOM element in either of following ways:</p>
+										<p>指定一个 DOM 元素，SDK 将在这个元素下创建 <code>&lt;video&gt;</code> 元素播放视频轨道，支持 2 种类型：</p>
 										<ul>
-											<li><code>string</code>: Specify the ID of the DOM element.</li>
-											<li><code>HTMLElement</code>: Pass a DOM object.</li>
+											<li><code>string</code>: 指定该 DOM 元素的 ID 值。</li>
+											<li><code>HTMLElement</code>: 直接传入一个 DOM 元素对象。</li>
 										</ul>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <a href="videoplayerconfig.html" class="tsd-signature-type">VideoPlayerConfig</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Sets the playback configurations, such as the display mode and mirror mode. By default, the SDK enables mirror mode for a local video track.</p>
+										<p>设置播放参数（镜像/显示模式）。对于本地视频轨道，镜像模式默认开启。</p>
 									</div>
 								</li>
 							</ul>
@@ -598,12 +593,12 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the mute state of the local track.</p>
+									<p>设置本地轨道的 Mute 状态。</p>
 								</div>
-								<p>After a local track is muted, it still sends audio or video data:</p>
+								<p>Mute 后，本地轨道依然会发送音频/视频数据：</p>
 								<ul>
-									<li>A muted local audio track sends silenced audio frames.</li>
-									<li>A muted local video track sends black video frames.</li>
+									<li>Mute 视频轨道后，发送黑帧。</li>
+									<li>Mute 音频轨道后，发送静音帧。</li>
 								</ul>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -611,10 +606,10 @@
 								<li>
 									<h5>muted: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The mute state of the local track:</p>
+										<p>本地轨道的 Mute 状态：</p>
 										<ul>
-											<li><code>true</code>: Mute the local track.</li>
-											<li><code>false</code>: Unmute the local track.</li>
+											<li><code>true</code>: Mute 本地轨道。</li>
+											<li><code>false</code>: Unmute 本地轨道。</li>
 										</ul>
 									</div>
 								</li>

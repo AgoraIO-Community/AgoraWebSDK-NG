@@ -49,6 +49,17 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Configurations of the media stream relay.</p>
+					</div>
+					<p>Use this interface to set the media stream relay when calling <a href="iagorartcclient.html#startchannelmediarelay">startChannelMediaRelay</a> or <a href="iagorartcclient.html#updatechannelmediarelay">updateChannelMediaRelay</a>.</p>
+					<pre><code class="language-javascript"><span class="hljs-keyword">const</span> configuration = <span class="hljs-keyword">new</span> AgoraRTC.ChannelMediaRelayConfiguration();
+configuration.setSrcChannelInfo({ <span class="hljs-attr">channelName</span>: <span class="hljs-string">"test"</span>, <span class="hljs-attr">token</span>: <span class="hljs-string">"xxx"</span>, <span class="hljs-attr">uid</span>: <span class="hljs-number">12345</span> });
+configuration.addDestChannelInfo({ <span class="hljs-attr">channelName</span>: <span class="hljs-string">"test2"</span>, <span class="hljs-attr">token</span>: <span class="hljs-string">"xxx"</span>, <span class="hljs-attr">uid</span>: <span class="hljs-number">23456</span> });</code></pre>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -84,10 +95,22 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a destination channel.</p>
+								</div>
+								<p>To relay a media stream across multiple channels, call this method as many times (to a maximum of four).</p>
+								<pre><code class="language-javascript"><span class="hljs-keyword">const</span> config = <span class="hljs-keyword">new</span> ChannelMediaRelayConfiguration();
+config.addDestChannelInfo({ <span class="hljs-attr">channelName</span>: <span class="hljs-string">"test2"</span>, <span class="hljs-attr">token</span>: <span class="hljs-string">"xxx"</span>, <span class="hljs-attr">uid</span>: <span class="hljs-number">23456</span> });
+config.addDestChannelInfo({ <span class="hljs-attr">channelName</span>: <span class="hljs-string">"test3"</span>, <span class="hljs-attr">token</span>: <span class="hljs-string">"xxx"</span>, <span class="hljs-attr">uid</span>: <span class="hljs-number">23457</span> });</code></pre>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>info: <a href="channelmediarelayinfo.html" class="tsd-signature-type">ChannelMediaRelayInfo</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The information of the destination channel.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -104,10 +127,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes the destination channel added through <a href="ichannelmediarelayconfiguration.html#adddestchannelinfo">addDestChannelInfo</a>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>channelName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The name of the destination channel to be removed.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -124,10 +155,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the information of the source channel.</p>
+								</div>
+								<pre><code class="language-javascript"><span class="hljs-keyword">const</span> config = <span class="hljs-keyword">new</span> ChannelMediaRelayConfiguration();
+config.setSrcChannelInfo({ <span class="hljs-attr">channelName</span>: <span class="hljs-string">"test"</span>, <span class="hljs-attr">token</span>: <span class="hljs-string">"xxx"</span>, <span class="hljs-attr">uid</span>: <span class="hljs-number">123456</span> });</code></pre>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>info: <a href="channelmediarelayinfo.html" class="tsd-signature-type">ChannelMediaRelayInfo</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The information of the source channel.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

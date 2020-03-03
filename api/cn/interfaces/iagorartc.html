@@ -148,7 +148,7 @@
 								<li>
 									<h5>config: <a href="clientconfig.html" class="tsd-signature-type">ClientConfig</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>客户端的配置，包括通话场景、编码格式、重连策略等，默认使用 <code>vp8</code> 编码，<code>rtc</code> 通话场景。详见 <a href="clientconfig.html">ClientConfig</a>。</p>
+										<p>客户端的配置，包括通话场景、编码格式等，默认使用 <code>vp8</code> 编码，<code>rtc</code> 通话场景。详见 <a href="clientconfig.html">ClientConfig</a>。</p>
 									</div>
 								</li>
 							</ul>
@@ -323,30 +323,42 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>创建用于屏幕共享的视频轨道。</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>config: <a href="screenvideotrackinitconfig.html" class="tsd-signature-type">ScreenVideoTrackInitConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>屏幕共享的视频配置，包括编码配置、采集配置等。</p>
+									</div>
 								</li>
 								<li>
 									<h5>withAudio: <span class="tsd-signature-type">true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>标记屏幕共享时是否同时分享设备输出的音频。</p>
+										<ul>
+											<li><code>true</code>: 分享设备输出的音频。</li>
+											<li><code>false</code>: 不分享设备输出的音频。<blockquote>
+													<p>注意事项：</p>
+													<ul>
+														<li>该功能仅支持 Windows 平台下的 Chrome 浏览器 73 及以上版本。</li>
+														<li>设置了 <code>withAudio</code> 为 <code>true</code> 后，还需要在屏幕共享的弹出框上，勾选<strong>分享音频</strong>才能真正生效。</li>
+													</ul>
+												</blockquote>
+											</li>
+										</ul>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">, </span><a href="ilocalaudiotrack.html" class="tsd-signature-type">ILocalAudioTrack</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>config: <a href="screenvideotrackinitconfig.html" class="tsd-signature-type">ScreenVideoTrackInitConfig</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> withAudio: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span></h5>
-								</li>
+							<ul>
+								<li>如果 <code>withAudio</code> 设为 <code>true</code>，返回包含屏幕共享视频轨道和一个音频轨道的列表。</li>
+								<li>如果 <code>withAudio</code> 设为 <code>false</code> 或未设置，返回屏幕共享的视频轨道。</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
@@ -355,6 +367,56 @@
 								<div class="lead">
 									<p>创建用于屏幕共享的视频轨道。</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>category</dt>
+									<dd><p>Local Track</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>config: <a href="screenvideotrackinitconfig.html" class="tsd-signature-type">ScreenVideoTrackInitConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>屏幕共享的视频配置，包括编码配置、采集配置等。</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> withAudio: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>标记屏幕共享时是否同时分享设备输出的音频。</p>
+										<ul>
+											<li><code>true</code>: 分享设备输出的音频。</li>
+											<li><code>false</code>: 不分享设备输出的音频。<blockquote>
+													<p>注意事项：</p>
+													<ul>
+														<li>该功能仅支持 Windows 平台下的 Chrome 浏览器 73 及以上版本。</li>
+														<li>设置了 <code>withAudio</code> 为 <code>true</code> 后，还需要在屏幕共享的弹出框上，勾选<strong>分享音频</strong>才能真正生效。</li>
+													</ul>
+												</blockquote>
+											</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<ul>
+								<li>如果 <code>withAudio</code> 设为 <code>true</code>，返回包含屏幕共享视频轨道和一个音频轨道的列表。</li>
+								<li>如果 <code>withAudio</code> 设为 <code>false</code> 或未设置，返回屏幕共享的视频轨道。</li>
+							</ul>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>创建用于屏幕共享的视频轨道。</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>category</dt>
+									<dd><p>Local Track</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -407,7 +469,7 @@
 								<div class="lead">
 									<p>关闭日志上传。</p>
 								</div>
-								<p>日志上传默认是关闭状态，如果你调用了开启日志上传（[enableLogUpload]{@link IAgoraLogger.enableLogUpload})，可以通过本方法停止上传日志。</p>
+								<p>日志上传默认是关闭状态，如果你调用了开启日志上传（<a href="iagorartc.html#enablelogupload">enableLogUpload</a>)，可以通过本方法停止上传日志。</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -610,7 +672,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>创建跨频道媒体流转发的配置对象</p>
+									<p>创建跨频道媒体流转发的配置对象。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="ichannelmediarelayconfiguration.html" class="tsd-signature-type">IChannelMediaRelayConfiguration</a></h4>

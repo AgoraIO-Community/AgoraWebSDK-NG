@@ -49,6 +49,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The configurations for the audio track from the audio captured by a microphone. Set these configurations when calling <a href="iagorartc.html#createmicrophoneaudiotrack">AgoraRTC.createMicrophoneAudioTrack</a>.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -67,7 +74,6 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="microphoneaudiotrackinitconfig.html#aec" class="tsd-kind-icon">AEC</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="microphoneaudiotrackinitconfig.html#agc" class="tsd-kind-icon">AGC</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="microphoneaudiotrackinitconfig.html#ans" class="tsd-kind-icon">ANS</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="microphoneaudiotrackinitconfig.html#dtx" class="tsd-kind-icon">DTX</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="microphoneaudiotrackinitconfig.html#encoderconfig" class="tsd-kind-icon">encoder<wbr>Config</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="microphoneaudiotrackinitconfig.html#microphoneid" class="tsd-kind-icon">microphone<wbr>Id</a></li>
 							</ul>
@@ -83,6 +89,11 @@
 					<div class="tsd-signature tsd-kind-icon">AEC<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether to enable automatic noise suppression.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="agc" class="tsd-anchor"></a>
@@ -90,6 +101,11 @@
 					<div class="tsd-signature tsd-kind-icon">AGC<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether to enable audio gain control.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="ans" class="tsd-anchor"></a>
@@ -97,13 +113,11 @@
 					<div class="tsd-signature tsd-kind-icon">ANS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 					<aside class="tsd-sources">
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="dtx" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> DTX</h3>
-					<div class="tsd-signature tsd-kind-icon">DTX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
-					<aside class="tsd-sources">
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether to enable automatic noise suppression.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="encoderconfig" class="tsd-anchor"></a>
@@ -111,6 +125,16 @@
 					<div class="tsd-signature tsd-kind-icon">encoder<wbr>Config<span class="tsd-signature-symbol">:</span> <a href="audioencoderconfiguration.html" class="tsd-signature-type">AudioEncoderConfiguration</a><span class="tsd-signature-symbol"> | </span><a href="../globals.html#audioencoderconfigurationpreset" class="tsd-signature-type">AudioEncoderConfigurationPreset</a></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The audio encoder configurations.</p>
+						</div>
+						<p>You can set the audio encoder configurations in either of the following ways:</p>
+						<ul>
+							<li>Pass the preset audio encoder configurations with <a href="../globals.html#audioencoderconfigurationpreset">AudioEncoderConfigurationPreset</a>.</li>
+							<li>Pass your customized audio encoder configurations with <a href="audioencoderconfiguration.html">AudioEncoderConfiguration</a>.</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="microphoneid" class="tsd-anchor"></a>
@@ -118,6 +142,12 @@
 					<div class="tsd-signature tsd-kind-icon">microphone<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies the microphone ID.</p>
+						</div>
+						<p>You can get a list of available microphones by calling <a href="iagorartc.html#getmicrophones">AgoraRTC.getMicrophones</a>.</p>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -144,9 +174,6 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="microphoneaudiotrackinitconfig.html#ans" class="tsd-kind-icon">ANS</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="microphoneaudiotrackinitconfig.html#dtx" class="tsd-kind-icon">DTX</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="microphoneaudiotrackinitconfig.html#encoderconfig" class="tsd-kind-icon">encoder<wbr>Config</a>

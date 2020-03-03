@@ -52,7 +52,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>远端音频 Track 的连接/传输/等基本信息，可以通过 <a href="iremoteaudiotrack.html#getstats">RemoteAudioTrack.getStats</a> 获取</p>
+						<p>远端音频轨道的统计数据，包括连接、传输等基本信息，可以通过 <a href="iremoteaudiotrack.html#getstats">RemoteAudioTrack.getStats</a> 获取。</p>
 					</div>
 				</div>
 			</section>
@@ -100,8 +100,15 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>音频的编码格式，在 Firefox 上暂时无法获取这个值</p>
+							<p>音频的编码格式。</p>
 						</div>
+						<ul>
+							<li><code>opus</code>: 音频编码格式为 OPUS。</li>
+							<li><code>aac</code>: 音频编码格式为 AAC。</li>
+						</ul>
+						<blockquote>
+							<p>Firefox 上无法获取该值。</p>
+						</blockquote>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -112,7 +119,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>音频端到端延迟（ms）</p>
+							<p>音频端到端延迟（ms）。</p>
 						</div>
 						<p>从远端采集音频到本地播放音频的延迟。</p>
 					</div>
@@ -125,7 +132,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的音频卡顿率</p>
+							<p>接收的音频卡顿率。</p>
 						</div>
 					</div>
 				</section>
@@ -137,7 +144,11 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>音频是否被静音</p>
+							<p>是否静音。</p>
+							<ul>
+								<li><code>true</code>: 音频静音。</li>
+								<li><code>false</code>: 音频未静音。</li>
+							</ul>
 						</div>
 					</div>
 				</section>
@@ -149,7 +160,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的音频丢包率</p>
+							<p>接收的音频丢包率。</p>
 						</div>
 					</div>
 				</section>
@@ -161,7 +172,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的音频比特率 bits/s</p>
+							<p>接收的音频码率（bps）。</p>
 						</div>
 					</div>
 				</section>
@@ -173,7 +184,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的音频总字节数</p>
+							<p>接收的音频总字节数。</p>
 						</div>
 					</div>
 				</section>
@@ -185,9 +196,9 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收音频延迟 (ms)</p>
+							<p>接收音频延迟 (ms)。</p>
 						</div>
-						<p>从发送到接收端播放音频的延迟时间</p>
+						<p>从发送到接收端播放音频的延迟时间。</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -198,10 +209,11 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的音频音量等级，范围在 [0 - 32767]</p>
+							<p>接收的音频音量等级，范围为 [0,32767]。</p>
 						</div>
-						<p>这里的值是通过 WebRTC-Stats 获取，不能保证实时性，如果您想获取当前实时的音量等级，
-						请参考 [RemoteStream.getAudioLevel]{@link IStream.getAudioLevel}</p>
+						<blockquote>
+							<p>该值通过 WebRTC-Stats 获取，不能确保实时性。如果你想获取当前实时的音量等级，调用 <a href="iremoteaudiotrack.html#getvolumelevel">RemoteAudioTrack.getVolumeLevel</a>。</p>
+						</blockquote>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -212,7 +224,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的音频总包数</p>
+							<p>接收的音频总包数。</p>
 						</div>
 					</div>
 				</section>
@@ -224,7 +236,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的音频总丢包数</p>
+							<p>接收的音频总丢包数。</p>
 						</div>
 					</div>
 				</section>
@@ -236,7 +248,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的音频总时长</p>
+							<p>接收的音频总时长，单位为秒。</p>
 						</div>
 					</div>
 				</section>
@@ -248,7 +260,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的音频总卡顿时长</p>
+							<p>接收的音频总卡顿时长，单位为秒。</p>
 						</div>
 					</div>
 				</section>
@@ -260,7 +272,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>传输延迟（ms)</p>
+							<p>传输延迟（ms)。</p>
 						</div>
 						<p>从远端发送音频到本地接收音频的延迟。</p>
 					</div>

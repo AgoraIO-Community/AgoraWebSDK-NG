@@ -52,7 +52,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>远端视频 Track 的连接/传输/等基本信息，可以通过 <a href="iremotevideotrack.html#getstats">RemoteVideoTrack.getStats</a> 获取</p>
+						<p>远端视频轨道的统计数据，包括连接、传输等基本信息，可以通过 <a href="iremotevideotrack.html#getstats">RemoteVideoTrack.getStats</a> 获取。</p>
 					</div>
 				</div>
 			</section>
@@ -104,8 +104,15 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>视频编码格式，Firefox 上暂时无法获取这个值</p>
+							<p>视频编码格式。</p>
 						</div>
+						<ul>
+							<li><code>&quot;H264&quot;</code>: 视频编码格式为 H.264。</li>
+							<li><code>&quot;VP8&quot;</code>: 视频编码格式为 VP8。</li>
+						</ul>
+						<blockquote>
+							<p>Firefox 上无法获取该值。</p>
+						</blockquote>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -116,7 +123,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>视频解码帧率</p>
+							<p>视频解码帧率（fps）。</p>
 						</div>
 					</div>
 				</section>
@@ -128,7 +135,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>视频端到端延迟（ms）</p>
+							<p>视频端到端延迟（ms）。</p>
 						</div>
 						<p>从远端采集视频到本地播放视频的延迟。</p>
 					</div>
@@ -141,7 +148,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的视频卡顿率</p>
+							<p>接收的视频卡顿率。</p>
 						</div>
 					</div>
 				</section>
@@ -153,7 +160,11 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>视频是否被静音</p>
+							<p>视频是否黑屏。</p>
+							<ul>
+								<li><code>true</code>: 视频黑屏。</li>
+								<li><code>false</code>: 视频未黑屏。</li>
+							</ul>
 						</div>
 					</div>
 				</section>
@@ -165,7 +176,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的视频丢包率</p>
+							<p>接收的视频丢包率。</p>
 						</div>
 					</div>
 				</section>
@@ -177,7 +188,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的视频比特率 bits/s</p>
+							<p>接收的视频码率（bps）。</p>
 						</div>
 					</div>
 				</section>
@@ -189,7 +200,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的视频总字节数</p>
+							<p>接收的视频总字节数。</p>
 						</div>
 					</div>
 				</section>
@@ -201,9 +212,9 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收视频延迟 (ms)</p>
+							<p>接收视频延迟 (ms)。</p>
 						</div>
-						<p>从发送到接收端播放视频的延迟时间</p>
+						<p>从发送到接收端播放视频的延迟时间。</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -214,7 +225,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>视频接收帧率</p>
+							<p>视频接收帧率（fps）。</p>
 						</div>
 					</div>
 				</section>
@@ -226,7 +237,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的视频总包数</p>
+							<p>接收的视频总包数。</p>
 						</div>
 					</div>
 				</section>
@@ -238,7 +249,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的视频总丢包数</p>
+							<p>接收的视频总丢包数。</p>
 						</div>
 					</div>
 				</section>
@@ -250,7 +261,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的视频分辨率高度</p>
+							<p>接收的视频分辨率高度。</p>
 						</div>
 					</div>
 				</section>
@@ -262,7 +273,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的视频分辨率宽度</p>
+							<p>接收的视频分辨率宽度。</p>
 						</div>
 					</div>
 				</section>
@@ -274,7 +285,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>视频渲染帧率</p>
+							<p>视频渲染帧率（fps）。</p>
 						</div>
 					</div>
 				</section>
@@ -286,7 +297,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的视频总时长</p>
+							<p>接收的视频总时长，单位为秒。</p>
 						</div>
 					</div>
 				</section>
@@ -298,7 +309,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>接收的视频总卡顿时长</p>
+							<p>接收的视频总卡顿时长，单位为秒。</p>
 						</div>
 					</div>
 				</section>
@@ -310,9 +321,9 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>传输延迟（ms)</p>
+							<p>传输延迟（ms)。</p>
 						</div>
-						<p>从远端发送音频到本地接收音频的延迟。</p>
+						<p>从远端发送视频到本地接收视频的延迟。</p>
 					</div>
 				</section>
 			</section>

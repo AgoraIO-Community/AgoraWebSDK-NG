@@ -77,9 +77,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="clientconfig.html#codec" class="tsd-kind-icon">codec</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="clientconfig.html#mode" class="tsd-kind-icon">mode</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="clientconfig.html#proxyserver" class="tsd-kind-icon">proxy<wbr>Server</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="clientconfig.html#role" class="tsd-kind-icon">role</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="clientconfig.html#turnserver" class="tsd-kind-icon">turn<wbr>Server</a></li>
 							</ul>
 						</section>
 					</div>
@@ -114,26 +112,13 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Agora Web SDK 会根据应用程序的使用场景, 使用不同的优化手段。</p>
+							<p>Agora Web SDK 需知道 app 的使用场景（例如通信场景或直播场景），从而使用不同的优化手段。</p>
 						</div>
 						<p>Agora 频道支持以下场景:</p>
 						<ul>
 							<li><code>&quot;live&quot;</code>: 直播场景，有主播和观众两种用户角色，可以通过 <a href="iagorartcclient.html#setclientrole">setClientRole</a> 方法设置主播和观众的角色。主播可以收发音视频流，而观众只能接收音视频流，无法发送。</li>
 							<li><code>&quot;rtc&quot;</code>: 通信场景，用于常见的一对一通话或群聊，频道中的任何用户可以自由说话。</li>
 						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="proxyserver" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> proxy<wbr>Server</h3>
-					<div class="tsd-signature tsd-kind-icon">proxy<wbr>Server<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>HTTP 代理服务器域名。</p>
-						</div>
-						<p>Agora Web SDK 还提供 <a href="iagorartcclient.html#startproxyserver">startProxyServer</a> 方法支持云代理服务，详见使用云代理。</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -149,19 +134,6 @@
 						<p>如果 <a href="clientconfig.html#mode">mode</a> 设置为 <code>live</code>, 可以通过本参数设置用户角色，默认角色为主播（host）；</p>
 						<p>角色为 <code>host</code> 的用户没有限制，角色为 <code>audience</code> 的用户不能进行 <a href="iagorartcclient.html#publish">publish</a> 操作。</p>
 						<p>在创建客户端之后，你可以随时调用 <a href="iagorartcclient.html#setclientrole">setClientRole</a> 来改变用户角色。</p>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="turnserver" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> turn<wbr>Server</h3>
-					<div class="tsd-signature tsd-kind-icon">turn<wbr>Server<span class="tsd-signature-symbol">:</span> <a href="turnserverconfig.html" class="tsd-signature-type">TurnServerConfig</a></div>
-					<aside class="tsd-sources">
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>TURN 服务器设置。</p>
-						</div>
-						<p>Agora Web SDK 还提供 <a href="iagorartcclient.html#startproxyserver">startProxyServer</a> 方法支持云代理服务，详见使用云代理。</p>
 					</div>
 				</section>
 			</section>
@@ -188,13 +160,7 @@
 								<a href="clientconfig.html#mode" class="tsd-kind-icon">mode</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="clientconfig.html#proxyserver" class="tsd-kind-icon">proxy<wbr>Server</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="clientconfig.html#role" class="tsd-kind-icon">role</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="clientconfig.html#turnserver" class="tsd-kind-icon">turn<wbr>Server</a>
 							</li>
 						</ul>
 					</li>

@@ -49,6 +49,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Information of the local audio track, which can be retrieved from LocalVideoTrack.getStats]<a href="ilocalvideotrack.html#getstats">ILocalVideoTrack.getStats</a>.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -84,6 +91,18 @@
 					<div class="tsd-signature tsd-kind-icon">codec<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"opus"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"aac"</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The audio codec.</p>
+						</div>
+						<ul>
+							<li><code>opus</code>: The audio codec is OPUS。</li>
+							<li><code>aac</code>: The audio codec is AAC。<blockquote>
+									<p>Firefox does not support this property.</p>
+								</blockquote>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="mutestate" class="tsd-anchor"></a>
@@ -91,6 +110,15 @@
 					<div class="tsd-signature tsd-kind-icon">mute<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether the audio is muted.</p>
+							<ul>
+								<li><code>true</code>: The audio is muted.</li>
+								<li><code>false</code>: The audio is not muted.</li>
+							</ul>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="sendbitrate" class="tsd-anchor"></a>
@@ -98,6 +126,11 @@
 					<div class="tsd-signature tsd-kind-icon">send<wbr>Bitrate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The bitrate (bps) of the sent audio.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="sendbytes" class="tsd-anchor"></a>
@@ -105,6 +138,11 @@
 					<div class="tsd-signature tsd-kind-icon">send<wbr>Bytes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The total bytes of the sent audio.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="sendpackets" class="tsd-anchor"></a>
@@ -112,6 +150,11 @@
 					<div class="tsd-signature tsd-kind-icon">send<wbr>Packets<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The total packets of the sent audio.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="sendpacketslost" class="tsd-anchor"></a>
@@ -119,6 +162,11 @@
 					<div class="tsd-signature tsd-kind-icon">send<wbr>Packets<wbr>Lost<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The total number of lost packets of the sent audio.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="sendvolumelevel" class="tsd-anchor"></a>
@@ -126,6 +174,15 @@
 					<div class="tsd-signature tsd-kind-icon">send<wbr>Volume<wbr>Level<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The energy level of the sent audio.</p>
+						</div>
+						<p>The value range is [0,32767].</p>
+						<blockquote>
+							<p>This value is retrieved from WebRTC-Stats and may not be up-to-date. To get the realtime audio energy level, call <a href="ilocalaudiotrack.html#getvolumelevel">LocalAudioTrack.getVolumeLevel</a>.</p>
+						</blockquote>
+					</div>
 				</section>
 			</section>
 		</div>

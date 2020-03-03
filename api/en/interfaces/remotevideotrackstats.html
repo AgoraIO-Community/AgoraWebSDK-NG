@@ -49,6 +49,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Statistics of the remote video track, such as the connection and transmission statistics, which can be retrieved from <a href="iremotevideotrack.html#getstats">RemoteVideoTrack.getStats</a>.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -95,6 +102,18 @@
 					<div class="tsd-signature tsd-kind-icon">codec<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"H264"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"VP8"</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The video codec.</p>
+						</div>
+						<ul>
+							<li><code>&quot;H264&quot;</code>: The video codec is H.264.</li>
+							<li><code>&quot;VP8&quot;</code>: The video codec is VP8.</li>
+						</ul>
+						<blockquote>
+							<p>Firefox does not support this property.</p>
+						</blockquote>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="decodeframerate" class="tsd-anchor"></a>
@@ -102,6 +121,11 @@
 					<div class="tsd-signature tsd-kind-icon">decode<wbr>Frame<wbr>Rate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The frame rate (fps) of the decoded video.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="end2enddelay" class="tsd-anchor"></a>
@@ -109,6 +133,12 @@
 					<div class="tsd-signature tsd-kind-icon">end2<wbr>End<wbr>Delay<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>End-to-end delay (ms).</p>
+						</div>
+						<p>Delay from capturing to playing the video.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="freezerate" class="tsd-anchor"></a>
@@ -116,6 +146,11 @@
 					<div class="tsd-signature tsd-kind-icon">freeze<wbr>Rate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The freeze rate of the received video.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="mutestate" class="tsd-anchor"></a>
@@ -123,6 +158,15 @@
 					<div class="tsd-signature tsd-kind-icon">mute<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether the video is muted, namely sending black video frames.</p>
+							<ul>
+								<li><code>true</code>: The video is muted.</li>
+								<li><code>false</code>: The video is not muted.</li>
+							</ul>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="packetlossrate" class="tsd-anchor"></a>
@@ -130,6 +174,11 @@
 					<div class="tsd-signature tsd-kind-icon">packet<wbr>Loss<wbr>Rate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The packet loss rate of the received video.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="receivebitrate" class="tsd-anchor"></a>
@@ -137,6 +186,11 @@
 					<div class="tsd-signature tsd-kind-icon">receive<wbr>Bitrate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The bitrate (bps) of the received video.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="receivebytes" class="tsd-anchor"></a>
@@ -144,6 +198,11 @@
 					<div class="tsd-signature tsd-kind-icon">receive<wbr>Bytes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The total byes of the received video.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="receivedelay" class="tsd-anchor"></a>
@@ -151,6 +210,11 @@
 					<div class="tsd-signature tsd-kind-icon">receive<wbr>Delay<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Delay (ms) from sending to playing the video.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="receiveframerate" class="tsd-anchor"></a>
@@ -158,6 +222,11 @@
 					<div class="tsd-signature tsd-kind-icon">receive<wbr>Frame<wbr>Rate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The frame rate (fps) of the received video.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="receivepackets" class="tsd-anchor"></a>
@@ -165,6 +234,11 @@
 					<div class="tsd-signature tsd-kind-icon">receive<wbr>Packets<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The total bytes of the received video.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="receivepacketslost" class="tsd-anchor"></a>
@@ -172,6 +246,11 @@
 					<div class="tsd-signature tsd-kind-icon">receive<wbr>Packets<wbr>Lost<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The total number of lost packets of the received video.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="receiveresolutionheight" class="tsd-anchor"></a>
@@ -179,6 +258,11 @@
 					<div class="tsd-signature tsd-kind-icon">receive<wbr>Resolution<wbr>Height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The resolution height (pixel) of the received video.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="receiveresolutionwidth" class="tsd-anchor"></a>
@@ -186,6 +270,11 @@
 					<div class="tsd-signature tsd-kind-icon">receive<wbr>Resolution<wbr>Width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The resolution width (pixel) of the received video.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="renderframerate" class="tsd-anchor"></a>
@@ -193,6 +282,11 @@
 					<div class="tsd-signature tsd-kind-icon">render<wbr>Frame<wbr>Rate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The rendering frame rate (fps) of the decoded video.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="totalduration" class="tsd-anchor"></a>
@@ -200,6 +294,11 @@
 					<div class="tsd-signature tsd-kind-icon">total<wbr>Duration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The total duration of the received video, in seconds.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="totalfreezetime" class="tsd-anchor"></a>
@@ -207,6 +306,11 @@
 					<div class="tsd-signature tsd-kind-icon">total<wbr>Freeze<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The total freeze time of the received video, in seconds.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="transportdelay" class="tsd-anchor"></a>
@@ -214,6 +318,12 @@
 					<div class="tsd-signature tsd-kind-icon">transport<wbr>Delay<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Transport delay (ms).</p>
+						</div>
+						<p>Delay from sending to receiving the video.</p>
+					</div>
 				</section>
 			</section>
 		</div>

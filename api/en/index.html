@@ -47,8 +47,8 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#agora-web-sdk-ng-api-docs" id="agora-web-sdk-ng-api-docs" style="color: inherit; text-decoration: none;">
-					<h1>Agora Web SDK NG API Docs</h1>
+				<a href="#agora-web-sdk-ng-api-reference" id="agora-web-sdk-ng-api-reference" style="color: inherit; text-decoration: none;">
+					<h1>Agora Web SDK NG API Reference</h1>
 				</a>
 				<p>The Agora Web SDK NG (WebRTC) is a JavaScript library loaded by an HTML web page. The Agora Web SDK NG library uses APIs in the web browser to establish connections and control the communication and live broadcast services.</p>
 				<blockquote>
@@ -61,8 +61,8 @@
 					<li>We recommend reading the <a href="/AgoraWebSDK-NG/docs/en/overview/">Basic Features Documentation</a> before reading the API details.</li>
 					<li>You can use the search button at the top of the page to quickly search for the API you want to see</li>
 				</ul>
-				<a href="#basic-modules" id="basic-modules" style="color: inherit; text-decoration: none;">
-					<h2>Basic Modules</h2>
+				<a href="#basic-module" id="basic-module" style="color: inherit; text-decoration: none;">
+					<h2>Basic Module</h2>
 				</a>
 				<p><a href="interfaces/iagorartc.html">AgoraRTC</a> is the entry point for all the methods that can be called in Agora Web SDK NG.</p>
 				<p><a href="interfaces/iagorartc.html">AgoraRTC</a> provides the following methods:</p>
@@ -97,7 +97,7 @@
 						</tr>
 						<tr>
 							<td><a href="interfaces/iagorartc.html#createcameravideotrack">createCameraVideoTrack</a></td>
-							<td>Creates an video track from the video captured by a camera</td>
+							<td>Creates a video track from the video captured by a camera</td>
 						</tr>
 						<tr>
 							<td><a href="interfaces/iagorartc.html#createscreenvideotrack">createScreenVideoTrack</a></td>
@@ -189,17 +189,92 @@
 							<td>create a ChannelMediaRelayConfiguration object</td>
 						</tr>
 				</tbody></table>
+				<a href="#main-modules" id="main-modules" style="color: inherit; text-decoration: none;">
+					<h2>Main Modules</h2>
+				</a>
+				<a href="#agorartcclient" id="agorartcclient" style="color: inherit; text-decoration: none;">
+					<h3>AgoraRTCClient</h3>
+				</a>
+				<p>Call <a href="interfaces/iagorartc.html#createclient">createClient</a> to create an <a href="interfaces/iagorartcclient.html">AgoraRTCClient</a> object，which represents a local user in the communication or live broadcast.The <code>AgoraRTCClient</code> interface provides the major functions for a voice/video communication or live broadcast.</p>
+				<table>
+					<thead>
+						<tr>
+							<th>Method</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><a href="interfaces/iagorartcclient.html#join">join</a></td>
+							<td>Allows a user to join a channel.</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/iagorartcclient.html#leave">leave</a></td>
+							<td>Allows a user to leave a channel.</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/iagorartcclient.html#publish">publish</a></td>
+							<td>Publishes local audio and/or video tracks to a channel.</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/iagorartcclient.html#unpublish">unpublish</a></td>
+							<td>Unpublishes local audio and/or video tracks.</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/iagorartcclient.html#subscribe">subscribe</a></td>
+							<td>Subscribes to audio and/or video tracks of a remote user.</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/iagorartcclient.html#unsubscribe">unsubscribe</a></td>
+							<td>Unsubscribes from the audio and/or tracks of a remote user.</td>
+						</tr>
+				</tbody></table>
+				<a href="#localtrack-and-remotetrack" id="localtrack-and-remotetrack" style="color: inherit; text-decoration: none;">
+					<h3>LocalTrack and RemoteTrack</h3>
+				</a>
+				<p>The <a href="interfaces/ilocaltrack.html">LocalTrack</a> and <a href="interfaces/iremotetrack.html">RemoteTrack</a> objects represent the local and remote tracks respectively.</p>
+				<p>To get a local track:</p>
+				<ul>
+					<li>Call <a href="interfaces/iagorartc.html#createmicrophoneaudiotrack">AgoraRTC.createMicrophoneAudioTrack</a> to get a local audio track.</li>
+					<li>Call <a href="interfaces/iagorartc.html#createcameravideotrack">AgoraRTC.createCameraVideoTrack</a> to get a local video track.</li>
+				</ul>
+				<p>To get a remote track: First call <a href="interfaces/iagorartcclient.html#subscribe">subscribe</a> to subscribe to a remote user, and then get the remote audio and video tracks from <a href="interfaces/iagorartcremoteuser.html">AgoraRTCRemoteUser</a>.</p>
+				<p>A audio and/or video stream consist of an audio track and/or a video track. Due to the limitation of Agora，an <code>AgoraRTCClient</code> object can only publish a stream, which includes at most an audio track and a video track. An <code>AgoraRTCClient</code> object can publish multiple audio tracks but only one video track. The SDK automatically mixes the audio tracks into one when publishing.</p>
+				<table>
+					<thead>
+						<tr>
+							<th>Method</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><a href="interfaces/ilocalvideotrack.html#play">LocalAudioTrack.play</a></td>
+							<td>Plays the local audio track</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/ilocalvideotrack.html#play">LocalVideoTrack.play</a></td>
+							<td>Plays the local video track</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/iremoteaudiotrack.html#play">RemoteAudioTrack.play</a></td>
+							<td>Plays the remote audio track</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/iremotevideotrack.html#play">RemoteVideoTrack.play</a></td>
+							<td>Plays the remote video track</td>
+						</tr>
+				</tbody></table>
 				<a href="#how-to-import" id="how-to-import" style="color: inherit; text-decoration: none;">
 					<h2>How to import</h2>
 				</a>
-				<p>If you use <code>&lt;script&gt;</code> to import Agora Web SDK NG, you can call <code>window.AgoraRTC</code> to get the export methods.</p>
-				<p>If you use <code>npm</code> to import Agora Web SDK NG, just import it:</p>
+				<p>If you use <code>&lt;script&gt;</code> to import Agora Web SDK NG, you can call <a href="interfaces/iagorartc.html#createclient">AgoraRTC.createClient</a> to get the exported methods.</p>
+				<p>If you use <code>npm</code> to import Agora Web SDK NG, see the following code:</p>
 				<pre><code class="language-js"><span class="hljs-keyword">import</span> AgoraRTC <span class="hljs-keyword">from</span> <span class="hljs-string">"agora-web-sdk-ng"</span>
 <span class="hljs-built_in">console</span>.log(AgoraRTC.createClient);</code></pre>
 				<a href="#typed-modules-for-typescript" id="typed-modules-for-typescript" style="color: inherit; text-decoration: none;">
 					<h2>Typed Modules (For Typescript)</h2>
 				</a>
-				<pre><code class="language-ts"><span class="hljs-keyword">import</span> AgoraRTC, { IAgoraRTCClient } <span class="hljs-keyword">from</span> <span class="hljs-string">"agora-web-sdk-ng"</span>
+				<p>For Typescript developers, we provide a <code>.d.ts</code> to export all type definitions. See <a href="./globals.html">Global</a> for all modules and types that Agora Web SDK NG exports.</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> AgoraRTC, { IAgoraRTCClient } <span class="hljs-keyword">from</span> <span class="hljs-string">"agora-web-sdk-ng"</span>
 
 <span class="hljs-keyword">const</span> client: IAgoraRTCClient = AgoraRTC.createClient()</code></pre>
 			</div>
@@ -231,9 +306,6 @@
 					</li>
 					<li class=" tsd-kind-enum">
 						<a href="enums/remotestreamtype.html" class="tsd-kind-icon">Remote<wbr>Stream<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
-						<a href="classes/eventemitter.html" class="tsd-kind-icon">Event<wbr>Emitter</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/agorartcstats.html" class="tsd-kind-icon">AgoraRTCStats</a>
@@ -292,9 +364,6 @@
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/ichannelmediarelayconfiguration.html" class="tsd-kind-icon">IChannel<wbr>Media<wbr>Relay<wbr>Configuration</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="interfaces/ielectronnativeimage.html" class="tsd-kind-icon">IElectron<wbr>Native<wbr>Image</a>
-					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/ilocalaudiotrack.html" class="tsd-kind-icon">ILocal<wbr>Audio<wbr>Track</a>
 					</li>
@@ -352,9 +421,6 @@
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/remotevideotrackstats.html" class="tsd-kind-icon">Remote<wbr>Video<wbr>Track<wbr>Stats</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-is-not-exported">
-						<a href="interfaces/retryconfiguration.html" class="tsd-kind-icon">Retry<wbr>Configuration</a>
-					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/screenvideotrackinitconfig.html" class="tsd-kind-icon">Screen<wbr>Video<wbr>Track<wbr>Init<wbr>Config</a>
 					</li>
@@ -409,50 +475,8 @@
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#agorartc" class="tsd-kind-icon">AgoraRTC</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="globals.html#support_screen_encoder_config_list" class="tsd-kind-icon">SUPPORT_<wbr>SCREEN_<wbr>ENCODER_<wbr>CONFIG_<wbr>LIST</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="globals.html#support_video_encoder_config_list" class="tsd-kind-icon">SUPPORT_<wbr>VIDEO_<wbr>ENCODER_<wbr>CONFIG_<wbr>LIST</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_camera_changed" class="tsd-kind-icon">event_<wbr>camera_<wbr>changed</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_channel_media_relay_event" class="tsd-kind-icon">event_<wbr>channel_<wbr>media_<wbr>relay_<wbr>event</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_channel_media_relay_state" class="tsd-kind-icon">event_<wbr>channel_<wbr>media_<wbr>relay_<wbr>state</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_connection_state_change" class="tsd-kind-icon">event_<wbr>connection_<wbr>state_<wbr>change</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_crypt_error" class="tsd-kind-icon">event_<wbr>crypt_<wbr>error</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_exception" class="tsd-kind-icon">event_<wbr>exception</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_microphone_changed" class="tsd-kind-icon">event_<wbr>microphone_<wbr>changed</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_network_quality" class="tsd-kind-icon">event_<wbr>network_<wbr>quality</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_token_privilege_did_expire" class="tsd-kind-icon">event_<wbr>token_<wbr>privilege_<wbr>did_<wbr>expire</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_token_privilege_will_expire" class="tsd-kind-icon">event_<wbr>token_<wbr>privilege_<wbr>will_<wbr>expire</a>
-					</li>
 					<li class=" tsd-kind-function tsd-is-not-exported">
 						<a href="globals.html#event_track_ended" class="tsd-kind-icon">event_<wbr>track_<wbr>ended</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_user_mute_updated" class="tsd-kind-icon">event_<wbr>user_<wbr>mute_<wbr>updated</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#event_volume_indicator" class="tsd-kind-icon">event_<wbr>volume_<wbr>indicator</a>
 					</li>
 				</ul>
 			</nav>

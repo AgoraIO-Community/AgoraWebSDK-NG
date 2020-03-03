@@ -49,6 +49,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Channel information in the media relay, used in <a href="ichannelmediarelayconfiguration.html">ChannelMediaRelayConfiguration</a>.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -80,6 +87,11 @@
 					<div class="tsd-signature tsd-kind-icon">channel<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The channel name.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="token" class="tsd-anchor"></a>
@@ -87,6 +99,11 @@
 					<div class="tsd-signature tsd-kind-icon">token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The token generated with the <code>channelName</code> and <code>uid</code>. Do not set this parameter if you have not enabled token.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="uid" class="tsd-anchor"></a>
@@ -94,6 +111,14 @@
 					<div class="tsd-signature tsd-kind-icon">uid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The unique ID to identify the relay stream.</p>
+						</div>
+						<p>A 32-bit unsigned integer with a value ranging from 0 to (2<sup>32</sup>-1). If you set it as <code>0</code>, the server assigns a random one.</p>
+						<p>When used for the source channel, it is the ID to identify the relay stream in the source channel.</p>
+						<p>When used for the destination channel, it is the ID to identify the relay stream in the destination channel.  To avoid UID conflicts, this value must be different from any other user IDs in the destination channel.</p>
+					</div>
 				</section>
 			</section>
 		</div>

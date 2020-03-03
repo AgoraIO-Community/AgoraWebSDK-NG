@@ -142,7 +142,7 @@
 								<li>
 									<h5>config: <a href="clientconfig.html" class="tsd-signature-type">ClientConfig</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The configurations for the client object, including channel mode, codec, and reconnection strategy. The default codec is <code>vp8</code> and default channel mode is <code>rtc</code>. See <a href="clientconfig.html">ClientConfig</a> for details.</p>
+										<p>The configurations for the client object, including channel profile and codec. The default codec is <code>vp8</code> and default channel profile is <code>rtc</code>. See <a href="clientconfig.html">ClientConfig</a> for details.</p>
 									</div>
 								</li>
 							</ul>
@@ -317,30 +317,42 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a video track for screen sharing.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>config: <a href="screenvideotrackinitconfig.html" class="tsd-signature-type">ScreenVideoTrackInitConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Configurations for the screen-sharing video, such as encoder configuration and capture configuration.</p>
+									</div>
 								</li>
 								<li>
 									<h5>withAudio: <span class="tsd-signature-type">true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Marks whether to share the audio of the audio output device when sharing the screen.</p>
+										<ul>
+											<li><code>true</code>: Share the audio.</li>
+											<li><code>false</code>: Do not share the audio.<blockquote>
+													<p>Note:</p>
+													<ul>
+														<li>This function is only supported on Chrome 73 or later on Windows.</li>
+														<li>For the audio sharing to take effect, the user must check <strong>Share audio</strong> in the pop-up window when sharing the screen.</li>
+													</ul>
+												</blockquote>
+											</li>
+										</ul>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">, </span><a href="ilocalaudiotrack.html" class="tsd-signature-type">ILocalAudioTrack</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>config: <a href="screenvideotrackinitconfig.html" class="tsd-signature-type">ScreenVideoTrackInitConfig</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> withAudio: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span></h5>
-								</li>
+							<ul>
+								<li>A list containing a video track for screen sharing and an audio track, if <code>withAudio</code> is <code>true</code>.</li>
+								<li>A video track for screen-sharing, if <code>withAudio</code> is <code>false</code> or undefined.</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
@@ -349,6 +361,56 @@
 								<div class="lead">
 									<p>Creates a video track for screen sharing.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>category</dt>
+									<dd><p>Local Track</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>config: <a href="screenvideotrackinitconfig.html" class="tsd-signature-type">ScreenVideoTrackInitConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Configurations for the screen-sharing video, such as encoder configuration and capture configuration.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> withAudio: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Marks whether to share the audio of the audio output device when sharing the screen.</p>
+										<ul>
+											<li><code>true</code>: Share the audio.</li>
+											<li><code>false</code>: Do not share the audio.<blockquote>
+													<p>Note:</p>
+													<ul>
+														<li>This function is only supported on Chrome 73 or later on Windows.</li>
+														<li>For the audio sharing to take effect, the user must check <strong>Share audio</strong> in the pop-up window when sharing the screen.</li>
+													</ul>
+												</blockquote>
+											</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<ul>
+								<li>A list containing a video track for screen sharing and an audio track, if <code>withAudio</code> is <code>true</code>.</li>
+								<li>A video track for screen-sharing, if <code>withAudio</code> is <code>false</code> or undefined.</li>
+							</ul>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a video track for screen sharing.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>category</dt>
+									<dd><p>Local Track</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -602,6 +664,11 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates an object for configuring the media stream relay.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="ichannelmediarelayconfiguration.html" class="tsd-signature-type">IChannelMediaRelayConfiguration</a></h4>
 						</li>
 					</ul>

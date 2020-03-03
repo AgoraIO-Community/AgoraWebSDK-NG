@@ -49,6 +49,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The configurations for the audio track from an audio file or <code>AudioBuffer</code> object. Set these configurations when calling <a href="iagorartc.html#createbuffersourceaudiotrack">AgoraRTC.createBufferSourceAudioTrack</a>.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -80,6 +87,15 @@
 					<div class="tsd-signature tsd-kind-icon">cache<wbr>Online<wbr>File<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Sets whether to cache the online file:</p>
+							<ul>
+								<li><code>true</code>: Cache the online file.</li>
+								<li><code>false</code>: (default) Do not cache the online file.</li>
+							</ul>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="encoderconfig" class="tsd-anchor"></a>
@@ -87,6 +103,16 @@
 					<div class="tsd-signature tsd-kind-icon">encoder<wbr>Config<span class="tsd-signature-symbol">:</span> <a href="audioencoderconfiguration.html" class="tsd-signature-type">AudioEncoderConfiguration</a><span class="tsd-signature-symbol"> | </span><a href="../globals.html#audioencoderconfigurationpreset" class="tsd-signature-type">AudioEncoderConfigurationPreset</a></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The audio encoder configurations.</p>
+						</div>
+						<p>You can set the audio encoder configurations in either of the following ways:</p>
+						<ul>
+							<li>Pass the preset audio encoder configurations with <a href="../globals.html#audioencoderconfigurationpreset">AudioEncoderConfigurationPreset</a>.</li>
+							<li>Pass your customized audio encoder configurations with <a href="audioencoderconfiguration.html">AudioEncoderConfiguration</a>.</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="source" class="tsd-anchor"></a>
@@ -94,6 +120,16 @@
 					<div class="tsd-signature tsd-kind-icon">source<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">File</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AudioBuffer</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The type of the audio source:</p>
+							<ul>
+								<li><code>File</code>: An <a href="https://developer.mozilla.org/en-US/docs/Web/API/File">File</a> object, representing a local audio file.</li>
+								<li><code>string</code>: The online audio file retrieved from an HTTPS address. Ensure the address supports HTTPS and CORS.</li>
+								<li><code>AudioBuffer</code>: An <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer">AudioBuffer</a> object, representing the raw data in PCM format.</li>
+							</ul>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>

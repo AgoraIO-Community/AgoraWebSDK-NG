@@ -52,12 +52,12 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>基础本地音频流，提供了本地音频流的主要功能。</p>
+						<p>基础本地音频轨道，提供了本地音频轨道的主要功能。</p>
 					</div>
 					<p>可以通过 <a href="iagorartc.html#createcustomaudiotrack">AgoraRTC.createCustomVideoTrack</a> 来获取。</p>
 					<ul>
-						<li>通过麦克风采集到的本地音频流对象 <a href="imicrophoneaudiotrack.html">MicrophoneAudioTrack</a> 继承于此接口，并在本接口的基础上提供了一些麦克风流独有的功能。</li>
-						<li>通过音频文件获取到的本地音频流对象 <a href="ibuffersourceaudiotrack.html">BufferSourceAudioTrack</a> 继承于此接口，并在本接口的基础上提供了一些音频文件流独有的功能。</li>
+						<li>通过麦克风采集到的本地音频轨道对象 <a href="imicrophoneaudiotrack.html">MicrophoneAudioTrack</a> 继承于此接口，并在本接口的基础上提供了一些麦克风独有的功能。</li>
+						<li>通过音频文件获取到的本地音频轨道对象 <a href="ibuffersourceaudiotrack.html">BufferSourceAudioTrack</a> 继承于此接口，并在本接口的基础上提供了一些音频文件独有的功能。</li>
 					</ul>
 				</div>
 			</section>
@@ -128,22 +128,17 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>标记该轨道是否 Mute。</p>
+							<p>标记该轨道是否 Mute：</p>
+							<ul>
+								<li><code>true</code>: 该轨道 Mute。</li>
+								<li><code>false</code>: 该轨道 Unmute。</li>
+							</ul>
 						</div>
 						<p>Mute 后，本地轨道依然会发送音频/视频数据：</p>
 						<ul>
 							<li>Mute 视频轨道后，发送黑帧。</li>
 							<li>Mute 音频轨道后，发送静音帧。</li>
 						</ul>
-						<dl class="tsd-comment-tags">
-							<dt>returns</dt>
-							<dd><p>该轨道的 Mute 状态：</p>
-								<ul>
-									<li><code>true</code>: 该轨道 Mute。</li>
-									<li><code>false</code>: 该轨道 Unmute。</li>
-								</ul>
-							</dd>
-						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
@@ -246,7 +241,7 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MediaStreamTrack</span></h4>
-							<p>(<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack</a>) 对象。</p>
+							<p>一个 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> 对象。</p>
 						</li>
 					</ul>
 				</section>
@@ -263,7 +258,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取音频流的质量相关信息。</p>
+									<p>获取音频轨道的质量相关信息。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="localaudiotrackstats.html" class="tsd-signature-type">LocalAudioTrackStats</a></h4>
@@ -307,7 +302,7 @@
 									<p>获取当前本地轨道对应的 <code>uid</code>。</p>
 								</div>
 								<blockquote>
-									<p>如果当前流没有发布，那么就不属于任何一个用户，该方法返回 <code>null</code>。</p>
+									<p>如果当前轨道没有发布，那么就不属于任何一个用户，该方法返回 <code>null</code>。</p>
 								</blockquote>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span>
@@ -330,7 +325,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取本地音频流的音量等级。</p>
+									<p>获取本地音频轨道的音量等级。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -499,12 +494,12 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the mute state of the local track.</p>
+									<p>设置本地轨道的 Mute 状态。</p>
 								</div>
-								<p>After a local track is muted, it still sends audio or video data:</p>
+								<p>Mute 后，本地轨道依然会发送音频/视频数据：</p>
 								<ul>
-									<li>A muted local audio track sends silenced audio frames.</li>
-									<li>A muted local video track sends black video frames.</li>
+									<li>Mute 视频轨道后，发送黑帧。</li>
+									<li>Mute 音频轨道后，发送静音帧。</li>
 								</ul>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -512,10 +507,10 @@
 								<li>
 									<h5>muted: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The mute state of the local track:</p>
+										<p>本地轨道的 Mute 状态：</p>
 										<ul>
-											<li><code>true</code>: Mute the local track.</li>
-											<li><code>false</code>: Unmute the local track.</li>
+											<li><code>true</code>: Mute 本地轨道。</li>
+											<li><code>false</code>: Unmute 本地轨道。</li>
 										</ul>
 									</div>
 								</li>
@@ -536,7 +531,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>设置本地音频流的音量。</p>
+									<p>设置本地音频轨道的音量。</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>

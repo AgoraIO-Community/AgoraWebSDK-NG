@@ -158,8 +158,6 @@
 							</ul>
 							<h3>Proxy Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#setproxyserver" class="tsd-kind-icon">set<wbr>Proxy<wbr>Server</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#setturnserver" class="tsd-kind-icon">set<wbr>Turn<wbr>Server</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#startproxyserver" class="tsd-kind-icon">start<wbr>Proxy<wbr>Server</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#stopproxyserver" class="tsd-kind-icon">stop<wbr>Proxy<wbr>Server</a></li>
 							</ul>
@@ -329,7 +327,7 @@
 								<div class="lead">
 									<p>解密失败回调。</p>
 								</div>
-								<p>该回调表示用户在订阅流过程中出现了解密失败，通常是由于和发布端设置的加密参数不一致导致的。详见 <a href="iagorartcclient.html#setencryptionconfig">setEncryptionConfig</a>。</p>
+								<p>该回调表示用户在订阅过程中出现了解密失败，通常是由于和发布端设置的加密参数不一致导致的。详见 <a href="iagorartcclient.html#setencryptionconfig">setEncryptionConfig</a>。</p>
 								<dl class="tsd-comment-tags">
 									<div></div>
 								</dl>
@@ -473,8 +471,8 @@
 									<p>音频采集设备状态变化回调。</p>
 								</div>
 								<p>该回调提示有音频采集设备被添加或移除。</p>
-								<pre><code class="language-javascript">client.on(<span class="hljs-string">"recording-device-changed"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Recording Device Changed"</span>, evt.state, evt.device);
+								<pre><code class="language-javascript">client.on(<span class="hljs-string">"microphone-changed"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Microphone Changed"</span>, evt.state, evt.device);
   });
 </code></pre>
 								<dl class="tsd-comment-tags">
@@ -776,14 +774,14 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>远端流音视频流的 mute 状态发生改变回调。</p>
+									<p>远端用户音视频轨道的 Mute 状态发生改变回调。</p>
 								</div>
-								<p>你可以通过 <a href="iagorartcremoteuser.html#audiomuted">user.audioMuted</a> 或者 <a href="iagorartcremoteuser.html#videomuted">user.videoMuted</a> 来获取当前音视频的 mute 状态。</p>
+								<p>该回调表示远端用户停止或恢复发送音频/视频，当远端用户调用 <a href="ilocaltrack.html#setmute">LocalTrack.setMute</a> 后会触发该回调。</p>
+								<p>你可以通过 <a href="iagorartcremoteuser.html#audiomuted">user.audioMuted</a> 或者 <a href="iagorartcremoteuser.html#videomuted">user.videoMuted</a> 来获取当前音视频的 Mute 状态。</p>
 								<ul>
-									<li>如果 <code>audioMuted</code> 为 <code>true</code>，说明远端音频处于 mute 状态，正在发送静音包。</li>
-									<li>如果 <code>videoMuted</code> 为 <code>true</code>, 说明远端视频处于 mute 状态，正在发送黑屏包。</li>
+									<li>如果 <code>audioMuted</code> 为 <code>true</code>，说明远端音频轨道处于 Mute 状态，即在发送静音包。</li>
+									<li>如果 <code>videoMuted</code> 为 <code>true</code>, 说明远端视频轨道处于 Mute 状态，即在发送黑屏包。</li>
 								</ul>
-								<p>该回调表示远端用户停止或恢复发送音频/视频，当远端用户调用 [LocalStream.setMuteState]{@link ILocalStream.setMuteState} 后会触发该回调。</p>
 								<dl class="tsd-comment-tags">
 									<div></div>
 								</dl>
@@ -950,7 +948,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>远端用户信息列表，包含频道中各个远端用户的用户 ID 和流信息。</p>
+							<p>远端用户信息列表，包含频道中各个远端用户的用户 ID 和轨道信息。</p>
 						</div>
 						<p>如果本地用户没有加入频道，该列表为空。</p>
 					</div>
@@ -1072,13 +1070,13 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>发布本地音视频流。</p>
+									<p>发布本地音视频轨道。</p>
 								</div>
-								<p>该方法将本地音视频流发布至频道中。</p>
-								<p>发布音视频流之后，远端会触发 <a href="iagorartcclient.html#event_user_published">AgoraRTCClient.on(&quot;user-published&quot;)</a> 回调。</p>
+								<p>该方法将本地音视频轨道发布至频道中。</p>
+								<p>发布音视频轨道之后，远端会触发 <a href="iagorartcclient.html#event_user_published">AgoraRTCClient.on(&quot;user-published&quot;)</a> 回调。</p>
 								<p>在直播场景里，角色为主播的用户才能调用该方法。</p>
 								<blockquote>
-									<p>允许发布多个音频流，SDK 会自动混流，但是视频流只能发布一个。</p>
+									<p>一个 <code>AgoraRTCClient</code> 对象可以发布多个音频轨道，SDK 会自动混音（将多个音频轨道合并为一个音频轨道），但是视频轨道只能发布一个。</p>
 								</blockquote>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1086,7 +1084,7 @@
 								<li>
 									<h5>tracks: <a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol"> | </span><a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>通过 [AgoraRTC.createMicrophoneTrack]{@link IAgoraRTC.createMicrophoneTrack} / [AgoraRTC.createCameraTrack]{@link IAgoraRTC.createCameraTrack} 或其他方法创建的本地 Track 对象。</p>
+										<p>通过 <a href="iagorartc.html#createmicrophoneaudiotrack">AgoraRTC.createMicrophoneAudioTrack</a> / <a href="iagorartc.html#createcameravideotrack">AgoraRTC.createCameraTrack</a> 或其他方法创建的本地 Track 对象。</p>
 									</div>
 								</li>
 							</ul>
@@ -1106,11 +1104,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>订阅远端音视频</p>
+									<p>订阅远端用户的音视频轨道。</p>
 								</div>
-								<blockquote>
-									<p>如果远端没有指定的音视频流将会抛出 <code>TRACK_IS_NOT_PUBLISHED</code></p>
-								</blockquote>
 								<pre><code class="language-javascript"><span class="hljs-keyword">await</span> client.subscribe(user，<span class="hljs-string">"audio"</span>);
 user.audioTrack.play();</code></pre>
 							</div>
@@ -1119,24 +1114,27 @@ user.audioTrack.play();</code></pre>
 								<li>
 									<h5>user: <a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>远端用户对象</p>
+										<p>远端用户对象。</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mediaType: <span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>控制取消订阅的范围</p>
+										<p>订阅的轨道媒体类型。</p>
 										<ul>
-											<li><code>&quot;video&quot;</code>: 订阅指定用户的视频，如果该用户没有发布视频会抛出 <code>TRACK_IS_NOT_SUBSCRIBED</code></li>
-											<li><code>“audio”</code>: 订阅指定用户的音频，如果该用户没有发布音频会抛出 <code>TRACK_IS_NOT_SUBSCRIBED</code></li>
-											<li><code>&quot;all&quot;</code> 或者不填: 订阅指定用户的音频和视频</li>
+											<li><code>&quot;video&quot;</code>: 仅订阅指定用户发布的视频轨道。</li>
+											<li><code>“audio”</code>: 仅订阅指定用户发布的音频轨道。</li>
+											<li><code>&quot;all&quot;</code> 或者不填: 订阅指定用户发布的所有轨道。</li>
 										</ul>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>订阅的异步操作完成后，订阅的结果会在 <a href="iagorartcremoteuser.html#audiotrack">user.audioTrack</a> 和 <a href="iagorartcremoteuser.html#videotrack">user.videoTrack</a> 上更新
+							<p>订阅的异步操作完成后，订阅的内容会在 <a href="iagorartcremoteuser.html#audiotrack">user.audioTrack</a> 和 <a href="iagorartcremoteuser.html#videotrack">user.videoTrack</a> 上更新，
 							之后直接调用 <a href="iremoteaudiotrack.html#play">user.audioTrack.play</a> 或 <a href="iremotevideotrack.html#play">user.videoTrack.play</a> 就可以播放了。</p>
+							<blockquote>
+								<p>如果指定要订阅的音视频轨道不存在会抛出 <code>TRACK_IS_NOT_PUBLISHED</code> 错误。</p>
+							</blockquote>
 						</li>
 					</ul>
 				</section>
@@ -1152,16 +1150,16 @@ user.audioTrack.play();</code></pre>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>取消发布本地音视频流。</p>
+									<p>取消发布本地音视频轨道。</p>
 								</div>
-								<p>取消发布音视频流之后，远端会触发 <a href="iagorartcclient.html#event_user_unpublished">AgoraRTCClient.on(&quot;user-unpublished&quot;)</a> 回调。</p>
+								<p>取消发布音视频轨道之后，远端会触发 <a href="iagorartcclient.html#event_user_unpublished">AgoraRTCClient.on(&quot;user-unpublished&quot;)</a> 回调。</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> tracks: <a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol"> | </span><a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>如果留空，就将所有发布过的音视频流取消发布</p>
+										<p>要取消发布的轨道。如果留空，会将所有发布过的音视频轨道取消发布。</p>
 									</div>
 								</li>
 							</ul>
@@ -1181,7 +1179,7 @@ user.audioTrack.play();</code></pre>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>取消订阅远端音视频</p>
+									<p>取消订阅远端用户的音视频轨道。</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1189,22 +1187,23 @@ user.audioTrack.play();</code></pre>
 								<li>
 									<h5>user: <a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>远端用户对象</p>
+										<p>远端用户对象。</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mediaType: <span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>控制取消订阅的范围</p>
+										<p>取消订阅的轨道媒体类型。</p>
 										<ul>
-											<li><code>&quot;video&quot;</code>: 只取消订阅指定用户的视频，如果没有订阅视频会抛出 <code>TRACK_IS_NOT_SUBSCRIBED</code></li>
-											<li><code>“audio”</code>: 只取消订阅指定用户的音频，如果没有订阅音频会抛出 <code>TRACK_IS_NOT_SUBSCRIBED</code></li>
-											<li>&quot;all&quot; 或者不填：取消对这个用户的音视频订阅</li>
+											<li><code>&quot;video&quot;</code>: 仅取消订阅指定用户的视频轨道。</li>
+											<li><code>“audio”</code>: 仅取消订阅指定用户的音频轨道。</li>
+											<li><code>&quot;all&quot;</code> 或者不填：取消订阅这个用户发布的所有轨道。</li>
 										</ul>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>如果指定的音视频轨道不存在会抛出 <code>TRACK_IS_NOT_SUBSCRIBED</code> 错误。</p>
 						</li>
 					</ul>
 				</section>
@@ -1257,7 +1256,7 @@ user.audioTrack.play();</code></pre>
 								<li>
 									<h5>config: <a href="ichannelmediarelayconfiguration.html" class="tsd-signature-type">IChannelMediaRelayConfiguration</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>跨频道媒体流转发参数配置，详见 {@link ChannelMediaRelayConfiguration}。</p>
+										<p>跨频道媒体流转发参数配置，详见 <a href="ichannelmediarelayconfiguration.html">ChannelMediaRelayConfiguration</a>。</p>
 									</div>
 								</li>
 							</ul>
@@ -1315,7 +1314,7 @@ user.audioTrack.play();</code></pre>
 								<li>
 									<h5>config: <a href="ichannelmediarelayconfiguration.html" class="tsd-signature-type">IChannelMediaRelayConfiguration</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>跨频道媒体流转发参数配置，详见 {@link ChannelMediaRelayConfiguration}。</p>
+										<p>跨频道媒体流转发参数配置，详见 <a href="ichannelmediarelayconfiguration.html">ChannelMediaRelayConfiguration</a>。</p>
 									</div>
 								</li>
 							</ul>
@@ -1361,17 +1360,15 @@ user.audioTrack.play();</code></pre>
 									<p>开启双流模式。</p>
 								</div>
 								<p>该方法为本地流开启双流模式。双流为视频大流和视频小流，其中视频大流指高分辨率、高码率的视频流，视频小流指低分辨率、低码率的视频流。</p>
-								<p>我们建议不要对双流进行 track 操作（包括 [addTrack]{@link ILocalStream.addTrack}/[removeTrack]{@link ILocalStream.removeTrack}/[replaceTrack]{@link ILocalStream.replaceTrack}），否则会导致大流和小流的表现不一致。</p>
 								<blockquote>
 									<p>该方法对以下流无效：</p>
 									<ul>
-										<li>使用自采集属性（[audioSource]{@link ILocalStreamSpec.audioSource} 和 [videoSource]{@link ILocalStreamSpec.videoSource}）创建的流。</li>
 										<li>纯音频流。</li>
 										<li>屏幕共享流。</li>
 									</ul>
 								</blockquote>
 								<pre><code class="language-javascript">client.enableDualStream().then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Enable dual stream success!"</span>);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Enable Dual stream success!"</span>);
 }).catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(err);
 })</code></pre>
@@ -1442,13 +1439,13 @@ user.audioTrack.play();</code></pre>
 								<li>
 									<h5>uid: <a href="../globals.html#uid" class="tsd-signature-type">UID</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>远端用户的 Id</p>
+										<p>远端用户的 ID。</p>
 									</div>
 								</li>
 								<li>
 									<h5>streamType: <a href="../enums/remotestreamtype.html" class="tsd-signature-type">RemoteStreamType</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>订阅的视频流类型，0 代表大流，1 代表小流，详见 [RemoteStreamType]{@link IRemoteStreamType}。</p>
+										<p>订阅的视频流类型，0 代表大流，1 代表小流，详见 <a href="../enums/remotestreamtype.html">RemoteStreamType</a>。</p>
 									</div>
 								</li>
 							</ul>
@@ -1488,7 +1485,7 @@ user.audioTrack.play();</code></pre>
 								<li>
 									<h5>fallbackType: <a href="../enums/remotestreamfallbacktype.html" class="tsd-signature-type">RemoteStreamFallbackType</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>回退策略选项，详见 [RemoteStreamFallbackType]{@link IRemoteStreamFallbackType}。</p>
+										<p>回退策略选项，详见 <a href="../enums/remotestreamfallbacktype.html">RemoteStreamFallbackType</a>。</p>
 									</div>
 								</li>
 							</ul>
@@ -1556,7 +1553,7 @@ user.audioTrack.play();</code></pre>
 									<p>删除输入的在线媒体流。</p>
 								</div>
 								<p>该方法从直播中删除通过 <a href="iagorartcclient.html#addinjectstreamurl">addInjectStreamUrl</a> 输入的在线媒体流。
-								删除后频道內所有用户都会收到 <a href="iagorartcclient.html#event_user_left">AgoraRTCClient.on(&quot;user-left&quot;)</a> 和 [AgoraRTCClient.on(&quot;stream-removed&quot;)]{@link event_stream_removed} 回调。</p>
+								删除后频道內所有用户都会收到 <a href="iagorartcclient.html#event_user_left">AgoraRTCClient.on(&quot;user-left&quot;)</a> 和 <a href="iagorartcclient.html#event_user_unpublished">AgoraRTCClient.on(&quot;user-unpublished&quot;)</a> 回调。</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
@@ -1749,7 +1746,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="agorartcstats.html" class="tsd-signature-type">AgoraRTCStats</a></h4>
-							<p>通话相关的统计信息，详见 <a href="agorartcstats.html">AgoraRTCStats</a>。</p>
+							<p>通话相关的统计信息。</p>
 						</li>
 					</ul>
 				</section>
@@ -2230,7 +2227,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								<blockquote>
 									<p>注意事项：</p>
 									<ul>
-										<li>如果已经调用了 <a href="iagorartcclient.html#publish">publish</a>，想要将用户角色切换为 <code>audience</code> 时，必须先调用 <a href="iagorartcclient.html#unpublish">unpublish</a> 取消发布流后再调用本方法，否则会设置失败并抛出异常。</li>
+										<li>如果已经调用了 <a href="iagorartcclient.html#publish">publish</a>，想要将用户角色切换为 <code>audience</code> 时，必须先调用 <a href="iagorartcclient.html#unpublish">unpublish</a> 取消发布后再调用本方法，否则会设置失败并抛出异常。</li>
 										<li>通信场景（<a href="clientconfig.html#mode">mode</a> 设置为 <code>rtc</code>）无法使用本方法，默认所有用户都是 <code>host</code> 角色。</li>
 									</ul>
 								</blockquote>
@@ -2263,7 +2260,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<p>设置 AES 加密配置。</p>
 								</div>
 								<p>该方法用于设置 AES 加密算法和密钥，可以开启内置加密功能。</p>
-								<p>如果该方法设置错误，在发布或者订阅流时会触发 <a href="iagorartcclient.html#event_crypt_error">AgoraRTCClient.on(&quot;crypt-error&quot;)</a> 回调。</p>
+								<p>如果该方法设置错误，在发布或者订阅时会触发 <a href="iagorartcclient.html#event_crypt_error">AgoraRTCClient.on(&quot;crypt-error&quot;)</a> 回调。</p>
 								<blockquote>
 									<p>注意事项：</p>
 									<ul>
@@ -2295,74 +2292,6 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Proxy Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="setproxyserver" class="tsd-anchor"></a>
-					<h3>set<wbr>Proxy<wbr>Server</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Proxy<wbr>Server<span class="tsd-signature-symbol">(</span>proxyServer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>部署代理服务器。</p>
-								</div>
-								<p>Agora Web SDK 还提供 <a href="iagorartcclient.html#startproxyserver">startProxyServer</a> 方法支持云代理服务。</p>
-								<blockquote>
-									<p>注意事项：</p>
-									<ul>
-										<li>该方法必须在 <a href="iagorartcclient.html#join">join</a> 之前调用。</li>
-										<li>在使用 Firefox 浏览器时，跨运营商代理速度会比较慢。Agora 建议使用同运营商进行代理。如果必须使用跨运营商代理，则避免使用 Firefox 浏览器。</li>
-									</ul>
-								</blockquote>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>proxyServer: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>你的代理服务器域名，ASCII 字符。</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="setturnserver" class="tsd-anchor"></a>
-					<h3>set<wbr>Turn<wbr>Server</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Turn<wbr>Server<span class="tsd-signature-symbol">(</span>turnServer<span class="tsd-signature-symbol">: </span><a href="turnserverconfig.html" class="tsd-signature-type">TurnServerConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>部署 TURN 服务器。</p>
-								</div>
-								<p>Agora Web SDK 还提供 <a href="iagorartcclient.html#startproxyserver">startProxyServer</a> 方法支持云代理服务。</p>
-								<blockquote>
-									<p>该方法必须在 <a href="iagorartcclient.html#join">join</a> 之前调用。</p>
-								</blockquote>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>turnServer: <a href="turnserverconfig.html" class="tsd-signature-type">TurnServerConfig</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>TURN 服务器配置。</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="startproxyserver" class="tsd-anchor"></a>
 					<h3>start<wbr>Proxy<wbr>Server</h3>
@@ -2399,9 +2328,6 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<p>关闭云代理服务。</p>
 								</div>
 								<p>该方法必须在加入频道前或离开频道后调用。</p>
-								<blockquote>
-									<p>该方法会关闭所有代理服务，包括通过 <a href="iagorartcclient.html#setproxyserver">setProxyServer</a> 和 <a href="iagorartcclient.html#setturnserver">setTurnServer</a> 设置的代理服务。</p>
-								</blockquote>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -2554,16 +2480,10 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								<a href="iagorartcclient.html#setlowstreamparameter" class="tsd-kind-icon">set<wbr>Low<wbr>Stream<wbr>Parameter</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="iagorartcclient.html#setproxyserver" class="tsd-kind-icon">set<wbr>Proxy<wbr>Server</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartcclient.html#setremotevideostreamtype" class="tsd-kind-icon">set<wbr>Remote<wbr>Video<wbr>Stream<wbr>Type</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartcclient.html#setstreamfallbackoption" class="tsd-kind-icon">set<wbr>Stream<wbr>Fallback<wbr>Option</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="iagorartcclient.html#setturnserver" class="tsd-kind-icon">set<wbr>Turn<wbr>Server</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartcclient.html#startchannelmediarelay" class="tsd-kind-icon">start<wbr>Channel<wbr>Media<wbr>Relay</a>

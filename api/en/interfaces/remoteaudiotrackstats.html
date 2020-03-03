@@ -49,6 +49,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Statistics of the remote audio track, such as the connection and transmission statistics, which can be retrieved from <a href="iremoteaudiotrack.html#getstats">RemoteAudioTrack.getStats</a>.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -91,6 +98,18 @@
 					<div class="tsd-signature tsd-kind-icon">codec<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"opus"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"aac"</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The audio codec.</p>
+						</div>
+						<ul>
+							<li><code>opus</code>: The audio codec is OPUS。</li>
+							<li><code>aac</code>: The audio codec is AAC。<blockquote>
+									<p>Firefox does not support this property.</p>
+								</blockquote>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="end2enddelay" class="tsd-anchor"></a>
@@ -98,6 +117,12 @@
 					<div class="tsd-signature tsd-kind-icon">end2<wbr>End<wbr>Delay<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>End-to-end delay (ms).</p>
+						</div>
+						<p>Delay from capturing to playing the audio.</p>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="freezerate" class="tsd-anchor"></a>
@@ -105,6 +130,11 @@
 					<div class="tsd-signature tsd-kind-icon">freeze<wbr>Rate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The freeze rate of the received audio.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="mutestate" class="tsd-anchor"></a>
@@ -112,6 +142,15 @@
 					<div class="tsd-signature tsd-kind-icon">mute<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether the audio is muted.</p>
+							<ul>
+								<li><code>true</code>: The audio is muted.</li>
+								<li><code>false</code>: The audio is not muted.</li>
+							</ul>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="packetlossrate" class="tsd-anchor"></a>
@@ -119,6 +158,11 @@
 					<div class="tsd-signature tsd-kind-icon">packet<wbr>Loss<wbr>Rate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The packet loss rate of the received audio.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="receivebitrate" class="tsd-anchor"></a>
@@ -126,6 +170,11 @@
 					<div class="tsd-signature tsd-kind-icon">receive<wbr>Bitrate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The bitrate (bps) of the received audio.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="receivebytes" class="tsd-anchor"></a>
@@ -133,6 +182,11 @@
 					<div class="tsd-signature tsd-kind-icon">receive<wbr>Bytes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The total bytes of the received audio.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="receivedelay" class="tsd-anchor"></a>
@@ -140,6 +194,11 @@
 					<div class="tsd-signature tsd-kind-icon">receive<wbr>Delay<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Delay (ms) from sending to playing the audio.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="receivelevel" class="tsd-anchor"></a>
@@ -147,6 +206,15 @@
 					<div class="tsd-signature tsd-kind-icon">receive<wbr>Level<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The energy level of the received audio.</p>
+						</div>
+						<p>The value range is [0,32767].</p>
+						<blockquote>
+							<p>This value is retrieved from WebRTC-Stats and may not be up-to-date. To get the realtime audio energy level, call <a href="iremoteaudiotrack.html#getvolumelevel">RemoteAudioTrack.getVolumeLevel</a>.</p>
+						</blockquote>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="receivepackets" class="tsd-anchor"></a>
@@ -154,6 +222,11 @@
 					<div class="tsd-signature tsd-kind-icon">receive<wbr>Packets<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The total packets of the received audio.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="receivepacketslost" class="tsd-anchor"></a>
@@ -161,6 +234,11 @@
 					<div class="tsd-signature tsd-kind-icon">receive<wbr>Packets<wbr>Lost<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The total number of lost packets of the received audio.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="totalduration" class="tsd-anchor"></a>
@@ -168,6 +246,11 @@
 					<div class="tsd-signature tsd-kind-icon">total<wbr>Duration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The total duration of the received audio, in seconds.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="totalfreezetime" class="tsd-anchor"></a>
@@ -175,6 +258,11 @@
 					<div class="tsd-signature tsd-kind-icon">total<wbr>Freeze<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The total freeze time of the received audio, in seconds.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="transportdelay" class="tsd-anchor"></a>
@@ -182,6 +270,12 @@
 					<div class="tsd-signature tsd-kind-icon">transport<wbr>Delay<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Transport delay (ms).</p>
+						</div>
+						<p>Delay from sending to receiving the audio.</p>
+					</div>
 				</section>
 			</section>
 		</div>

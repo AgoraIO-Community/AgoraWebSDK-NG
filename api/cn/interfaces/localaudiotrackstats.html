@@ -95,8 +95,12 @@
 						<div class="lead">
 							<p>音频的编码格式。</p>
 						</div>
+						<ul>
+							<li><code>opus</code>: 音频编码格式为 OPUS。</li>
+							<li><code>aac</code>: 音频编码格式为 AAC。</li>
+						</ul>
 						<blockquote>
-							<p>Firefox 上暂时无法获取该值。</p>
+							<p>Firefox 上无法获取该值。</p>
 						</blockquote>
 					</div>
 				</section>
@@ -109,6 +113,10 @@
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>是否静音。</p>
+							<ul>
+								<li><code>true</code>: 音频静音。</li>
+								<li><code>false</code>: 音频未静音。</li>
+							</ul>
 						</div>
 					</div>
 				</section>
@@ -168,10 +176,10 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>发送的音频音量等级，范围在 [0 - 32767]。</p>
+							<p>发送的音频音量等级，范围为 [0,32767]。</p>
 						</div>
 						<blockquote>
-							<p>该值通过 WebRTC-Stats 获取，不能确保实时性。如果你想获取当前实时的音量等级，调用 [LocalStream.getAudioLevel]{@link IStream.getAudioLevel}</p>
+							<p>该值通过 WebRTC-Stats 获取，不能确保实时性。如果你想获取当前实时的音量等级，调用 <a href="ilocalaudiotrack.html#getvolumelevel">LocalAudioTrack.getVolumeLevel</a>。</p>
 						</blockquote>
 					</div>
 				</section>
