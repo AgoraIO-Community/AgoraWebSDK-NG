@@ -21,7 +21,7 @@ sidebar_label: 集成 SDK
 
 1. 运行安装命令
 ```shell
-npm install agora-rtc-sdk-ng
+npm install agora-rtc-sdk-ng --save
 ```
 
 2. 在你的项目的 Javascript 引入这个模块：
@@ -39,21 +39,21 @@ const client: IAgoraRTCClient = createClient({ mode: "live", codec: "vp8" });
 ```
 
 ### 方法 2. 使用 CDN 方法获取 SDK
-该方法无需下载安装包。在项目文件中，将以下代码添加到 `<style>` 上一行：
+该方法无需下载安装包。在项目 html 文件中，添加如下代码：
 
 ```html
-<script src="https://cdn.agora.io/sdk/release/AgoraRTCSDK-3.0.0.js"></script>
+<script src="https://download.agora.io/sdk/web/AgoraRTC_N-0.1.0.js"></script>
 ```
 
 ### 方法 3. 手动下载 SDK
-1. 下载最新版 Agora Web SDK 软件包。
+1. 从 [Github](https://github.com/AgoraIO-Community/AgoraWebSDK-NG/releases) 中下载最新的 Release 文件
 
-2. 将下载下来的软件包中的 AgoraRTCSDK_N.js 文件保存到项目文件所在的目录下。
+2. 将下载下来的 js 文件保存到项目文件所在的目录下。
 
-3. 在项目文件中，将如下代码添加到 `<style>` 上一行：
+3. 在项目文件中，将如下代码添加到 html 中：
 
 ```html
-<script src="./AgoraRTCSDK_N.js"></script>
+<script src="./AgoraRTC_N-0.1.0.js"></script>
 ```
 
 > 在方法 2 和方法 3 中，SDK 都会在全局导出一个 `AgoraRTC` 对象，直接访问这个对象即可操作 SDK。
