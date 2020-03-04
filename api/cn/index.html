@@ -268,13 +268,13 @@
 				</a>
 				<p>如果你通过 <code>&lt;script&gt;</code> 的方式引入 Agora Web SDK NG，可以通过访问 <a href="interfaces/iagorartc.html#createclient">AgoraRTC.createClient</a> 来获取导出的模块。</p>
 				<p>如果你通过 <code>npm</code> 或者模块化的方式引入 Agora Web SDK NG，可以通过以下方式访问 <code>AgoraRTC</code>:</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> AgoraRTC <span class="hljs-keyword">from</span> <span class="hljs-string">"agora-web-sdk-ng"</span>;
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> AgoraRTC <span class="hljs-keyword">from</span> <span class="hljs-string">"agora-rtc-sdk-ng"</span>;
 <span class="hljs-built_in">console</span>.log(AgoraRTC.createClient);</code></pre>
 				<a href="#类型模块（用于-typescript）" id="类型模块（用于-typescript）" style="color: inherit; text-decoration: none;">
 					<h2>类型模块（用于 Typescript）</h2>
 				</a>
 				<p>对于 Typescript 开发者，我们提供了 <code>.d.ts</code> 文件导出详细的类型定义。你可以查看 API 文档的 <a href="./globals.html">Global</a> 页面，该页面列出了所有 SDK 导出的模块和类型。</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> AgoraRTC, { IAgoraRTCClient } <span class="hljs-keyword">from</span> <span class="hljs-string">"agora-web-sdk-ng"</span>;
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> AgoraRTC, { IAgoraRTCClient } <span class="hljs-keyword">from</span> <span class="hljs-string">"agora-rtc-sdk-ng"</span>;
 
 <span class="hljs-keyword">const</span> client: IAgoraRTCClient = AgoraRTC.createClient();</code></pre>
 			</div>
