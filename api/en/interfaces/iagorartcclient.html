@@ -52,7 +52,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Provides major functions for a voice/video call, such as joining a channel, publishing streams and subscribing to streams.</p>
+						<p>Provides major functions for a voice/video call, such as joining a channel, publishing tracks and subscribing to tracks.</p>
 					</div>
 					<p>The <code>AgoraRTCClient</code> object is created by the <a href="iagorartc.html#createclient">createClient</a> method and represents a local client.</p>
 				</div>
@@ -2225,7 +2225,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<p>Sets the role of the user.</p>
 								</div>
 								<p>This method applies to the live-broadcast profile only.</p>
-								<p>Users in the <code>host</code> role can publish and subscribe to tracks, while users in the <code>audience</code> role cannot publish tracks.</p>
+								<p>Users in the <code>host</code> role can publish tracks and subscribe to tracks, while users in the <code>audience</code> role cannot publish tracks.</p>
 								<p>If you call this method to switch the user role after joining a channel, the SDK triggers the <a href="iagorartcclient.html#event_user_joined">AgoraRTCClient.on(&quot;user-joined&quot;)</a> or <a href="iagorartcclient.html#event_user_left">AgoraRTCClient.on(&quot;user-left&quot;)</a> callback on the remote client.</p>
 								<blockquote>
 									<p>Note:</p>
@@ -2268,7 +2268,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<p>Note:</p>
 									<ul>
 										<li>All users in a channel must use the same encryption configurations.</li>
-										<li>Ensure you call this method before joining a channel, otherwise the encryption is disabled.</li>
+										<li>Ensure that you call this method before joining a channel, otherwise the encryption is disabled.</li>
 										<li>Do not use this method for CDN live streaming.</li>
 									</ul>
 								</blockquote>

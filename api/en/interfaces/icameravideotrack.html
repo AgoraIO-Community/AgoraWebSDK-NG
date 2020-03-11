@@ -52,9 +52,9 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p><code>ICameraVideoTrack</code> is the interface of local video captured by a camera, which inherits the <a href="ilocalvideotrack.html">LocalVideoTrack</a> interface and adds some functions such as switching devices and adjust video encoder configurations.</p>
+						<p>Inherited from <a href="ilocalvideotrack.html">LocalVideoTrack</a>, <code>CameraVideoTrack</code> is an interface for the video captured by a local camera and adds functions such as switching devices and adjusting video encoder configurations.</p>
 					</div>
-					<p>You can create a local camera video track by calling the <a href="iagorartc.html#createcameravideotrack">AgoraRTC.createCameraVideoTrack</a> method.</p>
+					<p>You can create a local camera video track by calling <a href="iagorartc.html#createcameravideotrack">AgoraRTC.createCameraVideoTrack</a>.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -117,15 +117,15 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Marks whether the track is muted:</p>
+							<p>Marks whether the local track is muted:</p>
 							<ul>
-								<li><code>true</code>: The track is muted.</li>
-								<li><code>false</code>: The track is unmuted.</li>
+								<li><code>true</code>: The local track is muted.</li>
+								<li><code>false</code>: The local track is not muted.</li>
 							</ul>
 						</div>
-						<p>After a local track is muted, it still sends audio or video data:</p>
+						<p>The local track still sends audio or video after being muted:</p>
 						<ul>
-							<li>A muted local audio track sends silenced audio frames.</li>
+							<li>A muted local audio track sends silent audio frames.</li>
 							<li>A muted local video track sends black video frames.</li>
 						</ul>
 					</div>
@@ -139,7 +139,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Marks whether the current track is playing on the webpage.</p>
+							<p>Marks whether the track is playing on the web page.</p>
 						</div>
 					</div>
 				</section>
@@ -176,9 +176,9 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Closes the local track and release the audio or video device occupied by the track.</p>
+									<p>Closes the local track and releases the audio and video resources that it occupies.</p>
 								</div>
-								<p>Once you close the local track, you can not reuse it.</p>
+								<p>Once you close the local track, you can no longer reuse it.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -252,7 +252,7 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="localvideotrackstats.html" class="tsd-signature-type">LocalVideoTrackStats</a></h4>
-							<p><a href="localvideotrackstats.html">LocalVideoTrackStats</a></p>
+							<p>An <a href="localvideotrackstats.html">LocalVideoTrackStats</a> object.</p>
 						</li>
 					</ul>
 				</section>
@@ -290,17 +290,17 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets the <code>uid</code> of the current local track.</p>
+									<p>Gets the <code>uid</code> of the local track.</p>
 								</div>
 								<blockquote>
-									<p>If you do not publish the current local track in any channel, the track is not bound to any user and the SDK returns <code>null</code>.</p>
+									<p>If you do not publish the local track in any channel, the track is not bound to any user and the SDK returns <code>null</code>.</p>
 								</blockquote>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span>
 								<span class="tsd-signature-symbol"> | </span>
 								<a href="../globals.html#uid" class="tsd-signature-type">UID</a>
 							</h4>
-							<p>The <code>uid</code> of the current local track.</p>
+							<p>The <code>uid</code> of the local track.</p>
 						</li>
 					</ul>
 				</section>
@@ -422,7 +422,7 @@
 								<li>
 									<h5>element: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Specifies a DOM element. The SDK will create a <code>&lt;video&gt;</code> element under the specified DOM element to play the video track. You can specify a DOM element in either of following ways:</p>
+										<p>Specifies a DOM element. The SDK will create a <code>&lt;video&gt;</code> element under the specified DOM element to play the video track. You can specify a DOM element in either of the following ways:</p>
 										<ul>
 											<li><code>string</code>: Specify the ID of the DOM element.</li>
 											<li><code>HTMLElement</code>: Pass a DOM object.</li>
@@ -432,7 +432,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <a href="videoplayerconfig.html" class="tsd-signature-type">VideoPlayerConfig</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Sets the playback configurations, such as the display mode and mirror mode. By default, the SDK enables mirror mode for a local video track.</p>
+										<p>Sets the playback configurations, such as display mode and mirror mode. See <a href="videoplayerconfig.html">VideoPlayerConfig</a>. By default, the SDK enables mirror mode for a local video track.</p>
 									</div>
 								</li>
 							</ul>
@@ -494,7 +494,7 @@
 											</ul>
 										</li>
 										<li>This function is supported on mobile devices.</li>
-										<li>If the dual-stream mode is enabled, the image enhancement options apply only to the high-video stream.</li>
+										<li>If dual-stream mode is enabled, the image enhancement options apply only to the high-video stream.</li>
 									</ul>
 								</blockquote>
 							</div>
@@ -505,15 +505,15 @@
 									<div class="tsd-comment tsd-typography">
 										<p>Sets whether to enable image enhancement:</p>
 										<ul>
-											<li><code>true</code>: Enables image enhancement.</li>
-											<li><code>false</code>: Disables image enhancement.</li>
+											<li><code>true</code>: Enable image enhancement.</li>
+											<li><code>false</code>: Disable image enhancement.</li>
 										</ul>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="beautyeffectoptions.html" class="tsd-signature-type">BeautyEffectOptions</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Sets image enhancement options.</p>
+										<p>Sets image enhancement options. See <a href="beautyeffectoptions.html">BeautyEffectOptions</a>.</p>
 									</div>
 								</li>
 							</ul>
@@ -533,10 +533,10 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the device for capturing video data.</p>
+									<p>Sets the device for capturing video.</p>
 								</div>
 								<blockquote>
-									<p>You can call the method both before and after publishing the video track.</p>
+									<p>You can call this method either before or after publishing the video track.</p>
 								</blockquote>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -544,7 +544,7 @@
 								<li>
 									<h5>deviceId: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The ID of the specified device. You can get the <code>deviceId</code> by calling the <a href="iagorartc.html#getcameras">AgoraRTC.getCameras</a> method.</p>
+										<p>The ID of the specified device. You can get the <code>deviceId</code> by calling <a href="iagorartc.html#getcameras">AgoraRTC.getCameras</a>.</p>
 									</div>
 								</li>
 							</ul>
@@ -585,11 +585,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the mute state of the local track.</p>
+									<p>Mute or unmute the local track.</p>
 								</div>
-								<p>After a local track is muted, it still sends audio or video data:</p>
+								<p>The local track still sends audio or video after being muted:</p>
 								<ul>
-									<li>A muted local audio track sends silenced audio frames.</li>
+									<li>A muted local audio track sends silent audio frames.</li>
 									<li>A muted local video track sends black video frames.</li>
 								</ul>
 							</div>
@@ -598,7 +598,7 @@
 								<li>
 									<h5>muted: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The mute state of the local track:</p>
+										<p>The mute option for the local track:</p>
 										<ul>
 											<li><code>true</code>: Mute the local track.</li>
 											<li><code>false</code>: Unmute the local track.</li>

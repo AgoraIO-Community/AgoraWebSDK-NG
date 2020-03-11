@@ -52,7 +52,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p><code>LocalTrack</code> is the basic interface for local tracks, which provides public methods for <a href="ilocalaudiotrack.html">LocalAudioTrack</a> and <a href="ilocalvideotrack.html">LocalVideoTrack</a>.</p>
+						<p><code>LocalTrack</code> is the basic interface for local tracks, providing public methods for <a href="ilocalaudiotrack.html">LocalAudioTrack</a> and <a href="ilocalvideotrack.html">LocalVideoTrack</a>.</p>
 					</div>
 				</div>
 			</section>
@@ -120,15 +120,15 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Marks whether the track is muted:</p>
+							<p>Marks whether the local track is muted:</p>
 							<ul>
-								<li><code>true</code>: The track is muted.</li>
-								<li><code>false</code>: The track is unmuted.</li>
+								<li><code>true</code>: The local track is muted.</li>
+								<li><code>false</code>: The local track is not muted.</li>
 							</ul>
 						</div>
-						<p>After a local track is muted, it still sends audio or video data:</p>
+						<p>The local track still sends audio or video after being muted:</p>
 						<ul>
-							<li>A muted local audio track sends silenced audio frames.</li>
+							<li>A muted local audio track sends silent audio frames.</li>
 							<li>A muted local video track sends black video frames.</li>
 						</ul>
 					</div>
@@ -142,7 +142,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Marks whether the current track is playing on the webpage.</p>
+							<p>Marks whether the track is playing on the web page.</p>
 						</div>
 					</div>
 				</section>
@@ -178,9 +178,9 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Closes the local track and release the audio or video device occupied by the track.</p>
+									<p>Closes the local track and releases the audio and video resources that it occupies.</p>
 								</div>
-								<p>Once you close the local track, you can not reuse it.</p>
+								<p>Once you close the local track, you can no longer reuse it.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -255,7 +255,7 @@
 								<span class="tsd-signature-symbol"> | </span>
 								<a href="localaudiotrackstats.html" class="tsd-signature-type">LocalAudioTrackStats</a>
 							</h4>
-							<p><a href="localvideotrackstats.html">LocalVideoTrackStats</a> or <a href="localaudiotrackstats.html">LocalAudioTrackStats</a>.</p>
+							<p>An <a href="localvideotrackstats.html">LocalVideoTrackStats</a> or <a href="localaudiotrackstats.html">LocalAudioTrackStats</a> object.</p>
 						</li>
 					</ul>
 				</section>
@@ -292,17 +292,17 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets the <code>uid</code> of the current local track.</p>
+									<p>Gets the <code>uid</code> of the local track.</p>
 								</div>
 								<blockquote>
-									<p>If you do not publish the current local track in any channel, the track is not bound to any user and the SDK returns <code>null</code>.</p>
+									<p>If you do not publish the local track in any channel, the track is not bound to any user and the SDK returns <code>null</code>.</p>
 								</blockquote>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span>
 								<span class="tsd-signature-symbol"> | </span>
 								<a href="../globals.html#uid" class="tsd-signature-type">UID</a>
 							</h4>
-							<p>The <code>uid</code> of the current local track.</p>
+							<p>The <code>uid</code> of the local track.</p>
 						</li>
 					</ul>
 				</section>
@@ -475,11 +475,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the mute state of the local track.</p>
+									<p>Mute or unmute the local track.</p>
 								</div>
-								<p>After a local track is muted, it still sends audio or video data:</p>
+								<p>The local track still sends audio or video after being muted:</p>
 								<ul>
-									<li>A muted local audio track sends silenced audio frames.</li>
+									<li>A muted local audio track sends silent audio frames.</li>
 									<li>A muted local video track sends black video frames.</li>
 								</ul>
 							</div>
@@ -488,7 +488,7 @@
 								<li>
 									<h5>muted: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The mute state of the local track:</p>
+										<p>The mute option for the local track:</p>
 										<ul>
 											<li><code>true</code>: Mute the local track.</li>
 											<li><code>false</code>: Unmute the local track.</li>

@@ -52,9 +52,9 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p><code>IBufferSourceAudioTrack</code> is the interface for the local audio track from an audio file, which inherits the <a href="ilocalaudiotrack.html">LocalAudioTrack</a> interface and adds some functions for controlling the processing of the audio buffer, such as starting processing, stopping processing, and seeking to a specified time location.</p>
+						<p>Inherited from <a href="ilocalaudiotrack.html">LocalAudioTrack</a>, <code>BufferSourceAudioTrack</code> is an interface for the audio from a local audio file and adds several functions for controlling the processing of the audio buffer, such as starting processing, stopping processing, and seeking a specified time location.</p>
 					</div>
-					<p>You can create an audio track from an audio file by calling the <a href="iagorartc.html#createbuffersourceaudiotrack">AgoraRTC.createBufferSourceAudioTrack</a> method.</p>
+					<p>You can create an audio track from an audio file by calling <a href="iagorartc.html#createbuffersourceaudiotrack">AgoraRTC.createBufferSourceAudioTrack</a>.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -147,8 +147,12 @@
 									<div class="tsd-comment tsd-typography">
 										<p>The state of processing the audio buffer:</p>
 										<ul>
-											<li><code>&quot;stopped&quot;</code>: The SDK stops processing the audio buffer. The reasons may be: the SDK finishes processing the audio buffer, or the user manually triggers the stop signal.</li>
-											<li><code>&quot;paused&quot;</code>: The SDK pauses processing the audio buffer.</li>
+											<li><code>&quot;stopped&quot;</code>: The SDK stops processing the audio buffer. Reasons may include:<ul>
+													<li>The SDK finishes processing the audio buffer.</li>
+													<li>The user manually stops the processing of the audio buffer.</li>
+												</ul>
+											</li>
+											<li><code>&quot;paused&quot;</code>: The SDK pauses the processing of the audio buffer.</li>
 											<li><code>&quot;playing&quot;</code>: The SDK is processing the audio buffer.</li>
 										</ul>
 									</div>
@@ -169,7 +173,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The current state of processing the audio buffer.</p>
+							<p>The current state of audio processing, such as start, pause, or stop.</p>
 						</div>
 					</div>
 				</section>
@@ -181,7 +185,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The total duration (seconds) of the audio.</p>
+							<p>The total duration of the audio  (seconds).</p>
 						</div>
 					</div>
 				</section>
@@ -194,15 +198,15 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Marks whether the track is muted:</p>
+							<p>Marks whether the local track is muted:</p>
 							<ul>
-								<li><code>true</code>: The track is muted.</li>
-								<li><code>false</code>: The track is unmuted.</li>
+								<li><code>true</code>: The local track is muted.</li>
+								<li><code>false</code>: The local track is not muted.</li>
 							</ul>
 						</div>
-						<p>After a local track is muted, it still sends audio or video data:</p>
+						<p>The local track still sends audio or video after being muted:</p>
 						<ul>
-							<li>A muted local audio track sends silenced audio frames.</li>
+							<li>A muted local audio track sends silent audio frames.</li>
 							<li>A muted local video track sends black video frames.</li>
 						</ul>
 					</div>
@@ -216,7 +220,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Marks whether the current track is playing on the webpage.</p>
+							<p>Marks whether the track is playing on the web page.</p>
 						</div>
 					</div>
 				</section>
@@ -228,7 +232,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The <a href="buffersourceaudiotrackinitconfig.html#source">source</a> that you specify when creating the audio track.</p>
+							<p>The <a href="buffersourceaudiotrackinitconfig.html#source">source</a> specified when creating the audio track.</p>
 						</div>
 					</div>
 				</section>
@@ -265,9 +269,9 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Closes the local track and release the audio or video device occupied by the track.</p>
+									<p>Closes the local track and releases the audio and video resources that it occupies.</p>
 								</div>
-								<p>Once you close the local track, you can not reuse it.</p>
+								<p>Once you close the local track, you can no longer reuse it.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -351,11 +355,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets the statistics of the local video track.</p>
+									<p>Gets the statistics of the local audio track.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="localaudiotrackstats.html" class="tsd-signature-type">LocalAudioTrackStats</a></h4>
-							<p><a href="localaudiotrackstats.html">LocalAudioTrackStats</a>.</p>
+							<p>An <a href="localaudiotrackstats.html">LocalAudioTrackStats</a> object.</p>
 						</li>
 					</ul>
 				</section>
@@ -393,17 +397,17 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets the <code>uid</code> of the current local track.</p>
+									<p>Gets the <code>uid</code> of the local track.</p>
 								</div>
 								<blockquote>
-									<p>If you do not publish the current local track in any channel, the track is not bound to any user and the SDK returns <code>null</code>.</p>
+									<p>If you do not publish the local track in any channel, the track is not bound to any user and the SDK returns <code>null</code>.</p>
 								</blockquote>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span>
 								<span class="tsd-signature-symbol"> | </span>
 								<a href="../globals.html#uid" class="tsd-signature-type">UID</a>
 							</h4>
-							<p>The <code>uid</code> of the current local track.</p>
+							<p>The <code>uid</code> of the local track.</p>
 						</li>
 					</ul>
 				</section>
@@ -575,7 +579,7 @@
 									<p>Plays the local audio track.</p>
 								</div>
 								<blockquote>
-									<p>When playing the audio track, the SDK does not create any DOM element. So you do not need to pass in any DOM element.</p>
+									<p>When playing the audio track, you do not need to pass any DOM element.</p>
 								</blockquote>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -642,7 +646,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Seeks to the specified time location.</p>
+									<p>Jumps to a specified time point.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -650,7 +654,7 @@
 								<li>
 									<h5>time: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The specified time location (seconds).</p>
+										<p>The specified time point (seconds).</p>
 									</div>
 								</li>
 							</ul>
@@ -671,11 +675,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the mute state of the local track.</p>
+									<p>Mute or unmute the local track.</p>
 								</div>
-								<p>After a local track is muted, it still sends audio or video data:</p>
+								<p>The local track still sends audio or video after being muted:</p>
 								<ul>
-									<li>A muted local audio track sends silenced audio frames.</li>
+									<li>A muted local audio track sends silent audio frames.</li>
 									<li>A muted local video track sends black video frames.</li>
 								</ul>
 							</div>
@@ -684,7 +688,7 @@
 								<li>
 									<h5>muted: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The mute state of the local track:</p>
+										<p>The mute option for the local track:</p>
 										<ul>
 											<li><code>true</code>: Mute the local track.</li>
 											<li><code>false</code>: Unmute the local track.</li>
@@ -740,7 +744,7 @@
 									<p>Starts processing the audio buffer.</p>
 								</div>
 								<blockquote>
-									<p>Starting processing the audio buffer means that the processing node in the SDK has received the audio data. If the audio track has been published, the remote user can hear the audio.
+									<p>Starting processing the audio buffer means that the processing unit in the SDK has received the audio data. If the audio track has been published, the remote user can hear the audio.
 									Whether the local user can hear the audio depends on whether the SDK calls the <a href="ibuffersourceaudiotrack.html#play">play</a> method and sends the audio data to the sound card.</p>
 								</blockquote>
 							</div>
@@ -749,7 +753,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="audiosourceoptions.html" class="tsd-signature-type">AudioSourceOptions</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Options of processing the audio buffer.</p>
+										<p>Options for processing the audio buffer. See <a href="audiosourceoptions.html">AudioSourceOptions</a>.</p>
 									</div>
 								</li>
 							</ul>

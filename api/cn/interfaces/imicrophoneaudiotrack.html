@@ -117,7 +117,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>标记该轨道是否 Mute：</p>
+							<p>标记该本地轨道是否 Mute：</p>
 							<ul>
 								<li><code>true</code>: 该轨道 Mute。</li>
 								<li><code>false</code>: 该轨道 Unmute。</li>
@@ -139,7 +139,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>当前该媒体轨道是否正在页面上播放。</p>
+							<p>该媒体轨道是否正在页面上播放。</p>
 						</div>
 					</div>
 				</section>
@@ -176,7 +176,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>关闭本地轨道，并释放相关采集设备。</p>
+									<p>关闭该本地轨道，并释放相关采集设备。</p>
 								</div>
 								<p>一旦本地轨道被关闭，就无法再次使用。如需再次使用本地轨道，需要重新创建。</p>
 							</div>
@@ -248,10 +248,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取音频轨道的质量相关信息。</p>
+									<p>获取本地音频轨道的质量相关信息。</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="localaudiotrackstats.html" class="tsd-signature-type">LocalAudioTrackStats</a></h4>
+							<p><a href="localaudiotrackstats.html">LocalAudioTrackStats</a> 对象。</p>
 						</li>
 					</ul>
 				</section>
@@ -289,17 +290,17 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取当前本地轨道对应的 <code>uid</code>。</p>
+									<p>获取该本地轨道对应的 <code>uid</code>。</p>
 								</div>
 								<blockquote>
-									<p>如果当前轨道没有发布，那么就不属于任何一个用户，该方法返回 <code>null</code>。</p>
+									<p>如果该本地轨道没有发布，那么就不属于任何一个用户，该方法返回 <code>null</code>。</p>
 								</blockquote>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span>
 								<span class="tsd-signature-symbol"> | </span>
 								<a href="../globals.html#uid" class="tsd-signature-type">UID</a>
 							</h4>
-							<p>当前本地轨道对应的 <code>uid</code>。</p>
+							<p>该本地轨道对应的 <code>uid</code>。</p>
 						</li>
 					</ul>
 				</section>
@@ -517,7 +518,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>设置本地轨道的 Mute 状态。</p>
+									<p>Mute/Unmute 该本地轨道。</p>
 								</div>
 								<p>Mute 后，本地轨道依然会发送音频/视频数据：</p>
 								<ul>
@@ -529,13 +530,6 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>muted: <span class="tsd-signature-type">boolean</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>本地轨道的 Mute 状态：</p>
-										<ul>
-											<li><code>true</code>: Mute 本地轨道。</li>
-											<li><code>false</code>: Unmute 本地轨道。</li>
-										</ul>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
