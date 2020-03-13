@@ -1,26 +1,29 @@
 # AgoraWebSDK NG
 
-Agora Web SDK NG 是基于 Agora Web SDK 开发的下一代 SDK。能实现基于 Agora SD-RTN 的音视频实时通信功能，支持语音通话、视频通话、音频互动直播、视频互动直播等场景。Agora Web SDK NG 是一个全量重构的版本，主要针对 API 的易用性和内部架构做了较大的调整。
+*English | [简体中文](README.cn.md)*
+
+The Agora Web SDK NG is the next-generation SDK of the current Agora Web SDK, enabling audio and video real-time communications based on Agora SD-RTNTM and implementing scenarios such as voice-only calls, video call, voice-only interactive broadcast, and video interactive broadcast. The Agora Web SDK NG makes full-scale refactoring to the internal architecture of the Agora Web SDK and improves usability of APIs.
 
 ```shell
 npm install agora-rtc-sdk-ng --save
 ```
 
-接入指南和使用文档请访问我们的文档站 https://agoraio-community.github.io/AgoraWebSDK-NG/zh-CN/
+[Documentation Website](https://agoraio-community.github.io/AgoraWebSDK-NG)
 
-接入过程中，你可以在本仓库参考 Agora Web SDK NG 的 [Demo 源码](./Demo)，或者体验 [Demo](https://agoraio-community.github.io/AgoraWebSDK-NG/demo/)
+We provide some basic demos. For the online website, check out [here](https://agoraio-community.github.io/AgoraWebSDK-NG/demo/). For the source code, check out [here](./Demo).
 
-> 如果您在接入 Agora Web SDK NG 时遇到问题，或者有任何建议，都可以在本仓库的 Issues 区发帖讨论，我们会尽快处理大家的反馈
 
-## 简介
+> If you have some problems when using the Agora Web SDK NG, or have any suggestions, you can post new issue in this repo and we will reply as soon as possoble.
 
-详细的介绍和文档请访问上面提到的文档站链接，这里我们简单介绍一下 Agora Web SDK NG 的特性
+## Overview
 
-- 支持 Typescript
-- 使用 Promise
-- 基于 Track 的音视频管理
+For detailed introduction and documentation, please go to  [Documentation Website](https://agoraio-community.github.io/AgoraWebSDK-NG). Here we briefly introduce the features of the Agora Web SDK NG:
 
-下面是加入会议并自动发布的代码示例
+- Support Typescript
+- Using ES6 Promise
+- Track-based media objects
+
+Here is the sample code to join the channel and publish local media automatically
 
 ```js
 import AgoraRTC from "agora-rtc-sdk-ng"
