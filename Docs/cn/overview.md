@@ -1,14 +1,14 @@
 ---
 id: overview
 title: Agora Web SDK NG 概述
-sidebar_label: 概览
+sidebar_label: 概述
 ---
 ## 简介
-Agora Web SDK NG 是基于 Agora Web SDK 开发的下一代 SDK。能实现基于 Agora SD-RTN 的音视频实时通信功能，支持语音通话、视频通话、音频互动直播、视频互动直播等场景。Agora Web SDK NG 是一个全量重构的版本，主要针对 API 的易用性和内部架构做了较大的调整。
+Agora Web SDK NG 是基于 [Agora Web SDK](https://docs.agora.io/cn/Video/start_call_web?platform=Web) 开发的下一代 SDK，能实现基于 Agora SD-RTN<sup>TM</sup> 的实时音视频通信功能，支持语音通话、视频通话、音频互动直播、视频互动直播等场景。Agora Web SDK NG 是一个全量重构的版本，主要针对 API 的易用性和内部架构做了较大的调整。
 
-如果您之前接触过官网版本的 [Agora Web SDK](https://docs.agora.io/cn/Video/start_call_web?platform=Web)，新的 SDK 在使用和开发步骤上和原有 SDK 有较大的不同。在 Agora Web SDK NG 中，我们删除了原来的 `Stream` 对象，通过 `LocalTrack`/`RemoteTrack` 对象来控制媒体流（具体可以参阅后面的介绍）。如果您之前没有接触过 Agora Web 相关的产品，Agora Web SDK NG 将会成为一个很好的起点。
+如果你之前没有接触过 Agora Web SDK 相关的产品，Agora Web SDK NG 将会成为一个很好的起点。如果你之前接触过 Agora Web SDK，请注意 Agora Web SDK NG 在使用和开发步骤上和原先的 SDK 有较大的不同。最明显的不同之处在于，Agora Web SDK NG 删除了原来的 `Stream` 对象，通过 `LocalTrack` 和 `RemoteTrack` 对象来控制媒体流。
 
-如果您是官网版本到 Agora Web SDK 用户，希望迁移到 Agora Web SDK NG，可以阅读我们提供 [迁移指南]()
+如果你是 Agora Web SDK 用户，希望迁移到 Agora Web SDK NG，请参考[迁移指南](./migration_guide)。
 
 
 ## 浏览器兼容性
