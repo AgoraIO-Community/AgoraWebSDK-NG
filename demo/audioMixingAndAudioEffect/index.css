@@ -38,7 +38,7 @@
   margin: 8px 0;
 }
 
-#success-alert {
+#success-alert, #success-alert-with-token {
   display: none;
 }
 

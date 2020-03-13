@@ -43,7 +43,7 @@ input {
   height: 180px;
 }
 
-#success-alert {
+#success-alert, #success-alert-with-token {
   display: none;
 }
 

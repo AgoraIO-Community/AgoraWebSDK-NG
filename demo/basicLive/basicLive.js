@@ -44,13 +44,18 @@ $("#join-form").submit(async function (e) {
     options.token = $("#token").val();
     options.channel = $("#channel").val();
     await join();
+    if (options.role === "host") {
+      $("#success-alert a").attr("href", `index.html?appid=${options.appid}&channel=${options.channel}&token=${options.token}`);
+      if(options.token) {
+        $("#success-alert-with-token").css("display", "block");
+      } else {
+        $("#success-alert a").attr("href", `index.html?appid=${options.appid}&channel=${options.channel}&token=${options.token}`);
+        $("#success-alert").css("display", "block");
+      }
+    }
   } catch (error) {
     console.error(error);
   } finally {
-    if (options.role === "host") {
-      $("#success-alert a").attr("href", `index.html?appid=${options.appid}&channel=${options.channel}&token=${options.token}`);
-      $("#success-alert").css("display", "block");
-    }
     $("#leave").attr("disabled", false);
   }
 })

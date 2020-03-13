@@ -52,7 +52,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p><code>IRemoteVideoTrack</code> is the basic interface for the remote video track.</p>
+						<p><code>RemoteVideoTrack</code> is the basic interface for the remote video track.</p>
 					</div>
 					<p>You can get create a remote video track by the <a href="iagorartcremoteuser.html#videotrack">AgoraRTCRemoteUser.videoTrack</a> object after calling <a href="iagorartcclient.html#subscribe">subscribe</a>.</p>
 				</div>
@@ -111,7 +111,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Marks whether the current track is playing on the webpage.</p>
+							<p>Marks whether the track is playing on the web page.</p>
 						</div>
 					</div>
 				</section>
@@ -202,7 +202,7 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="remotevideotrackstats.html" class="tsd-signature-type">RemoteVideoTrackStats</a></h4>
-							<p><a href="remotevideotrackstats.html">RemoteVideoTrackStats</a>.</p>
+							<p>一个 <a href="remotevideotrackstats.html">RemoteVideoTrackStats</a> 对象。</p>
 						</li>
 					</ul>
 				</section>
@@ -240,11 +240,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets the <code>uid</code> of the current remote track.</p>
+									<p>Gets the <code>uid</code> of the remote track.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../globals.html#uid" class="tsd-signature-type">UID</a></h4>
-							<p>The <code>uid</code> of the current remote track.</p>
+							<p>The <code>uid</code> of the remote track.</p>
 						</li>
 					</ul>
 				</section>
@@ -375,7 +375,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <a href="videoplayerconfig.html" class="tsd-signature-type">VideoPlayerConfig</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Sets the playback configurations, such as the display mode and mirror mode. By default, the SDK disables mirror mode for a remote video track.</p>
+										<p>Sets the playback configurations, such as display mode and mirror mode. See <a href="videoplayerconfig.html">VideoPlayerConfig</a>. By default, the SDK enables mirror mode for a local video track.</p>
 									</div>
 								</li>
 							</ul>
