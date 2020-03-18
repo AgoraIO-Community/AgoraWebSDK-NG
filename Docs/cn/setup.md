@@ -43,7 +43,7 @@ const client: IAgoraRTCClient = createClient({ mode: "live", codec: "vp8" });
 该方法无需下载安装包。在项目 html 文件中，添加如下代码：
 
 ```html
-<script src="https://download.agora.io/sdk/web/AgoraRTC_N-0.1.1.js"></script>
+<script src="https://download.agora.io/sdk/web/AgoraRTC_N-0.1.2.js"></script>
 ```
 
 ### 方法 3. 手动下载 SDK
@@ -54,7 +54,7 @@ const client: IAgoraRTCClient = createClient({ mode: "live", codec: "vp8" });
 3. 在项目文件中，将如下代码添加到 html 中：
 
 ```html
-<script src="./AgoraRTC_N-0.1.1.js"></script>
+<script src="./AgoraRTC_N-0.1.2.js"></script>
 ```
 
 > - 在方法 2 和方法 3 中，SDK 都会在全局导出一个 `AgoraRTC` 对象，直接访问这个对象即可操作 SDK。
