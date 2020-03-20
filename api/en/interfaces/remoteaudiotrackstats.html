@@ -52,7 +52,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Statistics of the remote audio track, such as the connection and transmission statistics, which can be retrieved from <a href="iremoteaudiotrack.html#getstats">RemoteAudioTrack.getStats</a>.</p>
+						<p>Statistics of the remote audio track, such as connection and transmission statistics, which can be retrieved by calling <a href="iremoteaudiotrack.html#getstats">RemoteAudioTrack.getStats</a>.</p>
 					</div>
 				</div>
 			</section>
@@ -121,7 +121,7 @@
 						<div class="lead">
 							<p>End-to-end delay (ms).</p>
 						</div>
-						<p>Delay from capturing to playing the audio.</p>
+						<p>The delay (ms) between a remote client sampling the audio and the local client playing the audio.</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -196,7 +196,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Delay (ms) from sending to playing the audio.</p>
+							<p>The delay (ms) between a remote client sending the audio and the local client playing the audio.</p>
 						</div>
 					</div>
 				</section>
@@ -212,7 +212,7 @@
 						</div>
 						<p>The value range is [0,32767].</p>
 						<blockquote>
-							<p>This value is retrieved from WebRTC-Stats and may not be up-to-date. To get the realtime audio energy level, call <a href="iremoteaudiotrack.html#getvolumelevel">RemoteAudioTrack.getVolumeLevel</a>.</p>
+							<p>This value is retrieved by calling WebRTC-Stats and may not be up-to-date. To get the real-time sound volume, call <a href="iremoteaudiotrack.html#getvolumelevel">RemoteAudioTrack.getVolumeLevel</a>.</p>
 						</blockquote>
 					</div>
 				</section>
@@ -236,7 +236,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The total number of lost packets of the received audio.</p>
+							<p>The total number of lost audio packets that should be received.</p>
 						</div>
 					</div>
 				</section>
@@ -248,7 +248,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The total duration of the received audio, in seconds.</p>
+							<p>The total duration of the received audio in seconds.</p>
 						</div>
 					</div>
 				</section>
@@ -260,7 +260,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The total freeze time of the received audio, in seconds.</p>
+							<p>The total freeze time of the received audio in seconds.</p>
 						</div>
 					</div>
 				</section>
@@ -272,9 +272,9 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Transport delay (ms).</p>
+							<p>Transmission delay (ms).</p>
 						</div>
-						<p>Delay from sending to receiving the audio.</p>
+						<p>The delay (ms) between a remote client sending the audio and the local client receiving the audio.</p>
 					</div>
 				</section>
 			</section>

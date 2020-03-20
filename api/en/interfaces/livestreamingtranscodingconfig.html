@@ -52,7 +52,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Configurations for user-specific CDN live audio/video transcoding in <a href="iagorartcclient.html#setlivetranscoding">AgoraRTCClient</a>.</p>
+						<p>The configurations for CDN live stream transcoding. To be used when you call <a href="iagorartcclient.html#setlivetranscoding">setLiveTranscoding</a>.</p>
 					</div>
 				</div>
 			</section>
@@ -98,9 +98,9 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Audio bitrate (Kbps) of the CDN live stream.</p>
+							<p>The audio bitrate (Kbps) of the CDN live stream.</p>
 						</div>
-						<p>Positive integer. The default value is 48 and the highest value is 128.</p>
+						<p>A positive integer. The default value is 48, and the highest value is 128.</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -111,15 +111,15 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Number of audio channels for the CDN live stream.</p>
+							<p>The number of audio channels for the CDN live stream.</p>
 						</div>
-						<p>Agora recommends choosing 1 or 2. Special players are required if you choose 3, 4 or 5.</p>
+						<p>Agora recommends choosing 1 (mono), or 2 (stereo) audio channels. Special players are required if you choose 3, 4, or 5.</p>
 						<ul>
 							<li>1: (Default) Mono</li>
-							<li>2: Dual sound channels</li>
-							<li>3: Three sound channels</li>
-							<li>4: Four sound channels</li>
-							<li>5: Five sound channels</li>
+							<li>2: Stereo</li>
+							<li>3: Three audio channels</li>
+							<li>4: Four audio channels</li>
+							<li>5: Five audio channels</li>
 						</ul>
 					</div>
 				</section>
@@ -131,7 +131,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Audio sampling rate:</p>
+							<p>The audio sampling rate:</p>
 						</div>
 						<ul>
 							<li>32000: 32 kHz</li>
@@ -148,9 +148,9 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The background color in RGB hex value.</p>
+							<p>The background color in RGB hex.</p>
 						</div>
-						<p>Value only, do not include a #. The default value is 0x000000.</p>
+						<p>Value only. Do not include a preceding #. The default value is 0x000000.</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -161,12 +161,12 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Height of the video.</p>
+							<p>The height of the video in pixels.</p>
 						</div>
-						<p>Positive integer, the default value is 360.</p>
+						<p>A positive integer, the default value is 360.</p>
 						<ul>
-							<li>When pushing video streams to the CDN, set the value of width × height to at least 64 × 64, or the SDK adjusts it to 64 x 64.</li>
-							<li>When pushing audio streams to the CDN, set the value of width × height to 0 × 0.</li>
+							<li>When pushing video streams to the CDN, ensure that <code>height</code> is at least 64; otherwise, the Agora server adjusts the value to 64.</li>
+							<li>When pushing audio streams to the CDN, set <code>width</code> and <code>height</code> as 0.</li>
 						</ul>
 					</div>
 				</section>
@@ -178,7 +178,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Adds a watermark image to the CDN live stream.</p>
+							<p>Watermark images for the CDN live stream.</p>
 						</div>
 					</div>
 				</section>
@@ -203,7 +203,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Bitrate (Kbps) of the CDN live output video stream.</p>
+							<p>The bitrate (Kbps) of the output video stream.</p>
 						</div>
 						<p>The default value is 400.</p>
 					</div>
@@ -216,13 +216,13 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Video codec profile type.</p>
+							<p>The video codec profile type.</p>
 						</div>
-						<p>Set it as <code>66</code>, <code>77</code>, or <code>100</code> (default). If you set this parameter to other values, Agora adjusts it to the default value <code>100</code>.</p>
+						<p>Set it as <code>66</code>, <code>77</code>, or <code>100</code> (default). If you set this parameter to any other value, the Agora server adjusts it to the default value <code>100</code>.</p>
 						<ul>
-							<li><code>66</code>: Baseline video codec profile. Generally used in video calls on mobile phones.</li>
-							<li><code>77</code>: Main video codec profile.Generally used in mainstream electronics, such as MP4 players, portable video players, PSP, and iPads.</li>
-							<li><code>100</code>: (Default) High video codec profile.Generally used in high - resolution broadcasts or television.</li>
+							<li><code>66</code>: Baseline video codec profile. Generally used for video calls on mobile phones.</li>
+							<li><code>77</code>: Main video codec profile. Generally used for mainstream electronic devices, such as MP4 players, portable video players, PSP, and iPads.</li>
+							<li><code>100</code>: (Default) High video codec profile. Generally used for high-resolution broadcasts or television.</li>
 						</ul>
 					</div>
 				</section>
@@ -234,9 +234,9 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Video frame rate (fps) of the output stream for CDN live.</p>
+							<p>The video frame rate (fps) of the CDN live stream.</p>
 						</div>
-						<p>The default value is 15. Agora adjusts all values over 30 to 30.</p>
+						<p>The default value is 15. The Agora server adjusts any value over 30 to 30.</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -247,7 +247,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Video GOP in frames.</p>
+							<p>The video GOP in frames.</p>
 						</div>
 						<p>The default value is 30.</p>
 					</div>
@@ -260,12 +260,12 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Width of the video.</p>
+							<p>The width of the video in pixels.</p>
 						</div>
-						<p>Positive integer, the default value is 640.</p>
+						<p>A positive integer, the default value is 640.</p>
 						<ul>
-							<li>When pushing video streams to the CDN, set the value of width × height to at least 64 × 64, or the SDK adjusts it to 64 x 64.</li>
-							<li>When pushing audio streams to the CDN, set the value of width × height to 0 × 0.</li>
+							<li>When pushing video streams to the CDN, ensure that <code>width</code> is at least 64; otherwise, the Agora server adjusts the value to 64.</li>
+							<li>When pushing audio streams to the CDN, set <code>width</code> and <code>height</code> as 0.</li>
 						</ul>
 					</div>
 				</section>

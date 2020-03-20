@@ -626,7 +626,7 @@
 									<p>Token 已过期回调。</p>
 								</div>
 								<p>在 token 过期后，会收到该回调。</p>
-								<p>一般情况下，在收到该消息之后，应向服务端重新申请 token，并调用 <a href="iagorartcclient.html#renewtoken">renewToken</a> 方法传入新的 token。</p>
+								<p>一般情况下，在收到该消息之后，应向服务端重新申请 token，并调用 <a href="iagorartcclient.html#join">join</a> 方法传入新的 token 重新加入频道。</p>
 								<pre><code class="language-javascript">client.on(<span class="hljs-string">"token-privilege-did-expire"</span>, <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
   <span class="hljs-comment">//进行重新申请 token 操作后</span>
   <span class="hljs-keyword">await</span> client.renewToken(token);
@@ -655,7 +655,7 @@
 									<p>Token 即将过期回调。</p>
 								</div>
 								<p>在 token 过期前 30 秒，会收到该回调。</p>
-								<p>一般情况下，在收到该回调之后，应向服务端重新申请 token，并调用 <a href="iagorartcclient.html#renewtoken">renewToken</a> 方法传入新的 token。</p>
+								<p>在收到该回调之后，应向服务端重新申请 token，并调用 <a href="iagorartcclient.html#renewtoken">renewToken</a> 方法传入新的 token。</p>
 								<pre><code class="language-javascript">client.on(<span class="hljs-string">"token-privilege-will-expire"</span>, <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
   <span class="hljs-comment">//进行重新申请 token 操作后</span>
   <span class="hljs-keyword">await</span> client.renewToken(token);
@@ -1074,9 +1074,14 @@
 								</div>
 								<p>该方法将本地音视频轨道发布至频道中。</p>
 								<p>发布音视频轨道之后，远端会触发 <a href="iagorartcclient.html#event_user_published">AgoraRTCClient.on(&quot;user-published&quot;)</a> 回调。</p>
-								<p>在直播场景里，角色为主播的用户才能调用该方法。</p>
 								<blockquote>
-									<p>一个 <code>AgoraRTCClient</code> 对象可以发布多个音频轨道，SDK 会自动混音（将多个音频轨道合并为一个音频轨道），但是视频轨道只能发布一个。</p>
+									<p>注意事项：</p>
+									<ul>
+										<li>直播场景里，调用 <a href="iagorartcclient.html#setclientrole">setClientRole</a> 将用户角色设为主播后才能调用该方法。</li>
+										<li>你可以多次调用该方法添加要发布的轨道。</li>
+										<li>一个 <code>AgoraRTCClient</code> 对象可以发布多个音频轨道，SDK 会自动混音（将多个音频轨道合并为一个音频轨道），但是视频轨道只能发布一个。</li>
+										<li>Safari 12 之前的版本不支持发布多个音频轨道。</li>
+									</ul>
 								</blockquote>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1606,14 +1611,14 @@ user.audioTrack.play();</code></pre>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>增加旁路推流地址。</p>
+									<p>将本地流发布到 CDN。</p>
 								</div>
 								<p>详见<a href="/AgoraWebSDK-NG/docs/zh-CN/cdn_streaming">推流到 CDN</a>。</p>
 								<blockquote>
 									<p>注意事项：</p>
 									<ul>
 										<li>该方法只适用于直播场景，且只有角色为主播的用户才能使用该功能。</li>
-										<li>不支持同时推送多个流。如需推送多个流，请确认前一个流推送成功后再推送下一个流。</li>
+										<li>该方法每次只能增加一路旁路推流地址。</li>
 									</ul>
 								</blockquote>
 								<pre><code class="language-javascript"><span class="hljs-keyword">await</span> client.setLiveTranscoding(config);
@@ -2192,7 +2197,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								<div class="lead">
 									<p>更新 token。</p>
 								</div>
-								<p>如果启用了 token 机制，过一段时间后 token 会失效。当收到 <a href="iagorartcclient.html#event_token_privilege_will_expire">AgoraRTCClient.on(&quot;token-privilege-will-expire&quot;)</a> 或 <a href="iagorartcclient.html#event_token_privilege_did_expire">AgoraRTCClient.on(&quot;token-privilege-did-expire&quot;)</a> 回调时, 调用该方法传入新的 token，否则 SDK 会无法和服务器建立连接。</p>
+								<p>如果启用了 token 机制，过一段时间后 token 会失效。当收到 <a href="iagorartcclient.html#event_token_privilege_will_expire">AgoraRTCClient.on(&quot;token-privilege-will-expire&quot;)</a> 回调时, 调用该方法传入新的 token，否则 SDK 会无法和服务器建立连接。</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -2221,8 +2226,8 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								<div class="lead">
 									<p>设置用户角色。</p>
 								</div>
-								<p>直播场景下，可以调用本方法设置或切换用户角色。</p>
-								<p>角色为 <code>host</code> 的用户没有限制，角色为 <code>audience</code> 的用户不能进行 <a href="iagorartcclient.html#publish">publish</a> 操作。</p>
+								<p>直播场景下，用户角色默认为观众。如需发布音视频，必须先调用本方法切换角色为主播。</p>
+								<p>角色为主播的用户没有限制，角色为观众的用户不能进行 <a href="iagorartcclient.html#publish">publish</a> 操作。</p>
 								<p>如果在加入频道后调用该方法切换用户角色，远端会触发 <a href="iagorartcclient.html#event_user_joined">AgoraRTCClient.on(&quot;user-joined&quot;)</a> 或者 <a href="iagorartcclient.html#event_user_left">AgoraRTCClient.on(&quot;user-left&quot;)</a> 回调。</p>
 								<blockquote>
 									<p>注意事项：</p>

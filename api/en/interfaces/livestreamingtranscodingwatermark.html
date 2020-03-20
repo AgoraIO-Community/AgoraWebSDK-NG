@@ -52,7 +52,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Configurations for watermark in <a href="livestreamingtranscodingconfig.html">LiveStreamingTranscodingConfig</a>.</p>
+						<p>Configurations for the watermark images to put on top of the video in <a href="livestreamingtranscodingconfig.html">LiveStreamingTranscodingConfig</a>.</p>
 					</div>
 				</div>
 			</section>
@@ -93,7 +93,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Transparency of the watermark.</p>
+							<p>The transparency level of the watermark image.</p>
 						</div>
 						<p>The value range is [0.0,1.0]:</p>
 						<ul>
@@ -110,7 +110,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The height (pixel) of the watermark image .</p>
+							<p>The height (pixel) of the watermark image.</p>
 						</div>
 						<p>The default value is <code>160</code>.</p>
 					</div>
@@ -125,7 +125,7 @@
 						<div class="lead">
 							<p>The HTTP/HTTPS URL address of the watermark image on the broadcasting video.</p>
 						</div>
-						<p>Only supports online PNG files.</p>
+						<p>Supports online PNG only.</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -149,7 +149,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The position (pixel) of the image on the upper left of the broadcasting video on the horizontal axis.</p>
+							<p>The horizontal distance (pixel) between the watermark image&#39;s top-left corner and the video&#39;s top-left corner.</p>
 						</div>
 						<p>The default value is <code>0</code>.</p>
 					</div>
@@ -162,7 +162,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The position (pixel) of the image on the upper left of the broadcasting video on the vertical axis.</p>
+							<p>The vertical distance (pixel) between the watermark image&#39;s top-left corner and the video&#39;s top-left corner.</p>
 						</div>
 						<p>The default value is <code>0</code>.</p>
 					</div>
@@ -175,12 +175,12 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Layer position of the watermark.</p>
+							<p>The layer index of the watermark image.</p>
 						</div>
-						<p>Integer only. The value range is [0,100].</p>
+						<p>An integer. The value range is [0,100].</p>
 						<ul>
-							<li>0: (Default) Lowest.</li>
-							<li>100: Highest.</li>
+							<li>0: (Default) Bottom layer.</li>
+							<li>100: Top layer.</li>
 						</ul>
 					</div>
 				</section>

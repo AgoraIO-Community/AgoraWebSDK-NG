@@ -67,35 +67,36 @@
               }
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">调整通话音量</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="功能描述"></a><a href="#功能描述" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>功能描述</h2>
-<p>在使用我们 SDK 时，开发者可以对 SDK 采集到的声音及 SDK 播放的声音音量进行调整，以满足产品在声音上的个性化需求。比如进行双人通话时，可以通过这个功能调整麦克风音量或者远端用户音量。</p>
+<p>在使用我们 SDK 时，你可以对 SDK 采集到的声音及 SDK 播放的声音音量进行调整，以满足产品在声音上的个性化需求。比如进行双人通话时，可以通过这个功能调整麦克风采集音量或者远端用户音量。</p>
 <h2><a class="anchor" aria-hidden="true" id="实现方法"></a><a href="#实现方法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>实现方法</h2>
-<p>在调整通话音量前，请确保已在你的项目中实现基本的实时音视频功能。详见 <a href="/AgoraWebSDK-NG/docs/zh-CN/basic_call">实现音视频通话</a>。</p>
+<p>在调整通话音量前，请确保已在你的项目中实现基本的实时音视频功能。详见<a href="/AgoraWebSDK-NG/docs/zh-CN/basic_call">实现音视频通话</a>。</p>
+<p>SDK 为本地音频轨道和远端音频轨道对象分别提供 <code>setVolume</code> 方法用于调整本地音频的采集音量和远端音频的播放音量。</p>
 <h3><a class="anchor" aria-hidden="true" id="示例代码"></a><a href="#示例代码" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>示例代码</h3>
-<p>调节远端用户的音量，这里 <code>remoteUser</code> 是指已经订阅完成的远端用户对象</p>
-<pre><code class="hljs css language-js"><span class="hljs-comment">// 将音量减少一半</span>
+<p><strong>调节远端音频的播放音量</strong></p>
+<p>以下示例中 <code>remoteUser</code> 是指已订阅的远端用户对象。</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">// 将音量减少一半</span>
 remoteUser.audioTrack.setVolume(<span class="hljs-number">50</span>);
 <span class="hljs-comment">// 将音量增大一倍</span>
 remoteUser.audioTrack.setVolume(<span class="hljs-number">200</span>);
 <span class="hljs-comment">// 将远端音量设置为 0</span>
 remoteUser.audioTrack.setVolume(<span class="hljs-number">0</span>);
 </code></pre>
-<p>调节本地麦克风音量，这里 <code>localVideoTrack</code> 是指自己创建的本地音频轨道对象</p>
-<pre><code class="hljs css language-js">AgoraRTC.createMicrophoneAudioTrack().then(<span class="hljs-function"><span class="hljs-params">localVideoTrack</span> =&gt;</span> {
+<p><strong>调节本地音频的采集音量</strong></p>
+<p>以下示例中 <code>localAudioTrack</code> 是指自己创建的本地音频轨道对象。</p>
+<pre><code class="hljs css language-javascript">AgoraRTC.createMicrophoneAudioTrack().then(<span class="hljs-function"><span class="hljs-params">localAudioTrack</span> =&gt;</span> {
   <span class="hljs-comment">// 麦克风音量减半</span>
-  localVideoTrack.setVolume(<span class="hljs-number">50</span>);
+  localAudioTrack.setVolume(<span class="hljs-number">50</span>);
   <span class="hljs-comment">// 麦克风音量增大一倍</span>
-  localVideoTrack.setVolume(<span class="hljs-number">200</span>);
+  localAudioTrack.setVolume(<span class="hljs-number">200</span>);
   <span class="hljs-comment">// 将麦克风音量设置为 0</span>
-  localVideoTrack.setVolume(<span class="hljs-number">0</span>);
+  localAudioTrack.setVolume(<span class="hljs-number">0</span>);
 });
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="api-参考"></a><a href="#api-参考" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API 参考</h3>
 <ul>
-<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/ilocalaudiotrack.html#setvolume">LocalAudioTrack.setVolume</a></li>
-<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iremoteaudiotrack.html#setvolume">RemoteAudioTrack.setVolume</a></li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/ilocalaudiotrack.html#setvolume"><code>LocalAudioTrack.setVolume</code></a></li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iremoteaudiotrack.html#setvolume"><code>RemoteAudioTrack.setVolume</code></a></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="开发注意事项"></a><a href="#开发注意事项" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>开发注意事项</h2>
-<ul>
-<li>音量设置太大在某些设备上可能出现爆音现象</li>
-</ul>
+<p>音量设置太大在某些设备上可能出现爆音现象。</p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/AgoraWebSDK-NG/docs/zh-CN/basic_call"><span class="arrow-prev">← </span><span>实现基本通话</span></a><a class="docs-next button" href="/AgoraWebSDK-NG/docs/zh-CN/audio_profile"><span>设置音频属性</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#功能描述">功能描述</a></li><li><a href="#实现方法">实现方法</a><ul class="toc-headings"><li><a href="#示例代码">示例代码</a></li><li><a href="#api-参考">API 参考</a></li></ul></li><li><a href="#开发注意事项">开发注意事项</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/" class="nav-home"><img src="/AgoraWebSDK-NG/img/logo.png" alt="AgoraWebSDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/docs/zh-CN/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/api/cn">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>

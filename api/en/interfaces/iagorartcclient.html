@@ -52,9 +52,9 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Provides major functions for a voice/video call, such as joining a channel, publishing tracks and subscribing to tracks.</p>
+						<p>An interface providing the local client with basic functions for a voice or video call, such as joining a channel, publishing tracks, or subscribing to tracks.</p>
 					</div>
-					<p>The <code>AgoraRTCClient</code> object is created by the <a href="iagorartc.html#createclient">createClient</a> method and represents a local client.</p>
+					<p>An <code>AgoraRTCClient</code> object is created by the <a href="iagorartc.html#createclient">createClient</a> method.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -179,9 +179,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Occurs when a video capture device changes.</p>
+									<p>Occurs when a video capture device is added or removed.</p>
 								</div>
-								<p>The SDK triggers this callback when a video capture device is added or removed.</p>
 								<pre><code class="language-javascript">client.on(<span class="hljs-string">"camera-changed"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Camera Changed"</span>, evt.state, evt.device);
   });
@@ -215,7 +214,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Reports events during the media stream relay.</p>
+									<p>Reports events during a media stream relay.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<div></div>
@@ -226,7 +225,7 @@
 								<li>
 									<h5>event: <a href="../enums/channelmediarelayevent.html" class="tsd-signature-type">ChannelMediaRelayEvent</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The event code for media stream relay.</p>
+										<p>The event code for a media stream relay.</p>
 									</div>
 								</li>
 							</ul>
@@ -248,8 +247,8 @@
 								<div class="lead">
 									<p>Occurs when the state of the media stream relay changes.</p>
 								</div>
-								<p>The SDK reports the state and error code of the current media relay in this callback.</p>
-								<p>If the media relay is in an abnormal state, you can find the error code in <a href="../enums/channelmediarelayerror.html">ChannelMediaRelayError</a> (for example the token expires, or the reconnection fails.)</p>
+								<p>The SDK reports the state and error code of the current media relay with this callback.</p>
+								<p>If the media relay is in an abnormal state, you can find the error code in <a href="../enums/channelmediarelayerror.html">ChannelMediaRelayError</a> (for example if the token has expired, or repeated reconnection attempts fail.)</p>
 								<dl class="tsd-comment-tags">
 									<div></div>
 								</dl>
@@ -328,9 +327,9 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Occurs when the decryption fails.</p>
+									<p>Occurs when decryption fails.</p>
 								</div>
-								<p>The SDK triggers this callback when the decryption fails during subscribing to a stream. The failure is usually due to wrong encryption configurations. See <a href="iagorartcclient.html#setencryptionconfig">setEncryptionConfig</a> for details.</p>
+								<p>The SDK triggers this callback when the decryption fails during the process of subscribing to a stream. The failure is usually caused by incorrect encryption settings. See <a href="iagorartcclient.html#setencryptionconfig">setEncryptionConfig</a> for details.</p>
 								<dl class="tsd-comment-tags">
 									<div></div>
 								</dl>
@@ -351,11 +350,11 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Reports exception events in the channel.</p>
+									<p>Reports exceptions in the channel.</p>
 								</div>
-								<p>Exceptions are not errors, but usually mean quality issues.</p>
+								<p>Exceptions are not errors, but usually reflect quality issues.</p>
 								<p>This callback also reports recovery from an exception.</p>
-								<p>Each exception event has a corresponding recovery event, see the table below for details:</p>
+								<p>Each exception corresponds to a recovery event, see the table below for details:</p>
 								<p><img src="https://web-cdn.agora.io/docs-files/1547180053430" alt=""></p>
 								<dl class="tsd-comment-tags">
 									<div></div>
@@ -370,7 +369,7 @@
 											<h5>code<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
 											<div class="tsd-comment tsd-typography">
 												<div class="lead">
-													<p>Event code.</p>
+													<p>The event code.</p>
 												</div>
 											</div>
 										</li>
@@ -378,7 +377,7 @@
 											<h5>msg<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
 											<div class="tsd-comment tsd-typography">
 												<div class="lead">
-													<p>Event message.</p>
+													<p>The event message.</p>
 												</div>
 											</div>
 										</li>
@@ -386,7 +385,7 @@
 											<h5>uid<span class="tsd-signature-symbol">: </span><a href="../globals.html#uid" class="tsd-signature-type">UID</a></h5>
 											<div class="tsd-comment tsd-typography">
 												<div class="lead">
-													<p>The ID of the user who experiences the exception or recovery event.</p>
+													<p>The ID of the user who has experienced the exception or recovery event.</p>
 												</div>
 											</div>
 										</li>
@@ -409,7 +408,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Occurs when the restart of media connection for publishing and subscribing ends.</p>
+									<p>Occurs when the SDK ends reestablishing the media connection for publishing and subscribing.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<div></div>
@@ -420,7 +419,7 @@
 								<li>
 									<h5>uid: <a href="../globals.html#uid" class="tsd-signature-type">UID</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The ID of the user who restarts the connection. If this is the local <code>uid</code>, the connection is for publishing; if this is a remote <code>uid</code>, the connection is for subscribing.</p>
+										<p>The ID of the user who reestablishes the connection. If it is the local <code>uid</code>, the connection is for publishing; if it is a remote <code>uid</code>, the connection is for subscribing.</p>
 									</div>
 								</li>
 							</ul>
@@ -440,7 +439,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Occurs when the SDK restarts the media connection for publishing and subscribing.</p>
+									<p>Occurs when the SDK starts to reestablish the media connection for publishing and subscribing.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<div></div>
@@ -451,7 +450,7 @@
 								<li>
 									<h5>uid: <a href="../globals.html#uid" class="tsd-signature-type">UID</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The ID of the user who restarts the connection. If this is the local <code>uid</code>, the connection is for publishing; if this is a remote <code>uid</code>, the connection is for subscribing.</p>
+										<p>The ID of the user who reestablishes the connection.  If it is the local <code>uid</code>, the connection is for publishing; if it is a remote <code>uid</code>, the connection is for subscribing.</p>
 									</div>
 								</li>
 							</ul>
@@ -471,9 +470,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Occurs when an audio capture device changes.</p>
+									<p>Occurs when an audio sampling device is added or removed.</p>
 								</div>
-								<p>The SDK triggers this callback when an audio capture device is added or removed.</p>
 								<pre><code class="language-javascript">client.on(<span class="hljs-string">"microphone-changed"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Microphone Changed"</span>, evt.state, evt.device);
   });
@@ -487,7 +485,7 @@
 								<li>
 									<h5>info: <a href="deviceinfo.html" class="tsd-signature-type">DeviceInfo</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Information of the audio capture device.</p>
+										<p>Information of the audio sampling device.</p>
 									</div>
 								</li>
 							</ul>
@@ -509,9 +507,9 @@
 								<div class="lead">
 									<p>Reports the network quality of the local user once every two seconds.</p>
 								</div>
-								<p>This callback reports on the uplink and downlink network conditions of the local user.</p>
+								<p>This callback reports the uplink and downlink network conditions of the local user.</p>
 								<blockquote>
-									<p>This is an experimental feature and the network quality rating is for reference only.</p>
+									<p>This is an experimental feature and the network quality ratings are for reference only.</p>
 								</blockquote>
 								<dl class="tsd-comment-tags">
 									<div></div>
@@ -542,7 +540,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Occurs when a remote video stream falls back to an audio-only stream due to unreliable network conditions or switches back to video after the network conditions improve.</p>
+									<p>Occurs when a remote video stream falls back to an audio stream due to unreliable network conditions or switches back to video after the network conditions improve.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<div></div>
@@ -553,13 +551,13 @@
 								<li>
 									<h5>uid: <a href="../globals.html#uid" class="tsd-signature-type">UID</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The ID of the corresponding remote user.</p>
+										<p>The ID of the remote user.</p>
 									</div>
 								</li>
 								<li>
 									<h5>isFallbackOrRecover: <span class="tsd-signature-type">"fallback"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"recover"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Whether the remote media stream falls back or recover:</p>
+										<p>Whether the remote media stream falls back or recovers:</p>
 										<ul>
 											<li><code>&quot;fallback&quot;</code>: The remote media stream falls back to audio-only due to unreliable network conditions.</li>
 											<li><code>&quot;recover&quot;</code>: The remote media stream switches back to the video stream after the network conditions improve.</li>
@@ -585,7 +583,7 @@
 								<div class="lead">
 									<p>Occurs when the type of a remote video stream changes.</p>
 								</div>
-								<p>The SDK triggers this callback when a high-video stream changes to a low-video stream, or vice versa.</p>
+								<p>The SDK triggers this callback when a high-quality video stream changes to a low-quality video stream, or vice versa.</p>
 								<dl class="tsd-comment-tags">
 									<div></div>
 								</dl>
@@ -595,7 +593,7 @@
 								<li>
 									<h5>uid: <a href="../globals.html#uid" class="tsd-signature-type">UID</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The ID of the corresponding remote user.</p>
+										<p>The ID of the remote user.</p>
 									</div>
 								</li>
 								<li>
@@ -627,7 +625,7 @@
 								<div class="lead">
 									<p>Occurs when the token expires.</p>
 								</div>
-								<p>You should request a new token from your server and call <a href="iagorartcclient.html#renewtoken">renewToken</a> to pass a new token.</p>
+								<p>You must request a new token from your server and call <a href="iagorartcclient.html#join">join</a> to use the new token to join the channel.</p>
 								<pre><code class="language-javascript">client.on(<span class="hljs-string">"token-privilege-did-expire"</span>, <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
   <span class="hljs-comment">//After requesting a new token</span>
   <span class="hljs-keyword">await</span> client.renewToken(token);
@@ -653,9 +651,9 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Occurs when the token expires in 30 seconds.</p>
+									<p>Occurs 30 seconds before a token expires.</p>
 								</div>
-								<p>You should request a new token from your server and call <a href="iagorartcclient.html#renewtoken">renewToken</a> to pass a new token.</p>
+								<p>You must request a new token from your server and call <a href="iagorartcclient.html#renewtoken">renewToken</a> to pass a new token as soon as possible.</p>
 								<pre><code class="language-javascript">client.on(<span class="hljs-string">"token-privilege-will-expire"</span>, <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
   <span class="hljs-comment">//After requesting a new token</span>
   <span class="hljs-keyword">await</span> client.renewToken(token);
@@ -681,18 +679,18 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Occurs when a remote user or host joins a channel.</p>
+									<p>Occurs when a remote user or host joins the channel.</p>
 								</div>
 								<ul>
-									<li>In a communication channel, this callback indicates that another user joins the channel and reports the ID of that user. The SDK also triggers this callback to report on existing users in the channel when a user joins the channel.</li>
-									<li>In a live-broadcast channel, this callback indicates that a host joins the channel. The SDK also triggers this callback to report on existing hosts in the channel when a user joins the channel. We recommend having at most 17 hosts in a channel.</li>
+									<li>In a communication channel, this callback indicates that another user joins the channel and reports the ID of that user. The SDK also triggers this callback to report the existing users in the channel when a user joins the channel.</li>
+									<li>In a live-broadcast channel, this callback indicates that a host joins the channel. The SDK also triggers this callback to report the existing hosts in the channel when a user joins the channel. Ensure that you have no more than 17 hosts in a channel.</li>
 								</ul>
-								<p>The SDK triggers this callback under one of the following circumstances:</p>
+								<p>The SDK triggers this callback when one of the following situations occurs:</p>
 								<ul>
-									<li>A remote user/host joins the channel by calling the <a href="iagorartcclient.html#join">join</a> method.</li>
-									<li>A remote user switches the user role to host by calling the <a href="iagorartcclient.html#setclientrole">setClientRole</a> method after joining the channel.</li>
-									<li>A remote user/host rejoins the channel after a network interruption.</li>
-									<li>A host injects an online media stream into the channel by calling the <a href="iagorartcclient.html#addinjectstreamurl">addInjectStreamUrl</a> method.</li>
+									<li>A remote user or host joins the channel by calling <a href="iagorartcclient.html#join">join</a>.</li>
+									<li>A remote audience switches the user role to host by calling <a href="iagorartcclient.html#setclientrole">setClientRole</a> after joining the channel.</li>
+									<li>A remote user or host rejoins the channel after a network interruption.</li>
+									<li>A host injects an online media stream into the channel by calling <a href="iagorartcclient.html#addinjectstreamurl">addInjectStreamUrl</a>.</li>
 								</ul>
 								<dl class="tsd-comment-tags">
 									<div></div>
@@ -725,10 +723,10 @@
 								<div class="lead">
 									<p>Occurs when a remote user becomes offline.</p>
 								</div>
-								<p>The SDK triggers this callback in the following situations:</p>
+								<p>The SDK triggers this callback when one of the following situations occurs:</p>
 								<ul>
 									<li>A remote user calls <a href="iagorartcclient.html#leave">leave</a> and leaves the channel.</li>
-									<li>A remote user drops offline. When no data packet of the user or host is received for 20 seconds, the SDK assumes that the user drops offline. A poor network connection may lead to false detections.</li>
+									<li>A remote user has dropped offline. If no data packet of the user or host is received for 20 seconds, the SDK assumes that the user has dropped offline. A poor network connection may cause a false positive.</li>
 									<li>A remote user switches the client role from host to audience.</li>
 								</ul>
 								<blockquote>
@@ -749,11 +747,11 @@
 								<li>
 									<h5>reason: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Reason why the user goes offline.</p>
+										<p>Reason why the user has gone offline.</p>
 										<ul>
 											<li><code>&quot;Quit&quot;</code>: The user calls <a href="iagorartcclient.html#leave">leave</a> and leaves the channel.</li>
-											<li><code>&quot;ServerTimeOut&quot;</code>: The user drops offline.</li>
-											<li><code>&quot;BecomeAudience&quot;</code>: The client role switches from <code>&quot;host&quot;</code> to <code>&quot;audience&quot;</code>.</li>
+											<li><code>&quot;ServerTimeOut&quot;</code>: The user has dropped offline.</li>
+											<li><code>&quot;BecomeAudience&quot;</code>: The client role is switched from host to audience.</li>
 										</ul>
 									</div>
 								</li>
@@ -779,8 +777,8 @@
 								<p>The SDK triggers this callback when a remote user calls <a href="ilocaltrack.html#setmute">LocalTrack.setMute</a> to report that the remote user has stopped or resumed sending audio or video.</p>
 								<p>You can get the mute states through <a href="iagorartcremoteuser.html#audiomuted">user.audioMuted</a> and <a href="iagorartcremoteuser.html#videomuted">user.videoMuted</a>.</p>
 								<ul>
-									<li>If <code>audioMuted</code> is <code>true</code>, the remote user has muted audio, namely sending silent audio frames.</li>
-									<li>If <code>videoMuted</code> is <code>true</code>, the remote user has muted video, namely sending black video frames.</li>
+									<li>If <code>audioMuted</code> is <code>true</code>, the remote user has muted audio, and is sending silent audio frames.</li>
+									<li>If <code>videoMuted</code> is <code>true</code>, the remote user has muted video, and is sending black video frames.</li>
 								</ul>
 								<dl class="tsd-comment-tags">
 									<div></div>
@@ -815,7 +813,7 @@
 								</div>
 								<p>You can subscribe to and play the audio or video track in this callback. See <a href="iagorartcclient.html#subscribe">subscribe</a> and <a href="iremotetrack.html#play">RemoteTrack.play</a>.</p>
 								<blockquote>
-									<p>The SDK also triggers this callback to report on existing tracks in the channel when a user joins the channel.</p>
+									<p>The SDK also triggers this callback to report the existing tracks in the channel when a user joins the channel.</p>
 								</blockquote>
 								<pre><code class="language-javascript">client.on(<span class="hljs-string">"user-published"</span>, (uid, mediaType) =&gt; {
   client.subscribe(uid, mediaType);
@@ -895,7 +893,7 @@
 									<p>Reports all the speaking remote users and their volumes.</p>
 								</div>
 								<p>It is disabled by default. You can enable this callback by calling <a href="iagorartcclient.html#enableaudiovolumeindicator">enableAudioVolumeIndicator</a>.
-								If enabled, it reports the volumes every two seconds regardless of whether there are users speaking.</p>
+								If enabled, it reports the users&#39; volumes every two seconds regardless of whether there are users speaking.</p>
 								<p>The volume is an integer ranging from 0 to 100. Usually a user with volume above five is a speaking user.</p>
 								<pre><code class="language-javascript">client.on(<span class="hljs-string">"volume-indicator"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>)</span>{
     result.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">volume, index</span>)</span>{
@@ -952,7 +950,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A list of remote users, providing the user ID and track information of each remote user in the channel.</p>
+							<p>A list of the remote users in the channel, each of which includes the user ID and the corresponding track information.</p>
 						</div>
 						<p>The list is empty if the local user has not joined a channel.</p>
 					</div>
@@ -1051,10 +1049,10 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Allows a user to leave a channel.</p>
+									<p>Leaves a channel.</p>
 								</div>
 								<p>When leaving the channel, the <a href="iagorartcclient.html#event_connection_state_change">AgoraRTCClient.on(&quot;connection-state-change&quot;)</a> callback is triggered on the local client.</p>
-								<p>After leaving the channel, if the user is in the communication profile, or is a host in the live-broadcast profile, the <a href="iagorartcclient.html#event_user_left">AgoraRTCClient.on(&quot;user-left&quot;)</a> callback is triggered on the remote client.</p>
+								<p>When a user (in the communication profile) or a host (in the live-broadcast profile) leaves the channel, the <a href="iagorartcclient.html#event_user_left">AgoraRTCClient.on(&quot;user-left&quot;)</a> callback is triggered on each remote client in the channel.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
@@ -1075,9 +1073,14 @@
 									<p>Publishes local audio and/or video tracks to a channel.</p>
 								</div>
 								<p>After publishing the local tracks, the <a href="iagorartcclient.html#event_user_published">AgoraRTCClient.on(&quot;user-published&quot;)</a> callback is triggered on the remote client.</p>
-								<p>In a live broadcast channel, only hosts can publish tracks.</p>
 								<blockquote>
-									<p>An <code>AgoraRTCClient</code> object can publish multiple audio tracks but only one video track. The SDK automatically mixes the audio tracks into one audio track.</p>
+									<p>Note:</p>
+									<ul>
+										<li>In a live broadcast channel, call <a href="iagorartcclient.html#setclientrole">setClientRole</a> to set the user role as host before calling this method.</li>
+										<li>You can call this method multiple times to add tracks for publishing.</li>
+										<li>An <code>AgoraRTCClient</code> object can publish multiple audio tracks but only one video track. The SDK automatically mixes the audio tracks into one audio track.</li>
+										<li>Safari does not support publishing multiple audio tracks on versions earlier than Safari 12.</li>
+									</ul>
 								</blockquote>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1105,7 +1108,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Subscribes to audio and/or video tracks of a remote user.</p>
+									<p>Subscribes to the audio and/or video tracks of a remote user.</p>
 								</div>
 								<pre><code class="language-javascript"><span class="hljs-keyword">await</span> client.subscribe(user，<span class="hljs-string">"audio"</span>);
 user.audioTrack.play();</code></pre>
@@ -1115,7 +1118,7 @@ user.audioTrack.play();</code></pre>
 								<li>
 									<h5>user: <a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The remote user object.</p>
+										<p>The remote user.</p>
 									</div>
 								</li>
 								<li>
@@ -1123,15 +1126,15 @@ user.audioTrack.play();</code></pre>
 									<div class="tsd-comment tsd-typography">
 										<p>The media type of the tracks to subscribe to.</p>
 										<ul>
-											<li><code>&quot;video&quot;</code>: Only subscribe to the video track.</li>
-											<li><code>“audio”</code>: Only subscribe to the audio track(s).</li>
-											<li><code>&quot;all&quot;</code> or empty: SUbscribe to all the tracks published by the remote user.</li>
+											<li><code>&quot;video&quot;</code>: Subscribe to the video track only.</li>
+											<li><code>“audio”</code>: Subscribe to the audio track only.</li>
+											<li><code>&quot;all&quot;</code> or empty: Subscribe to all the tracks published by the remote user.</li>
 										</ul>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>When the subscription succeeds, the subscribed tracks are updated to <a href="iagorartcremoteuser.html#audiotrack">user.audioTrack</a> and <a href="iagorartcremoteuser.html#videotrack">user.videoTrack</a>. You can go on to call <a href="iremoteaudiotrack.html#play">user.audioTrack.play</a> or <a href="iremotevideotrack.html#play">user.videoTrack.play</a> to play the tracks.</p>
+							<p>When the subscription succeeds, the SDK adds the subscribed tracks to <a href="iagorartcremoteuser.html#audiotrack">user.audioTrack</a> and <a href="iagorartcremoteuser.html#videotrack">user.videoTrack</a>. You can go on to call <a href="iremoteaudiotrack.html#play">user.audioTrack.play</a> or <a href="iremotevideotrack.html#play">user.videoTrack.play</a> to play the tracks.</p>
 							<blockquote>
 								<p>The <code>Promise</code> object throws the <code>TRACK_IS_NOT_PUBLISHED</code> error if the specified tracks do not exist.</p>
 							</blockquote>
@@ -1150,16 +1153,16 @@ user.audioTrack.play();</code></pre>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Unpublishes local audio and/or video tracks.</p>
+									<p>Unpublishes the local audio and/or video tracks.</p>
 								</div>
-								<p>After unpublishing the local tracks, the <a href="iagorartcclient.html#event_user_unpublished">AgoraRTCClient.on(&quot;user-unpublished&quot;)</a> callback is triggered on the remote client.</p>
+								<p>After the local client unpublishes, the <a href="iagorartcclient.html#event_user_unpublished">AgoraRTCClient.on(&quot;user-unpublished&quot;)</a> callback is triggered on each remote client in the channel.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> tracks: <a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol"> | </span><a href="ilocaltrack.html" class="tsd-signature-type">ILocalTrack</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The tracks to be unpublished. If left empty, all the published tracks are unpublished.</p>
+										<p>The tracks to unpublish. If left empty, all the published tracks are unpublished.</p>
 									</div>
 								</li>
 							</ul>
@@ -1187,7 +1190,7 @@ user.audioTrack.play();</code></pre>
 								<li>
 									<h5>user: <a href="iagorartcremoteuser.html" class="tsd-signature-type">IAgoraRTCRemoteUser</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The remote user object.</p>
+										<p>The remote user.</p>
 									</div>
 								</li>
 								<li>
@@ -1195,8 +1198,8 @@ user.audioTrack.play();</code></pre>
 									<div class="tsd-comment tsd-typography">
 										<p>The media type of the tracks to unsubscribe from:</p>
 										<ul>
-											<li><code>&quot;video&quot;</code>: Only unsubscribe from the video track.</li>
-											<li><code>“audio”</code>: Only unsubscribe from the audio track(s).</li>
+											<li><code>&quot;video&quot;</code>: Unsubscribe from the video track only.</li>
+											<li><code>“audio”</code>: Unsubscribe from the audio track only.</li>
 											<li><code>&quot;all&quot;</code> or empty: Unsubscribe from all the tracks published by the remote user.</li>
 										</ul>
 									</div>
@@ -1338,7 +1341,7 @@ user.audioTrack.play();</code></pre>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Disables the dual-stream mode.</p>
+									<p>Disables dual-stream mode.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1357,18 +1360,18 @@ user.audioTrack.play();</code></pre>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Enables the dual-stream mode.</p>
+									<p>Enables dual-stream mode.</p>
 								</div>
-								<p>Enables the dual-stream mode for the local stream. Dual streams are a hybrid of a high-video stream and a low-video stream:</p>
+								<p>Enables dual-stream mode for the local stream. Dual streams are a hybrid of a high-quality video stream and a low-quality video stream:</p>
 								<ul>
-									<li>High-video stream: High bitrate, high resolution.</li>
-									<li>Low-video stream: Low bitrate, low resolution.</li>
+									<li>High-quality video stream: High bitrate, high resolution.</li>
+									<li>Low-quality video stream: Low bitrate, low resolution.</li>
 								</ul>
 								<blockquote>
 									<p>This method does not apply to the following streams:</p>
 									<ul>
-										<li>The audio-only stream.</li>
-										<li>The screen-sharing stream.</li>
+										<li>An audio stream.</li>
+										<li>A screen-sharing stream.</li>
 									</ul>
 								</blockquote>
 								<pre><code class="language-javascript">client.enableDualStream().then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
@@ -1393,16 +1396,16 @@ user.audioTrack.play();</code></pre>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the video profile of the low-video stream.</p>
+									<p>Sets the video profile of the low-quality video stream.</p>
 								</div>
-								<p>If you enable the dual-stream mode by <a href="iagorartcclient.html#enabledualstream">enableDualStream</a>, use this method to set the low-video stream profile.</p>
-								<p>If you do not set the low-video stream profile, the SDK assigns default values based on your stream video profile.</p>
+								<p>If you have enabled the dual-stream mode by calling <a href="iagorartcclient.html#enabledualstream">enableDualStream</a>, use this method to set the low-quality video stream profile.</p>
+								<p>If you do not set the low-quality video stream profile, the SDK assigns the default values based on your stream video profile.</p>
 								<blockquote>
 									<p>Note:</p>
 									<ul>
-										<li>The frame rate setting does not take effect on Firefox. The browser sets the frame rate as 30 fps.</li>
-										<li>Due to limitations of some devices and browsers, the resolution you set may fail to take effect and get adjusted by the browser. In this case, billings are calculated based on the actual resolution.</li>
-										<li>Call this method before <a href="iagorartcclient.html#publish">publish</a>.</li>
+										<li>Frame rate settings do not take effect on Firefox. The browser sets the frame rate as 30 fps.</li>
+										<li>Due to limitations of some devices and browsers, the resolution you set may get adjusted by the browser. In this case, billings are calculated based on the actual resolution.</li>
+										<li>Call this method before calling <a href="iagorartcclient.html#publish">publish</a>.</li>
 									</ul>
 								</blockquote>
 							</div>
@@ -1411,7 +1414,7 @@ user.audioTrack.play();</code></pre>
 								<li>
 									<h5>streamParameter: <a href="lowstreamparameter.html" class="tsd-signature-type">LowStreamParameter</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The video profile of the low-video stream.</p>
+										<p>The video profile of the low-quality video stream.</p>
 									</div>
 								</li>
 							</ul>
@@ -1431,11 +1434,11 @@ user.audioTrack.play();</code></pre>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the video type of the remote stream.</p>
+									<p>Sets the video type of a remote stream.</p>
 								</div>
-								<p>If a remote user enables dual-stream mode, use this method to set which stream to subscribe to. The default setting is to subscribe to the high-video stream.</p>
+								<p>If a remote user enables dual-stream mode, use this method to set which stream to subscribe to. The local client subscribes to the high-quality video stream by default.</p>
 								<blockquote>
-									<p>This method only works when the remote client has enabled dual-stream mode (<a href="iagorartcclient.html#enabledualstream">enableDualStream</a>).</p>
+									<p>This method works only if the remote client has enabled dual-stream mode (<a href="iagorartcclient.html#enabledualstream">enableDualStream</a>).</p>
 								</blockquote>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1473,13 +1476,13 @@ user.audioTrack.play();</code></pre>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets stream fallback option.</p>
+									<p>Sets the stream fallback option.</p>
 								</div>
-								<p>Use this method to set the fallback option for the subscribed video stream based on the network conditions.
-								Under poor network conditions, the SDK can choose to subscribe to the low-video stream or only the audio stream.</p>
-								<p>If the auto-fallback option is enabled, the SDK triggers the <a href="iagorartcclient.html#event_stream_type_changed">AgoraRTCClient.on(&quot;stream-type-changed&quot;)</a> callback when the remote stream changes from a high-video stream to a low-video stream or vice versa, and triggers the <a href="iagorartcclient.html#event_stream_fallback">AgoraRTCClient.on(&quot;stream-fallback&quot;)</a> callback when the remote stream changes from a video stream to an audio-only stream or vice versa.</p>
+								<p>Use this method to set the fallback option for the subscribed video stream.
+								Under poor network conditions, the SDK can subscribe to the low-quality video stream or only to the audio stream.</p>
+								<p>If the auto-fallback option is enabled, the SDK triggers the <a href="iagorartcclient.html#event_stream_type_changed">AgoraRTCClient.on(&quot;stream-type-changed&quot;)</a> callback when the remote stream changes from a high-quality video stream to a low-quality video stream or vice versa, and triggers the <a href="iagorartcclient.html#event_stream_fallback">AgoraRTCClient.on(&quot;stream-fallback&quot;)</a> callback when the remote stream changes from a video stream to an audio stream or vice versa.</p>
 								<blockquote>
-									<p>This method only works when the remote user has enabled the dual-stream mode by <a href="iagorartcclient.html#enabledualstream">enableDualStream</a>.</p>
+									<p>This method works only if the remote user has enabled the dual-stream mode by <a href="iagorartcclient.html#enabledualstream">enableDualStream</a>.</p>
 								</blockquote>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1516,9 +1519,9 @@ user.audioTrack.play();</code></pre>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Injects an online media stream to a live broadcast.</p>
+									<p>Injects an online media stream to a live-broadcast channel.</p>
 								</div>
-								<p>After you call this method, the server pulls the online stream and injects it into a live channel. This is applicable to scenarios where all audience members in the channel can watch a live show and interact with each other. See <a href="/AgoraWebSDK-NG/docs/en/inject_stream">Inject Online Media Stream</a> for details.</p>
+								<p>After you call this method, the server pulls the online stream and injects it into a live-broadcast channel. This is applicable to scenarios where all audience members in the channel can watch a live show and interact with each other. See <a href="/AgoraWebSDK-NG/docs/en/inject_stream">Inject Online Media Stream</a> for details.</p>
 								<p>If the online media stream is injected successfully, this stream is added to the channel, and all users in the channel receive the <a href="iagorartcclient.html#event_user_published">AgoraRTCClient.on(&quot;user-published&quot;)</a> and <a href="iagorartcclient.html#event_user_joined">AgoraRTCClient.on(&quot;user-joined&quot;)</a> callbacks with the <code>uid</code> 666.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1556,9 +1559,9 @@ user.audioTrack.play();</code></pre>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Removes the injected stream.</p>
+									<p>Removes an injected stream.</p>
 								</div>
-								<p>This method removes the HTTP/HTTPS URL address (added by <a href="iagorartcclient.html#addinjectstreamurl">addInjectStreamUrl</a>) from the live broadcast.</p>
+								<p>This method removes an injected stream (added by <a href="iagorartcclient.html#addinjectstreamurl">addInjectStreamUrl</a>) from the live broadcast.</p>
 								<p>If the injected stream is removed successfully, all users in the channel receive the <a href="iagorartcclient.html#event_user_left">AgoraRTCClient.on(&quot;user-left&quot;)</a> and <a href="iagorartcclient.html#event_user_unpublished">AgoraRTCClient.on(&quot;user-unpublished&quot;)</a> callbacks.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1580,7 +1583,7 @@ user.audioTrack.play();</code></pre>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the video layout and audio settings for CDN live.</p>
+									<p>Sets the video layout and audio for CDN live streaming.</p>
 								</div>
 								<blockquote>
 									<p>Ensure that you <a href="/AgoraWebSDK-NG/docs/en/cdn_streaming/#prerequisites">enable the RTMP Converter service</a> before using this function.</p>
@@ -1591,7 +1594,7 @@ user.audioTrack.play();</code></pre>
 								<li>
 									<h5>config: <a href="livestreamingtranscodingconfig.html" class="tsd-signature-type">LiveStreamingTranscodingConfig</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Configurations for live transcoding, see <a href="livestreamingtranscodingconfig.html">LiveStreamingTranscodingConfig</a> for details.</p>
+										<p>Configurations for live transcoding. See <a href="livestreamingtranscodingconfig.html">LiveStreamingTranscodingConfig</a> for details.</p>
 									</div>
 								</li>
 							</ul>
@@ -1611,14 +1614,14 @@ user.audioTrack.play();</code></pre>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds a URL for CDN live streaming.</p>
+									<p>Publishes the local stream to the CDN.</p>
 								</div>
-								<p>Use this method to push a live stream to the CDN. See <a href="/AgoraWebSDK-NG/docs/en/cdn_streaming">Push Streams to the CDN</a> for details.</p>
+								<p>See <a href="/AgoraWebSDK-NG/docs/en/cdn_streaming">Push Streams to the CDN</a> for details.</p>
 								<blockquote>
 									<p>Note:</p>
 									<ul>
-										<li>Only hosts in live-broadcast channels can call this method.</li>
-										<li>Push one live stream at a time. If you need to push several streams, ensure that the current stream starts successfully before pushing the next one.</li>
+										<li>Only hosts can call this method.</li>
+										<li>This method adds only one stream HTTP/HTTPS URL address each time it is called.</li>
 									</ul>
 								</blockquote>
 							</div>
@@ -1627,13 +1630,17 @@ user.audioTrack.play();</code></pre>
 								<li>
 									<h5>url: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>URL address for the live stream. ASCII characters only. Supports the RTMP protocol.</p>
+										<p>The CDN streaming URL in the RTMP format. ASCII characters only.</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> transcodingEnabled: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Marks whether to enable live transcoding. Transcoding sets the audio/video profiles and the picture-in-picture layout for the stream to be pushed to the CDN, and is often used for combining the audio and video streams of multiple hosts in CDN live streaming. If set as <code>true</code>, <a href="iagorartcclient.html#setlivetranscoding">setLiveTranscoding</a> must be called before this method.</p>
+										<p>Whether to enable live transcoding.
+										Transcoding sets the audio and video profiles and the picture-in-picture layout for the stream to be pushed to the CDN. It is often used to combine the audio and video streams of multiple hosts in a CDN live stream.</p>
+										<blockquote>
+											<p>If set as <code>true</code>, <a href="iagorartcclient.html#setlivetranscoding">setLiveTranscoding</a> must be called before this method.</p>
+										</blockquote>
 										<ul>
 											<li><code>true</code>: Enable transcoding.</li>
 											<li><code>false</code>: (Default) Disable transcoding.</li>
@@ -1657,7 +1664,7 @@ user.audioTrack.play();</code></pre>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Removes an URL from CDN live streaming.</p>
+									<p>Removes a URL from CDN live streaming.</p>
 								</div>
 								<p>This method removes only one URL address each time it is called. To remove multiple URLs, call this method multiple times.</p>
 							</div>
@@ -1689,10 +1696,10 @@ user.audioTrack.play();</code></pre>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Enables volume indicator.</p>
+									<p>Enables the volume indicator.</p>
 								</div>
-								<p>This method enables the SDK to report the remote users who are speaking and their volumes regularly.</p>
-								<p>After the volume indicator is enabled, the SDK triggers the <a href="iagorartcclient.html#event_volume_indicator">AgoraRTCClient.on(&quot;volume-indicator&quot;)</a> callback to report the volumes every two seconds, regardless of whether there are active speakers.</p>
+								<p>This method enables the SDK to regularly report the remote users who are speaking and their volumes.</p>
+								<p>After the volume indicator is enabled, the SDK triggers the <a href="iagorartcclient.html#event_volume_indicator">AgoraRTCClient.on(&quot;volume-indicator&quot;)</a> callback to report the volumes every two seconds, regardless of whether there are active speakers in the channel.</p>
 								<pre><code class="language-javascript">client.enableAudioVolumeIndicator();
 client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
   volumes.forEach(<span class="hljs-function">(<span class="hljs-params">volume, index</span>) =&gt;</span> {
@@ -1717,7 +1724,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets all the listeners of a specified event.</p>
+									<p>Gets all the listeners for a specified event.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1780,7 +1787,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								<li>
 									<h5>listener: <span class="tsd-signature-type">Function</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The callback that you pass when listening for the event.</p>
+										<p>The callback that corresponds to the event listener.</p>
 									</div>
 								</li>
 							</ul>
@@ -2131,7 +2138,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								<div class="lead">
 									<p>Listens for a specified event once.</p>
 								</div>
-								<p>When the event first happens, the callback that you pass is triggered. Then the event listener is removed.</p>
+								<p>When the specified event happens, the SDK triggers the callback that you pass and then removes the listener.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -2144,7 +2151,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								<li>
 									<h5>listener: <span class="tsd-signature-type">Function</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The callback to be triggered.</p>
+										<p>The callback to trigger.</p>
 									</div>
 								</li>
 							</ul>
@@ -2173,7 +2180,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The event name. If left empty, all the listers for all events are removed.</p>
+										<p>The event name. If left empty, all listeners for all events are removed.</p>
 									</div>
 								</li>
 							</ul>
@@ -2195,7 +2202,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								<div class="lead">
 									<p>Renews the token.</p>
 								</div>
-								<p>The token expires after a period of time once the token schema is enabled. When the SDK triggers the <a href="iagorartcclient.html#event_token_privilege_will_expire">AgoraRTCClient.on(&quot;token-privilege-will-expire&quot;)</a> or <a href="iagorartcclient.html#event_token_privilege_did_expire">AgoraRTCClient.on(&quot;token-privilege-did-expire&quot;)</a> callback, call this method to pass in a new token. Otherwise the SDK disconnects from the server.</p>
+								<p>The token expires after a set time once token is enabled. When the SDK triggers the <a href="iagorartcclient.html#event_token_privilege_will_expire">AgoraRTCClient.on(&quot;token-privilege-will-expire&quot;)</a> callback, call this method to pass a new token. Otherwise the SDK disconnects from the server.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -2222,15 +2229,16 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the role of the user.</p>
+									<p>Sets the user role.</p>
 								</div>
 								<p>This method applies to the live-broadcast profile only.</p>
-								<p>Users in the <code>host</code> role can publish tracks and subscribe to tracks, while users in the <code>audience</code> role cannot publish tracks.</p>
-								<p>If you call this method to switch the user role after joining a channel, the SDK triggers the <a href="iagorartcclient.html#event_user_joined">AgoraRTCClient.on(&quot;user-joined&quot;)</a> or <a href="iagorartcclient.html#event_user_left">AgoraRTCClient.on(&quot;user-left&quot;)</a> callback on the remote client.</p>
+								<p>In live-broadcast channels, the default user role is audience. Before publishing tracks, you must call this method to set the user role as host.</p>
+								<p>Users in the <code>host</code> role can publish tracks and subscribe to tracks, while users in the <code>audience</code> role can only subscribe to tracks.</p>
+								<p>If the local client switches the user role after joining a channel, the SDK triggers the <a href="iagorartcclient.html#event_user_joined">AgoraRTCClient.on(&quot;user-joined&quot;)</a> or <a href="iagorartcclient.html#event_user_left">AgoraRTCClient.on(&quot;user-left&quot;)</a> callback on the remote client.</p>
 								<blockquote>
 									<p>Note:</p>
 									<ul>
-										<li>After calling <a href="iagorartcclient.html#publish">publish</a>, to switch the user role to <code>audience</code>, you must call <a href="iagorartcclient.html#unpublish">unpublish</a> before this method. Otherwise the method call fails and throws an exception.</li>
+										<li>To switch the user role to <code>audience</code> after calling <a href="iagorartcclient.html#publish">publish</a>, call <a href="iagorartcclient.html#unpublish">unpublish</a> first. Otherwise the method call fails and throws an exception.</li>
 										<li>In the communication profile (<a href="clientconfig.html#mode">mode</a> is set as <code>rtc</code>), this method does not take effect. All users are <code>host</code> by default.</li>
 									</ul>
 								</blockquote>
@@ -2268,7 +2276,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<p>Note:</p>
 									<ul>
 										<li>All users in a channel must use the same encryption configurations.</li>
-										<li>Ensure that you call this method before joining a channel, otherwise the encryption is disabled.</li>
+										<li>You must call this method before joining a channel, otherwise the method call does not take effect and encryption is not enabled.</li>
 										<li>Do not use this method for CDN live streaming.</li>
 									</ul>
 								</blockquote>
@@ -2309,8 +2317,8 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								<div class="lead">
 									<p>Enables cloud proxy.</p>
 								</div>
-								<p>This method must be called before joining the channel or after leaving the channel.</p>
-								<p>To use the cloud proxy service, some extra settings are needed, see <a href="https://docs.agora.io/en/Interactive%20Broadcast/cloud_proxy_web?platform=Web">Use Cloud Proxy</a> for details.</p>
+								<p>You must call this method before joining the channel or after leaving the channel.</p>
+								<p>To use the cloud proxy service, extra settings are needed. See <a href="https://docs.agora.io/en/Interactive%20Broadcast/cloud_proxy_web?platform=Web">Use Cloud Proxy</a> for details.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -2330,7 +2338,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								<div class="lead">
 									<p>Disables cloud proxy.</p>
 								</div>
-								<p>This method must be called before joining the channel or after leaving the channel.</p>
+								<p>You must call this method before joining the channel or after leaving the channel.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>

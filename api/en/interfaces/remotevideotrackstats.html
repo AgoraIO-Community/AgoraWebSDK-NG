@@ -52,7 +52,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Statistics of the remote video track, such as the connection and transmission statistics, which can be retrieved from <a href="iremotevideotrack.html#getstats">RemoteVideoTrack.getStats</a>.</p>
+						<p>Statistics of the remote video track, such as connection and transmission statistics, which can be retrieved by calling <a href="iremotevideotrack.html#getstats">RemoteVideoTrack.getStats</a>.</p>
 					</div>
 				</div>
 			</section>
@@ -137,7 +137,7 @@
 						<div class="lead">
 							<p>End-to-end delay (ms).</p>
 						</div>
-						<p>Delay from capturing to playing the video.</p>
+						<p>The delay (ms) a remote client capturing the video and the local client playing the video.</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -160,7 +160,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Whether the video is muted, namely sending black video frames.</p>
+							<p>Whether the video is muted (is sending black video frames).</p>
 							<ul>
 								<li><code>true</code>: The video is muted.</li>
 								<li><code>false</code>: The video is not muted.</li>
@@ -212,7 +212,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Delay (ms) from sending to playing the video.</p>
+							<p>The delay (ms) between a remote client sending the video and the local client playing the video.</p>
 						</div>
 					</div>
 				</section>
@@ -248,7 +248,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The total number of lost packets of the received video.</p>
+							<p>The total number of lost video packets that should be received.</p>
 						</div>
 					</div>
 				</section>
@@ -296,7 +296,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The total duration of the received video, in seconds.</p>
+							<p>The total duration of the received video in seconds.</p>
 						</div>
 					</div>
 				</section>
@@ -308,7 +308,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The total freeze time of the received video, in seconds.</p>
+							<p>The total freeze time of the received video in seconds.</p>
 						</div>
 					</div>
 				</section>
@@ -320,9 +320,9 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Transport delay (ms).</p>
+							<p>Transmission delay (ms).</p>
 						</div>
-						<p>Delay from sending to receiving the video.</p>
+						<p>The delay (ms) between a remote client sending the video and the local client receiving the video.</p>
 					</div>
 				</section>
 			</section>
