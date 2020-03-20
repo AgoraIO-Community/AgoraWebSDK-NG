@@ -4,75 +4,91 @@ title: 从 Agora Web SDK 迁移到 Agora Web SDK NG
 sidebar_label: 迁移指南
 ---
 
-这篇文章面向的对象是已经使用过 [Agora Web SDK](https://docs.agora.io/cn/Video/start_call_web?platform=Web) 的用户，如果你希望把你的应用从 Agora Web SDK 迁移到 Agora Web SDK NG，希望这篇文档对你能有所帮助。
+本文的目标读者是已经使用过 [Agora Web SDK](https://docs.agora.io/cn/Video/start_call_web?platform=Web) 的开发者。如果你想要把你的应用从 Agora Web SDK 迁移到 Agora Web SDK NG，希望这篇文档对你能有所帮助。
 
-我们觉得首先需要提醒的是 Agora Web SDK NG 是一个 **不向下兼容** 的版本，这意味这迁移的过程可能不会那么顺利。因为我们移除了所有 `callback` 转而使用 `Promise` 的原因，70% 以上的 API 都需要手动修改，除此之外还有一些架构及逻辑层面的改动也需要注意，与其说是迁移，我们更希望你把迁移过程想象成从头重新集成 Agora Web SDK NG。
+本文包含以下内容：
+- [改动简介](#改动简介)：列出 Agora Web SDK NG 在行为和方法上与原先的 Agora Web SDK 相比存在哪些区别。
+- [迁移实例](#迁移实例)：以一个多人会议应用为例，从创建 `Client` 开始详细对比 Agora Web SDK NG 和原先的 Agora Web SDK 在用法上的不同。
+- [Agora Web SDK NG API 改动表](#agora-web-sdk-ng-api-改动表)：提供完整的 API 改动列表，以便你进行后续的迁移工作。
 
-这篇文章首先会列出 Agora Web SDK NG 在哪些行为和方法上和官网版本有区别，之后会以一个多人会议应用为例，从创建 `Client` 开始详细对比和官网版本用法上的不同，最后我们会提供完整的 API 改动列表，方便进行后续的迁移工作。
+我们建议你先阅读本文的[改动简介](#改动简介)和[迁移实例](#迁移实例)，初步了解 Agora Web SDK 和 Agora Web SDK NG 在设计上的差异。在实际迁移过程中，如遇到问题，你可以：
+- 参考 [Agora Web SDK NG API 改动表](#agora-web-sdk-ng-api-改动表)。
+- 在迁移某一个具体功能（如屏幕共享、推流到 CDN）时，阅读 Agora Web SDK NG 文档站上提供的[进阶功能](screensharing.md)。
+- 阅读 Agora Web SDK NG 的 [API 文档](api/cn/)，使用 API 文档右上角的搜索功能，搜索 API 名称查看该 API 在 Agora Web SDK NG 中的具体函数签名。
+
+![](assets/doc_search.png)
+
+> Agora Web SDK NG 是一个**不向下兼容**的版本，这意味着迁移的过程可能不会那么顺利。由于我们移除了所有回调转而使用 `Promise`，70% 以上的 API 都需要手动修改。此外你还需注意一些架构及逻辑层面的改动。因此，与其说是迁移，不如说是从头重新集成 Agora Web SDK NG。
 
 ## 改动简介
 
-### 所有异步方法现在都会返回 Promise
-这里的异步方法包括：加入/离开频道、发布订阅、获取媒体设备、开启/关闭转码推流等等。在官网版本中，这些异步操作通过会使用回调函数（比如加入房间）、事件通知（比如发布订阅）的方式来通知用户异步操作的结果，在 Agora Web SDK NG 中，统一使用 Promise。
+### 异步方法均返回 Promise
+对于加入和离开频道、发布和订阅、获取媒体设备、开启和关闭转码推流等异步方法，在 Agora Web SDK 中，通过回调函数（比如加入房间）、事件通知（比如发布/订阅）等方式来通知用户异步操作的结果；在 Agora Web SDK NG 中，统一使用 Promise。
 
 ### 基于音视频轨道的媒体控制
-在 Agora Web SDK NG 中，我们移除了 [Stream](https://docs.agora.io/cn/Video/API%20Reference/web/interfaces/agorartc.stream.html) 对象，取而代之的是 `Track` 对象。一个音视频流是由多个音视频轨道构成的，我们现在不会去直接创建/发布/订阅一个流，而是去创建/发布/订阅一个或多个轨道来实现媒体管理。这样实现的好处是音视频的逻辑互不干扰各自独立，同时也比官网版本的 `Stream.addTrack`/`Stream.removeTrack` 这些方法用起来方便的多。
+在 Agora Web SDK NG 中，我们移除了 [Stream](https://docs.agora.io/cn/Video/API%20Reference/web/interfaces/agorartc.stream.html) 对象，取而代之的是 `Track` 对象。一个音视频流是由多个音视频轨道构成的，我们现在不直接创建、发布或订阅一个流，而是通过创建、发布或订阅一个或多个轨道来实现媒体管理。这样实现的好处是音视频的逻辑互不干扰、各自独立，同时新方法也比 Agora Web SDK 的 `Stream.addTrack` 和 `Stream.removeTrack` 更方便易用。
 
 > Agora Web SDK NG 允许同时发布多个音频轨道，SDK 会自动混音，但是视频轨道只允许同时发布一个。
 
-除了把 `Stream` 拆分成 `Track`，在 Agora Web SDK NG 中还会区分 `RemoteTrack` 和 `LocalTrack`，有些方法和对象只在本地有，有些只在远端有。
+除了把 `Stream` 拆分成 `Track`，在 Agora Web SDK NG 中还区分 `RemoteTrack` 和 `LocalTrack`，有些方法和对象只在本地有，有些只在远端有。
 
-这个改动影响多个 API 的使用，包括本地媒体对象的采集/发布音视频/订阅音视频等等，你可以在稍后的 [具体介绍](#发布本地的音视频) 中查阅这些操作在 Agora Web SDK NG 中要怎么使用。
+这一改动影响多个 API 的使用，包括本地媒体对象的采集、发布音视频和订阅音视频，详见下文迁移实例详解中的[通过本地摄像头和麦克风采集音频和视频](#通过本地摄像头和麦克风采集音频和视频)和[发布本地的音视频](#发布本地的音视频)。
 
-### 频道内事件通知机制变化
-首先在我们在 Agora Web SDK NG 中对事件名的命名风格进行了统一，比如原来 Token 过期事件是 `onTokenPrivilegeWillExpire`，现在是 `token-privilege-will-expire`。还有对一些事件名称做了调整以便它可以更好地被理解，比如 `peer-online`/`peer-offline` 现在是 `user-joined`/`user-left`，`stream-added`/`stream-removed` 现在是 `user-published` / `user-unpublished` 等等，这些详细的列表你都可以稍后从[这里](#agora-web-sdk-ng-api-改动表) 查阅。
+### 改进频道内事件通知机制
 
-其次我们调整了事件回调携带参数的格式，官网版本的事件回调如果需要携带多个参数，会把这些参数统一包在一个对象中，但是 Agora Web SDK NG 会直接携带多个参数到回调函数中：
+#### 更改事件名
+
+在 Agora Web SDK NG 中，我们统一了事件名。举例来说，原来的 Token 过期事件 `onTokenPrivilegeWillExpire` 更名为 `token-privilege-will-expire`。我们还调整了一些事件名以便它可以更好地被理解，比如 `peer-online` 和 `peer-offline` 更名为 `user-joined` 和 `user-left`，`stream-added` 和 `stream-removed` 更名为 `user-published` 和 `user-unpublished`。详见下文 [Agora Web SDK NG API 改动表](#agora-web-sdk-ng-api-改动表)。
+
+#### 调整事件回调携带参数的格式
+
+Agora Web SDK 的事件回调如果需要携带多个参数，会把这些参数统一包在一个对象中，但是 Agora Web SDK NG 会直接携带多个参数到回调函数中。
+
+以 "connection-state-change" 事件为例：
 ```js
-// 以 "connection-state-change" 事件为例
-// 官网版本
+// Agora Web SDK
 client.on("connection-state-change", e => {
   console.log("current", e.curState, "prev", e.prevState);
 });
-
+```
+```js
 // Agora Web SDK NG
 client.on("connection-state-change", (curState, prevState) => {
   console.log("current", curState, "prev", prevState);
 });
 ```
 
-除了名称和参数变化，还有一个重要的变化是频道内事件通知机制的变化，用一句话说就是在 Agora Web SDK NG 中**不会收到重复的**频道内状态通知事件。
+#### 改进频道内事件通知机制
 
-这句话是什么意思呢，让我们假设一个场景：想象你自己是用户 A，和用户 B、C、D 同时加入了一个频道，B、C、D 都有发流。突然你自己发生了网络波动，和频道暂时失去了连接，SDK 会自动帮你重连，**在重连过程中 B 退出了频道，C 取消了发流**，那么当你重连回频道的时候，收到的频道内状态事件将会如何呢？
+Agora Web SDK NG 改进了频道内事件通知机制。在 Agora Web SDK NG 中，**不会收到重复的**频道内状态通知事件。
 
-首先在 A 首次加入频道时，两个版本的 SDK 事件行为都是一致的，你将会收到：
-- 用户 B、C、D 加入频道的事件
-- 用户 B、C、D 发流的事件
+假设**本地用户 A** 和**远端用户 B、C、D** 同时加入了一个频道，B、C、D 均发布了流。如果本地用户 A 发生了网络波动，和频道暂时失去了连接，SDK 会自动帮 A 重连，**在重连过程中 B 离开了频道，C 取消了发流**。这整个过程中，触发了哪些频道事件？
 
-如果你使用的是官网版本，当 SDK 和频道失去连接时，即使可以重连 SDK 也会全部清空频道内的所有状态，认为你此时已经离开了频道。所以当重连回频道的时候就和你自己第一次加入频道时没有区别，你将会收到：
-- 用户 C、D 加入频道的事件
-- 用户 D 发流的事件
+首先在 A 首次加入频道时，两个版本的 SDK 事件行为都是一致的，A 会收到：
+- 用户 B、C、D 加入频道的事件。
+- 用户 B、C、D 发流的事件。
 
-> 可以看出，在官网版本中，你会因为偶然发生的断线重连突然收到了重复的事件，这可能会导致你在上层事件处理时引发一些预期之外的问题。想要规避这个问题，你需要监听连接状态变化，在断线重连时重置一些自己应用层的状态，以避免第二次收到这些事件时引发问题。
+当 A 由于网络问题和频道暂时失去了连接，然后重连：
+- 如果 A 使用的是 Agora Web SDK，当 SDK 和频道失去连接时，无论是否可以重连， SDK 都会认为 A 已经离开频道并清空频道内的所有状态。所以 A 重连回频道和 A 第一次加入频道时没有区别，会收到：
+ - 用户 C、D 加入频道的事件。
+ - 用户 D 发流的事件。
+ > 在 Agora Web SDK 中，你会因为偶然发生的断线重连而收到重复的事件，这可能会导致你在上层事件处理时引发一些预期之外的问题。你需要监听连接状态变化，在断线重连时重置一些应用层的状态，以避免第二次收到这些事件时引发问题。
+- 如果 A 使用的是 Agora Web SDK NG，当 SDK 和频道失去连接时，SDK 会认为 A 此时还在频道中，不会清空频道内的状态（用户主动调用 `leave` 离开频道除外）。所以当 A 重连回频道时，SDK 只会向 A 发送那些在重连过程中丢失的事件，包括：
+ - 用户 B 退出频道的事件。
+ - 用户 C 取消发流的事件。
+ > 在 Agora Web SDK NG 中，即使你没有像使用 Agora Web SDK 时那样在断线重连时做一些特殊的逻辑，SDK 也能够确保你的上层应用可以正常工作，不会收到重复的事件。
 
-如果你使用 Agora Web SDK NG，当 SDK 和频道失去连接时，SDK 不会清空频道内的状态（除非用户手动调用离开频道），SDK 认为你此时还在频道中。所以当重连会频道的时候 SDK 只会向你发送那些在重连过程中你丢失了的事件（B 退出频道，C 取消发流），你将会收到：
-- 用户 B 退出频道的事件
-- 用户 C 取消发流的事件
-
-> 在 Agora Web SDK NG 中，即使你没有像官网版本那样在断线重连时做一些特殊的逻辑，SDK 也能够确保你的上层应用可以正常的工作，你不会收到重复的事件。
-
-简单来说，在 Agora Web SDK NG 中，事件的通知机制是**更符合人类直觉的**，你不需要像官网版本那样做一些额外的工作。
-
-
-主要的改动点就是上述几条，还有很多琐碎的改动你可以从完整的[改动列表](#agora-web-sdk-ng-api-改动表)中查阅。下面，我们来实际编写一个多人通话的应用，以此为例，具体看看两个版本 SDK 上使用的差别。
+简单来说，Agora Web SDK NG 中的事件通知机制**更符合人类直觉**，你不需要像使用 Agora Web SDK 时那样做一些额外的工作。
 
 ## 迁移实例详解
 
+本节以一个多人通话应用为例，比对 Agora Web SDK NG 和 Agora Web SDK 在使用上的差别。
+
 ### 加入频道
-首先，我们的第一步都是创建一个 `Client` 对象，然后加入目标频道：
+首先，创建一个 `Client` 对象，然后加入目标频道：
 
 ```js
-// 使用官网版本
+// 使用 Agora Web SDK
 const client = AgoraRTC.createClient({ mode: "live", codec: "vp8" });
 client.init("APPID", () => {
   client.join("Token", "Channel", null, (uid) => {
@@ -82,7 +98,6 @@ client.init("APPID", () => {
   });
 });
 ```
-> 我们假设代码运行在一个 async 函数下，以下 Agora Web SDK NG 为了叙述方便都会直接使用 await
 
 ```js
 // 使用 Agora Web SDK NG
@@ -95,16 +110,17 @@ try {
   console.log("join failed", e);
 }
 ```
+> 我们假设代码运行在一个 async 函数下，以下 Agora Web SDK NG 相关示例代码为了叙述方便都会直接使用 await。
 
 改动点：
-- `join` 因为是异步操作，在 Agora Web SDK NG 中使用 Promise，所以直接配合 async/await 使用
-- 移除了 `client.init`, `APPID` 在 `client.join` 时传入，这意味这你可以使用一个 Client 对象先后加入不同 APPID 的频道
+- 在 Agora Web SDK NG 中，异步操作 `join` 返回 Promise，配合 async/await 使用。
+- Agora Web SDK NG 移除了 `client.init`, 在 `client.join` 时传入 `APPID`，这意味你可以使用一个 Client 对象先后加入不同 App ID 的频道。
 
-### 采集本地摄像头/麦克风
-之后，我们需要访问本地的摄像头/麦克风设备创建本地的音视频对象，一般来说我们会默认播放本地的视频，音频则不会播放。
+### 通过本地摄像头和麦克风采集音频和视频
+我们访问本地的摄像头和麦克风创建本地的音视频对象。我们默认播放本地视频，不播放本地音频。
 
 ```js
-// 使用官网版本
+// 使用 Agora Web SDK
 const localStream = AgoraRTC.createStream({ audio: true, video: true });
 localStream.init(() => {
   console.log("init stream success");
@@ -122,17 +138,17 @@ console.log("create local audio/video track success");
 
 localVideo.play("DOM_ELEMENT_ID");
 ```
-上文提到过，我们移除了 `Stream` 对象，所以采集麦克风/摄像头现在是两个独立的方法，分别返回音频轨道对象和视频轨道对象
 
 改动点：
-- 音视频对象不会有 `init` 方法了，现在创建方法返回一个 Promise 本身就是异步函数，会包含采集摄像头/麦克风的过程，无需 `init`，创建完就可以直接使用
-- 因为音视频对象分离的原因，`play` 方法也不会有 `muted` 这种配置参数了（因为没有意义，不想播音频不调用音频轨道的播放即可）
+- Agora Web SDK NG 移除了 `Stream` 对象。采集麦克风和采集摄像头现在是两个独立的方法，分别返回音频轨道对象和视频轨道对象。
+- Agora Web SDK NG 中的音视频对象没有 `init` 方法，因为在创建音视频对象时 SDK 会初始化摄像头和麦克风，并通过 Promise 返回异步操作的结果。
+- 由于在 Agora Web SDK NG 中音视频对象分开控制，`play` 方法中移除了 `muted` 参数。如不想播放音频，不调用音频轨道中的 `play` 即可。
 
 ### 发布本地的音视频
-当我们采集完成后，就需要将这些音视频发布到频道中，如果你使用的是 [直播模式](/api/cn/interfaces/clientconfig.html#mode)，在官网版本中发布会自动将你的用户角色设置为 `host`，但是在 Agora Web SDK NG，这需要你手动设置。
+音视频采集完成后，我们需要将这些音视频发布到频道中。
 
 ```js
-// 使用官网版本
+// 使用 Agora Web SDK
 client.publish(localStream, err => {
   console.log("publish failed", err);
 });
@@ -154,14 +170,15 @@ try {
 ```
 
 改动点：
-- `publish` 是异步操作，所以现在会返回 Promise
-- 因为 `Stream` 移除的原因，现在 `publish` 接受的参数是 `LocalTrack` 的列表，可以重复调用 `publish` 来增加需要发布的轨道，或者重复调用 `unpublish` 来将一些发布的轨道取消发布
+- 如果你的频道场景为[直播场景](/api/cn/interfaces/clientconfig.html#mode)，在 Agora Web SDK 中发布时 SDK 会自动将你的用户角色设为 `host`，但是在 Agora Web SDK NG 中，你需要手动将用户角色设为 `host`。
+- 在 Agora Web SDK NG 中，异步操作 `join` 返回 Promise。
+- 在 Agora Web SDK NG 中， `publish` 时传入的参数是 `LocalTrack` 列表而非 `Stream`。可以重复调用 `publish` 来增加需要发布的轨道，或者重复调用 `unpublish` 来取消发布轨道。
 
 ### 订阅远端音视频并播放
-如果频道里的其他用户发布了他们的音视频，我们需要自动订阅并播放。这个过程分为两步，首先，在加入频道之前，我们就需要注册远端用户发布的相关事件，之后在收到事件回调时发起订阅。
+如果频道里的远端用户发布了他们的音视频，我们需要自动订阅并播放。这个过程分为两步，首先，在加入频道之前，我们就需要注册远端用户发布的相关事件，之后在收到事件回调时发起订阅。
 
 ```js
-// 使用官网版本
+// 使用 Agora Web SDK
 client.on("stream-added", e => {
   client.subscribe(e.stream, { audio: true, video: true }, err => {
     console.log("subscribe failed", err);
@@ -185,35 +202,30 @@ client.on("user-published", async (remoteUser, mediaType) => {
 });
 ```
 
-远端用户发布的事件名从 `stream-added` 改为了 `user-published`，注意 `user-published` 回调中的第二个参数 `mediaType`，这参数有 3 个可能的值：`"video"` / `"audio"` / `"all"`, 分别表示当前这次远端发布操作是发布了视频还是发布了音频还是音视频一起发布。在我们的例子中 mediaType 为 `"all"`。
-
 改动点：
-- 移除 `stream-added`/`stream-removed`/`stream-updated` 统一使用 `user-published` / `user-unpublished`
-- `subscribe` 因为是异步操作现在会返回 Promise，同时接受的参数为 `remoteUser`，也就是远端用户对象，详细可以参考 API 文档 [AgoraRTCRemoteUser](/api/cn/interfaces/iagorartcremoteuser.html)
-- 远端音视频轨道对象会在订阅操作成功后保存在 `remoteUser` 下，直接调用 play 即可播放
-
-好，一个简单的多人通话基本上就是这些代码，看完上述示例希望你能对两个版本 SDK 上设计的差异有个比较正确的认识。在迁移的过程中可能还是会遇到其他问题，下面会列出 Agora Web SDK NG 全部的 API 改动点，你可以对照这个表格修改或重新编写你的代码。
-
-> 在迁移一个具体功能（比如屏幕共享、推流到 CDN等）时，我们建议你首先查阅 Agora Web SDK NG 文档站上的[功能描述](screensharing.md)，这些功能描述的结构和顺序是和官网文档对齐的，有助于你完成迁移
-
-你还可以善用 API 文档右上角的搜索功能，因为大部分 API 的名字我们没有改动，只是改动了参数和返回，你可以搜索 API 名称查看它在 Agora Web SDK NG 中的具体函数签名
-
-![](assets/doc_search.png)
+- Agora Web SDK NG 移除了 `stream-added`、`stream-removed` 和 `stream-updated`，取而代之的是 `user-published` 和 `user-unpublished`。注意 `user-published` 回调中的第二个参数 `mediaType`，这参数有 3 个可能的值：`"video"`，`"audio"` 和 `"all"`, 分别表示该远端用户仅发布了视频、仅发布音频或同时发布音视频。在我们的示例代码中 `mediaType` 为 `"all"`。
+- Agora Web SDK NG 中，`subscribe` 是异步操作，会返回 Promise。传入的参数为 `remoteUser`，也就是远端用户对象，详见 [AgoraRTCRemoteUser](/api/cn/interfaces/iagorartcremoteuser.html)。
+- 远端音视频轨道对象会在订阅操作成功后保存在 `remoteUser` 下，直接调用 play 即可播放。
 
 ## Agora Web SDK NG API 改动表
 
 ### AgoraRTC
-- `getScreenSources` 更名为 [getElectronScreenSources](/api/cn/interfaces/iagorartc.html#getelectronscreensources)，并且移除了回调参数，现在会返回一个 Promise
-- [getDevices](/api/cn/interfaces/iagorartc.html#getdevices) 现在会返回一个 Promise，同时增加了 [getCameras](/api/cn/interfaces/iagorartc.html#getcameras) 和 [getMicrophones](/api/cn/interfaces/iagorartc.html#getmicrophones)
-- 移除了 `Logger` 对象，增加 [disableLogUpload](/api/cn/interfaces/iagorartc.html#disablelogupload) / [enableLogUpload](/api/cn/interfaces/iagorartc.html#enablelogupload) / [setLogLevel](/api/cn/interfaces/iagorartc.html#setloglevel) 用于控制日志上报和打印行为
-- 移除了 `createStream`，现在使用 [createMicrophoneAudioTrack](/api/cn/interfaces/iagorartc.html#createmicrophoneaudiotrack) 创建麦克风轨道，使用 [createCameraVideoTrack](/api/cn/interfaces/iagorartc.html#createcameravideotrack) 创建摄像头轨道，使用 [createScreenVideoTrack](/api/cn/interfaces/iagorartc.html#createscreenvideotrack) 创建屏幕共享轨道，使用 [createBufferSourceAudioTrack](/api/cn/interfaces/iagorartc.html#createbuffersourceaudiotrack) 创建音频文件轨道（用于混音），使用 [createCustomAudioTrack](/api/cn/interfaces/iagorartc.html#createcustomaudiotrack) 和 [createCustomVideoTrack](/api/cn/interfaces/iagorartc.html#createcustomvideotrack) 创建自定义音视频轨道（用于自采集）
+- `getScreenSources` 更名为 [getElectronScreenSources](/api/cn/interfaces/iagorartc.html#getelectronscreensources)，并且移除了回调参数，现在会返回一个 Promise。
+- [getDevices](/api/cn/interfaces/iagorartc.html#getdevices) 现在会返回一个 Promise，同时新增 [getCameras](/api/cn/interfaces/iagorartc.html#getcameras) 和 [getMicrophones](/api/cn/interfaces/iagorartc.html#getmicrophones)。
+- 移除 `Logger` 对象，增加 [disableLogUpload](/api/cn/interfaces/iagorartc.html#disablelogupload) / [enableLogUpload](/api/cn/interfaces/iagorartc.html#enablelogupload) / [setLogLevel](/api/cn/interfaces/iagorartc.html#setloglevel) 用于控制日志上报和打印行为。
+- 移除 `createStream`，新增以下方法创建音视频对象：
+ - [createMicrophoneAudioTrack](/api/cn/interfaces/iagorartc.html#createmicrophoneaudiotrack): 创建麦克风轨道
+ - [createCameraVideoTrack](/api/cn/interfaces/iagorartc.html#createcameravideotrack): 创建摄像头轨道
+ - [createScreenVideoTrack](/api/cn/interfaces/iagorartc.html#createscreenvideotrack): 创建屏幕共享轨道
+ - [createBufferSourceAudioTrack](/api/cn/interfaces/iagorartc.html#createbuffersourceaudiotrack): 创建音频文件轨道（用于混音）
+ - [createCustomAudioTrack](/api/cn/interfaces/iagorartc.html#createcustomaudiotrack) 和 [createCustomVideoTrack](/api/cn/interfaces/iagorartc.html#createcustomvideotrack): 创建自定义音视频轨道（用于自采集）
 
 ### Client
 - 移除 `Client.init`
-- 移除 `Client.getConnectionState`，添加 [Client.connectionState](/api/cn/interfaces/iagorartcclient.html#connectionstate) 字段表示当前和服务器的连接状态
-- [连接状态](/api/cn/globals.html#connectionstate)增加状态 `RECONNECTING` 表示当前正在重连，原来的 `CONNECTING` 仅表示首次正在建立连接
-- 添加 [Client.uid](/api/cn/interfaces/iagorartcclient.html#uid) 来表示当前本地用户的用户 ID
-- 添加 [Client.remoteUsers](/api/cn/interfaces/iagorartcclient.html#remoteusers) 来表示当前远端用户的用户列表
+- 移除 `Client.getConnectionState`，新增 [Client.connectionState](/api/cn/interfaces/iagorartcclient.html#connectionstate) 字段表示当前和服务器的连接状态
+- [ConnectionState](/api/cn/globals.html#connectionstate) 中新增状态 `RECONNECTING` 表示当前正在重连，原来的 `CONNECTING` 仅表示首次正在建立连接
+- 新增 [Client.uid](/api/cn/interfaces/iagorartcclient.html#uid) 来表示当前本地用户的用户 ID
+- 新增 [Client.remoteUsers](/api/cn/interfaces/iagorartcclient.html#remoteusers) 来表示当前远端用户的用户列表
 - [Client.addInjectStream](/api/cn/interfaces/iagorartcclient.html#addinjectstreamurl) 现在会返回一个 Promise 来标志输入媒体流成功/失败，移除 `Client.on("streamInjectStatus")`
 - [Client.removeInjectStream](/api/cn/interfaces/iagorartcclient.html#addinjectstreamurl)，同时移除它的 `url` 参数
 - [Client.enableDualStream](/api/cn/interfaces/iagorartcclient.html#enabledualstream) / [Client.disableDualStream](/api/cn/interfaces/iagorartcclient.html#disabledualstream) 移除回调参数，现在会返回 Promise
@@ -235,7 +247,7 @@ client.on("user-published", async (remoteUser, mediaType) => {
 - 移除 `Client.setEncryptionMode` 和 `Client.setEncryptionSecret`，现在通过一个方法 [Client.setEncryptionConfig](/api/cn/interfaces/iagorartcclient.html#setencryptionconfig) 来配置
 - [Client.setLiveTranscoding](/api/cn/interfaces/iagorartcclient.html#setlivetranscoding) / [Client.startLiveStreaming](/api/cn/interfaces/iagorartcclient.html#startlivestreaming) / [Client.stopLiveStreaming](/api/cn/interfaces/iagorartcclient.html#stoplivestreaming) 现在都会返回 Promise，同时移除 `Client.on("liveTranscodingUpdated")` / `Client.on("liveStreamingStarted")` / `Client.on("liveStreamingFailed")` / `Client.on("liveStreamingStopped")` 事件
 - [Client.startChannelMediaRelay](/api/cn/interfaces/iagorartcclient.html#startchannelmediarelay) 现在会返回一个 Promise
-  - [ChannelMediaRelayConfiguration](/api/cn/interfaces/ichannelmediarelayconfiguration.html) 移除了 `setDestChannelInfo`, 改为 [addDestChannelInfo](/api/cn/interfaces/ichannelmediarelayconfiguration.html#adddestchannelinfo) 并去除冗余参数，具体参考 API 文档
+  - [ChannelMediaRelayConfiguration](/api/cn/interfaces/ichannelmediarelayconfiguration.html) 移除 `setDestChannelInfo`, 改为 [addDestChannelInfo](/api/cn/interfaces/ichannelmediarelayconfiguration.html#adddestchannelinfo) 并去除冗余参数，具体参考 API 文档
   - [ChannelMediaRelayConfiguration](/api/cn/interfaces/ichannelmediarelayconfiguration.html) 去除了 [setSrcChannelInfo](/api/cn/interfaces/ichannelmediarelayconfiguration.html#setsrcchannelinfo) 的冗余参数
 - [Client.stopChannelMediaRelay](/api/cn/interfaces/iagorartcclient.html#stopchannelmediarelay) 现在会返回一个 Promise
 - [Client.updateChannelMediaRelay](/api/cn/interfaces/iagorartcclient.html#updatechannelmediarelay) 移除回调参数，现在会返回一个 Promise
