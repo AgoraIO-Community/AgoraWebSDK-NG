@@ -14,13 +14,13 @@ sidebar_label: 设置音频编码属性
 Agora Web SDK NG 提供以下三种方法创建本地音频轨道：
 - `createMicrophoneAudioTrack`
 - `createBufferSourceAudioTrack`
-- `createCustomAudioTrack` 
+- `createCustomAudioTrack`
 
 你可以通过修改这些方法中的 `encoderConfig` 参数来调整音频的编码配置。
 
 `encoderConfig` 支持以下两种设置：
 
-- SDK 内置的音频编码预设值
+- 使用 SDK 预设的音频编码属性
 - 自定义各种音频编码参数的对象
 
 ### 示例代码

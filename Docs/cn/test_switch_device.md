@@ -12,17 +12,18 @@ sidebar_label: 音视频设备测试/切换
 
 在开始前，请确保已在你的项目中实现基本的实时音视频功能。详见 [实现音视频通话](basic_call.md)。
 
-### 麦克风／摄像头测试
+### 测试音视频采集设备
 
-参考以下步骤测试麦克风/摄像头：
+参考以下步骤测试麦克风和摄像头：
+
 1. 调用 `AgoraRTC.getDevices` 获取可用设备及设备 ID。
-2. 分别调用 `AgoraRTC.createCameraVideoTrack` / `AgoraRTC.createMicrophoneAudioTrack` 创建本地音频轨道对象。在创建流时填入 `cameraId` / `microphoneId` 指定想测试的设备。
-3. 创建好本地音视频轨道对象后，调用 `CameraVideoTrack.play` 播放本地视频轨道
+2. 在调用 `AgoraRTC.createCameraVideoTrack` 和 `AgoraRTC.createMicrophoneAudioTrack` 创建本地音视频轨道对象时，传入 `cameraId` 和 `microphoneId` 指定想测试的设备。
+3. 创建好本地音视频轨道对象后，调用 `CameraVideoTrack.play` 播放本地视频轨道：
    - 如果是测试麦克风，调用 `MicrophoneAudioTrack.getVolumeLevel` 获取音量，音量大于 0 说明麦克风正常。
    - 如果是测试摄像头，播放视频轨道后可以看到画面说明摄像头正常。
 
 ```js
-// Find all audio and video devices
+// 获取所有音视频设备
 AgoraRTC.getDevices()
   .then(devices => {
     const audioDevices = devices.filter(function(device){
@@ -48,19 +49,18 @@ AgoraRTC.getDevices()
   });
 ```
 
-> 我们推荐您将音量变化和摄像头画面绘制在 UI 上，参考用户的主观判断来判断设备是否正常工作。
+> 我们推荐您将音量变化和摄像头画面绘制在 UI 上，以便用户自行判断设备是否正常工作。
 
-### 音频播放设备测试
-Agora Web SDK NG 不提供音频播放设备的测试相关 API，您可以通过以下方法测试音频播放设备：
+### 测试音频播放设备
+Agora Web SDK NG 不提供 API 用于音频播放设备的测试。你可以通过以下方法测试音频播放设备：
 - 使用 HTML5 的 `<audio>` 元素在页面上创建一个音频播放器，让用户播放在线音频文件并确认是否有声音。
 - 采集完麦克风后，调用 `MicrophoneAudioTrack.play` 来播放麦克风声音，让用户主观确认是否可以听到麦克风声音。
 
 ### 音视频设备切换
 
-在创建本地音视频轨道时，可以通过指定 `cameraId`/`microphoneId` 来指定音视频设备，这部分在上面已经介绍过了。同时 Agora Web SDK NG 还可以通过 `CameraVideoTrack.setDevice` / `MicrophoneAudioTrack.setDevice` 在创建之后动态切换采集的音视频设备。
+在创建本地音视频轨道时，可以通过指定 `cameraId`/`microphoneId` 来指定音视频设备。此外，Agora Web SDK NG 还可以通过 `CameraVideoTrack.setDevice` 和 `MicrophoneAudioTrack.setDevice` 在创建轨道之后动态切换采集的音视频设备。
 
-
-示例代码中的 `videoTrack` 是指通过 `AgoraRTC.createCameraVideoTrack` 创建的本地视频轨道对象
+示例代码中的 `videoTrack` 是指通过 `AgoraRTC.createCameraVideoTrack` 创建的本地视频轨道对象。
 
 ```js
 // 切换摄像头
@@ -84,4 +84,4 @@ videoTrack.setDevice("<NEW_DEVICE_ID>").then(() => {
 
 ## 开发注意事项
 
-设备 ID 是随机生成的，部分情况下同一个设备的 ID 可能会改变，因此我们建议每次测试设备时都先调用 `AgoraRTC.getDevices` 获取设备 ID。
+- 设备 ID 是随机生成的，部分情况下同一个设备的 ID 可能会改变，因此我们建议每次测试设备时都先调用 `AgoraRTC.getDevices` 获取设备 ID。

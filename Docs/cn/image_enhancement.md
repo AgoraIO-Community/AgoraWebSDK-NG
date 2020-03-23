@@ -14,9 +14,9 @@ sidebar_label: 美颜
 
 ## 实现方法
 
-在开始前，请确保已在你的项目中实现基本的实时音视频功能。详见 [实现音视频通话](basic_call.md)。
+在开始前，请确保已在你的项目中实现基本的实时音视频功能。详见[实现音视频通话](basic_call.md)。
 
-在 [LocalVideoTrack](/api/cn/interfaces/ilocalvideotrack.html) 上调用 `setBeautyEffect` 方法设置基础美颜功能
+在 [LocalVideoTrack](/api/cn/interfaces/ilocalvideotrack.html) 上调用 [setBeautyEffect](/api/cn/interfaces/ilocalvideotrack.html#setbeautyeffect) 方法设置基础美颜功能。
 > 该方法支持以下浏览器:
 > - Safari 12 及以上版本
 > - Chrome 65 及以上版本
@@ -28,7 +28,7 @@ sidebar_label: 美颜
 
 ### 示例代码
 
-示例代码中的 `localVideoTrack` 是指通过 `AgoraRTC.createCameraVideoTrack` 创建的本地视频轨道对象
+> 示例代码中的 `localVideoTrack` 是指通过 `AgoraRTC.createCameraVideoTrack` 创建的本地摄像头视频轨道对象。
 
 ```js
 localVideoTrack.setBeautyEffect(true, {
@@ -39,7 +39,11 @@ localVideoTrack.setBeautyEffect(true, {
 }).then(() => { console.log("set Beauty Effect Options success!") });
 ```
 
+### API 参考
+
+- [setBeautyEffect](/api/cn/interfaces/ilocalvideotrack.html#setbeautyeffect)
+
 ## 开发注意事项
 - 该功能不支持移动端设备。
-- 美颜功能的开启会对低端机的性能造成影响，以至于无法达到预期的要求。对于低端机，视频编码设置为 360p 30 fps，720p 15 fps 或更高分辨率时，我们不建议开启美颜。
+- 美颜处理属于实时计算密集型操作，虽然基于硬件加速机制实现，但处理过程仍然会有较大的 GPU 和 CPU 开销。因此美颜功能的开启会对低端机的性能造成影响，以至于无法达到预期的要求。对于低端机，视频编码设置为 360p 30 fps，720p 15 fps 或更高分辨率时，我们不建议开启美颜。
 

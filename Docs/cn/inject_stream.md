@@ -17,7 +17,7 @@ sidebar_label: 输入在线媒体流
 
 ![](https://web-cdn.agora.io/docs-files/1576059223619)
 
-直播频道中的主播通过 Video Inject 服务器将在线媒体流拉到 Agora SD-RTN 中，输入到直播频道内。
+直播频道中的主播通过 Video Inject 服务器将在线媒体流拉到 Agora SD-RTN™ 中，输入到直播频道内。
 
 - 频道内的连麦主播、普通观众都可以听/看到该媒体流。
 - 如果主播开启了 CDN 旁路推流，该媒体流也会被推送到 CDN 上， CDN 观众就可以听/看到这路媒体流。
@@ -29,7 +29,7 @@ sidebar_label: 输入在线媒体流
 
 ## 实现方法
 
-在开始前，请确保已在你的项目中实现基本的实时音视频功能。详见 [实现音视频通话](basic_call.md)。
+在开始前，请确保已在你的项目中实现基本的实时音视频功能。详见[实现音视频通话](basic_call.md)。
 
 > 请确保已开通旁路推流的功能，详见[前提条件](cdn_streaming.md#前提条件)。
 
@@ -37,15 +37,13 @@ sidebar_label: 输入在线媒体流
 
 1. 频道内主播调用 `AgoraRTCClient.addInjectStreamUrl` 方法向直播频道内输入指定在线媒体流。你也可以修改 `config` 的参数设置媒体流输入的分辨率、码率和帧率等参数，详见[InjectStreamConfig](/api/cn/interfaces/injectstreamconfig.html)。
 
-   > 频道内同一时间只允许输入一路在线媒体流。
-
-   输入媒体流成功后，该媒体流会在直播频道内自动播放，频道内所有用户都会收到 `AgoraRTCClient.on("user-joined")` 和 `AgoraRTCClient.on("user-published")` 回调。
+> - 频道内同一时间只允许输入一路在线媒体流。
+> - 输入媒体流成功后，该媒体流会在直播频道内自动播放，频道内所有用户都会收到 `AgoraRTCClient.on("user-joined")` 和 `AgoraRTCClient.on("user-published")` 回调。
 
 2. 频道内主播调用 `AgoraRTCClient.removeInjectStreamUrl` 方法从直播频道内删除指定的已输入在线媒体流。
 
-   删除媒体流成功后，频道内所有用户都会收到  `AgoraRTCClient.on("user-unpublished")` 和 `AgoraRTCClient.on("user-left")` 回调。
-
-   > 主播退出频道后，无需再调用 `removeInjectStreamUrl` 接口。
+> - 删除媒体流成功后，频道内所有用户都会收到  `AgoraRTCClient.on("user-unpublished")` 和 `AgoraRTCClient.on("user-left")` 回调。
+> - 主播退出频道后，无需再调用 `removeInjectStreamUrl` 接口。
 
 ### 示例代码
 `client` 是指通过 `AgoraRTC.createClient` 创建的本地客户端对象

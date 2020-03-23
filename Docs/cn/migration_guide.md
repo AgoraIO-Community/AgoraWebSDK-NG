@@ -70,13 +70,13 @@ Agora Web SDK NG 改进了频道内事件通知机制。在 Agora Web SDK NG 中
 
 当 A 由于网络问题和频道暂时失去了连接，然后重连：
 - 如果 A 使用的是 Agora Web SDK，当 SDK 和频道失去连接时，无论是否可以重连， SDK 都会认为 A 已经离开频道并清空频道内的所有状态。所以 A 重连回频道和 A 第一次加入频道时没有区别，会收到：
- - 用户 C、D 加入频道的事件。
- - 用户 D 发流的事件。
- > 在 Agora Web SDK 中，你会因为偶然发生的断线重连而收到重复的事件，这可能会导致你在上层事件处理时引发一些预期之外的问题。你需要监听连接状态变化，在断线重连时重置一些应用层的状态，以避免第二次收到这些事件时引发问题。
+  - 用户 C、D 加入频道的事件。
+  - 用户 D 发流的事件。
+> 在 Agora Web SDK 中，你会因为偶然发生的断线重连而收到重复的事件，这可能会导致你在上层事件处理时引发一些预期之外的问题。你需要监听连接状态变化，在断线重连时重置一些应用层的状态，以避免第二次收到这些事件时引发问题。
 - 如果 A 使用的是 Agora Web SDK NG，当 SDK 和频道失去连接时，SDK 会认为 A 此时还在频道中，不会清空频道内的状态（用户主动调用 `leave` 离开频道除外）。所以当 A 重连回频道时，SDK 只会向 A 发送那些在重连过程中丢失的事件，包括：
- - 用户 B 退出频道的事件。
- - 用户 C 取消发流的事件。
- > 在 Agora Web SDK NG 中，即使你没有像使用 Agora Web SDK 时那样在断线重连时做一些特殊的逻辑，SDK 也能够确保你的上层应用可以正常工作，不会收到重复的事件。
+  - 用户 B 退出频道的事件。
+  - 用户 C 取消发流的事件。
+> 在 Agora Web SDK NG 中，即使你没有像使用 Agora Web SDK 时那样在断线重连时做一些特殊的逻辑，SDK 也能够确保你的上层应用可以正常工作，不会收到重复的事件。
 
 简单来说，Agora Web SDK NG 中的事件通知机制**更符合人类直觉**，你不需要像使用 Agora Web SDK 时那样做一些额外的工作。
 
@@ -226,15 +226,15 @@ client.on("user-published", async (remoteUser, mediaType) => {
 - [ConnectionState](/api/cn/globals.html#connectionstate) 中新增状态 `RECONNECTING` 表示当前正在重连，原来的 `CONNECTING` 仅表示首次正在建立连接
 - 新增 [Client.uid](/api/cn/interfaces/iagorartcclient.html#uid) 来表示当前本地用户的用户 ID
 - 新增 [Client.remoteUsers](/api/cn/interfaces/iagorartcclient.html#remoteusers) 来表示当前远端用户的用户列表
-- [Client.addInjectStream](/api/cn/interfaces/iagorartcclient.html#addinjectstreamurl) 现在会返回一个 Promise 来标志输入媒体流成功/失败，移除 `Client.on("streamInjectStatus")`
-- [Client.removeInjectStream](/api/cn/interfaces/iagorartcclient.html#addinjectstreamurl)，同时移除它的 `url` 参数
-- [Client.enableDualStream](/api/cn/interfaces/iagorartcclient.html#enabledualstream) / [Client.disableDualStream](/api/cn/interfaces/iagorartcclient.html#disabledualstream) 移除回调参数，现在会返回 Promise
+- [Client.addInjectStreamUrl](/api/cn/interfaces/iagorartcclient.html#addinjectstreamurl) 现在会返回一个 Promise 来标志输入媒体流成功/失败，移除 `Client.on("streamInjectStatus")`
+- 移除 [Client.removeInjectStream](/api/cn/interfaces/iagorartcclient.html#addinjectstreamurl) 的 `url` 参数
+- 移除 [Client.enableDualStream](/api/cn/interfaces/iagorartcclient.html#enabledualstream) 和 [Client.disableDualStream](/api/cn/interfaces/iagorartcclient.html#disabledualstream) 的回调参数，现在会返回 Promise
 - 移除 `Client.getCameras`, `Client.getDevices`, `Client.getRecordingDevices`, 现在这些方法被移动到 `AgoraRTC` 下
 - 移除 `Client.getPlayoutDevices`
 - 移除 `Client.getLocalAudioStats`、`Client.getLocalVideoStats`、`Client.getRemoteAudioStats`、`Client.getRemoteVideoStats`，现在音视频媒体统计数据统一通过 [LocalAudioTrack.getStats](/api/cn/interfaces/ilocalaudiotrack.html#getstats) 、[LocalVideoTrack.getStats](/api/cn/interfaces/ilocalvideotrack.html#getstats) 、[RemoteAudioTrack.getStats](/api/cn/interfaces/iremoteaudiotrack.html#getstats) 、[RemoteVideoTrack.getStats](/api/cn/interfaces/iremotevideotrack.html#getstats) 这些方法来获取，同时字段都做了改变，具体参阅 API 文档
 - 移除 `Client.getSystemStats`
 - 移除 `Client.getSessionStats` / `Client.getTransportStats`，现在使用一个方法统一获取这些状态 [Client.getRTCStats](/api/cn/interfaces/iagorartcclient.html#getrtcstats)
-- [Client.join](/api/cn/interfaces/iagorartcclient.html#join) 现在会返回一个 Promise，移除回调参数，增加 APPID 参数
+- [Client.join](/api/cn/interfaces/iagorartcclient.html#join) 现在会返回一个 Promise，移除回调参数，增加 `appid` 参数
 - [Client.leave](/api/cn/interfaces/iagorartcclient.html#leave) 现在会返回一个 Promise，移除回调参数
 - 增加 [Client.once](/api/cn/interfaces/iagorartcclient.html#once) 只监听目标事件一次
 - 增加 [Client.removeAllListeners](/api/cn/interfaces/iagorartcclient.html#removealllisteners) 用于删除所有事件监听
@@ -243,7 +243,7 @@ client.on("user-published", async (remoteUser, mediaType) => {
 - [Client.subscribe](/api/cn/interfaces/iagorartcclient.html#subscribe) 现在使用 [AgoraRTCRemoteUser](/api/cn/interfaces/iagorartcremoteuser.html) 作为参数，返回一个 Promise，移除 `Client.on("stream-subscribed")`
 - [Client.unsubscribe](/api/cn/interfaces/iagorartcclient.html#unsubscribe) 现在使用 [AgoraRTCRemoteUser](/api/cn/interfaces/iagorartcremoteuser.html) 作为参数，返回一个 Promise
 - [Client.renewToken](/api/cn/interfaces/iagorartcclient.html#renewtoken) 现在会返回一个 Promise
-- [Client.setClientRole](/api/cn/interfaces/iagorartcclient.html#setclientrole) 移除回调参数，现在会返回一个 Promise。**现在设置角色为 audience 后不会自动 unpublish，，调用 publish 时也不会自动把角色设置成 host**
+- [Client.setClientRole](/api/cn/interfaces/iagorartcclient.html#setclientrole) 移除回调参数，现在会返回一个 Promise。**现在设置角色为 audience 后不会自动 unpublish，调用 publish 时也不会自动把角色设置成 host**
 - 移除 `Client.setEncryptionMode` 和 `Client.setEncryptionSecret`，现在通过一个方法 [Client.setEncryptionConfig](/api/cn/interfaces/iagorartcclient.html#setencryptionconfig) 来配置
 - [Client.setLiveTranscoding](/api/cn/interfaces/iagorartcclient.html#setlivetranscoding) / [Client.startLiveStreaming](/api/cn/interfaces/iagorartcclient.html#startlivestreaming) / [Client.stopLiveStreaming](/api/cn/interfaces/iagorartcclient.html#stoplivestreaming) 现在都会返回 Promise，同时移除 `Client.on("liveTranscodingUpdated")` / `Client.on("liveStreamingStarted")` / `Client.on("liveStreamingFailed")` / `Client.on("liveStreamingStopped")` 事件
 - [Client.startChannelMediaRelay](/api/cn/interfaces/iagorartcclient.html#startchannelmediarelay) 现在会返回一个 Promise
@@ -252,7 +252,7 @@ client.on("user-published", async (remoteUser, mediaType) => {
 - [Client.stopChannelMediaRelay](/api/cn/interfaces/iagorartcclient.html#stopchannelmediarelay) 现在会返回一个 Promise
 - [Client.updateChannelMediaRelay](/api/cn/interfaces/iagorartcclient.html#updatechannelmediarelay) 移除回调参数，现在会返回一个 Promise
 - 移除 `Client.on("first-video-frame-decode")` 和 `Client.on("first-audio-frame-decode")`，现在这两个事件通过 [RemoteTrack.on("first-frame-decode")](/api/cn/interfaces/iremotetrack.html#event_first_frame_decoded) 触发
-- 移除 `Client.on("mute-audio")` 、`Client.on("mute-video")` 、`Client.on("unmute-audio")`  、`Client.on("unmute-video")`，现在统一使用事件 [Client.on("user-mute-updated")](/api/cn/interfaces/iagorartcclient.html#event_user_mute_updated) 来通知
+- 移除 `Client.on("mute-audio")`、`Client.on("mute-video")`、`Client.on("unmute-audio")`、`Client.on("unmute-video")`，现在统一使用事件 [Client.on("user-mute-updated")](/api/cn/interfaces/iagorartcclient.html#event_user_mute_updated) 来通知
 - 移除 `Client.on("active-speaker")` 事件，相同的功能由 [Client.on("volume-indicator")](/api/cn/interfaces/iagorartcclient.html#event_volume_indicator) 提供
 - `Client.on("onTokenPrivilegeWillExpire")` 和 `Client.on("onTokenPrivilegeDidExpire")` 更名为 [Client.on("token-privilege-will-expire")](/api/cn/interfaces/iagorartcclient.html#event_token_privilege_will_expire) 和 [Client.on("token-privilege-did-expire")](/api/cn/interfaces/iagorartcclient.html#event_token_privilege_did_expire)
 - 移除 `Client.on("network-type-changed")` 事件， SDK 无法保证其可靠性
