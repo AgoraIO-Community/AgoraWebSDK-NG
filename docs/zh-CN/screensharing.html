@@ -70,18 +70,18 @@
 <p>在视频通话或互动直播中进行屏幕共享，可以将说话人或主播的屏幕内容，以视频画面的方式分享给其他说话人或观众观看，以提高沟通效率。</p>
 <p>屏幕共享在如下场景中应用广泛：</p>
 <ul>
-<li>视频会议场景中，屏幕共享可以将讲话者本地的文件、数据、网页、PPT 等画面分享给其他与会人；</li>
+<li>视频会议场景中，屏幕共享可以将讲话者本地的文件、数据、网页、PPT 等画面分享给其他与会人。</li>
 <li>在线课堂场景中，屏幕共享可以将老师的课件、笔记、讲课内容等画面展示给学生观看。</li>
 </ul>
 <p>在开始前，请确保已在你的项目中实现基本的实时音视频功能。详见 <a href="/AgoraWebSDK-NG/docs/zh-CN/basic_call">实现音视频通话</a>。</p>
 <h2><a class="anchor" aria-hidden="true" id="工作原理"></a><a href="#工作原理" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>工作原理</h2>
-<p>Web 端屏幕共享，实际上是通过创建一个屏幕共享的视频轨道对象来实现的。SDK 提供了 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createscreenvideotrack">createScreenVideoTrack</a> 方法来让开发者通过屏幕共享来创建一个本地的视频轨道对象。采集屏幕共享的过程中浏览器会询问需要共享哪些屏幕，根据用户的选择去获取屏幕信息。</p>
+<p>Web 端屏幕共享，实际上是通过创建一个屏幕共享的视频轨道对象来实现的。你可以调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createscreenvideotrack">createScreenVideoTrack</a> 方法通过屏幕共享来创建一个本地视频轨道对象。采集屏幕共享的过程中浏览器会询问需要共享哪些屏幕，根据用户的选择去获取屏幕信息。</p>
 <blockquote>
-<p>对于同一个用户，Agora 只支持同时发布最多一个视频轨道，如果在发布屏幕共享的同时，还想要发布本地摄像头视频，则需要两个用户来实现。你可以创建两个 AgoraRTCClient 对象，分别加入同一个频道，一路发送屏幕共享流，一路发送视频流。</p>
+<p>在 Agora Web SDK NG 中，一个 <code>AgoraRTCClient</code> 对象同一时间只能发布一个视频轨道。因此如果你想要在发布屏幕共享的同时，还发布本地摄像头视频是鬼，则需要创建两个 <code>AgoraRTCClient</code> 对象，加入同一频道，一路发送屏幕共享轨道，一路发送摄像头视频轨道。</p>
 </blockquote>
 <h2><a class="anchor" aria-hidden="true" id="chrome-屏幕共享"></a><a href="#chrome-屏幕共享" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Chrome 屏幕共享</h2>
 <h3><a class="anchor" aria-hidden="true" id="无插件屏幕共享"></a><a href="#无插件屏幕共享" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>无插件屏幕共享</h3>
-<p>在 Chrome 上屏幕共享直接调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createscreenvideotrack">createScreenVideoTrack</a> 即可</p>
+<p>在 Chrome 上屏幕共享，你可直接调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createscreenvideotrack">createScreenVideoTrack</a>。</p>
 <blockquote>
 <p>该功能要求 Chrome 72 或以上版本。如果你使用的软件版本不满足此要求，请使用屏幕共享插件实现在 Chrome 上共享屏幕。</p>
 </blockquote>
@@ -93,7 +93,7 @@
 });
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="使用屏幕共享插件"></a><a href="#使用屏幕共享插件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>使用屏幕共享插件</h3>
-<p>安装 Agora 提供的 <a href="https://docs.agora.io/cn/Interactive%20Broadcast/chrome_screensharing_plugin">Chrome 屏幕共享插件</a> ，并获取插件的 extensionId，在建流的时候填入 extensionId。</p>
+<p>安装 Agora 提供的 <a href="https://docs.agora.io/cn/Interactive%20Broadcast/chrome_screensharing_plugin">Chrome 屏幕共享插件</a> ，并获取插件的 <code>extensionId</code>，在建流的时候填入 <code>extensionId</code>。</p>
 <pre><code class="hljs css language-js">AgoraRTC.createScreenTrack({
   <span class="hljs-attr">extensionId</span>: <span class="hljs-string">'minllpmhdgpndnkomcoccfekfegnlikg'</span>,
 }).then(<span class="hljs-function"><span class="hljs-params">localScreenTrack</span> =&gt;</span> {
@@ -102,10 +102,8 @@
 
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="分享音频"></a><a href="#分享音频" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>分享音频</h3>
-<p>Agora Web SDK NG 支持在 Windows 平台的 Chrome 浏览器 74 及以上版本同时共享屏幕和本地播放的背景音，使用时，将 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createscreenvideotrack">createScreenVideoTrack</a> 方法的第二个参数设置为 <code>true</code> 即可。</p>
-<blockquote>
-<p>此时该方法会返回一个列表，列表分别是屏幕共享的视频轨道对象和本地播放背景音的音频轨道对象。</p>
-</blockquote>
+<p>Agora Web SDK NG 支持在 Windows 平台的 Chrome 浏览器 74 及以上版本同时共享屏幕和本地播放的背景音。使用时，将 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createscreenvideotrack">createScreenVideoTrack</a> 方法的<code>withAudio</code> 参数设置为 <code>true</code> 即可。</p>
+<p>这样设置后，该方法会返回一个列表，列表分别是屏幕共享的视频轨道对象和本地播放背景音的音频轨道对象。</p>
 <pre><code class="hljs css language-js">AgoraRTC.createScreenVideoTrack({
   <span class="hljs-attr">encoderConfig</span>: <span class="hljs-string">"1080p_1"</span>,
 }, <span class="hljs-literal">true</span>).then([screenVideoTrack, screenAudioTrack] =&gt; {
@@ -113,6 +111,7 @@
 });
 </code></pre>
 <blockquote>
+<p>注意：</p>
 <ul>
 <li>使用这个方法后，还需要在屏幕共享的弹出框上勾选<strong>分享音频</strong>才能真正生效。</li>
 <li>如果选择共享单个应用窗口无法使用分享音频功能。</li>
@@ -129,12 +128,12 @@
   <span class="hljs-comment">/** ... **/</span>
 });
 </code></pre>
-<p>调用后SDK 会提供自带的默认界面让用户选择要共享的屏幕或窗口，如下图所示：</p>
+<p>调用后 SDK 会提供自带的默认界面让用户选择要共享的屏幕或窗口，如下图所示：</p>
 <p><img src="/AgoraWebSDK-NG/docs/assets/electron.png" alt=""></p>
 <h3><a class="anchor" aria-hidden="true" id="自定义界面"></a><a href="#自定义界面" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>自定义界面</h3>
 <p>如果你需要自定义选择界面，参考以下步骤：</p>
 <ol>
-<li>调用 SDK 提供的 AgoraRTC.getElectronScreenSources 方法获取可共享的屏幕信息。</li>
+<li>调用 SDK 提供的 <code>AgoraRTC.getElectronScreenSources</code> 方法获取可共享的屏幕信息。</li>
 </ol>
 <pre><code class="hljs">AgoraRTC.getElectronScreenSources().then(<span class="hljs-function"><span class="hljs-params">sources</span> =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(sources);
@@ -143,9 +142,9 @@
 <p><code>sources</code> 是一个 <code>source</code> 对象的列表，<code>source</code> 里包含了分享源的信息和 <code>sourceId</code>，<code>source</code> 的属性如下：</p>
 <p><img src="/AgoraWebSDK-NG/docs/assets/source.png" alt=""></p>
 <ul>
-<li>id： 即 sourceId</li>
-<li>name：屏幕源的名字</li>
-<li>thumbnail：屏幕源的快照</li>
+<li><code>id</code>： 即 <code>sourceId</code></li>
+<li><code>name</code>：屏幕源的名字</li>
+<li><code>thumbnail</code>：屏幕源的快照</li>
 </ul>
 <ol start="2">
 <li>根据 <code>source</code> 的属性，（用 html 和 css）绘制选择界面，让用户选择要共享的屏幕源。<code>source</code> 的属性与屏幕共享的选择界面对应关系如下：</li>
@@ -164,8 +163,8 @@
 </code></pre>
 <blockquote>
 <ul>
-<li>getElectronScreenSources 方法是对 Electron 提供的 desktopCapturer.getSources 进行的封装，详情可参考 <a href="https://electronjs.org/docs/api/desktop-capturer">desktopCapturer</a>。</li>
-<li>在非 Electron 下传入 sourceId 会被忽略。</li>
+<li><code>getElectronScreenSources</code> 方法是对 Electron 提供的 desktopCapturer.getSources 进行的封装，详情可参考 <a href="https://electronjs.org/docs/api/desktop-capturer">desktopCapturer</a>。</li>
+<li>在非 Electron 下传入 <code>sourceId</code> 会被忽略。</li>
 </ul>
 </blockquote>
 <h2><a class="anchor" aria-hidden="true" id="firefox-屏幕共享"></a><a href="#firefox-屏幕共享" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Firefox 屏幕共享</h2>
@@ -180,10 +179,10 @@
 }).then(<span class="hljs-function"><span class="hljs-params">localScreenTrack</span> =&gt;</span> { <span class="hljs-comment">/** ... **/</span> });
 </code></pre>
 <blockquote>
-<p>Firefox 在 Windows 平台不支持 application 模式。</p>
+<p>Firefox 在 Windows 平台不支持 <code>application</code> 模式。</p>
 </blockquote>
 <h2><a class="anchor" aria-hidden="true" id="同时共享屏幕和开启视频"></a><a href="#同时共享屏幕和开启视频" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>同时共享屏幕和开启视频</h2>
-<p>因为每个 AgoraRTCClient 对象只能发送一路视频轨，所以如果要在一个发送端同时分享屏幕和开启视频，需要创建两个 AgoraRTCClient，一路发送屏幕共享轨，一路发送摄像头轨。</p>
+<p>因为一个 <code>AgoraRTCClient</code> 对象只能发送一路视频轨道，所以如果要在一个发送端同时分享屏幕和开启视频，需要创建两个 AgoraRTCClient，一路发送屏幕共享轨，一路发送摄像头轨。</p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">startScreenCall</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-keyword">const</span> screenClient = AgoraRTC.createClient({ <span class="hljs-attr">mode</span>: <span class="hljs-string">"rtc"</span>, <span class="hljs-attr">codec</span>: <span class="hljs-string">"vp8"</span> });
   <span class="hljs-keyword">await</span> screenClient.join(<span class="hljs-string">"&lt;TOKEN&gt;"</span>, <span class="hljs-string">"&lt;CHANNEL&gt;"</span>);
@@ -208,10 +207,10 @@
 </code></pre>
 <p>自己订阅自己，会产生额外的计费，如图：</p>
 <p><img src="/AgoraWebSDK-NG/docs/assets/subscribe_screen.png" alt=""></p>
-<p>Agora 建议，为避免重复计费，每个 Client 成功加入频道以后，把返回的 uid 存在列表里。每次监听到 <code>user-published</code> 事件的时候，先判断加入的流是否是本地流，如果是，则不订阅。</p>
+<p>Agora 建议，为避免重复计费，每个 Client 成功加入频道以后，把返回的 uid 存在列表里。每次监听到 <code>user-published</code> 事件的时候，先判断该轨道是否为本地轨道，如果是，则不订阅。</p>
 <h2><a class="anchor" aria-hidden="true" id="开发注意事项"></a><a href="#开发注意事项" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>开发注意事项</h2>
 <ul>
-<li>同一个用户同时只能发布一路视频轨道</li>
+<li>一个 <code>AgoraRTCClient</code> 对象只能发送一路视频轨道</li>
 <li>负责发布屏幕共享的用户的 UID 不要固定在同一个值，否则某些场景下同 UID 的共享流可能会引起互踢。</li>
 <li>在屏幕共享的时候，本地流的 Client <strong>不要订阅本地的屏幕共享流</strong>，否则会增加计费。</li>
 <li>在 Windows 平台上进行屏幕共享时，如果共享的是 QQ 聊天窗口会导致黑屏。</li>

@@ -67,10 +67,10 @@
               }
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">播放音效/音乐混音</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="功能描述"></a><a href="#功能描述" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>功能描述</h2>
-<p>在通话或直播过程中，除了用户自己说话的声音，有时候需要播放自定义的声音或者音乐文件并且让频道内的其他人也听到，比如需要给游戏添加音效，或者需要播放背景音乐等。在 Agora Web SDK NG 中，如果发布了多个本地音频轨道，SDK 会自动将这些音频混音，所以我们可以通过创建并发布多个本地音频轨道来实现这个需求。</p>
+<p>在通话或直播过程中，除了用户自己说话的声音，有时候需要播放自定义的声音或音乐并且让频道内的其他人也听到，比如需要给游戏添加音效，或者需要播放背景音乐等。在 Agora Web SDK NG 中，如果发布了多个本地音频轨道，SDK 会自动将这些音频混音，所以我们可以通过创建并发布多个本地音频轨道来实现说话的同时播放音频文件的功能。</p>
 <p>在开始前，请确保已在你的项目中实现基本的实时音视频功能。详见<a href="/AgoraWebSDK-NG/docs/zh-CN/basic_call">实现音视频通话</a>。</p>
 <h2><a class="anchor" aria-hidden="true" id="实现方法"></a><a href="#实现方法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>实现方法</h2>
-<p>无论是音效还是背景音乐，本质上都是一个本地或者在线的音频文件，所以我们只需要通过音频文件来创建一个本地音频轨道对象，再将这个轨道和通过麦克风创建的音频轨道一起发布即可实现添加音效或者播放背景音乐等功能。</p>
+<p>无论是音效还是背景音乐，本质上都是一个本地或者在线的音频文件，所以我们只需要通过音频文件创建一个本地音频轨道对象，再将这个轨道和通过麦克风创建的音频轨道一起发布即可实现添加音效或者播放背景音乐等功能。</p>
 <h3><a class="anchor" aria-hidden="true" id="通过音频文件创建音频轨道"></a><a href="#通过音频文件创建音频轨道" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>通过音频文件创建音频轨道</h3>
 <p>SDK 提供 <code>createBufferSourceAudioTrack</code> 方法来读取本地或者线上的音频文件并创建对应的本地音频轨道对象(<code>BufferSourceAudioTrack</code>)。</p>
 <pre><code class="hljs css language-js"><span class="hljs-comment">// 通过在线音乐创建音频轨道</span>
@@ -79,42 +79,26 @@
 });
 <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"create audio file track success"</span>);
 </code></pre>
-<p>如果此时直接调用 <code>audioFileTrack.play()</code> 或者调用 <code>client.publish([audioFileTrack])</code>，你会发现无论是本地还是远端都无法听到音乐声。这是因为通过音频文件创建的音频轨道在音频数据的处理流程上和麦克风音频轨道不同，具体可以看下面的图片介绍：</p>
-<p><img src="/AgoraWebSDK-NG/docs/assets/microphone_audio_track.png" alt=""></p>
-<p>对于麦克风音频来说，SDK 会源源不断地从目标麦克风设备中采集最新的音频数据（AudioBuffer），如果用户调用了 <code>play()</code> 方法，这些音频数据就会发送给本地播放组件最终被本地用户听到。如果用户调用了 <code>publish()</code> 方法，这些音频数据就会被发送到 Agora 的 SD-RTN 中最终被远端的用户听到。一旦麦克风音频轨道被创建，这个采集操作就会一直进行直到用户自己主动调用 <code>close()</code> 方法才会停止，此时音频轨道也将不再可用。</p>
-<p>而通过音频文件创建的音频轨道对象（BufferSourceAudioTrack）则不同</p>
-<p><img src="/AgoraWebSDK-NG/docs/assets/buffer_source_audio_track.png" alt=""></p>
-<p>我们无法去 “采集” 一个音频文件，只能通过读取文件来达到一个类似的效果，也就是上图的 <code>processing</code> 过程。对于采集来说，一旦开始采集就无法暂停，因为我们永远只能采集到最新的音频数据，但是文件读取则不同，我们可以灵活地选择读取音频数据的方式。我们可以通过暂停文件的读取来实现暂停播放，通过跳转文件读取的位置来实现跳转播放，通过循环读取来实现循环播放等等，这些控制音频文件读取的操作也就是 <code>BufferSourceAudioTrack</code> 所提供的核心功能。</p>
-<p>回到开始的问题，之所以直接调用 <code>audioFileTrack.play()</code> 无法听到声音是因为 <code>BufferSourceAudioTrack</code> 默认没有读取音频文件。只要我们调用 <code>audioFileTrack.startProcessAudioBuffer()</code> 之后，SDK 就会读取音频文件，开始音频数据的处理流程，从而本地和远端就能听到声音了。</p>
-<h3><a class="anchor" aria-hidden="true" id="控制音频文件的播放"></a><a href="#控制音频文件的播放" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>控制音频文件的播放</h3>
-<p>如同上文所说，除了调用 <code>startProcessAudioBuffer</code> 开始音频数据的处理流程之外，SDK 还支持暂停/恢复/跳转等功能，详细的 API 见下：</p>
+<p>使用音频文件创建轨道后，如果直接调用 <code>audioFileTrack.play()</code> 或者 <code>client.publish([audioFileTrack])</code>，你会发现无论是本地还是远端都无法听到音乐声。这是因为通过音频文件创建的音频轨道在音频数据的处理流程上和麦克风音频轨道 (<code>MicrophoneAudioTrack</code>) 不同。</p>
+<p><strong>MicrophoneAudioTrack</strong>
+<img src="/AgoraWebSDK-NG/docs/assets/microphone_audio_track.png" alt=""></p>
+<p>对于麦克风音频轨道来说，SDK 会源源不断地从目标麦克风设备中采集最新的音频数据（<code>AudioBuffer</code>）。</p>
 <ul>
-<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/ibuffersourceaudiotrack.html#startprocessaudiobuffer">startProcessAudioBuffer</a>: 开始读取音乐文件，处理音频数据，该方法还支持设置循环/开始位置等参数。</li>
-<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/ibuffersourceaudiotrack.html#pauseprocessaudiobuffer">pauseProcessAudioBuffer</a>: 暂停处理音频数据。</li>
-<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/ibuffersourceaudiotrack.html#resumeprocessaudiobuffer">resumeProcessAudioBuffer</a>: 恢复处理音频数据。</li>
-<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/ibuffersourceaudiotrack.html#stopprocessaudiobuffer">stopProcessAudioBuffer</a>: 停止处理音频数据。</li>
-<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/ibuffersourceaudiotrack.html#seekaudiobuffer">seekAudioBuffer</a>: 跳转到指定位置。</li>
+<li>调用 <code>play()</code> 方法后音频数据会发送到本地播放组件 (<code>LocalPlayback</code>)，最终被本地用户听到。</li>
+<li>调用 <code>publish()</code> 方法后音频数据会发送到 Agora 的 SD-RTN，最终被远端用户听到。</li>
 </ul>
-<p>如果调用了 <code>play()</code> 和 <code>publish()</code>，处理后的音频数据将发送到本地播放模块和远端，因此以上方法会同时影响本地和远端用户听到的声音。</p>
-<pre><code class="hljs css language-js"><span class="hljs-comment">// 暂停处理音频数据</span>
-audioFileTrack.pauseProcessAudioBuffer();
-<span class="hljs-comment">// 恢复处理音频数据</span>
-audioFileTrack.resumeProcessAudioBuffer();
-<span class="hljs-comment">// 停止处理音频数据</span>
-audioFileTrack.stopProcessAudioBuffer();
-<span class="hljs-comment">// 以循环播放的模式开始处理音频数据</span>
-audioFileTrack.startProcessAudioBuffer({ <span class="hljs-attr">loop</span>: <span class="hljs-literal">true</span> });
-
-<span class="hljs-comment">// 获取当前的音处理的进度 (秒)</span>
-audioFileTrack.getCurrentTime();
-<span class="hljs-comment">// 当前音频文件的总时长（秒）</span>
-audioFileTrack.duration;
-<span class="hljs-comment">// 跳转到 50 秒的位置</span>
-audioFileTrack.seekAudioBuffer(<span class="hljs-number">50</span>);
-</code></pre>
-<p>在某些场景中不需要在本地听到音乐，你可以通过 <code>stop()</code> 方法关闭音乐在本地的播放，这不会影响远端收到的音频数据。</p>
+<p>一旦麦克风音频轨道被创建，采集操作就会持续进行，直到调用 <code>close()</code> 方法才会停止，此时音频轨道也将不再可用。</p>
+<p><strong>BufferSourceAudioTrack</strong>
+<img src="/AgoraWebSDK-NG/docs/assets/buffer_source_audio_track.png" alt=""></p>
+<p>对于音频文件来说，SDK 无法采集音频数据，只能通过读取文件达到类似的效果，也就是上图的 <code>processing</code> 过程。</p>
+<p>采集音频数据和读取文件的区别是：</p>
+<ul>
+<li>采集一旦开始就无法暂停，因为我们永远只能采集到最新的音频数据。</li>
+<li>文件读取可以灵活地控制。暂停读取文件可以暂停播放，跳转读取的位置可以跳转播放，循环读取文件可以循环播放等等，这些控制音频文件读取的操作是 <code>BufferSourceAudioTrack</code> 提供的核心功能，详见<a href="#控制音频文件的播放">控制音频文件的播放</a>。</li>
+</ul>
+<p>使用音频文件创建音频轨道后，SDK 默认不读取音频文件，因此需要先调用 <code>BufferSourceAudioTrack.startProcessAudioBuffer()</code> 开始读取音频文件以及音频数据的处理流程，再分别调用 <code>play()</code>  和  <code>publish()</code>  方法，本地和远端就能听到音频文件的声音了。</p>
 <h3><a class="anchor" aria-hidden="true" id="发布多个音频轨道以实现混音"></a><a href="#发布多个音频轨道以实现混音" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>发布多个音频轨道以实现混音</h3>
-<p>Agora Web SDK NG 支持发布多个音频轨道，如果想实现麦克风和音乐的混音，只要将 <code>audioFileTrack</code> 和通过麦克风创建的音频轨道一起发布即可。</p>
+<p>Agora Web SDK NG 支持发布多个音频轨道，将 <code>audioFileTrack</code> 和通过麦克风创建的音频轨道一起发布就可以实现混音。</p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> microphoneTrack = <span class="hljs-keyword">await</span> AgoraRTC.createMicrophoneAudioTrack();
 
 <span class="hljs-comment">// 开始处理来自音频文件的音频数据</span>
@@ -128,17 +112,45 @@ audioFileTrack.stopProcessAudioBuffer();
 <span class="hljs-comment">// 或者直接将音频文件轨道取消发布</span>
 <span class="hljs-keyword">await</span> client.unpublish([audioFileTrack]);
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" id="api-参考"></a><a href="#api-参考" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API 参考</h2>
+<h3><a class="anchor" aria-hidden="true" id="控制音频文件的播放"></a><a href="#控制音频文件的播放" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>控制音频文件的播放</h3>
+<p><code>BufferSourceAudioTrack</code> 提供以下方法实现播放控制相关功能：</p>
+<ul>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/ibuffersourceaudiotrack.html#startprocessaudiobuffer"><code>startProcessAudioBuffer</code></a>: 开始读取音频文件并处理音频数据，该方法还支持设置循环播放和开始播放位置等。</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/ibuffersourceaudiotrack.html#pauseprocessaudiobuffer"><code>pauseProcessAudioBuffer</code></a>: 暂停处理音频数据，即暂停播放音频文件。</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/ibuffersourceaudiotrack.html#resumeprocessaudiobuffer"><code>resumeProcessAudioBuffer</code></a>: 恢复处理音频数据，即恢复播放音频文件。</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/ibuffersourceaudiotrack.html#stopprocessaudiobuffer"><code>stopProcessAudioBuffer</code></a>: 停止处理音频数据，即停止播放音频文件。</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/ibuffersourceaudiotrack.html#seekaudiobuffer"><code>seekAudioBuffer</code></a>: 跳转到指定位置。</li>
+</ul>
+<p>开始处理音频数据后，如果调用了 <code>play()</code> 和 <code>publish()</code>，以上方法会同时影响本地和远端用户听到的声音。</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 暂停处理音频数据</span>
+audioFileTrack.pauseProcessAudioBuffer();
+<span class="hljs-comment">// 恢复处理音频数据</span>
+audioFileTrack.resumeProcessAudioBuffer();
+<span class="hljs-comment">// 停止处理音频数据</span>
+audioFileTrack.stopProcessAudioBuffer();
+<span class="hljs-comment">// 以循环播放的模式开始处理音频数据</span>
+audioFileTrack.startProcessAudioBuffer({ <span class="hljs-attr">loop</span>: <span class="hljs-literal">true</span> });
+
+<span class="hljs-comment">// 获取当前播放进度 (秒)</span>
+audioFileTrack.getCurrentTime();
+<span class="hljs-comment">// 当前音频文件的总时长（秒）</span>
+audioFileTrack.duration;
+<span class="hljs-comment">// 跳转到 50 秒的位置</span>
+audioFileTrack.seekAudioBuffer(<span class="hljs-number">50</span>);
+</code></pre>
+<p>在某些场景中不需要在本地听到音乐，你可以通过 <code>stop()</code> 方法关闭音频文件在本地的播放，这不会影响远端收到的音频数据。</p>
+<h3><a class="anchor" aria-hidden="true" id="api-参考"></a><a href="#api-参考" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API 参考</h3>
 <ul>
 <li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createbuffersourceaudiotrack"><code>createBufferSourceAudioTrack</code></a></li>
 <li><a href="/AgoraWebSDK-NG/api/cn/interfaces/ibuffersourceaudiotrack.html"><code>BufferSourceAudioTrack</code></a></li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#publish"><code>publish</code></a></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="开发注意事项"></a><a href="#开发注意事项" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>开发注意事项</h2>
 <ul>
-<li>请注意线上音频文件的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS">CORS</a> 已经配置好。</li>
+<li>你还需要配置线上音频文件的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS">CORS</a>。</li>
 <li>支持的音频格式为 MP3，AAC 以及浏览器支持的其他音频格式。</li>
-<li>Safari 12 以下的版本不支持混音，所以无法发布多个音频轨道。</li>
 <li>本地文件仅支持浏览器原生的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/File">File 对象</a>。</li>
+<li>Safari 12 以下的版本不支持混音，所以无法发布多个音频轨道。</li>
 <li>无论本地发布了几个音频轨道，SDK 都会自动混合为一个音频轨道，因此远端用户只会获取到一个 <code>RemoteAudioTrack</code>。</li>
 </ul>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/AgoraWebSDK-NG/docs/zh-CN/audio_profile"><span class="arrow-prev">← </span><span>设置音频属性</span></a><a class="docs-next button" href="/AgoraWebSDK-NG/docs/zh-CN/custom_audio"><span>自定义音频采集</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#功能描述">功能描述</a></li><li><a href="#实现方法">实现方法</a><ul class="toc-headings"><li><a href="#通过音频文件创建音频轨道">通过音频文件创建音频轨道</a></li><li><a href="#控制音频文件的播放">控制音频文件的播放</a></li><li><a href="#发布多个音频轨道以实现混音">发布多个音频轨道以实现混音</a></li></ul></li><li><a href="#api-参考">API 参考</a></li><li><a href="#开发注意事项">开发注意事项</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/" class="nav-home"><img src="/AgoraWebSDK-NG/img/logo.png" alt="AgoraWebSDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/docs/zh-CN/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/api/cn">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/AgoraWebSDK-NG/docs/zh-CN/audio_profile"><span class="arrow-prev">← </span><span>设置音频属性</span></a><a class="docs-next button" href="/AgoraWebSDK-NG/docs/zh-CN/custom_audio"><span>自定义音频采集</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#功能描述">功能描述</a></li><li><a href="#实现方法">实现方法</a><ul class="toc-headings"><li><a href="#通过音频文件创建音频轨道">通过音频文件创建音频轨道</a></li><li><a href="#发布多个音频轨道以实现混音">发布多个音频轨道以实现混音</a></li><li><a href="#控制音频文件的播放">控制音频文件的播放</a></li><li><a href="#api-参考">API 参考</a></li></ul></li><li><a href="#开发注意事项">开发注意事项</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/" class="nav-home"><img src="/AgoraWebSDK-NG/img/logo.png" alt="AgoraWebSDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/docs/zh-CN/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/api/cn">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>

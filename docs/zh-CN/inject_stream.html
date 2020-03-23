@@ -76,7 +76,7 @@
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="工作原理"></a><a href="#工作原理" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>工作原理</h3>
 <p><img src="https://web-cdn.agora.io/docs-files/1576059223619" alt=""></p>
-<p>直播频道中的主播通过 Video Inject 服务器将在线媒体流拉到 Agora SD-RTN 中，输入到直播频道内。</p>
+<p>直播频道中的主播通过 Video Inject 服务器将在线媒体流拉到 Agora SD-RTN™ 中，输入到直播频道内。</p>
 <ul>
 <li>频道内的连麦主播、普通观众都可以听/看到该媒体流。</li>
 <li>如果主播开启了 CDN 旁路推流，该媒体流也会被推送到 CDN 上， CDN 观众就可以听/看到这路媒体流。</li>
@@ -90,23 +90,29 @@
 </ul>
 </blockquote>
 <h2><a class="anchor" aria-hidden="true" id="实现方法"></a><a href="#实现方法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>实现方法</h2>
-<p>在开始前，请确保已在你的项目中实现基本的实时音视频功能。详见 <a href="/AgoraWebSDK-NG/docs/zh-CN/basic_call">实现音视频通话</a>。</p>
+<p>在开始前，请确保已在你的项目中实现基本的实时音视频功能。详见<a href="/AgoraWebSDK-NG/docs/zh-CN/basic_call">实现音视频通话</a>。</p>
 <blockquote>
 <p>请确保已开通旁路推流的功能，详见<a href="/AgoraWebSDK-NG/docs/zh-CN/cdn_streaming#前提条件">前提条件</a>。</p>
 </blockquote>
 <p>参考如下步骤，在你的项目中实现输入在线媒体流功能：</p>
 <ol>
-<li><p>频道内主播调用 <code>AgoraRTCClient.addInjectStreamUrl</code> 方法向直播频道内输入指定在线媒体流。你也可以修改 <code>config</code> 的参数设置媒体流输入的分辨率、码率和帧率等参数，详见<a href="/AgoraWebSDK-NG/api/cn/interfaces/injectstreamconfig.html">InjectStreamConfig</a>。</p>
-<blockquote>
-<p>频道内同一时间只允许输入一路在线媒体流。</p>
-</blockquote>
-<p>输入媒体流成功后，该媒体流会在直播频道内自动播放，频道内所有用户都会收到 <code>AgoraRTCClient.on(&quot;user-joined&quot;)</code> 和 <code>AgoraRTCClient.on(&quot;user-published&quot;)</code> 回调。</p></li>
-<li><p>频道内主播调用 <code>AgoraRTCClient.removeInjectStreamUrl</code> 方法从直播频道内删除指定的已输入在线媒体流。</p>
-<p>删除媒体流成功后，频道内所有用户都会收到  <code>AgoraRTCClient.on(&quot;user-unpublished&quot;)</code> 和 <code>AgoraRTCClient.on(&quot;user-left&quot;)</code> 回调。</p>
-<blockquote>
-<p>主播退出频道后，无需再调用 <code>removeInjectStreamUrl</code> 接口。</p>
-</blockquote></li>
+<li>频道内主播调用 <code>AgoraRTCClient.addInjectStreamUrl</code> 方法向直播频道内输入指定在线媒体流。你也可以修改 <code>config</code> 的参数设置媒体流输入的分辨率、码率和帧率等参数，详见<a href="/AgoraWebSDK-NG/api/cn/interfaces/injectstreamconfig.html">InjectStreamConfig</a>。</li>
 </ol>
+<blockquote>
+<ul>
+<li>频道内同一时间只允许输入一路在线媒体流。</li>
+<li>输入媒体流成功后，该媒体流会在直播频道内自动播放，频道内所有用户都会收到 <code>AgoraRTCClient.on(&quot;user-joined&quot;)</code> 和 <code>AgoraRTCClient.on(&quot;user-published&quot;)</code> 回调。</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>频道内主播调用 <code>AgoraRTCClient.removeInjectStreamUrl</code> 方法从直播频道内删除指定的已输入在线媒体流。</li>
+</ol>
+<blockquote>
+<ul>
+<li>删除媒体流成功后，频道内所有用户都会收到  <code>AgoraRTCClient.on(&quot;user-unpublished&quot;)</code> 和 <code>AgoraRTCClient.on(&quot;user-left&quot;)</code> 回调。</li>
+<li>主播退出频道后，无需再调用 <code>removeInjectStreamUrl</code> 接口。</li>
+</ul>
+</blockquote>
 <h3><a class="anchor" aria-hidden="true" id="示例代码"></a><a href="#示例代码" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>示例代码</h3>
 <p><code>client</code> 是指通过 <code>AgoraRTC.createClient</code> 创建的本地客户端对象</p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> injectStreamConfig = {

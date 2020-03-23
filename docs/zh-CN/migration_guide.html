@@ -63,17 +63,21 @@ client.on(<span class="hljs-string">"connection-state-change"</span>, (curState,
 </ul>
 <p>当 A 由于网络问题和频道暂时失去了连接，然后重连：</p>
 <ul>
-<li>如果 A 使用的是 Agora Web SDK，当 SDK 和频道失去连接时，无论是否可以重连， SDK 都会认为 A 已经离开频道并清空频道内的所有状态。所以 A 重连回频道和 A 第一次加入频道时没有区别，会收到：</li>
+<li>如果 A 使用的是 Agora Web SDK，当 SDK 和频道失去连接时，无论是否可以重连， SDK 都会认为 A 已经离开频道并清空频道内的所有状态。所以 A 重连回频道和 A 第一次加入频道时没有区别，会收到：
+<ul>
 <li>用户 C、D 加入频道的事件。</li>
 <li>用户 D 发流的事件。</li>
+</ul></li>
 </ul>
 <blockquote>
 <p>在 Agora Web SDK 中，你会因为偶然发生的断线重连而收到重复的事件，这可能会导致你在上层事件处理时引发一些预期之外的问题。你需要监听连接状态变化，在断线重连时重置一些应用层的状态，以避免第二次收到这些事件时引发问题。</p>
 </blockquote>
 <ul>
-<li>如果 A 使用的是 Agora Web SDK NG，当 SDK 和频道失去连接时，SDK 会认为 A 此时还在频道中，不会清空频道内的状态（用户主动调用 <code>leave</code> 离开频道除外）。所以当 A 重连回频道时，SDK 只会向 A 发送那些在重连过程中丢失的事件，包括：</li>
+<li>如果 A 使用的是 Agora Web SDK NG，当 SDK 和频道失去连接时，SDK 会认为 A 此时还在频道中，不会清空频道内的状态（用户主动调用 <code>leave</code> 离开频道除外）。所以当 A 重连回频道时，SDK 只会向 A 发送那些在重连过程中丢失的事件，包括：
+<ul>
 <li>用户 B 退出频道的事件。</li>
 <li>用户 C 取消发流的事件。</li>
+</ul></li>
 </ul>
 <blockquote>
 <p>在 Agora Web SDK NG 中，即使你没有像使用 Agora Web SDK 时那样在断线重连时做一些特殊的逻辑，SDK 也能够确保你的上层应用可以正常工作，不会收到重复的事件。</p>
@@ -210,15 +214,15 @@ client.on(<span class="hljs-string">"user-published"</span>, <span class="hljs-k
 <li><a href="/AgoraWebSDK-NG/api/cn/globals.html#connectionstate">ConnectionState</a> 中新增状态 <code>RECONNECTING</code> 表示当前正在重连，原来的 <code>CONNECTING</code> 仅表示首次正在建立连接</li>
 <li>新增 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#uid">Client.uid</a> 来表示当前本地用户的用户 ID</li>
 <li>新增 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#remoteusers">Client.remoteUsers</a> 来表示当前远端用户的用户列表</li>
-<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#addinjectstreamurl">Client.addInjectStream</a> 现在会返回一个 Promise 来标志输入媒体流成功/失败，移除 <code>Client.on(&quot;streamInjectStatus&quot;)</code></li>
-<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#addinjectstreamurl">Client.removeInjectStream</a>，同时移除它的 <code>url</code> 参数</li>
-<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#enabledualstream">Client.enableDualStream</a> / <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#disabledualstream">Client.disableDualStream</a> 移除回调参数，现在会返回 Promise</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#addinjectstreamurl">Client.addInjectStreamUrl</a> 现在会返回一个 Promise 来标志输入媒体流成功/失败，移除 <code>Client.on(&quot;streamInjectStatus&quot;)</code></li>
+<li>移除 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#addinjectstreamurl">Client.removeInjectStream</a> 的 <code>url</code> 参数</li>
+<li>移除 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#enabledualstream">Client.enableDualStream</a> 和 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#disabledualstream">Client.disableDualStream</a> 的回调参数，现在会返回 Promise</li>
 <li>移除 <code>Client.getCameras</code>, <code>Client.getDevices</code>, <code>Client.getRecordingDevices</code>, 现在这些方法被移动到 <code>AgoraRTC</code> 下</li>
 <li>移除 <code>Client.getPlayoutDevices</code></li>
 <li>移除 <code>Client.getLocalAudioStats</code>、<code>Client.getLocalVideoStats</code>、<code>Client.getRemoteAudioStats</code>、<code>Client.getRemoteVideoStats</code>，现在音视频媒体统计数据统一通过 <a href="/AgoraWebSDK-NG/api/cn/interfaces/ilocalaudiotrack.html#getstats">LocalAudioTrack.getStats</a> 、<a href="/AgoraWebSDK-NG/api/cn/interfaces/ilocalvideotrack.html#getstats">LocalVideoTrack.getStats</a> 、<a href="/AgoraWebSDK-NG/api/cn/interfaces/iremoteaudiotrack.html#getstats">RemoteAudioTrack.getStats</a> 、<a href="/AgoraWebSDK-NG/api/cn/interfaces/iremotevideotrack.html#getstats">RemoteVideoTrack.getStats</a> 这些方法来获取，同时字段都做了改变，具体参阅 API 文档</li>
 <li>移除 <code>Client.getSystemStats</code></li>
 <li>移除 <code>Client.getSessionStats</code> / <code>Client.getTransportStats</code>，现在使用一个方法统一获取这些状态 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#getrtcstats">Client.getRTCStats</a></li>
-<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#join">Client.join</a> 现在会返回一个 Promise，移除回调参数，增加 APPID 参数</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#join">Client.join</a> 现在会返回一个 Promise，移除回调参数，增加 <code>appid</code> 参数</li>
 <li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#leave">Client.leave</a> 现在会返回一个 Promise，移除回调参数</li>
 <li>增加 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#once">Client.once</a> 只监听目标事件一次</li>
 <li>增加 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#removealllisteners">Client.removeAllListeners</a> 用于删除所有事件监听</li>
@@ -227,7 +231,7 @@ client.on(<span class="hljs-string">"user-published"</span>, <span class="hljs-k
 <li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#subscribe">Client.subscribe</a> 现在使用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcremoteuser.html">AgoraRTCRemoteUser</a> 作为参数，返回一个 Promise，移除 <code>Client.on(&quot;stream-subscribed&quot;)</code></li>
 <li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#unsubscribe">Client.unsubscribe</a> 现在使用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcremoteuser.html">AgoraRTCRemoteUser</a> 作为参数，返回一个 Promise</li>
 <li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#renewtoken">Client.renewToken</a> 现在会返回一个 Promise</li>
-<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#setclientrole">Client.setClientRole</a> 移除回调参数，现在会返回一个 Promise。<strong>现在设置角色为 audience 后不会自动 unpublish，，调用 publish 时也不会自动把角色设置成 host</strong></li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#setclientrole">Client.setClientRole</a> 移除回调参数，现在会返回一个 Promise。<strong>现在设置角色为 audience 后不会自动 unpublish，调用 publish 时也不会自动把角色设置成 host</strong></li>
 <li>移除 <code>Client.setEncryptionMode</code> 和 <code>Client.setEncryptionSecret</code>，现在通过一个方法 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#setencryptionconfig">Client.setEncryptionConfig</a> 来配置</li>
 <li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#setlivetranscoding">Client.setLiveTranscoding</a> / <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#startlivestreaming">Client.startLiveStreaming</a> / <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#stoplivestreaming">Client.stopLiveStreaming</a> 现在都会返回 Promise，同时移除 <code>Client.on(&quot;liveTranscodingUpdated&quot;)</code> / <code>Client.on(&quot;liveStreamingStarted&quot;)</code> / <code>Client.on(&quot;liveStreamingFailed&quot;)</code> / <code>Client.on(&quot;liveStreamingStopped&quot;)</code> 事件</li>
 <li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#startchannelmediarelay">Client.startChannelMediaRelay</a> 现在会返回一个 Promise
@@ -238,7 +242,7 @@ client.on(<span class="hljs-string">"user-published"</span>, <span class="hljs-k
 <li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#stopchannelmediarelay">Client.stopChannelMediaRelay</a> 现在会返回一个 Promise</li>
 <li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#updatechannelmediarelay">Client.updateChannelMediaRelay</a> 移除回调参数，现在会返回一个 Promise</li>
 <li>移除 <code>Client.on(&quot;first-video-frame-decode&quot;)</code> 和 <code>Client.on(&quot;first-audio-frame-decode&quot;)</code>，现在这两个事件通过 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iremotetrack.html#event_first_frame_decoded">RemoteTrack.on(&quot;first-frame-decode&quot;)</a> 触发</li>
-<li>移除 <code>Client.on(&quot;mute-audio&quot;)</code> 、<code>Client.on(&quot;mute-video&quot;)</code> 、<code>Client.on(&quot;unmute-audio&quot;)</code>  、<code>Client.on(&quot;unmute-video&quot;)</code>，现在统一使用事件 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_user_mute_updated">Client.on(&quot;user-mute-updated&quot;)</a> 来通知</li>
+<li>移除 <code>Client.on(&quot;mute-audio&quot;)</code>、<code>Client.on(&quot;mute-video&quot;)</code>、<code>Client.on(&quot;unmute-audio&quot;)</code>、<code>Client.on(&quot;unmute-video&quot;)</code>，现在统一使用事件 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_user_mute_updated">Client.on(&quot;user-mute-updated&quot;)</a> 来通知</li>
 <li>移除 <code>Client.on(&quot;active-speaker&quot;)</code> 事件，相同的功能由 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_volume_indicator">Client.on(&quot;volume-indicator&quot;)</a> 提供</li>
 <li><code>Client.on(&quot;onTokenPrivilegeWillExpire&quot;)</code> 和 <code>Client.on(&quot;onTokenPrivilegeDidExpire&quot;)</code> 更名为 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_token_privilege_will_expire">Client.on(&quot;token-privilege-will-expire&quot;)</a> 和 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_token_privilege_did_expire">Client.on(&quot;token-privilege-did-expire&quot;)</a></li>
 <li>移除 <code>Client.on(&quot;network-type-changed&quot;)</code> 事件， SDK 无法保证其可靠性</li>

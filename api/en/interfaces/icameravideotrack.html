@@ -493,8 +493,7 @@
 												<li>Firefox 70.0.1 or later.</li>
 											</ul>
 										</li>
-										<li>This function is supported on mobile devices.</li>
-										<li>If dual-stream mode is enabled, the image enhancement options apply only to the high-quality video stream.</li>
+										<li>This function is not supported on mobile devices.</li>
 									</ul>
 								</blockquote>
 							</div>
@@ -562,10 +561,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the video encoder configurations, such as resolution, frame rate, and bitrate.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>config: <a href="videoencoderconfiguration.html" class="tsd-signature-type">VideoEncoderConfiguration</a><span class="tsd-signature-symbol"> | </span><a href="../globals.html#videoencoderconfigurationpreset" class="tsd-signature-type">VideoEncoderConfigurationPreset</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The video encoder configurations. You can pass either <a href="../globals.html#videoencoderconfigurationpreset">VideoEncoderConfigurationPreset</a> or a customized <a href="videoencoderconfiguration.html">VideoEncoderConfiguration</a> object.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>

@@ -70,40 +70,30 @@
 <p>Agora Web SDK 支持获取以下统计数据来检测通话质量：</p>
 <ul>
 <li>当前会话的统计数据</li>
-<li>本地发布流的统计数据</li>
-<li>远端订阅流的统计数据</li>
+<li>本地发布轨道的统计数据</li>
+<li>远端订阅轨道的统计数据</li>
 <li>本地用户的上下行网络质量相关的统计数据</li>
 <li>频道内的异常事件</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="实现方法"></a><a href="#实现方法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>实现方法</h2>
-<p>在开始前，请确保已在你的项目中实现基本的实时音视频功能。详见 <a href="/AgoraWebSDK-NG/docs/zh-CN/basic_call">实现音视频通话</a>。</p>
+<p>在开始前，请确保已在你的项目中实现基本的实时音视频功能。详见<a href="/AgoraWebSDK-NG/docs/zh-CN/basic_call">实现音视频通话</a>。</p>
 <h3><a class="anchor" aria-hidden="true" id="获取当前会话的统计数据"></a><a href="#获取当前会话的统计数据" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>获取当前会话的统计数据</h3>
-<p>调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#getrtcstats">AgoraRTCClient.getRTCStats</a> 方法获取与当前会话相关的统计数据，结果包括如下字段：</p>
-<ul>
-<li>Duration 在当前频道内的时长，单位为秒</li>
-<li>RecvBitrate 音视频总接收码率，单位为 bps，瞬间值</li>
-<li>SendBitrate 音视频总发送码率，单位为 bps，瞬间值</li>
-<li>SendBytes 发送字节数，累计值</li>
-<li>RecvBytes 接收字节数，累计值</li>
-<li>UserCount 通信模式下，该值为当前频道内的用户人数。直播模式下，如果本地用户为主播，该值为当前频道内的主播人数；如果本地用户为观众，该值为当前频道内的主播人数 + 1。</li>
-<li>OutgoingAvailableBandwidth 上行可用带宽估计，单位为 Kbps</li>
-<li>RTT SDK 到 SD-RTN 接入节点的 RTT (Round-Trip Time)，单位 ms</li>
-</ul>
-<p>示例代码中的 <code>client</code> 是指通过 <code>AgoraRTC.createClient</code> 创建的本地客户端对象</p>
+<p>调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#getrtcstats">AgoraRTCClient.getRTCStats</a> 方法获取与当前会话相关的统计数据。数据说明详见 <a href="/AgoraWebSDK-NG/api/cn/interfaces/agorartcstats.html">AgoraRTCStats</a>。</p>
+<p>示例代码中的 <code>client</code> 是指通过 <code>AgoraRTC.createClient</code> 创建的本地客户端对象。</p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> stats = client.getRTCStats();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="获取本地发布音视频的统计数据"></a><a href="#获取本地发布音视频的统计数据" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>获取本地发布音视频的统计数据</h3>
-<p>调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/ilocalaudiotrack.html#getstats">LocalAudioTrack.getStats</a> / <a href="/AgoraWebSDK-NG/api/cn/interfaces/ilocalvideotrack.html#getstats">LocalVideoTrack.getStats</a> 方法获取本地发布音视频的统计数据，结果详细说明请参考 <a href="/AgoraWebSDK-NG/api/cn/interfaces/localaudiotrackstats.html">LocalAudioTrackStats</a> / <a href="/AgoraWebSDK-NG/api/cn/interfaces/localvideotrackstats.html">LocalVideoTrackStats</a></p>
+<p>调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/ilocalaudiotrack.html#getstats">LocalAudioTrack.getStats</a> 和 <a href="/AgoraWebSDK-NG/api/cn/interfaces/ilocalvideotrack.html#getstats">LocalVideoTrack.getStats</a> 方法获取本地发布的音频轨道和视频轨道的统计数据，数据说明详见 <a href="/AgoraWebSDK-NG/api/cn/interfaces/localaudiotrackstats.html">LocalAudioTrackStats</a> 和 <a href="/AgoraWebSDK-NG/api/cn/interfaces/localvideotrackstats.html">LocalVideoTrackStats</a>。</p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> audioTrackStats = localAudioTrack.getStats();
 <span class="hljs-keyword">const</span> videoTrackStats = localVideoTrack.getStats();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="获取远端订阅流的统计数据"></a><a href="#获取远端订阅流的统计数据" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>获取远端订阅流的统计数据</h3>
-<p>调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iremoteaudiotrack.html#getstats">RemoteAudioTrack.getStats</a> / <a href="/AgoraWebSDK-NG/api/cn/interfaces/iremotevideotrack.html#getstats">RemoteVideoTrack.getStats</a> 方法获取本地发布流的音视频统计数据，结果详细说明请参考 <a href="/AgoraWebSDK-NG/api/cn/interfaces/remoteaudiotrackstats.html">RemoteAudioTrackStats</a> / <a href="/AgoraWebSDK-NG/api/cn/interfaces/remotevideotrackstats.html">RemoteVideoTrackStats</a></p>
+<p>调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iremoteaudiotrack.html#getstats">RemoteAudioTrack.getStats</a> 和 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iremotevideotrack.html#getstats">RemoteVideoTrack.getStats</a> 方法获取订阅的远端音频轨道和视频轨道的统计数据，数据说明详见 <a href="/AgoraWebSDK-NG/api/cn/interfaces/remoteaudiotrackstats.html">RemoteAudioTrackStats</a> 和 <a href="/AgoraWebSDK-NG/api/cn/interfaces/remotevideotrackstats.html">RemoteVideoTrackStats</a>。</p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> audioTrackStats = remoteAudioTrack.getStats();
 <span class="hljs-keyword">const</span> videoTrackStats = remoteVideoTrack.getStats();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="获取本地用户的上下行网络质量相关的统计数据"></a><a href="#获取本地用户的上下行网络质量相关的统计数据" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>获取本地用户的上下行网络质量相关的统计数据</h3>
-<p>Agora Web SDK NG 通过 <code>AgoraRTCClient.on</code> 中的 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_network_quality">network-quality</a> 回调向 App 报告本地用户的上下行网络质量。该回调每 2 秒触发，返回的参数包括：</p>
+<p>Agora Web SDK NG 通过 <code>AgoraRTCClient.on</code> 中的 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_network_quality"><code>network-quality</code></a> 回调向 App 报告本地用户的上下行网络质量。该回调每 2 秒触发，返回的参数包括：</p>
 <ul>
 <li><code>downlinkNetworkQuality</code>：下行网络质量打分。</li>
 <li><code>uplinkNetworkQuality</code>：上行网络质量打分。</li>
@@ -123,14 +113,14 @@
 <tr><td>6</td><td style="text-align:left">完全无法沟通。</td></tr>
 </tbody>
 </table>
-<p>示例代码中的 <code>client</code> 是指通过 <code>AgoraRTC.createClient</code> 创建的本地客户端对象</p>
+<p>示例代码中的 <code>client</code> 是指通过 <code>AgoraRTC.createClient</code> 创建的本地客户端对象。</p>
 <pre><code class="hljs css language-javascript">client.on(<span class="hljs-string">"network-quality"</span>, (stats) =&gt; {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"downlinkNetworkQuality"</span>, stats.downlinkNetworkQuality);
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"uplinkNetworkQuality"</span>, stats.uplinkNetworkQuality);
 });
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="关注频道内的异常事件"></a><a href="#关注频道内的异常事件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>关注频道内的异常事件</h3>
-<p>Agora Web SDK 通过 <code>AgoraRTCClient.on</code> 中的 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_exception">exception</a> 回调通知 App 频道内的异常事件。异常事件不是错误，但是往往会引起通话质量问题。发生异常事件后，如果恢复正常，也会收到该回调。该回调返回：</p>
+<p>Agora Web SDK NG 通过 <code>AgoraRTCClient.on</code> 中的 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_exception"><code>exception</code></a> 回调通知 App 频道内的异常事件。异常事件不是错误，但是往往会引起通话质量问题。发生异常事件后，如果恢复正常，也会收到该回调。该回调返回：</p>
 <ul>
 <li><code>code</code>：事件码。</li>
 <li><code>msg</code>：提示消息。</li>

@@ -77,7 +77,7 @@
 <blockquote>
 <p>跨频道连麦功能需要联系 <a href="mailto:sales@agora.io">sales@agora.io</a> 开通。</p>
 </blockquote>
-<p>在开始前，请确保已在你的项目中实现基本的实时音视频功能。详见 <a href="/AgoraWebSDK-NG/docs/zh-CN/basic_call">实现音视频通话</a>。</p>
+<p>在开始前，请确保已在你的项目中实现基本的实时音视频功能。详见<a href="/AgoraWebSDK-NG/docs/zh-CN/basic_call">实现音视频通话</a>。</p>
 <p>Agora Web SDK NG 提供如下跨频道媒体流转发接口，支持将源频道中的媒体流转发至最多 4 个目标频道，实现跨直播间连麦功能：</p>
 <ul>
 <li><code>startChannelMediaRelay</code></li>
@@ -87,23 +87,22 @@
 <blockquote>
 <p>API 调用顺序要求：</p>
 <ul>
-<li><code>startChannelMediaRelay</code> 方法必须在发布流 （<code>AgoraRTCClient.publish</code>）之后调用。</li>
+<li><code>startChannelMediaRelay</code> 方法必须在调用 <code>AgoraRTCClient.publish</code> 发布之后调用。</li>
 <li><code>updateChannelMediaRelay</code> 方法必须在 <code>startChannelMediaRelay</code> 后调用。</li>
 </ul>
 </blockquote>
-<p>在跨频道媒体流转发过程中，SDK 会通过 <code>AgoraRTCClient.on(&quot;channel-media-relay-state&quot;)</code> 回调报告媒体流转发的状态码（state）和错误码（code）， <code>AgoraRTCClient.on(&quot;channel-media-relay-event&quot;)</code> 回调报告媒体流转发的事件码。</p>
-<p>您可以通过阅读 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_channel_media_relay_event">API 文档</a> 获取关于回调和错误码的细节。</p>
-<p><strong>Note:</strong></p>
+<p>在跨频道媒体流转发过程中，SDK 会通过 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_channel_media_relay_state"><code>AgoraRTCClient.on(&quot;channel-media-relay-state&quot;)</code></a> 回调报告媒体流转发的状态码 <code>state</code>和错误码 <code>code</code>， 通过 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_channel_media_relay_event"><code>AgoraRTCClient.on(&quot;channel-media-relay-event&quot;)</code></a> 回调报告媒体流转发的事件码。</p>
+<blockquote>
+<p>注意：</p>
 <ul>
 <li>一个频道内可以有多个主播转发媒体流。哪个主播调用 <code>startChannelMediaRelay</code> 方法，SDK 就转发哪个主播的流。</li>
 <li>调用 <code>startChannelMediaRelay</code> 或 <code>updateChannelMediaRelay</code> 成功跨频道连麦后，目标频道的用户会收到 <code>AgoraRTCClient.on(&quot;user-published&quot;)</code> 回调。</li>
 <li>跨频道连麦中，如果目标频道的主播掉线或离开频道，源频道的主播会收到 <code>AgoraRTCClient.on(&quot;user-left&quot;)</code> 回调。</li>
 </ul>
+</blockquote>
 <h3><a class="anchor" aria-hidden="true" id="示例代码"></a><a href="#示例代码" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>示例代码</h3>
-<p><code>client</code> 是指通过 <code>AgoraRTC.createClient</code> 创建的本地客户端对象</p>
-<ul>
-<li>配置跨频道媒体流转发</li>
-</ul>
+<p><code>client</code> 是指通过 <code>AgoraRTC.createClient</code> 创建的本地客户端对象。</p>
+<p><strong>配置跨频道媒体流转发</strong></p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> channelMediaConfig = <span class="hljs-keyword">new</span> AgoraRTC.ChannelMediaRelayConfiguration();
 <span class="hljs-comment">// 设置源频道信息</span>
 channelMediaConfig.setSrcChannelInfo({
@@ -118,18 +117,14 @@ channelMediaConfig.addDestChannelInfo({
  <span class="hljs-attr">token</span>: <span class="hljs-string">"yourDestToken"</span>,
 })
 </code></pre>
-<ul>
-<li>开始跨频道媒体流转发</li>
-</ul>
+<p><strong>开始跨频道媒体流转发</strong></p>
 <pre><code class="hljs css language-js">client.startChannelMediaRelay(channelMediaConfig).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`startChannelMediaRelay success`</span>);
 }).catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`startChannelMediaRelay failed`</span>, e);
 })
 </code></pre>
-<ul>
-<li>更新媒体流转发频道</li>
-</ul>
+<p><strong>更新媒体流转发频道</strong></p>
 <pre><code class="hljs css language-js"><span class="hljs-comment">// 删除一个目标频道</span>
 channelMediaConfig.removeDestChannelInfo(<span class="hljs-string">"destChannel1"</span>)
 <span class="hljs-comment">// 更新跨频道媒体流转发设置</span>
@@ -139,9 +134,7 @@ client.updateChannelMediaRelay(channelMediaConfig).then(<span class="hljs-functi
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"updateChannelMediaRelay failed"</span>, e);
 })
 </code></pre>
-<ul>
-<li>停止跨频道媒体流转发</li>
-</ul>
+<p><strong>停止跨频道媒体流转发</strong></p>
 <pre><code class="hljs css language-js">client.stopChannelMediaRelay().then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"stop media relay success"</span>);
 }).catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
