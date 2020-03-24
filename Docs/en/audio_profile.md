@@ -6,7 +6,7 @@ sidebar_label: Audio Profiles
 
 ## Introduction
 
-High-fidelity audio is essential for professional audio scenarios, such as for podcasts and singing competitions. For example, podcasts require stereo and high-fidelity audio. High-fidelity audio refers to an audio profile with a sample rate of 48 kHz and a bitrate of 192 Kbps.
+High-fidelity audio is essential for professional audio scenarios such as podcasts and singing competitions. Podcasts, for example, require stereo and high-fidelity audio. High-fidelity audio refers to an audio profile with a sample rate of 48 kHz and a bitrate of 192 Kbps.
 
 ## Implementation
 
@@ -17,7 +17,7 @@ The Agora Web SDK NG provides the following methods to create audio tracks:
 - `createBufferSourceAudioTrack`
 - `createCustomAudioTrack`
 
-To adjust the audio profile, set the `encoderConfig` parameter in these methods.
+To adjust the audio profile, set the `encoderConfig` property in these methods.
 
 You can set `encoderConfig` in either of the following ways:
 
@@ -54,4 +54,4 @@ AgoraRTC.createMicrophoneAudioTrack({
 
 ## Considerations
 
-Set the audio profile before calling `AgoraRTCClient.publish`. After publishing an audio track, you cannot modify its audio profile.
+Set the audio profile before calling `AgoraRTCClient.publish`. After publishing an audio track, you can no longer modify its audio profile.

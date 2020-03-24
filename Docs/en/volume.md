@@ -6,11 +6,11 @@ sidebar_label: Adjust the Volume
 
 ## Introduction
 
-The SDK enables you to manage the sampling volume of the local audio or the playback volume of the subscribed audio according to the actual scenario.
+The Web SDK NG allows you to manage the sampling volume of the local audio or the playback volume of the subscribed audio as required by the actual scenario.
 
 ## Implementation
 
-Before adjusting the volume, ensure that you have implemented the basic real-time communication function in your project. For details, see [Implement a Basic Video Call](basic_call.md).
+Before calling methods that adjust the volume, ensure that you have implemented the basic real-time communication function in your project. For details, see [Implement a Basic Video Call](basic_call.md).
 
 The SDK provides the `setVolume` method for the local audio track and the remote audio track objects, to adjust the sampling volume of the local audio track and the playback volume of the remote audio tracks respectively.
 
@@ -18,7 +18,7 @@ The SDK provides the `setVolume` method for the local audio track and the remote
 
 **Adjust the playback volume**
 
-`remoteUser` represents a subscribed remote user in the following example.
+In the following example, the `remoteUser` object represents a subscribed remote user.
 
 ```javascript
 // Set the volume to half of the original volume
@@ -31,7 +31,7 @@ remoteUser.audioTrack.setVolume(0);
 
 **Adjust the sampling volume**
 
-`localAudioTrack` represents the local audio track in the following example.
+In the following example, the `localAudioTrack` object represents the local audio track.
 
 ```javascript
 AgoraRTC.createMicrophoneAudioTrack().then(localAudioTrack => {
@@ -50,4 +50,4 @@ AgoraRTC.createMicrophoneAudioTrack().then(localAudioTrack => {
 
 ## Considerations
 
-Setting the audio level too high may cause audio distortion on some devices.
+On some devices, setting the audio level too high may cause audio distortion.

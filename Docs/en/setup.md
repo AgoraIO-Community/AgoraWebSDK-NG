@@ -44,7 +44,7 @@ const client: IAgoraRTCClient = createClient({ mode: "live", codec: "vp8" });
 Add the following code to the line before `<style>` in your project.
 
 ```html
-<script src="https://download.agora.io/sdk/web/AgoraRTC_N-0.1.3.js"></script>
+<script src="https://download.agora.io/sdk/web/AgoraRTC_N-0.1.4.js"></script>
 ```
 
 ### Method 3: Through the Agora website
@@ -55,7 +55,7 @@ Add the following code to the line before `<style>` in your project.
 
 3. Add the following code to the line before `<style>` in your project.
 ```html
-<script src="./AgoraRTC_N-0.1.3.js"></script>
+<script src="./AgoraRTC_N-0.1.4.js"></script>
 ```
 
 > - In method 2 and 3, the SDK fully exports an `AgoraRTC` object. You can visit the `AgoraRTC` object to operate the Agora Web SDK NG.
