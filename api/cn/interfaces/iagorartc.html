@@ -69,7 +69,13 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section tsd-is-not-exported">
-							<h3>Properties</h3>
+							<h3>Global Callback Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#onaudioautoplayfailed" class="tsd-kind-icon">on<wbr>Audio<wbr>Autoplay<wbr>Failed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#oncamerachanged" class="tsd-kind-icon">on<wbr>Camera<wbr>Changed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#onmicrophonechanged" class="tsd-kind-icon">on<wbr>Microphone<wbr>Changed</a></li>
+							</ul>
+							<h3>Other Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#version" class="tsd-kind-icon">VERSION</a></li>
 							</ul>
@@ -111,8 +117,89 @@
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
-				<h2>Properties</h2>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Global Callback Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="onaudioautoplayfailed" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> on<wbr>Audio<wbr>Autoplay<wbr>Failed</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Audio<wbr>Autoplay<wbr>Failed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>音频轨道自动播放失败回调。</p>
+						</div>
+						<p>该回调在音频轨道自动播放失败的时候触发。音频自动播放失败是因为浏览器的<a href="https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide#Autoplay_and_autoplay_blocking">自动播放策略</a>导致的，视频轨道的播放不受此影响。</p>
+						<p>在 Agora Web SDK NG 中，只要用户和页面发生过一次点击交互，就会自动解锁浏览器音频自动播放的限制，所以针对音频自动播放有两种解决方案：</p>
+						<ul>
+							<li>如果不希望收到 <code>onAudioAutoplayFailed</code> 回调，就确保在调用 <code>RemoteAudioTrack.play</code> 和 <code>LocalAudioTrack.play</code> 之前用户已经和页面发生了点击交互。</li>
+							<li>如果无法保证在调用 <code>RemoteAudioTrack.play</code> 和 <code>LocalAudioTrack.play</code> 之前用户已经和页面发生点击交互，就监听 <code>onAudioAutoplayFailed</code> 回调，通过回调在页面上显示一个按钮引导用户点击。<blockquote>
+									<p>无论使用何种方案，只要浏览器启用了自动播放策略，都需要用户至少触发一次点击交互操作才能播放音频。随着用户使用某个页面的次数变多，浏览器会在这个页面上默认关闭自动播放策略，此时不需要任何交互也可以播放音频了，但是我们无法通过 JavaScript 去感知浏览器这个行为。</p>
+								</blockquote>
+							</li>
+						</ul>
+						<p>下面的示例代码演示了当检测到自动播放失败后的处理：在页面上动态显示一个按钮让用户点击。</p>
+						<p>需要注意的是，短时间内可能会有多个音频轨道对象都调用了 <code>play()</code>，此时会触发多次 <code>onAudioAutoplayFailed</code>。示例代码中通过 <code>isAudioAutoplayFailed</code> 这个对象防止创建重复的按钮对象。</p>
+						<pre><code class="language-javascript"> <span class="hljs-keyword">let</span> isAudioAutoplayFailed = <span class="hljs-literal">false</span>;
+ AgoraRTC.onAudioAutoplayFailed = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">if</span> (isAudioAutoplayFailed) <span class="hljs-keyword">return</span>;
+
+  isAudioAutoplayFailed = <span class="hljs-literal">true</span>;
+  <span class="hljs-keyword">const</span> btn = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"button"</span>);
+  btn.innerText = <span class="hljs-string">"Click me to resume the audio playback"</span>;
+  btn.onClick = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    isAudioAutoplayFailed = <span class="hljs-literal">false</span>;
+    btn.remove();
+  };
+  <span class="hljs-built_in">document</span>.body.append(btn);
+};</code></pre>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="oncamerachanged" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> on<wbr>Camera<wbr>Changed</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Camera<wbr>Changed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>视频采集设备状态变化回调。</p>
+						</div>
+						<p>该回调提示有摄像头被添加或移除。</p>
+						<pre><code class="language-javascript">AgoraRTC.onCameraChanged = <span class="hljs-function">(<span class="hljs-params">info</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"camera changed!"</span>, info.state, info.device);
+};</code></pre>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>设备信息</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="onmicrophonechanged" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> on<wbr>Microphone<wbr>Changed</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Microphone<wbr>Changed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>音频采集设备状态变化回调。</p>
+						</div>
+						<p>该回调提示有麦克风被添加或移除。</p>
+						<pre><code class="language-javascript">AgoraRTC.onMicrophoneChanged = <span class="hljs-function">(<span class="hljs-params">info</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"microphone changed!"</span>, info.state, info.device);
+};</code></pre>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>设备信息</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Other Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 					<a name="version" class="tsd-anchor"></a>
 					<h3>VERSION</h3>
@@ -735,6 +822,15 @@
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="iagorartc.html#version" class="tsd-kind-icon">VERSION</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartc.html#onaudioautoplayfailed" class="tsd-kind-icon">on<wbr>Audio<wbr>Autoplay<wbr>Failed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartc.html#oncamerachanged" class="tsd-kind-icon">on<wbr>Camera<wbr>Changed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartc.html#onmicrophonechanged" class="tsd-kind-icon">on<wbr>Microphone<wbr>Changed</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="iagorartc.html#checksystemrequirements" class="tsd-kind-icon">check<wbr>System<wbr>Requirements</a>
