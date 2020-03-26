@@ -100,26 +100,30 @@ async function leave() {
   console.log("client leaves channel success");
 }
 
-async function subscribe(user) {
+async function subscribe(user, mediaType) {
   const uid = user.uid;
   // subscribe to a remote user
-  await client.subscribe(user, "all");
+  await client.subscribe(user);
   console.log("subscribe success");
-  const player = $(`
-    <div id="player-wrapper-${uid}">
-      <p class="player-name">remoteUser(${uid})</p>
-      <div id="player-${uid}" class="player"></div>
-    </div>
-  `);
-  $("#remote-playerlist").append(player);
-  user.videoTrack.play(`player-${uid}`);
-  user.audioTrack.play();
+  if (mediaType !== 'audio') {
+    const player = $(`
+      <div id="player-wrapper-${uid}">
+        <p class="player-name">remoteUser(${uid})</p>
+        <div id="player-${uid}" class="player"></div>
+      </div>
+    `);
+    $("#remote-playerlist").append(player);
+    user.videoTrack.play(`player-${uid}`);
+  }
+  if (mediaType !== 'video') {
+    user.audioTrack.play();
+  }
 }
 
-function handleUserPublished(user) {
+function handleUserPublished(user, mediaType) {
   const id = user.uid;
   remoteUsers[id] = user;
-  subscribe(user);
+  subscribe(user, mediaType);
 }
 
 function handleUserUnpublished(user) {

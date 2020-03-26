@@ -820,8 +820,15 @@
 								<blockquote>
 									<p>如果用户加入频道时频道内已经有其他用户的音视频轨道，也会收到该回调报告已经存在的远端轨道。</p>
 								</blockquote>
-								<pre><code class="language-javascript">client.on(<span class="hljs-string">"user-published"</span>, (uid, mediaType) =&gt; {
-  client.subscribe(uid, mediaType);
+								<pre><code class="language-javascript">client.on(<span class="hljs-string">"user-published"</span>, (user, mediaType) =&gt; {
+  client.subscribe(user);
+  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"video"</span> || mediaType === <span class="hljs-string">"all"</span>) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"subscribe video success"</span>);
+    user.videoTrack.play(<span class="hljs-string">"xxx"</span>);
+  }
+  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"audio"</span> || mediaType === <span class="hljs-string">"all"</span>) {
+    user.audioTrack.play();
+  }
 })</code></pre>
 								<dl class="tsd-comment-tags">
 									<div></div>
@@ -838,7 +845,24 @@
 								<li>
 									<h5>mediaType: <span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>表示远端用户发布的是音频轨道还是视频轨道，如果为 <code>&quot;all&quot;</code> 说明同时发布了音视频轨道。</p>
+										<p>远端用户发布的媒体类型。</p>
+										<ul>
+											<li><code>&quot;audio&quot;</code>: 远端用户发布了音频轨道。</li>
+											<li><code>&quot;video&quot;</code>: 远端用户发布了视频轨道。</li>
+											<li><code>&quot;all&quot;</code>: 远端用户发布了音频和视频轨道。</li>
+										</ul>
+										<p>由于网络和发送端的不确定性，远端用户发布音视频轨道后，可能会出现以下两种情况：</p>
+										<ul>
+											<li>Agora 边缘节点在收到首帧音频包后隔一段时间才收到首帧视频包。<ul>
+													<li>为了避免音频信息的丢失，在收到首帧音频包后 SDK 会立刻触发一次 <code>user-published(mediaType: &quot;audio&quot;)</code> 事件。</li>
+													<li>收到首帧视频包后，SDK 再触发一次 <code>user-published(mediaType: &quot;video&quot;)</code> 事件。</li>
+												</ul>
+											</li>
+											<li>Agora 边缘节点很快就收到了首帧音频包和视频包，SDK 直接触发 <code>user-published(mediaType: &quot;all&quot;)</code> 事件。</li>
+										</ul>
+										<blockquote>
+											<p>我们推荐在使用订阅的轨道之前确保 <code>mediaType</code> 或者轨道对象的值不是 <code>undefined</code>。</p>
+										</blockquote>
 									</div>
 								</li>
 							</ul>

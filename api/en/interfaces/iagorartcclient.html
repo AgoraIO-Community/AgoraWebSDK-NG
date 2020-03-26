@@ -821,8 +821,15 @@
 								<blockquote>
 									<p>The SDK also triggers this callback to report the existing tracks in the channel when a user joins the channel.</p>
 								</blockquote>
-								<pre><code class="language-javascript">client.on(<span class="hljs-string">"user-published"</span>, (uid, mediaType) =&gt; {
-  client.subscribe(uid, mediaType);
+								<pre><code class="language-javascript">client.on(<span class="hljs-string">"user-published"</span>, (user, mediaType) =&gt; {
+  client.subscribe(user);
+  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"video"</span> || mediaType === <span class="hljs-string">"all"</span>) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"subscribe video success"</span>);
+    user.videoTrack.play(<span class="hljs-string">"xxx"</span>);
+  }
+  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"audio"</span> || mediaType === <span class="hljs-string">"all"</span>) {
+    user.audioTrack.play();
+  }
 })</code></pre>
 								<dl class="tsd-comment-tags">
 									<div></div>
@@ -839,7 +846,24 @@
 								<li>
 									<h5>mediaType: <span class="tsd-signature-type">"audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Type of the track. <code>&quot;all&quot;</code> indicates that the remote user publishes both audio and video tracks.</p>
+										<p>Type of the track.</p>
+										<ul>
+											<li><code>&quot;audio&quot;</code>: The remote user publishes an audio track.</li>
+											<li><code>&quot;video&quot;</code>: The remote user publishes a video track.</li>
+											<li><code>&quot;all&quot;</code>: The remote user publishes both audio and video tracks.</li>
+										</ul>
+										<p>Due to the uncertainty of encoding and network transmission, after a remote user publishes both audio and video tracks, one of the following scenarios happens:</p>
+										<ul>
+											<li>Agora&#39;s edge server receives the first video packet a while after receiving the first audio packet.<ul>
+													<li>To avoid losing any audio data, when the edge server receives the first audio packet, the SDK triggers a <code>user-published(mediaType: &quot;audio&quot;)</code> event immediately.</li>
+													<li>When the edge server receives the first video packet, the SDK triggers a <code>user-published(mediaType: &quot;video&quot;)</code> event.</li>
+												</ul>
+											</li>
+											<li>Agora&#39;s edge server receives the first audio and video packets very soon, and the SDK directly triggers a <code>user-published(mediaType: &quot;all&quot;)</code> event.</li>
+										</ul>
+										<blockquote>
+											<p>Ensure that the value of <code>mediaType</code> or the track object is not <code>undefined</code> before using the subscribed track.</p>
+										</blockquote>
 									</div>
 								</li>
 							</ul>

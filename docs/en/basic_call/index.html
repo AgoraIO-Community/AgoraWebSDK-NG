@@ -187,30 +187,47 @@ rtc.localVideoTrack = <span class="hljs-keyword">await</span> AgoraRTC.createCam
   <span class="hljs-keyword">await</span> rtc.client.subscribe(user);
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"subscribe success"</span>);
 
-  <span class="hljs-comment">// Get `RemoteAudioTrack` and `RemoteVideoTrack` in the `user` object.</span>
-  <span class="hljs-keyword">const</span> remoteAudioTrack = user.audioTrack;
-  <span class="hljs-keyword">const</span> remoteVideoTrack = user.videoTrack;
+  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"video"</span> || mediaType === <span class="hljs-string">"all"</span>) {
+    <span class="hljs-comment">// Get `RemoteVideoTrack` in the `user` object.</span>
+    <span class="hljs-keyword">const</span> remoteVideoTrack = user.videoTrack;
+    <span class="hljs-comment">// Dynamically create a container in the form of a DIV element for playing the remote video track.</span>
+    <span class="hljs-keyword">const</span> playerContainer = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>);
+    <span class="hljs-comment">// Specify the ID of the DIV container. You can use the `uid` of the remote user.</span>
+    playerContainer.id = user.uid;
+    playerContainer.style.width = <span class="hljs-string">"640px"</span>;
+    playerContainer.style.height = <span class="hljs-string">"480px"</span>;
+    <span class="hljs-built_in">document</span>.body.append(playerContainer);
 
-  <span class="hljs-comment">// Dynamically create a container in the form of a DIV element for playing the remote video track.</span>
-  <span class="hljs-keyword">const</span> playerContainer = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>);
-  <span class="hljs-comment">// Specify the ID of the DIV container. You can use the `uid` of the remote user.</span>
-  playerContainer.id = user.uid;
-  playerContainer.style.width = <span class="hljs-string">"640px"</span>;
-  playerContainer.style.height = <span class="hljs-string">"480px"</span>;
-  <span class="hljs-built_in">document</span>.body.append(playerContainer);
+    <span class="hljs-comment">// Play the remote audio and video tracks</span>
+    <span class="hljs-comment">// Pass the ID of the DIV container and the SDK dynamically creates a player in the container for playing the remote video track</span>
+    remoteVideoTrack.play(user.uid);
+  }
 
-  <span class="hljs-comment">// Play the remote audio and video tracks</span>
-  <span class="hljs-comment">// Pass the ID of the DIV container and the SDK dynamically creates a player in the container for playing the remote video track</span>
-  remoteVideoTrack.play(user.uid);
-  <span class="hljs-comment">// Play the audio track. Do not need to pass any DOM element</span>
-  remoteAudioTrack.play();
+  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"audio"</span> || mediaType === <span class="hljs-string">"all"</span>) {
+    <span class="hljs-comment">// Get `RemoteAudioTrack` in the `user` object.</span>
+    <span class="hljs-keyword">const</span> remoteAudioTrack = user.audioTrack;
+    <span class="hljs-comment">// Play the audio track. Do not need to pass any DOM element</span>
+    remoteAudioTrack.play();
+  }
 });
 </code></pre>
+<p>Pay attention to the <code>mediaType</code> parameter of the <code>client.on(&quot;user-published&quot;)</code> event, which marks the type of the current track the remote user publishes:</p>
+<ul>
+<li><code>&quot;audio&quot;</code>: The remote user publishes an audio track.</li>
+<li><code>&quot;video&quot;</code>: The remote user publishes a video track.</li>
+<li><code>&quot;all&quot;</code>: The remote user publishes both audio and video tracks.</li>
+</ul>
+<p>In our sample project, the remote user publishes an audio track and a video track at the same time. Due to the uncertainty of encoding and network transmission, there may be two conditions:</p>
+<ul>
+<li>The SDK triggers a <code>user-published(mediaType: &quot;all&quot;)</code> event.</li>
+<li>The SDK first triggers a <code>user-published(mediaType: &quot;audio&quot;)</code> event, and then triggers a <code>user-published(mediaType: &quot;video&quot;)</code> event.</li>
+</ul>
+<p>In the second condition, we can not get the <code>videoTrack</code> of the remote user when the SDK triggers a <code>user-published(mediaType: &quot;audio&quot;)</code> event. Therefore, in the sample code, we need to check the value of <code>mediaType</code> to see if we can play the audio or video.</p>
 <blockquote>
-<p>Pay attention to the <code>mediaType</code> parameter of the <code>client.on(&quot;user-published&quot;)</code> event, which marks the type of the current track the remote user publishes. In the situation that a remote user first publishes an audio track and then publishes a video track, the SDK triggers <code>user-published</code> twice. The first time the SDK triggers <code>user-published</code>, <code>mediaType</code> is <code>audio</code>; the second time the SDK triggers <code>user-published</code>, <code>mediaType</code> is <code>video</code>. In our sample project, the remote user publishes an audio track and a video track at the same time and <code>mediaType</code> in <code>user-published</code> is <code>all</code>.</p>
+<p>For more information, see <a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartcclient.html#event_user_published">client.on(&quot;user-published&quot;)</a>.</p>
 </blockquote>
-<p>When the remote user unpublishes a media track or leaves the channel, the SDK triggers <code>client.on(&quot;unpublished&quot;)</code>. You need to destroy the dynamically created DIV container.</p>
-<p>Add the following code snippet after listening for <code>client.on(&quot;user-published&quot;)</code> to listen for <code>client.on(&quot;unpublished&quot;)</code>.</p>
+<p>When the remote user unpublishes a media track or leaves the channel, the SDK triggers <code>client.on(&quot;user-unpublished&quot;)</code>. You need to destroy the dynamically created DIV container.</p>
+<p>Add the following code snippet after listening for <code>client.on(&quot;user-published&quot;)</code> to listen for <code>client.on(&quot;user-unpublished&quot;)</code>.</p>
 <pre><code class="hljs css language-js">rtc.client.on(<span class="hljs-string">"user-unpublished"</span>, user =&gt; {
   <span class="hljs-comment">// Get the dynamically created DIV container</span>
   <span class="hljs-keyword">const</span> playerContainer = <span class="hljs-built_in">document</span>.getElementById(user.uid);

@@ -187,30 +187,47 @@ rtc.localVideoTrack = <span class="hljs-keyword">await</span> AgoraRTC.createCam
   <span class="hljs-keyword">await</span> rtc.client.subscribe(user);
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"subscribe success"</span>);
 
-  <span class="hljs-comment">// 当订阅完成后，就可以从 `user` 中获取远端音视频轨道对象了</span>
-  <span class="hljs-keyword">const</span> remoteAudioTrack = user.audioTrack;
-  <span class="hljs-keyword">const</span> remoteVideoTrack = user.videoTrack;
+  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"video"</span> || mediaType === <span class="hljs-string">"all"</span>) {
+    <span class="hljs-comment">// 当订阅完成后，就可以从 `user` 中获取远端视频轨道对象了</span>
+    <span class="hljs-keyword">const</span> remoteVideoTrack = user.videoTrack;
+    <span class="hljs-comment">// 动态插入一个 DIV 节点作为播放远端视频轨道的容器</span>
+    <span class="hljs-keyword">const</span> playerContainer = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>);
+    <span class="hljs-comment">// 给这个 DIV 节点指定一个 ID，这里指定的是远端用户的 UID</span>
+    playerContainer.id = user.uid;
+    playerContainer.style.width = <span class="hljs-string">"640px"</span>;
+    playerContainer.style.height = <span class="hljs-string">"480px"</span>;
+    <span class="hljs-built_in">document</span>.body.append(playerContainer);
 
-  <span class="hljs-comment">// 动态插入一个 DIV 节点作为播放远端视频轨道的容器</span>
-  <span class="hljs-keyword">const</span> playerContainer = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>);
-  <span class="hljs-comment">// 给这个 DIV 节点指定一个 ID，这里指定的是远端用户的 UID</span>
-  playerContainer.id = user.uid;
-  playerContainer.style.width = <span class="hljs-string">"640px"</span>;
-  playerContainer.style.height = <span class="hljs-string">"480px"</span>;
-  <span class="hljs-built_in">document</span>.body.append(playerContainer);
+    <span class="hljs-comment">// 订阅完成，播放远端音视频</span>
+    <span class="hljs-comment">// 传入我们刚刚给 DIV 节点指定的 ID，让 SDK 在这个节点下创建相应的播放器播放远端视频</span>
+    remoteVideoTrack.play(user.uid);
+  }
 
-  <span class="hljs-comment">// 订阅完成，播放远端音视频</span>
-  <span class="hljs-comment">// 传入我们刚刚给 DIV 节点指定的 ID，让 SDK 在这个节点下创建相应的播放器播放远端视频</span>
-  remoteVideoTrack.play(user.uid);
-  <span class="hljs-comment">// 播放音频因为不会有画面，不需要提供 DOM 元素的信息</span>
-  remoteAudioTrack.play();
+  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"audio"</span> || mediaType === <span class="hljs-string">"all"</span>) {
+    <span class="hljs-comment">// 当订阅完成后，就可以从 `user` 中获取远端音视频轨道对象了</span>
+    <span class="hljs-keyword">const</span> remoteAudioTrack = user.audioTrack;
+    <span class="hljs-comment">// 播放音频因为不会有画面，不需要提供 DOM 元素的信息</span>
+    remoteAudioTrack.play();
+  }
 });
 </code></pre>
+<p>注意 <code>user-published</code> 事件的第二个参数 <code>mediaType</code>, 它指远端用户当前发布的媒体类型：</p>
+<ul>
+<li><code>audio</code>: 远端用户发布了音频轨道</li>
+<li><code>video</code>: 远端用户发布了视频轨道</li>
+<li><code>all</code>: 远端用户发布了音频和视频轨道。</li>
+</ul>
+<p>在我们的示例项目中，远端用户发布了音频和视频轨道。由于网络和发送端的不确定性，可能会出现以下两种情况：</p>
+<ul>
+<li>收到一次 <code>user-published(mediaType: &quot;all&quot;)</code>。</li>
+<li>先收到一次 <code>user-published(mediaType: &quot;audio&quot;)</code>，再收到一次 <code>user-published(mediaType: &quot;video&quot;)</code>。</li>
+</ul>
+<p>出现第二种情况时，在 SDK 第一次触发 <code>user-published</code> 时我们无法获取 <code>videoTrack</code>。所以我们要先通过判断 <code>mediaType</code> 来决定是否可以播放音频或视频。</p>
 <blockquote>
-<p>注意这个事件的第二个参数 <code>mediaType</code>, 它指远端用户当前发布的媒体类型。同一个远端用户可能先发布一个音频轨道再发布一个视频轨道，在这种情况下，<code>user-published</code> 将会触发两次，第一次触发时 <code>mediaType</code> 为 <code>audio</code>，第二次触发时 <code>mediaType</code> 为 <code>video</code>。示例代码中，音视频轨道是同时发布的，只会触发一次，<code>mediaType</code> 为 <code>all</code>, 所以暂时用不到这个参数。</p>
+<p>更多信息详见 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_user_published">client.on(&quot;user-published&quot;)</a> 注释。</p>
 </blockquote>
-<p>当远端用户取消发布/远端用户离开了频道时，会触发 <code>client.on(&quot;unpublished&quot;)</code> 事件。此时我们需要销毁刚刚动态创建的 DIV 节点。</p>
-<p>在刚刚监听 <code>client.on(&quot;user-published&quot;)</code> 事件的代码下一行插入以下代码，监听 <code>client.on(&quot;unpublished&quot;)</code> 事件。</p>
+<p>当远端用户取消发布/远端用户离开了频道时，会触发 <code>client.on(&quot;user-unpublished&quot;)</code> 事件。此时我们需要销毁刚刚动态创建的 DIV 节点。</p>
+<p>在刚刚监听 <code>client.on(&quot;user-published&quot;)</code> 事件的代码下一行插入以下代码，监听 <code>client.on(&quot;user-unpublished&quot;)</code> 事件。</p>
 <pre><code class="hljs css language-js">rtc.client.on(<span class="hljs-string">"user-unpublished"</span>, user =&gt; {
   <span class="hljs-comment">// 获取刚刚动态创建的 DIV 节点</span>
   <span class="hljs-keyword">const</span> playerContainer = <span class="hljs-built_in">document</span>.getElementById(user.uid);
