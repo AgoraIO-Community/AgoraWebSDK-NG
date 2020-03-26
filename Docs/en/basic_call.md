@@ -125,31 +125,47 @@ rtc.client.on("user-published", async (user, mediaType) => {
   await rtc.client.subscribe(user);
   console.log("subscribe success");
 
-  // Get `RemoteAudioTrack` and `RemoteVideoTrack` in the `user` object.
-  const remoteAudioTrack = user.audioTrack;
-  const remoteVideoTrack = user.videoTrack;
+  if (mediaType === "video" || mediaType === "all") {
+    // Get `RemoteVideoTrack` in the `user` object.
+    const remoteVideoTrack = user.videoTrack;
+    // Dynamically create a container in the form of a DIV element for playing the remote video track.
+    const playerContainer = document.createElement("div");
+    // Specify the ID of the DIV container. You can use the `uid` of the remote user.
+    playerContainer.id = user.uid;
+    playerContainer.style.width = "640px";
+    playerContainer.style.height = "480px";
+    document.body.append(playerContainer);
 
-  // Dynamically create a container in the form of a DIV element for playing the remote video track.
-  const playerContainer = document.createElement("div");
-  // Specify the ID of the DIV container. You can use the `uid` of the remote user.
-  playerContainer.id = user.uid;
-  playerContainer.style.width = "640px";
-  playerContainer.style.height = "480px";
-  document.body.append(playerContainer);
+    // Play the remote audio and video tracks
+    // Pass the ID of the DIV container and the SDK dynamically creates a player in the container for playing the remote video track
+    remoteVideoTrack.play(user.uid);
+  }
 
-  // Play the remote audio and video tracks
-  // Pass the ID of the DIV container and the SDK dynamically creates a player in the container for playing the remote video track
-  remoteVideoTrack.play(user.uid);
-  // Play the audio track. Do not need to pass any DOM element
-  remoteAudioTrack.play();
+  if (mediaType === "audio" || mediaType === "all") {
+    // Get `RemoteAudioTrack` in the `user` object.
+    const remoteAudioTrack = user.audioTrack;
+    // Play the audio track. Do not need to pass any DOM element
+    remoteAudioTrack.play();
+  }
 });
 ```
 
-> Pay attention to the `mediaType` parameter of the `client.on("user-published")` event, which marks the type of the current track the remote user publishes. In the situation that a remote user first publishes an audio track and then publishes a video track, the SDK triggers `user-published` twice. The first time the SDK triggers `user-published`, `mediaType` is `audio`; the second time the SDK triggers `user-published`, `mediaType` is `video`. In our sample project, the remote user publishes an audio track and a video track at the same time and `mediaType` in `user-published` is `all`.
+Pay attention to the `mediaType` parameter of the `client.on("user-published")` event, which marks the type of the current track the remote user publishes:
+- `"audio"`: The remote user publishes an audio track.
+- `"video"`: The remote user publishes a video track.
+- `"all"`: The remote user publishes both audio and video tracks.
 
-When the remote user unpublishes a media track or leaves the channel, the SDK triggers `client.on("unpublished")`. You need to destroy the dynamically created DIV container.
+In our sample project, the remote user publishes an audio track and a video track at the same time. Due to the uncertainty of encoding and network transmission, there may be two conditions:
+- The SDK triggers a `user-published(mediaType: "all")` event.
+- The SDK first triggers a `user-published(mediaType: "audio")` event, and then triggers a `user-published(mediaType: "video")` event.
 
-Add the following code snippet after listening for `client.on("user-published")` to listen for `client.on("unpublished")`.
+In the second condition, we can not get the `videoTrack` of the remote user when the SDK triggers a `user-published(mediaType: "audio")` event. Therefore, in the sample code, we need to check the value of `mediaType` to see if we can play the audio or video.
+
+> For more information, see [client.on("user-published")](/api/en/interfaces/iagorartcclient.html#event_user_published).
+
+When the remote user unpublishes a media track or leaves the channel, the SDK triggers `client.on("user-unpublished")`. You need to destroy the dynamically created DIV container.
+
+Add the following code snippet after listening for `client.on("user-published")` to listen for `client.on("user-unpublished")`.
 
 ```js
 rtc.client.on("user-unpublished", user => {

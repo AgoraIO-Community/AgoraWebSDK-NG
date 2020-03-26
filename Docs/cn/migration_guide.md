@@ -195,15 +195,21 @@ client.on("stream-subscribed", e => {
 // 使用 Agora Web SDK NG
 client.on("user-published", async (remoteUser, mediaType) => {
   await client.subscribe(remoteUser);
-  console.log("subscribe success");
-
-  remoteUser.videoTrack.play("DOM_ELEMENT_ID");
-  remoteUser.audioTrack.play();
+  if (mediaType === "video" || mediaType === "all") {
+    console.log("subscribe video success");
+    remoteUser.videoTrack.play("DOM_ELEMENT_ID");
+  }
+  if (mediaType === "audio" || mediaType === "all") {
+    console.log("subscribe audio success");
+    remoteUser.audioTrack.play();
+  }
 });
 ```
 
 改动点：
-- Agora Web SDK NG 移除了 `stream-added`、`stream-removed` 和 `stream-updated`，取而代之的是 `user-published` 和 `user-unpublished`。注意 `user-published` 回调中的第二个参数 `mediaType`，这参数有 3 个可能的值：`"video"`，`"audio"` 和 `"all"`, 分别表示该远端用户仅发布了视频、仅发布音频或同时发布音视频。在我们的示例代码中 `mediaType` 为 `"all"`。
+- Agora Web SDK NG 移除了 `stream-added`、`stream-removed` 和 `stream-updated`，取而代之的是 `user-published` 和 `user-unpublished`。
+> 注意 `user-published` 回调中的第二个参数 `mediaType`，该参数有 3 个可能的值：`"video"`，`"audio"` 和 `"all"`。在我们的示例代码中，远端同时发布了音视频，所以 `mediaType` 理应为 `"all"`。但是在实际情况中，由于网络和发送端的不确定性，订阅端可能先收到一次 `user-published(mediaType: "audio")`，再收到一次 `user-published(mediaType: "video")`。因此在我们的示例代码中，我们做了一个简单的判断来处理这种情况。更多信息详见 [client.on("user-published")](/api/cn/interfaces/iagorartcclient.html#event_user_published)。
+
 - Agora Web SDK NG 中，`subscribe` 是异步操作，会返回 Promise。传入的参数为 `remoteUser`，也就是远端用户对象，详见 [AgoraRTCRemoteUser](/api/cn/interfaces/iagorartcremoteuser.html)。
 - 远端音视频轨道对象会在订阅操作成功后保存在 `remoteUser` 下，直接调用 play 即可播放。
 

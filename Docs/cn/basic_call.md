@@ -124,31 +124,47 @@ rtc.client.on("user-published", async (user, mediaType) => {
   await rtc.client.subscribe(user);
   console.log("subscribe success");
 
-  // 当订阅完成后，就可以从 `user` 中获取远端音视频轨道对象了
-  const remoteAudioTrack = user.audioTrack;
-  const remoteVideoTrack = user.videoTrack;
+  if (mediaType === "video" || mediaType === "all") {
+    // 当订阅完成后，就可以从 `user` 中获取远端视频轨道对象了
+    const remoteVideoTrack = user.videoTrack;
+    // 动态插入一个 DIV 节点作为播放远端视频轨道的容器
+    const playerContainer = document.createElement("div");
+    // 给这个 DIV 节点指定一个 ID，这里指定的是远端用户的 UID
+    playerContainer.id = user.uid;
+    playerContainer.style.width = "640px";
+    playerContainer.style.height = "480px";
+    document.body.append(playerContainer);
 
-  // 动态插入一个 DIV 节点作为播放远端视频轨道的容器
-  const playerContainer = document.createElement("div");
-  // 给这个 DIV 节点指定一个 ID，这里指定的是远端用户的 UID
-  playerContainer.id = user.uid;
-  playerContainer.style.width = "640px";
-  playerContainer.style.height = "480px";
-  document.body.append(playerContainer);
+    // 订阅完成，播放远端音视频
+    // 传入我们刚刚给 DIV 节点指定的 ID，让 SDK 在这个节点下创建相应的播放器播放远端视频
+    remoteVideoTrack.play(user.uid);
+  }
 
-  // 订阅完成，播放远端音视频
-  // 传入我们刚刚给 DIV 节点指定的 ID，让 SDK 在这个节点下创建相应的播放器播放远端视频
-  remoteVideoTrack.play(user.uid);
-  // 播放音频因为不会有画面，不需要提供 DOM 元素的信息
-  remoteAudioTrack.play();
+  if (mediaType === "audio" || mediaType === "all") {
+    // 当订阅完成后，就可以从 `user` 中获取远端音视频轨道对象了
+    const remoteAudioTrack = user.audioTrack;
+    // 播放音频因为不会有画面，不需要提供 DOM 元素的信息
+    remoteAudioTrack.play();
+  }
 });
 ```
 
-> 注意这个事件的第二个参数 `mediaType`, 它指远端用户当前发布的媒体类型。同一个远端用户可能先发布一个音频轨道再发布一个视频轨道，在这种情况下，`user-published` 将会触发两次，第一次触发时 `mediaType` 为 `audio`，第二次触发时 `mediaType` 为 `video`。示例代码中，音视频轨道是同时发布的，只会触发一次，`mediaType` 为 `all`, 所以暂时用不到这个参数。
+注意 `user-published` 事件的第二个参数 `mediaType`, 它指远端用户当前发布的媒体类型：
+- `audio`: 远端用户发布了音频轨道
+- `video`: 远端用户发布了视频轨道
+- `all`: 远端用户发布了音频和视频轨道。
 
-当远端用户取消发布/远端用户离开了频道时，会触发 `client.on("unpublished")` 事件。此时我们需要销毁刚刚动态创建的 DIV 节点。
+在我们的示例项目中，远端用户发布了音频和视频轨道。由于网络和发送端的不确定性，可能会出现以下两种情况：
+- 收到一次 `user-published(mediaType: "all")`。
+- 先收到一次 `user-published(mediaType: "audio")`，再收到一次 `user-published(mediaType: "video")`。
 
-在刚刚监听 `client.on("user-published")` 事件的代码下一行插入以下代码，监听 `client.on("unpublished")` 事件。
+出现第二种情况时，在 SDK 第一次触发 `user-published` 时我们无法获取 `videoTrack`。所以我们要先通过判断 `mediaType` 来决定是否可以播放音频或视频。
+
+> 更多信息详见 [client.on("user-published")](/api/cn/interfaces/iagorartcclient.html#event_user_published) 注释。
+
+当远端用户取消发布/远端用户离开了频道时，会触发 `client.on("user-unpublished")` 事件。此时我们需要销毁刚刚动态创建的 DIV 节点。
+
+在刚刚监听 `client.on("user-published")` 事件的代码下一行插入以下代码，监听 `client.on("user-unpublished")` 事件。
 
 ```js
 rtc.client.on("user-unpublished", user => {

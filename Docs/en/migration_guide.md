@@ -198,15 +198,21 @@ client.on("stream-subscribed", e => {
 // Use Agora Web SDK NG
 client.on("user-published", async (remoteUser, mediaType) => {
   await client.subscribe(remoteUser);
-  console.log("subscribe success");
-
-  remoteUser.videoTrack.play("DOM_ELEMENT_ID");
-  remoteUser.audioTrack.play();
+  if (mediaType === "video" || mediaType === "all") {
+    console.log("subscribe video success");
+    remoteUser.videoTrack.play("DOM_ELEMENT_ID");
+  }
+  if (mediaType === "audio" || mediaType === "all") {
+    console.log("subscribe audio success");
+    remoteUser.audioTrack.play();
+  }
 });
 ```
 
 Key points:
-- The Agora Web SDK NG replaces the `stream-added`, `stream-removed`, and `stream-updated` events with the `user-published` and `user-unpublished` events. Pay attention to the `mediaType` parameter of the `user-published` event, which marks the type of the current track the remote user publishes and can be `"video"`, `"audio"`, or `"all"`. In our sample code, `mediaType` is `all`.
+- The Agora Web SDK NG replaces the `stream-added`, `stream-removed`, and `stream-updated` events with the `user-published` and `user-unpublished` events.
+
+> Pay attention to the `mediaType` parameter of the `user-published` event, which marks the type of the current track the remote user publishes and can be `"video"`, `"audio"`, or `"all"`. In our sample code, the remote user publishes an audio track and a video track at the same time and `mediaType` should be `"all"`. However, due to the uncertainty of network transmission, the SDK may first triggers a `user-published(mediaType: "audio")` event, and then triggers a `user-published(mediaType: "video")` event. Therefore, in the sample code, we need to check the value of `mediaType` to see if we can play the audio or video. For more information, see [client.on("user-published")](/api/en/interfaces/iagorartcclient.html#event_user_published).
 - In the Agora Web SDK NG, `subscribe` returns a promise representing the eventual completion or failure of the asynchronous operation. When calling `subscribe`, pass an `remoteUser` object. For details, see [AgoraRTCRemoteUser](/api/en/interfaces/iagorartcremoteuser.html).
 - When the subscription succeeds, the subscribed tracks are updated to `remoteUser` and you can go on to call `play`.
 
