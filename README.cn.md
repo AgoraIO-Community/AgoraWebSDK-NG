@@ -30,7 +30,7 @@ import AgoraRTC from "agora-rtc-sdk-ng"
 const client = AgoraRTC.createClient()
 
 async function startCall() {
-  await client.join("APPID", "TOKEN", "CHANNEL");
+  await client.join("APPID", "CHANNEL", "TOKEN");
   const audioTrack = await AgoraRTC.createMicrophoneAudioTrack();
   const videoTrack = await AgoraRTC.createCameraVideoTrack();
 
