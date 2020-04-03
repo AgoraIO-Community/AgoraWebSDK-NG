@@ -91,6 +91,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#createcameravideotrack" class="tsd-kind-icon">create<wbr>Camera<wbr>Video<wbr>Track</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#createcustomaudiotrack" class="tsd-kind-icon">create<wbr>Custom<wbr>Audio<wbr>Track</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#createcustomvideotrack" class="tsd-kind-icon">create<wbr>Custom<wbr>Video<wbr>Track</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#createmicrophoneandcameratracks" class="tsd-kind-icon">create<wbr>Microphone<wbr>And<wbr>Camera<wbr>Tracks</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#createmicrophoneaudiotrack" class="tsd-kind-icon">create<wbr>Microphone<wbr>Audio<wbr>Track</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#createscreenvideotrack" class="tsd-kind-icon">create<wbr>Screen<wbr>Video<wbr>Track</a></li>
 							</ul>
@@ -367,6 +368,48 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="createmicrophoneandcameratracks" class="tsd-anchor"></a>
+					<h3>create<wbr>Microphone<wbr>And<wbr>Camera<wbr>Tracks</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Microphone<wbr>And<wbr>Camera<wbr>Tracks<span class="tsd-signature-symbol">(</span>audioConfig<span class="tsd-signature-symbol">?: </span><a href="microphoneaudiotrackinitconfig.html" class="tsd-signature-type">MicrophoneAudioTrackInitConfig</a>, videoConfig<span class="tsd-signature-symbol">?: </span><a href="cameravideotrackinitconfig.html" class="tsd-signature-type">CameraVideoTrackInitConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><a href="imicrophoneaudiotrack.html" class="tsd-signature-type">IMicrophoneAudioTrack</a><span class="tsd-signature-symbol">, </span><a href="icameravideotrack.html" class="tsd-signature-type">ICameraVideoTrack</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>同时创建音频轨道和视频轨道。</p>
+								</div>
+								<p>通过麦克风采集的音频创建一个音频轨道，同时通过摄像头采集的视频创建一个视频轨道。</p>
+								<blockquote>
+									<p>调用该方法和分别调用 <a href="iagorartc.html#createmicrophoneaudiotrack">createMicrophoneAudioTrack</a> 以及 <a href="iagorartc.html#createcameravideotrack">createCameraVideoTrack</a> 的区别是：</p>
+									<ul>
+										<li>调用该方法会同时要求麦克风和摄像头的授权，用户只需授权一次。</li>
+										<li>分别创建音频轨道和视频轨道需要用户分别对麦克风和摄像头进行授权，也就是说用户需要授权两次。</li>
+									</ul>
+								</blockquote>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> audioConfig: <a href="microphoneaudiotrackinitconfig.html" class="tsd-signature-type">MicrophoneAudioTrackInitConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>采集音频的配置，包括采集设备、编码配置等。</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> videoConfig: <a href="cameravideotrackinitconfig.html" class="tsd-signature-type">CameraVideoTrackInitConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>采集视频的配置，包括采集设备、编码配置等。</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><a href="imicrophoneaudiotrack.html" class="tsd-signature-type">IMicrophoneAudioTrack</a><span class="tsd-signature-symbol">, </span><a href="icameravideotrack.html" class="tsd-signature-type">ICameraVideoTrack</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -852,6 +895,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="iagorartc.html#createcustomvideotrack" class="tsd-kind-icon">create<wbr>Custom<wbr>Video<wbr>Track</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartc.html#createmicrophoneandcameratracks" class="tsd-kind-icon">create<wbr>Microphone<wbr>And<wbr>Camera<wbr>Tracks</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="iagorartc.html#createmicrophoneaudiotrack" class="tsd-kind-icon">create<wbr>Microphone<wbr>Audio<wbr>Track</a>

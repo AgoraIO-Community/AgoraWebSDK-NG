@@ -861,7 +861,7 @@
 											<li>Agora 边缘节点很快就收到了首帧音频包和视频包，SDK 直接触发 <code>user-published(mediaType: &quot;all&quot;)</code> 事件。</li>
 										</ul>
 										<blockquote>
-											<p>我们推荐在使用订阅的轨道之前确保 <code>mediaType</code> 或者轨道对象的值不是 <code>undefined</code>。</p>
+											<p>我们建议在使用订阅的轨道之前确保 <code>mediaType</code> 或者轨道对象的值不是 <code>undefined</code>。</p>
 										</blockquote>
 									</div>
 								</li>
@@ -1396,11 +1396,7 @@ user.audioTrack.play();</code></pre>
 								</div>
 								<p>该方法为本地流开启双流模式。双流为视频大流和视频小流，其中视频大流指高分辨率、高码率的视频流，视频小流指低分辨率、低码率的视频流。</p>
 								<blockquote>
-									<p>该方法对以下流无效：</p>
-									<ul>
-										<li>纯音频流。</li>
-										<li>屏幕共享流。</li>
-									</ul>
+									<p>Safari 浏览器不支持本方法</p>
 								</blockquote>
 								<pre><code class="language-javascript">client.enableDualStream().then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Enable Dual stream success!"</span>);

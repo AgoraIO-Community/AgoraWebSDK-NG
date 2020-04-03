@@ -104,6 +104,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#checksystemrequirements" class="tsd-kind-icon">check<wbr>System<wbr>Requirements</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#createchannelmediarelayconfiguration" class="tsd-kind-icon">create<wbr>Channel<wbr>Media<wbr>Relay<wbr>Configuration</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#createmicrophoneandcameratracks" class="tsd-kind-icon">create<wbr>Microphone<wbr>And<wbr>Camera<wbr>Tracks</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartc.html#getsupportedcodec" class="tsd-kind-icon">get<wbr>Supported<wbr>Codec</a></li>
 							</ul>
 						</section>
@@ -376,7 +377,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates an audio track from the audio captured by a microphone.</p>
+									<p>Creates an audio track from the audio sampled by a microphone.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -384,7 +385,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <a href="microphoneaudiotrackinitconfig.html" class="tsd-signature-type">MicrophoneAudioTrackInitConfig</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Configurations for the captured audio, such as the capture device and the encoder configuration. See <a href="microphoneaudiotrackinitconfig.html">MicrophoneAudioTrackInitConfig</a>.</p>
+										<p>Configurations for the sampled audio, such as the capture device and the encoder configuration. See <a href="microphoneaudiotrackinitconfig.html">MicrophoneAudioTrackInitConfig</a>.</p>
 									</div>
 								</li>
 							</ul>
@@ -761,6 +762,48 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="createmicrophoneandcameratracks" class="tsd-anchor"></a>
+					<h3>create<wbr>Microphone<wbr>And<wbr>Camera<wbr>Tracks</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Microphone<wbr>And<wbr>Camera<wbr>Tracks<span class="tsd-signature-symbol">(</span>audioConfig<span class="tsd-signature-symbol">?: </span><a href="microphoneaudiotrackinitconfig.html" class="tsd-signature-type">MicrophoneAudioTrackInitConfig</a>, videoConfig<span class="tsd-signature-symbol">?: </span><a href="cameravideotrackinitconfig.html" class="tsd-signature-type">CameraVideoTrackInitConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><a href="imicrophoneaudiotrack.html" class="tsd-signature-type">IMicrophoneAudioTrack</a><span class="tsd-signature-symbol">, </span><a href="icameravideotrack.html" class="tsd-signature-type">ICameraVideoTrack</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates an audio track and a video track.</p>
+								</div>
+								<p>Creates an audio track from the audio sampled by a microphone and a video track from the video captured by a camera.</p>
+								<blockquote>
+									<p>Calling this method is different from calling <a href="iagorartc.html#createmicrophoneaudiotrack">createMicrophoneAudioTrack</a> and <a href="iagorartc.html#createcameravideotrack">createCameraVideoTrack</a> separately:</p>
+									<ul>
+										<li>This method call requires access to the microphone and the camera at the same time, namely users only need to authorize once.</li>
+										<li>Calling <a href="iagorartc.html#createmicrophoneaudiotrack">createMicrophoneAudioTrack</a> and <a href="iagorartc.html#createcameravideotrack">createCameraVideoTrack</a> requires access to the microphone and the camera separately, namely users need to authorize twice.</li>
+									</ul>
+								</blockquote>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> audioConfig: <a href="microphoneaudiotrackinitconfig.html" class="tsd-signature-type">MicrophoneAudioTrackInitConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Configurations for the sampled audio, such as the capture device and the encoder configuration.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> videoConfig: <a href="cameravideotrackinitconfig.html" class="tsd-signature-type">CameraVideoTrackInitConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Configurations for the captured video, such as the capture device and the encoder configuration.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><a href="imicrophoneaudiotrack.html" class="tsd-signature-type">IMicrophoneAudioTrack</a><span class="tsd-signature-symbol">, </span><a href="icameravideotrack.html" class="tsd-signature-type">ICameraVideoTrack</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
 					<a name="getsupportedcodec" class="tsd-anchor"></a>
 					<h3>get<wbr>Supported<wbr>Codec</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
@@ -846,6 +889,9 @@ console.log(`</span>Supported audio codec: ${result.audio.join(<span class="hljs
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="iagorartc.html#createcustomvideotrack" class="tsd-kind-icon">create<wbr>Custom<wbr>Video<wbr>Track</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartc.html#createmicrophoneandcameratracks" class="tsd-kind-icon">create<wbr>Microphone<wbr>And<wbr>Camera<wbr>Tracks</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="iagorartc.html#createmicrophoneaudiotrack" class="tsd-kind-icon">create<wbr>Microphone<wbr>Audio<wbr>Track</a>

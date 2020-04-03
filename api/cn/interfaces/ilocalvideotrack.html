@@ -80,6 +80,12 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Events</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="ilocalvideotrack.html#event_beauty_effect_overload" class="tsd-kind-icon">beauty-<wbr>effect-<wbr>overload</a></li>
+							</ul>
+						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
@@ -96,9 +102,10 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="ilocalvideotrack.html#getmediastreamtrack" class="tsd-kind-icon">get<wbr>Media<wbr>Stream<wbr>Track</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite"><a href="ilocalvideotrack.html#getstats" class="tsd-kind-icon">get<wbr>Stats</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="ilocalvideotrack.html#gettrackid" class="tsd-kind-icon">get<wbr>Track<wbr>Id</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="ilocalvideotrack.html#gettracklabel" class="tsd-kind-icon">get<wbr>Track<wbr>Label</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="ilocalvideotrack.html#getuserid" class="tsd-kind-icon">get<wbr>User<wbr>Id</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="ilocalvideotrack.html#off" class="tsd-kind-icon">off</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="ilocalvideotrack.html#on" class="tsd-kind-icon">on</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite"><a href="ilocalvideotrack.html#on" class="tsd-kind-icon">on</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="ilocalvideotrack.html#once" class="tsd-kind-icon">once</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite"><a href="ilocalvideotrack.html#play" class="tsd-kind-icon">play</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="ilocalvideotrack.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a></li>
@@ -108,6 +115,36 @@
 							</ul>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Events</h2>
+				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="event_beauty_effect_overload" class="tsd-anchor"></a>
+					<h3>beauty-<wbr>effect-<wbr>overload</h3>
+					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">beauty-<wbr>effect-<wbr>overload<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>通过 <a href="ilocalvideotrack.html#setbeautyeffect">setBeautyEffect</a> 开启美颜后，如果检测到美颜对设备性能消耗过大就会触发该事件。</p>
+								</div>
+								<p>你可以监听这个事件提示用户美颜过载，并关闭美颜。</p>
+								<pre><code class="language-javascript">localVideoTrack.on(<span class="hljs-string">"beauty-effect-overload"</span>, () =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"beauty effect overload, disable beauty effect"</span>);
+  localVideoTrack.setBeautyEffect(<span class="hljs-literal">false</span>);
+});</code></pre>
+								<dl class="tsd-comment-tags">
+									<div></div>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
@@ -281,6 +318,31 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<a name="gettracklabel" class="tsd-anchor"></a>
+					<h3>get<wbr>Track<wbr>Label</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Track<wbr>Label<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="ilocaltrack.html">ILocalTrack</a>.<a href="ilocaltrack.html#gettracklabel">getTrackLabel</a></p>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>获取该本地轨道的来源描述</p>
+								</div>
+								<ul>
+									<li>如果是通过媒体采集设备创建的轨道，返回设备名称</li>
+									<li>如果是通过屏幕共享创建的轨道，返回屏幕共享的 sourceID</li>
+									<li>如果是其他方法创建的轨道，返回 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack/label">MediaStreamTrack.label</a> 字段</li>
+								</ul>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 					<a name="getuserid" class="tsd-anchor"></a>
 					<h3>get<wbr>User<wbr>Id</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
@@ -342,17 +404,32 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite">
 					<a name="on" class="tsd-anchor"></a>
 					<h3>on</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"beauty-effect-overload"</span>, listener<span class="tsd-signature-symbol">: </span><a href="ilocalvideotrack.html#event_beauty_effect_overload" class="tsd-signature-type">event_beauty_effect_overload</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"track-ended"</span>, listener<span class="tsd-signature-symbol">: </span><a href="ilocaltrack.html#event_track_ended" class="tsd-signature-type">event_track_ended</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="ilocaltrack.html">ILocalTrack</a>.<a href="ilocaltrack.html#on">on</a></p>
-								<p>Overrides EventEmitter.on</p>
+								<p>Overrides <a href="ilocaltrack.html">ILocalTrack</a>.<a href="ilocaltrack.html#on">on</a></p>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"beauty-effect-overload"</span></h5>
+								</li>
+								<li>
+									<h5>listener: <a href="ilocalvideotrack.html#event_beauty_effect_overload" class="tsd-signature-type">event_beauty_effect_overload</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="ilocaltrack.html">ILocalTrack</a>.<a href="ilocaltrack.html#on">on</a></p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -590,6 +667,9 @@
 					<li class="current tsd-kind-interface">
 						<a href="ilocalvideotrack.html" class="tsd-kind-icon">ILocal<wbr>Video<wbr>Track</a>
 						<ul>
+							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="ilocalvideotrack.html#event_beauty_effect_overload" class="tsd-kind-icon">beauty-<wbr>effect-<wbr>overload</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="ilocalvideotrack.html#ismuted" class="tsd-kind-icon">is<wbr>Muted</a>
 							</li>
@@ -615,12 +695,15 @@
 								<a href="ilocalvideotrack.html#gettrackid" class="tsd-kind-icon">get<wbr>Track<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+								<a href="ilocalvideotrack.html#gettracklabel" class="tsd-kind-icon">get<wbr>Track<wbr>Label</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="ilocalvideotrack.html#getuserid" class="tsd-kind-icon">get<wbr>User<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="ilocalvideotrack.html#off" class="tsd-kind-icon">off</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite">
 								<a href="ilocalvideotrack.html#on" class="tsd-kind-icon">on</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">

@@ -1398,11 +1398,7 @@ user.audioTrack.play();</code></pre>
 									<li>Low-quality video stream: Low bitrate, low resolution.</li>
 								</ul>
 								<blockquote>
-									<p>This method does not apply to the following streams:</p>
-									<ul>
-										<li>An audio stream.</li>
-										<li>A screen-sharing stream.</li>
-									</ul>
+									<p>Safari does not support dual-stream mode.</p>
 								</blockquote>
 								<pre><code class="language-javascript">client.enableDualStream().then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Enable Dual stream success!"</span>);
