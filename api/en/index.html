@@ -50,7 +50,7 @@
 				<a href="#agora-web-sdk-ng-api-reference" id="agora-web-sdk-ng-api-reference" style="color: inherit; text-decoration: none;">
 					<h1>Agora Web SDK NG API Reference</h1>
 				</a>
-				<p>The Agora Web SDK NG (WebRTC) is a JavaScript library loaded by an HTML web page. The Agora Web SDK NG library uses APIs in the web browser to establish connections and control the communication and live broadcast services.</p>
+				<p>The Agora Web SDK NG provides a JavaScript/Typescript library. Powered by WebRTC, it enables you to establish and manage audio and video communications or live broadcast services from a web browser.</p>
 				<blockquote>
 					<p>Ensure that you use the HTTPS protocol or localhost, otherwise the error WEB_SECURITY_RESTRICT occurs.</p>
 				</blockquote>
@@ -58,248 +58,224 @@
 					<h2>Suggestions</h2>
 				</a>
 				<ul>
-					<li>We recommend reading the <a href="/AgoraWebSDK-NG/docs/en/overview/">Basic Features Documentation</a> before reading the API details.</li>
-					<li>You can use the search button at the top of the page to quickly search for the API you want to see</li>
+					<li>Agora recommends reading <a href="/AgoraWebSDK-NG/docs/en/overview/">Basic Features</a> before going into the API details.</li>
+					<li>You can use the search bar at the top of the page to find the intended API.</li>
 				</ul>
 				<a href="#basic-module" id="basic-module" style="color: inherit; text-decoration: none;">
-					<h2>Basic Module</h2>
+					<h2>Basic module</h2>
 				</a>
-				<p><a href="interfaces/iagorartc.html">AgoraRTC</a> is the entry point for all the methods that can be called in Agora Web SDK NG.</p>
+				<p><a href="interfaces/iagorartc.html">AgoraRTC</a> is the entry point for all the methods provided by the Agora Web SDK NG.</p>
 				<p><a href="interfaces/iagorartc.html">AgoraRTC</a> provides the following methods:</p>
 				<a href="#core-methods" id="core-methods" style="color: inherit; text-decoration: none;">
-					<h3>Core Methods</h3>
+					<h3>Core methods</h3>
 				</a>
 				<table>
 					<thead>
 						<tr>
-							<th>Method</th>
-							<th>Description</th>
+							<th align="left">Method</th>
+							<th align="left">Description</th>
 						</tr>
 					</thead>
 					<tbody><tr>
-							<td><a href="interfaces/iagorartc.html#createclient">createClient</a></td>
-							<td>Create a local client object</td>
+							<td align="left"><a href="interfaces/iagorartc.html#createclient">createClient</a></td>
+							<td align="left">Creates a local client object.</td>
 						</tr>
 				</tbody></table>
 				<a href="#local-track-methods" id="local-track-methods" style="color: inherit; text-decoration: none;">
-					<h3>Local Track Methods</h3>
+					<h3>Local track methods</h3>
 				</a>
 				<table>
 					<thead>
 						<tr>
-							<th>Method</th>
-							<th>Description</th>
+							<th align="left">Method</th>
+							<th align="left">Description</th>
 						</tr>
 					</thead>
 					<tbody><tr>
-							<td><a href="interfaces/iagorartc.html#createmicrophoneaudiotrack">createMicrophoneAudioTrack</a></td>
-							<td>Creates an audio track from the audio captured by a microphone</td>
+							<td align="left"><a href="interfaces/iagorartc.html#createmicrophoneaudiotrack">createMicrophoneAudioTrack</a></td>
+							<td align="left">Creates an audio track from the audio sampled by a microphone.</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iagorartc.html#createcameravideotrack">createCameraVideoTrack</a></td>
-							<td>Creates a video track from the video captured by a camera</td>
+							<td align="left"><a href="interfaces/iagorartc.html#createcameravideotrack">createCameraVideoTrack</a></td>
+							<td align="left">Creates a video track from the video captured by a camera.</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iagorartc.html#createscreenvideotrack">createScreenVideoTrack</a></td>
-							<td>Creates a video track for screen sharing</td>
+							<td align="left"><a href="interfaces/iagorartc.html#createscreenvideotrack">createScreenVideoTrack</a></td>
+							<td align="left">Creates a video track for screen sharing.</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iagorartc.html#createbuffersourceaudiotrack">createBufferSourceAudioTrack</a></td>
-							<td>Creates an audio track from an audio file</td>
+							<td align="left"><a href="interfaces/iagorartc.html#createbuffersourceaudiotrack">createBufferSourceAudioTrack</a></td>
+							<td align="left">Creates an audio track from an audio file.</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iagorartc.html#createcustomaudiotrack">createCustomAudioTrack</a></td>
-							<td>Creates a custom audio track</td>
+							<td align="left"><a href="interfaces/iagorartc.html#createcustomaudiotrack">createCustomAudioTrack</a></td>
+							<td align="left">Creates a customized audio track.</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iagorartc.html#createcustomvideotrack">createCustomVideoTrack</a></td>
-							<td>Creates a custom video track</td>
+							<td align="left"><a href="interfaces/iagorartc.html#createcustomvideotrack">createCustomVideoTrack</a></td>
+							<td align="left">Creates a customized video track.</td>
 						</tr>
 				</tbody></table>
 				<a href="#media-devices-methods" id="media-devices-methods" style="color: inherit; text-decoration: none;">
-					<h3>Media Devices Methods</h3>
+					<h3>Media devices methods</h3>
 				</a>
 				<table>
 					<thead>
 						<tr>
-							<th>Method</th>
-							<th>Description</th>
+							<th align="left">Method</th>
+							<th align="left">Description</th>
 						</tr>
 					</thead>
 					<tbody><tr>
-							<td><a href="interfaces/iagorartc.html#getdevices">getDevices</a></td>
-							<td>Enumerates the media input and output devices available</td>
+							<td align="left"><a href="interfaces/iagorartc.html#getdevices">getDevices</a></td>
+							<td align="left">Enumerates the media input and output devices available.</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iagorartc.html#getcameras">getCameras</a></td>
-							<td>Enumerates the video input devices available, such as cameras</td>
+							<td align="left"><a href="interfaces/iagorartc.html#getcameras">getCameras</a></td>
+							<td align="left">Enumerates the video capture devices available, such as cameras.</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iagorartc.html#getmicrophones">getMicrophones</a></td>
-							<td>Enumerates the audio input devices available, such as microphones</td>
+							<td align="left"><a href="interfaces/iagorartc.html#getmicrophones">getMicrophones</a></td>
+							<td align="left">Enumerates the audio sampling devices available, such as microphones.</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iagorartc.html#getelectronscreensources">getElectronScreenSources</a></td>
-							<td>Gets the sources for screen-sharing on Electron</td>
+							<td align="left"><a href="interfaces/iagorartc.html#getelectronscreensources">getElectronScreenSources</a></td>
+							<td align="left">Gets the sources for screen-sharing with Electron.</td>
 						</tr>
 				</tbody></table>
 				<a href="#logger-methods" id="logger-methods" style="color: inherit; text-decoration: none;">
-					<h3>Logger Methods</h3>
+					<h3>Logger methods</h3>
 				</a>
 				<table>
 					<thead>
 						<tr>
-							<th>Method</th>
-							<th>Description</th>
+							<th align="left">Method</th>
+							<th align="left">Description</th>
 						</tr>
 					</thead>
 					<tbody><tr>
-							<td><a href="interfaces/iagorartc.html#enablelogupload">enableLogUpload</a></td>
-							<td>Enables log upload</td>
+							<td align="left"><a href="interfaces/iagorartc.html#enablelogupload">enableLogUpload</a></td>
+							<td align="left">Enables log upload</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iagorartc.html#disablelogupload">disableLogUpload</a></td>
-							<td>Disables log upload</td>
+							<td align="left"><a href="interfaces/iagorartc.html#disablelogupload">disableLogUpload</a></td>
+							<td align="left">Disables log upload</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iagorartc.html#setloglevel">setLogLevel</a></td>
-							<td>Sets the output log level of the SDK</td>
-						</tr>
-				</tbody></table>
-				<a href="#global-callbacks" id="global-callbacks" style="color: inherit; text-decoration: none;">
-					<h3>Global Callbacks</h3>
-				</a>
-				<table>
-					<thead>
-						<tr>
-							<th>Callback</th>
-							<th>Description</th>
-						</tr>
-					</thead>
-					<tbody><tr>
-							<td><a href="interfaces/iagorartc.html#oncamerachanged">onCameraChanged</a></td>
-							<td>Occurs when a video capture device is added or removed</td>
-						</tr>
-						<tr>
-							<td><a href="interfaces/iagorartc.html#onmicrophonechanged">onMicrophoneChanged</a></td>
-							<td>Occurs when an audio sampling device is added or removed</td>
-						</tr>
-						<tr>
-							<td><a href="interfaces/iagorartc.html#onaudioautoplayfailed">onAudioAutoplayFailed</a></td>
-							<td>Occurs when the autoplay of an audio track fails</td>
+							<td align="left"><a href="interfaces/iagorartc.html#setloglevel">setLogLevel</a></td>
+							<td align="left">Sets the output log level of the SDK</td>
 						</tr>
 				</tbody></table>
 				<a href="#other-methods" id="other-methods" style="color: inherit; text-decoration: none;">
-					<h3>Other Methods</h3>
+					<h3>Other methods</h3>
 				</a>
 				<table>
 					<thead>
 						<tr>
-							<th>Method</th>
-							<th>Description</th>
+							<th align="left">Method</th>
+							<th align="left">Description</th>
 						</tr>
 					</thead>
 					<tbody><tr>
-							<td><a href="interfaces/iagorartc.html#checksystemrequirements">checkSystemRequirements</a></td>
-							<td>Checks the Web browser compatibility</td>
+							<td align="left"><a href="interfaces/iagorartc.html#checksystemrequirements">checkSystemRequirements</a></td>
+							<td align="left">Checks the compatibility of the current browser.</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iagorartc.html#getsupportedcodec">getSupportedCodec</a></td>
-							<td>Gets the supported codecs of the web browser</td>
+							<td align="left"><a href="interfaces/iagorartc.html#getsupportedcodec">getSupportedCodec</a></td>
+							<td align="left">Gets the codecs that the browser supports.</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iagorartc.html#createchannelmediarelayconfiguration">createChannelMediaRelayConfiguration</a></td>
-							<td>create a ChannelMediaRelayConfiguration object</td>
+							<td align="left"><a href="interfaces/iagorartc.html#createchannelmediarelayconfiguration">createChannelMediaRelayConfiguration</a></td>
+							<td align="left">Creates a <code>ChannelMediaRelayConfiguration</code> object</td>
 						</tr>
 				</tbody></table>
 				<a href="#main-modules" id="main-modules" style="color: inherit; text-decoration: none;">
-					<h2>Main Modules</h2>
+					<h2>Main modules</h2>
 				</a>
 				<a href="#agorartcclient" id="agorartcclient" style="color: inherit; text-decoration: none;">
 					<h3>AgoraRTCClient</h3>
 				</a>
-				<p>Call <a href="interfaces/iagorartc.html#createclient">createClient</a> to create an <a href="interfaces/iagorartcclient.html">AgoraRTCClient</a> object，which represents a local user in the communication or live broadcast. The <code>AgoraRTCClient</code> interface provides methods for implementing the major functions in a voice/video communication or live broadcast.</p>
+				<p>Call <a href="interfaces/iagorartc.html#createclient">createClient</a> to create an <a href="interfaces/iagorartcclient.html">AgoraRTCClient</a> object, which represents a local user in a voice or video communication or live broadcast. The <code>AgoraRTCClient</code> interface provides the major functions for a voice or video communication or live broadcast.</p>
 				<table>
 					<thead>
 						<tr>
-							<th>Method</th>
-							<th>Description</th>
+							<th align="left">Method</th>
+							<th align="left">Description</th>
 						</tr>
 					</thead>
 					<tbody><tr>
-							<td><a href="interfaces/iagorartcclient.html#join">join</a></td>
-							<td>Allows a user to join a channel.</td>
+							<td align="left"><a href="interfaces/iagorartcclient.html#join">join</a></td>
+							<td align="left">Joins a channel.</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iagorartcclient.html#leave">leave</a></td>
-							<td>Allows a user to leave a channel.</td>
+							<td align="left"><a href="interfaces/iagorartcclient.html#leave">leave</a></td>
+							<td align="left">Leaves a channel.</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iagorartcclient.html#publish">publish</a></td>
-							<td>Publishes local audio and/or video tracks to a channel.</td>
+							<td align="left"><a href="interfaces/iagorartcclient.html#publish">publish</a></td>
+							<td align="left">Publishes local audio and/or video tracks to a channel.</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iagorartcclient.html#unpublish">unpublish</a></td>
-							<td>Unpublishes local audio and/or video tracks.</td>
+							<td align="left"><a href="interfaces/iagorartcclient.html#unpublish">unpublish</a></td>
+							<td align="left">Unpublishes the local audio and/or video tracks.</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iagorartcclient.html#subscribe">subscribe</a></td>
-							<td>Subscribes to audio and/or video tracks of a remote user.</td>
+							<td align="left"><a href="interfaces/iagorartcclient.html#subscribe">subscribe</a></td>
+							<td align="left">Subscribes to the audio and/or video tracks of a remote user.</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iagorartcclient.html#unsubscribe">unsubscribe</a></td>
-							<td>Unsubscribes from the audio and/or tracks of a remote user.</td>
+							<td align="left"><a href="interfaces/iagorartcclient.html#unsubscribe">unsubscribe</a></td>
+							<td align="left">Unsubscribes from the audio and/or tracks of a remote user.</td>
 						</tr>
 				</tbody></table>
 				<a href="#localtrack-and-remotetrack" id="localtrack-and-remotetrack" style="color: inherit; text-decoration: none;">
 					<h3>LocalTrack and RemoteTrack</h3>
 				</a>
-				<p>The <a href="interfaces/ilocaltrack.html">LocalTrack</a> and <a href="interfaces/iremotetrack.html">RemoteTrack</a> objects represent the local and remote tracks respectively.</p>
+				<p>An <a href="interfaces/ilocaltrack.html">localTrack</a> object represents a local track; an <a href="interfaces/iremotetrack.html">RemoteTrack</a> object represents a remote track.</p>
 				<p>To get a local track:</p>
 				<ul>
 					<li>Call <a href="interfaces/iagorartc.html#createmicrophoneaudiotrack">AgoraRTC.createMicrophoneAudioTrack</a> to get a local audio track.</li>
 					<li>Call <a href="interfaces/iagorartc.html#createcameravideotrack">AgoraRTC.createCameraVideoTrack</a> to get a local video track.</li>
 				</ul>
-				<p>To get a remote track: First call <a href="interfaces/iagorartcclient.html#subscribe">subscribe</a> to subscribe to a remote user, and then get the remote audio and video tracks from <a href="interfaces/iagorartcremoteuser.html">AgoraRTCRemoteUser</a>.</p>
-				<p>A audio and/or video stream consist of an audio track and/or a video track. Due to the limitation of Agora，an <code>AgoraRTCClient</code> object can only publish a stream, which includes at most an audio track and a video track. An <code>AgoraRTCClient</code> object can publish multiple audio tracks but only one video track. The SDK automatically mixes the audio tracks into one when publishing.</p>
+				<p>To get a remote track: Call <a href="interfaces/iagorartcclient.html#subscribe">subscribe</a> to subscribe to a remote user, and then get the remote audio and video tracks from <a href="interfaces/iagorartcremoteuser.html">AgoraRTCRemoteUser</a>.</p>
+				<p>An AgoraRTCClient object can publish only one stream at a time, which includes one audio track and one video track. An <code>AgoraRTCClient</code> object can publish multiple audio tracks but only one video track. The SDK automatically mixes the audio tracks into one when publishing the stream.</p>
 				<table>
 					<thead>
 						<tr>
-							<th>Method</th>
-							<th>Description</th>
+							<th align="left">Method</th>
+							<th align="left">Description</th>
 						</tr>
 					</thead>
 					<tbody><tr>
-							<td><a href="interfaces/ilocalvideotrack.html#play">LocalAudioTrack.play</a></td>
-							<td>Plays the local audio track</td>
+							<td align="left"><a href="interfaces/ilocalvideotrack.html#play">LocalAudioTrack.play</a></td>
+							<td align="left">Plays the local audio track.</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/ilocalvideotrack.html#play">LocalVideoTrack.play</a></td>
-							<td>Plays the local video track</td>
+							<td align="left"><a href="interfaces/ilocalvideotrack.html#play">LocalVideoTrack.play</a></td>
+							<td align="left">Plays the local video track.</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iremoteaudiotrack.html#play">RemoteAudioTrack.play</a></td>
-							<td>Plays the remote audio track</td>
+							<td align="left"><a href="interfaces/iremoteaudiotrack.html#play">RemoteAudioTrack.play</a></td>
+							<td align="left">Plays the remote audio track.</td>
 						</tr>
 						<tr>
-							<td><a href="interfaces/iremotevideotrack.html#play">RemoteVideoTrack.play</a></td>
-							<td>Plays the remote video track</td>
+							<td align="left"><a href="interfaces/iremotevideotrack.html#play">RemoteVideoTrack.play</a></td>
+							<td align="left">Plays the remote video track.</td>
 						</tr>
 				</tbody></table>
-				<a href="#how-to-import" id="how-to-import" style="color: inherit; text-decoration: none;">
-					<h2>How to import</h2>
+				<a href="#import-the-sdk" id="import-the-sdk" style="color: inherit; text-decoration: none;">
+					<h2>Import the SDK</h2>
 				</a>
-				<p>If you use <code>&lt;script&gt;</code> to import Agora Web SDK NG, you can call <a href="interfaces/iagorartc.html#createclient">AgoraRTC.createClient</a> to get the exported methods.</p>
-				<p>If you use <code>npm</code> to import Agora Web SDK NG, see the following code:</p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> AgoraRTC <span class="hljs-keyword">from</span> <span class="hljs-string">"agora-rtc-sdk-ng"</span>
+				<p>If you use `` to import the Agora Web SDK NG, you can call <a href="interfaces/iagorartc.html#createclient">AgoraRTC.createClient</a> to get the exported modules.</p>
+				<p>If you use <code>npm</code> to import the SDK, see the following code:</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> AgoraRTC <span class="hljs-keyword">from</span> <span class="hljs-string">"agora-web-sdk-ng"</span>
 <span class="hljs-built_in">console</span>.log(AgoraRTC.createClient);</code></pre>
 				<a href="#typed-modules-for-typescript" id="typed-modules-for-typescript" style="color: inherit; text-decoration: none;">
-					<h2>Typed Modules (For Typescript)</h2>
+					<h2>Typed modules (for Typescript)</h2>
 				</a>
-				<p>For Typescript developers, we provide a <code>.d.ts</code> to export all type definitions. See <a href="./globals.html">Global</a> for all modules and types that Agora Web SDK NG exports.</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> AgoraRTC, { IAgoraRTCClient } <span class="hljs-keyword">from</span> <span class="hljs-string">"agora-rtc-sdk-ng"</span>
-
-<span class="hljs-keyword">const</span> client: IAgoraRTCClient = AgoraRTC.createClient()</code></pre>
+				<p>Agora provides a <code>.d.ts</code> file for Typescript developers to export all type definitions. See <a href="https://confluence.agoralab.co/globals.html">Global</a> for all the modules and types that the Agora Web SDK NG exports.</p>
+				<p>import AgoraRTC, { IAgoraRTCClient } from &quot;agora-web-sdk-ng&quot;</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> client: IAgoraRTCClient = AgoraRTC.createClient()</code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">

@@ -221,7 +221,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a client object for managing a call.</p>
+									<p>Creates a local client object for managing a call.</p>
 								</div>
 								<p>This is usually the first step of using the Agora Web SDK NG.</p>
 							</div>
@@ -316,7 +316,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a custom audio track.</p>
+									<p>Creates a customized audio track.</p>
 								</div>
 								<p>This method creates a customized audio track from a <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> object.</p>
 							</div>
@@ -633,7 +633,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Enumerates the video input devices available, such as cameras.</p>
+									<p>Enumerates the video capture devices available, such as cameras.</p>
 								</div>
 								<p>If this method call succeeds, the SDK returns a list of video input devices in an array of <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo">MediaDeviceInfo</a> objects.</p>
 							</div>
@@ -653,7 +653,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Enumerates the media input and output devices available,  such as microphones, cameras, and headsets.</p>
+									<p>Enumerates the media input and output devices available, such as microphones, cameras, and headsets.</p>
 								</div>
 								<p>If this method call succeeds, the SDK returns a list of media devices in an array of <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo">MediaDeviceInfo</a> objects.</p>
 								<pre><code class="language-javascript">getDevices().then(<span class="hljs-function"><span class="hljs-params">devices</span> =&gt;</span> {
@@ -678,7 +678,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets the sources for screen-sharing on Electron.</p>
+									<p>Gets the sources for screen-sharing through Electron.</p>
 								</div>
 								<p>If this method call succeeds, the SDK returns a list of screen sources in an array of <a href="electrondesktopcapturersource.html">ElectronDesktopCapturerSource</a> objects.</p>
 							</div>
@@ -707,7 +707,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Enumerates the audio input devices available, such as microphones.</p>
+									<p>Enumerates the audio sampling devices available, such as microphones.</p>
 								</div>
 								<p>If this method call succeeds, the SDK returns a list of audio input devices in an array of <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo">MediaDeviceInfo</a> objects.</p>
 							</div>
@@ -730,7 +730,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Checks the Web browser compatibility.</p>
+									<p>Checks the compatibility of the current browser.</p>
 								</div>
 								<p>Use this method before calling <a href="iagorartc.html#createclient">createClient</a> to check if the SDK is compatible with the web browser.</p>
 							</div>
@@ -777,10 +777,10 @@
 								</div>
 								<p>Creates an audio track from the audio sampled by a microphone and a video track from the video captured by a camera.</p>
 								<blockquote>
-									<p>Calling this method is different from calling <a href="iagorartc.html#createmicrophoneaudiotrack">createMicrophoneAudioTrack</a> and <a href="iagorartc.html#createcameravideotrack">createCameraVideoTrack</a> separately:</p>
+									<p>Calling this method differs from calling <a href="iagorartc.html#createmicrophoneaudiotrack">createMicrophoneAudioTrack</a> and <a href="iagorartc.html#createcameravideotrack">createCameraVideoTrack</a> separately:</p>
 									<ul>
-										<li>This method call requires access to the microphone and the camera at the same time, namely users only need to authorize once.</li>
-										<li>Calling <a href="iagorartc.html#createmicrophoneaudiotrack">createMicrophoneAudioTrack</a> and <a href="iagorartc.html#createcameravideotrack">createCameraVideoTrack</a> requires access to the microphone and the camera separately, namely users need to authorize twice.</li>
+										<li>This method call requires access to the microphone and the camera at the same time. In this case, users only need to do authorization once.</li>
+										<li>Calling <a href="iagorartc.html#createmicrophoneaudiotrack">createMicrophoneAudioTrack</a> and <a href="iagorartc.html#createcameravideotrack">createCameraVideoTrack</a> requires access to the microphone and the camera separately. In this case, users need to do authorization twice.</li>
 									</ul>
 								</blockquote>
 							</div>
@@ -789,13 +789,13 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> audioConfig: <a href="microphoneaudiotrackinitconfig.html" class="tsd-signature-type">MicrophoneAudioTrackInitConfig</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Configurations for the sampled audio, such as the capture device and the encoder configuration.</p>
+										<p>Configurations for the sampled audio, such as the capture device and the encoder configurations.</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> videoConfig: <a href="cameravideotrackinitconfig.html" class="tsd-signature-type">CameraVideoTrackInitConfig</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Configurations for the captured video, such as the capture device and the encoder configuration.</p>
+										<p>Configurations for the captured video, such as the capture device and the encoder configurations.</p>
 									</div>
 								</li>
 							</ul>
@@ -815,7 +815,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets the supported codecs of the web browser.</p>
+									<p>Gets the codecs that the browser supports.</p>
 								</div>
 								<p>This method gets a list of the codecs supported by the SDK and the web browser. The Agora Web SDK NG supports video codecs VP8 and H.264, and audio codec OPUS.</p>
 								<blockquote>
