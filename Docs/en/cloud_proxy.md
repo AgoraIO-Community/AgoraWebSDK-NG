@@ -88,5 +88,5 @@ The following figure shows the working principles of the Agora cloud proxy.
 
 ## Considerations
 -  `startProxyServer` must be called before joining the channel, and `stopProxyServer` must be called after leaving the channel.
-- The Agora Web SDK NG also provides t`setProxyServer` 和 `setTurnServer` methods for you to deploy the proxy. The `setProxyServer` 和 `setTurnServer` methods cannot be used with the `startProxyServer` method at the same time, else an error occurs.
+- The Agora Web SDK NG also provides `setProxyServer` and `setTurnServer` methods for you to deploy the proxy. The `setProxyServer` and `setTurnServer` methods cannot be used with the `startProxyServer` method at the same time, else an error occurs.
 - `stopProxyServer` disables all proxy settings, including those set by the `setProxyServer` and `setTurnServer` methods.

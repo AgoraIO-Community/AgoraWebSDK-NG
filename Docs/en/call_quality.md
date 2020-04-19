@@ -86,7 +86,3 @@ Each exception event has a corresponding recovery event. See the table below for
 
 ## Considerations
 All the above methods must be called after joining the channel.
-
-
-
-

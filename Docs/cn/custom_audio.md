@@ -38,7 +38,7 @@ navigator.mediaDevices.getUserMedia({ video: false, audio: true })
 
 > MediaStreamTrack 对象是指浏览器原生支持的 MediaStreamTrack 对象，具体用法和浏览器支持状况请参考 [MediaStreamTrack API 文档](https://developer.mozilla.org/zh-CN/docs/Web/API/MediaStreamTrack)。
 
-同样，你也可以利用强大的 WebAudio API 来获取 MediaStreamTrack，实现定制化的音频处理。
+同样，你也可以利用强大的 [Web Audio API](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Audio_API) 来获取 MediaStreamTrack，实现定制化的音频处理。
 
 ### API 参考
 
