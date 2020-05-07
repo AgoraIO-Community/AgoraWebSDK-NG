@@ -83,6 +83,8 @@
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_connection_state_change" class="tsd-kind-icon">connection-<wbr>state-<wbr>change</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_crypt_error" class="tsd-kind-icon">crypt-<wbr>error</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_exception" class="tsd-kind-icon">exception</a></li>
+								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_live_streaming_error" class="tsd-kind-icon">live-<wbr>streaming-<wbr>error</a></li>
+								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_live_streaming_warning" class="tsd-kind-icon">live-<wbr>streaming-<wbr>warning</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_media_reconnect_end" class="tsd-kind-icon">media-<wbr>reconnect-<wbr>end</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_media_reconnect_start" class="tsd-kind-icon">media-<wbr>reconnect-<wbr>start</a></li>
 								<li class="tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported"><a href="iagorartcclient.html#event_microphone_changed" class="tsd-kind-icon">microphone-<wbr>changed</a></li>
@@ -393,6 +395,79 @@
 											</div>
 										</li>
 									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="event_live_streaming_error" class="tsd-anchor"></a>
+					<h3>live-<wbr>streaming-<wbr>error</h3>
+					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">live-<wbr>streaming-<wbr>error<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AgoraRTCError</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Occurs when errors occur in CDN live streaming.</p>
+								</div>
+								<p>After the method call of <a href="iagorartcclient.html#startlivestreaming">startLiveStreaming</a> succeeds, the SDK triggers this callback when errors occur during CDN live streaming.</p>
+								<dl class="tsd-comment-tags">
+									<div></div>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>url: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The URL of the CDN live streaming that has errors.</p>
+									</div>
+								</li>
+								<li>
+									<h5>err: <span class="tsd-signature-type">AgoraRTCError</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The error details.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="event_live_streaming_warning" class="tsd-anchor"></a>
+					<h3>live-<wbr>streaming-<wbr>warning</h3>
+					<ul class="tsd-signatures tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">live-<wbr>streaming-<wbr>warning<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, warning<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AgoraRTCError</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Occurs when warnings occur in CDN live streaming.</p>
+								</div>
+								<p>After the method call of <a href="iagorartcclient.html#startlivestreaming">startLiveStreaming</a> succeeds, the SDK triggers this callback when warnings occur during CDN live streaming.</p>
+								<dl class="tsd-comment-tags">
+									<div></div>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>url: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The URL of the CDN live streaming that has warnings.</p>
+									</div>
+								</li>
+								<li>
+									<h5>warning: <span class="tsd-signature-type">AgoraRTCError</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -854,12 +929,12 @@
 										</ul>
 										<p>Due to the uncertainty of encoding and network transmission, after a remote user publishes both audio and video tracks, one of the following scenarios happens:</p>
 										<ul>
-											<li>Agora&#39;s edge server receives the first video packet a while after receiving the first audio packet.<ul>
+											<li>Agora edge server receives the first video packet a while after receiving the first audio packet.<ul>
 													<li>To avoid losing any audio data, when the edge server receives the first audio packet, the SDK triggers a <code>user-published(mediaType: &quot;audio&quot;)</code> event immediately.</li>
 													<li>When the edge server receives the first video packet, the SDK triggers a <code>user-published(mediaType: &quot;video&quot;)</code> event.</li>
 												</ul>
 											</li>
-											<li>Agora&#39;s edge server receives the first audio and video packets very soon, and the SDK directly triggers a <code>user-published(mediaType: &quot;all&quot;)</code> event.</li>
+											<li>Agora edge server receives the first audio and video packets very soon, and the SDK directly triggers a <code>user-published(mediaType: &quot;all&quot;)</code> event.</li>
 										</ul>
 										<blockquote>
 											<p>Ensure that the value of <code>mediaType</code> or the track object is not <code>undefined</code> before using the subscribed track.</p>
@@ -1646,7 +1721,6 @@ user.audioTrack.play();</code></pre>
 								<blockquote>
 									<p>Note:</p>
 									<ul>
-										<li>Only hosts can call this method.</li>
 										<li>This method adds only one stream HTTP/HTTPS URL address each time it is called.</li>
 									</ul>
 								</blockquote>
@@ -1844,6 +1918,8 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"microphone-changed"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_microphone_changed" class="tsd-signature-type">event_microphone_changed</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"camera-changed"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_camera_changed" class="tsd-signature-type">event_camera_changed</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"network-quality"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_network_quality" class="tsd-signature-type">event_network_quality</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"live-streaming-error"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_live_streaming_error" class="tsd-signature-type">event_live_streaming_error</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"live-streaming-warning"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_live_streaming_warning" class="tsd-signature-type">event_live_streaming_warning</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"exception"</span>, listener<span class="tsd-signature-symbol">: </span><a href="iagorartcclient.html#event_exception" class="tsd-signature-type">event_exception</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -2140,6 +2216,36 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
+									<h5>event: <span class="tsd-signature-type">"live-streaming-error"</span></h5>
+								</li>
+								<li>
+									<h5>listener: <a href="iagorartcclient.html#event_live_streaming_error" class="tsd-signature-type">event_live_streaming_error</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">"live-streaming-warning"</span></h5>
+								</li>
+								<li>
+									<h5>listener: <a href="iagorartcclient.html#event_live_streaming_warning" class="tsd-signature-type">event_live_streaming_warning</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides EventEmitter.on</p>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
 									<h5>event: <span class="tsd-signature-type">"exception"</span></h5>
 								</li>
 								<li>
@@ -2420,6 +2526,12 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 							</li>
 							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="iagorartcclient.html#event_exception" class="tsd-kind-icon">exception</a>
+							</li>
+							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartcclient.html#event_live_streaming_error" class="tsd-kind-icon">live-<wbr>streaming-<wbr>error</a>
+							</li>
+							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="iagorartcclient.html#event_live_streaming_warning" class="tsd-kind-icon">live-<wbr>streaming-<wbr>warning</a>
 							</li>
 							<li class=" tsd-kind-event tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="iagorartcclient.html#event_media_reconnect_end" class="tsd-kind-icon">media-<wbr>reconnect-<wbr>end</a>
