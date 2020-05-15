@@ -48,7 +48,7 @@
 </header>
 <div class="container container-main">
 	<div class="row">
-		<div class="col-8 col-content">
+		<div class="col-9 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
@@ -98,6 +98,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="imicrophoneaudiotrack.html#once" class="tsd-kind-icon">once</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="imicrophoneaudiotrack.html#play" class="tsd-kind-icon">play</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="imicrophoneaudiotrack.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="imicrophoneaudiotrack.html#setaudioframecallback" class="tsd-kind-icon">set<wbr>Audio<wbr>Frame<wbr>Callback</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="imicrophoneaudiotrack.html#setdevice" class="tsd-kind-icon">set<wbr>Device</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="imicrophoneaudiotrack.html#setmute" class="tsd-kind-icon">set<wbr>Mute</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="imicrophoneaudiotrack.html#setvolume" class="tsd-kind-icon">set<wbr>Volume</a></li>
@@ -505,6 +506,56 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<a name="setaudioframecallback" class="tsd-anchor"></a>
+					<h3>set<wbr>Audio<wbr>Frame<wbr>Callback</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Audio<wbr>Frame<wbr>Callback<span class="tsd-signature-symbol">(</span>audioFrameCallback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span>, frameSize<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="ilocalaudiotrack.html">ILocalAudioTrack</a>.<a href="ilocalaudiotrack.html#setaudioframecallback">setAudioFrameCallback</a></p>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the callback for getting raw audio data in PCM format.</p>
+								</div>
+								<p>After you successfully set the callback, the SDK constantly returns the audio frames of a local audio track in this callback by using <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer">AudioBuffer</a>.</p>
+								<blockquote>
+									<p>You can set the <code>frameSize</code> parameter to determine the frame size in each callback, which affects the interval between the callbacks. The larger the frame size, the longer the interval between them.</p>
+								</blockquote>
+								<pre><code class="language-js">track.setAudioFrameCallback(<span class="hljs-function">(<span class="hljs-params">buffer</span>) =&gt;</span> {
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> channel = <span class="hljs-number">0</span>; channel &lt; buffer.numberOfChannels; channel += <span class="hljs-number">1</span>) {
+    <span class="hljs-comment">// Float32Array with PCM data</span>
+    <span class="hljs-keyword">const</span> currentChannelData = buffer.getChannelData(channel);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"PCM data in channel"</span>, channel, currentChannelData);
+  }
+}, <span class="hljs-number">2048</span>);
+
+<span class="hljs-comment">// ....</span>
+<span class="hljs-comment">// Stop getting the raw audio data</span>
+track.setAudioFrameCallback(<span class="hljs-literal">null</span>);</code></pre>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>audioFrameCallback: <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The callback function for receiving the <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer">AudioBuffer</a> object. If you set <code>audioBufferCallback</code> as <code>null</code>, the SDK stops getting raw audio data.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> frameSize: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The number of samples of each audio channel that an <code>AudioBuffer</code> object contains. You can set <code>frameSize</code> as 256, 512, 1024, 2048, 4096, 8192, or 16384. The default value is 4096.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="setdevice" class="tsd-anchor"></a>
 					<h3>set<wbr>Device</h3>
@@ -625,7 +676,7 @@
 				</section>
 			</section>
 		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+		<div class="col-3 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">
@@ -687,6 +738,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="imicrophoneaudiotrack.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+								<a href="imicrophoneaudiotrack.html#setaudioframecallback" class="tsd-kind-icon">set<wbr>Audio<wbr>Frame<wbr>Callback</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="imicrophoneaudiotrack.html#setdevice" class="tsd-kind-icon">set<wbr>Device</a>

@@ -45,7 +45,7 @@
 </header>
 <div class="container container-main">
 	<div class="row">
-		<div class="col-8 col-content">
+		<div class="col-9 col-content">
 			<div class="tsd-panel tsd-typography">
 				<a href="#agora-web-sdk-ng-api-reference" id="agora-web-sdk-ng-api-reference" style="color: inherit; text-decoration: none;">
 					<h1>Agora Web SDK NG API Reference</h1>
@@ -61,8 +61,8 @@
 					<li>Agora recommends reading <a href="/AgoraWebSDK-NG/docs/en/overview/">Basic Features</a> before going into the API details.</li>
 					<li>You can use the search bar at the top of the page to find the intended API.</li>
 				</ul>
-				<a href="#basic-module" id="basic-module" style="color: inherit; text-decoration: none;">
-					<h2>Basic module</h2>
+				<a href="#global-module" id="global-module" style="color: inherit; text-decoration: none;">
+					<h2>Global module</h2>
 				</a>
 				<p><a href="interfaces/iagorartc.html">AgoraRTC</a> is the entry point for all the methods provided by the Agora Web SDK NG.</p>
 				<p><a href="interfaces/iagorartc.html">AgoraRTC</a> provides the following methods:</p>
@@ -98,6 +98,10 @@
 						<tr>
 							<td align="left"><a href="interfaces/iagorartc.html#createcameravideotrack">createCameraVideoTrack</a></td>
 							<td align="left">Creates a video track from the video captured by a camera.</td>
+						</tr>
+						<tr>
+							<td align="left"><a href="interfaces/iagorartc.html#createmicrophoneandcameratracks">createMicrophoneAndCameraTracks</a></td>
+							<td align="left">Creates an audio track and a video track.</td>
 						</tr>
 						<tr>
 							<td align="left"><a href="interfaces/iagorartc.html#createscreenvideotrack">createScreenVideoTrack</a></td>
@@ -278,7 +282,7 @@
 				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> client: IAgoraRTCClient = AgoraRTC.createClient()</code></pre>
 			</div>
 		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+		<div class="col-3 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">

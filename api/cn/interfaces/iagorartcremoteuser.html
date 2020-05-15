@@ -48,12 +48,14 @@
 </header>
 <div class="container container-main">
 	<div class="row">
-		<div class="col-8 col-content">
+		<div class="col-9 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>频道内的远端用户信息，可以通过 <a href="iagorartcclient.html#remoteusers">AgoraRTCClient.remoteUsers</a> 获取。</p>
+						<p>频道内的远端用户信息，可以通过 <a href="iagorartcclient.html#remoteusers">AgoraRTCClient.remoteUsers</a> 或者 <a href="iagorartcclient.html#event_user_joined">AgoraRTCClient.on(&quot;user-joined&quot;)</a> 等事件获取。</p>
 					</div>
+					<p>该对象描述了频道内远端用户的当前状态，包括远端用户 ID、远端是否发布了音频或视频等。</p>
+					<p>如果检测到远端用户已经发布，可以将这个对象传入 <a href="iagorartcclient.html#subscribe">AgoraRTCClient.subscribe</a> 中发起订阅，订阅成功后可以通过本对象的 <a href="iagorartcremoteuser.html#audiotrack">audioTrack</a> 或者 <a href="iagorartcremoteuser.html#videotrack">videoTrack</a> 字段获取远端音视频轨道对象用于播放。</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -187,7 +189,7 @@
 				</section>
 			</section>
 		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+		<div class="col-3 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">

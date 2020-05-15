@@ -1988,8 +1988,7 @@ footer {
     width: 100%;
     overflow: auto;
     margin-top: 10px;
-    word-break: normal;
-    word-break: keep-all; }
+    word-break: normal;}
     .tsd-panel table th {
       font-weight: bold; }
     .tsd-panel table th, .tsd-panel table td {

@@ -48,7 +48,7 @@
 </header>
 <div class="container container-main">
 	<div class="row">
-		<div class="col-8 col-content">
+		<div class="col-9 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
@@ -111,6 +111,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="ibuffersourceaudiotrack.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ibuffersourceaudiotrack.html#resumeprocessaudiobuffer" class="tsd-kind-icon">resume<wbr>Process<wbr>Audio<wbr>Buffer</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ibuffersourceaudiotrack.html#seekaudiobuffer" class="tsd-kind-icon">seek<wbr>Audio<wbr>Buffer</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="ibuffersourceaudiotrack.html#setaudioframecallback" class="tsd-kind-icon">set<wbr>Audio<wbr>Frame<wbr>Callback</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="ibuffersourceaudiotrack.html#setmute" class="tsd-kind-icon">set<wbr>Mute</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="ibuffersourceaudiotrack.html#setvolume" class="tsd-kind-icon">set<wbr>Volume</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ibuffersourceaudiotrack.html#startprocessaudiobuffer" class="tsd-kind-icon">start<wbr>Process<wbr>Audio<wbr>Buffer</a></li>
@@ -691,6 +692,56 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<a name="setaudioframecallback" class="tsd-anchor"></a>
+					<h3>set<wbr>Audio<wbr>Frame<wbr>Callback</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Audio<wbr>Frame<wbr>Callback<span class="tsd-signature-symbol">(</span>audioFrameCallback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span>, frameSize<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="ilocalaudiotrack.html">ILocalAudioTrack</a>.<a href="ilocalaudiotrack.html#setaudioframecallback">setAudioFrameCallback</a></p>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>设置原始音频数据（PCM）回调。</p>
+								</div>
+								<p>设置成功后，SDK 会不断地将本地音频轨道的音频帧以 <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer">AudioBuffer</a> 的形式通过回调返回。</p>
+								<blockquote>
+									<p>你可以通过 <code>frameSize</code> 来设置每次回调中音频帧的大小。该设置也会影响回调的间隔，<code>frameSize</code> 越大，每次回调的音频数据越多，回调间隔越长。</p>
+								</blockquote>
+								<pre><code class="language-js">track.setAudioFrameCallback(<span class="hljs-function">(<span class="hljs-params">buffer</span>) =&gt;</span> {
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> channel = <span class="hljs-number">0</span>; channel &lt; buffer.numberOfChannels; channel += <span class="hljs-number">1</span>) {
+    <span class="hljs-comment">// Float32Array with PCM data</span>
+    <span class="hljs-keyword">const</span> currentChannelData = buffer.getChannelData(channel);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"PCM data in channel"</span>, channel, currentChannelData);
+  }
+}, <span class="hljs-number">2048</span>);
+
+<span class="hljs-comment">// ....</span>
+<span class="hljs-comment">// Stop getting the raw audio data</span>
+track.setAudioFrameCallback(<span class="hljs-literal">null</span>);</code></pre>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>audioFrameCallback: <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>用于接收 <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer">AudioBuffer</a> 的回调函数。设为 <code>null</code> 后，SDK 就会停止获取音频原始数据。</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> frameSize: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>每次回调的 <code>AudioBuffer</code> 中每个声道包含的采样数据个数，只能设为下列值：256, 512, 1024, 2048, 4096, 8192, 16384。默认为 4096。</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 					<a name="setmute" class="tsd-anchor"></a>
 					<h3>set<wbr>Mute</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
@@ -823,7 +874,7 @@
 				</section>
 			</section>
 		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+		<div class="col-3 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">
@@ -909,6 +960,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="ibuffersourceaudiotrack.html#seekaudiobuffer" class="tsd-kind-icon">seek<wbr>Audio<wbr>Buffer</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+								<a href="ibuffersourceaudiotrack.html#setaudioframecallback" class="tsd-kind-icon">set<wbr>Audio<wbr>Frame<wbr>Callback</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="ibuffersourceaudiotrack.html#setmute" class="tsd-kind-icon">set<wbr>Mute</a>
