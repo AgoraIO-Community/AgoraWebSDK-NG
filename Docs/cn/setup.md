@@ -6,8 +6,8 @@ sidebar_label: 集成 SDK
 本文指导你如何准备开发环境并将 Agora Web SDK NG 集成到你的项目中。
 
 ## 前提条件
-在使用 Agora Web SDK NG 之前，你需要:
-- [注册](https://sso.agora.io/cn/signup?_ga=2.63500074.482805615.1577072824-849535803.1560925029) 一个有效的 Agora 账号。
+在使用 Agora Web SDK NG 之前，你需要：
+- [注册](https://sso.agora.io/cn/signup?_ga=2.63500074.482805615.1577072824-849535803.1560925029)一个有效的 Agora 账号。
 - 在[控制台](https://console.agora.io/)创建一个项目，鉴权机制选择 **APP ID**。
 - 摄像头和麦克风设备。
 - 如果你的网络环境部署了防火墙，请根据[应用企业防火墙限制](https://docs.agora.io/cn/Agora%20Platform/firewall?platform=All%20Platforms)打开相关端口。
@@ -33,6 +33,7 @@ const client = AgoraRTC.createClient({ mode: "live", codec: "vp8" });
 ```
 
 如果你使用 Typescript, 还可以引入 SDK 中的类型对象：
+
 ```typescript
 import AgoraRTC, { IAgoraRTCClient } from "agora-rtc-sdk-ng"
 
@@ -43,7 +44,7 @@ const client: IAgoraRTCClient = AgoraRTC.createClient({ mode: "live", codec: "vp
 该方法无需下载安装包。在项目 html 文件中，添加如下代码：
 
 ```html
-<script src="https://download.agora.io/sdk/web/AgoraRTC_N-0.1.7.js"></script>
+<script src="https://download.agora.io/sdk/web/AgoraRTC_N-0.1.8.js"></script>
 ```
 
 ### 方法 3. 手动下载 SDK
@@ -54,7 +55,7 @@ const client: IAgoraRTCClient = AgoraRTC.createClient({ mode: "live", codec: "vp
 3. 在项目文件中，将如下代码添加到 html 中：
 
 ```html
-<script src="./AgoraRTC_N-0.1.7.js"></script>
+<script src="./AgoraRTC_N-0.1.8.js"></script>
 ```
 
 > - 在方法 2 和方法 3 中，SDK 都会在全局导出一个 `AgoraRTC` 对象，直接访问这个对象即可操作 SDK。

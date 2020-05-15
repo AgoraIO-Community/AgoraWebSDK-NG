@@ -13,11 +13,11 @@ sidebar_label: 推流到 CDN
 
 ## 前提条件
 请确保已开通 CDN 旁路推流功能，步骤如下：
-1. 登录[控制台](https://console.agora.io)，点击左侧导航栏 ![img](https://web-cdn.agora.io/docs-files/1551250582235) 按钮进入**产品用量**页面。
+1. 登录[控制台](https://console.agora.io)，点击左侧导航栏 ![img](assets/usage.jpeg) 按钮进入**产品用量**页面。
 2. 在页面左上角展开下拉列表选择需要开通 CDN 旁路推流的项目，然后点击旁路推流下的**分钟数**。
-![](https://web-cdn.agora.io/docs-files/1569297956098)
+![](assets/enable_cdn_streaming.png)
 3. 点击**开启旁路推流服务**。
-4. 点击**应用** 即可开通旁路推流服务，并得到 500 个最大并发频道数。
+4. 点击**应用**即可开通旁路推流服务，并得到 500 个最大并发频道数。
 
 > 并发频道数 N，指用户可以同时使用 N 路流进行推流转码。
 

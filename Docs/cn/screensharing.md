@@ -95,7 +95,7 @@ AgoraRTC.getElectronScreenSources().then(sources => {
 ```
 `sources` 是一个 `source` 对象的列表，`source` 里包含了分享源的信息和 `sourceId`，`source` 的属性如下：
 
-![](assets/source.png)
+![](assets/sources.png)
 
 - `id`： 即 `sourceId`
 - `name`：屏幕源的名字
@@ -103,7 +103,7 @@ AgoraRTC.getElectronScreenSources().then(sources => {
 
 2. 根据 `source` 的属性，（用 html 和 css）绘制选择界面，让用户选择要共享的屏幕源。`source` 的属性与屏幕共享的选择界面对应关系如下：
 
-![](assets/electron2.png)
+![](assets/electron2.jpeg)
 
 3. 获取用户选择的 `sourceId`。
 4. 调用  [createScreenVideoTrack](/api/cn/interfaces/iagorartc.html#createscreenvideotrack) 时将 `sourceId` 填入 `electronScreenSourceId`，就能创建相应的屏幕共享流了。
