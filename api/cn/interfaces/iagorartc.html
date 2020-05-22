@@ -110,7 +110,9 @@
 							</ul>
 							<h3>Other Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#checkaudiotrackisactive" class="tsd-kind-icon">check<wbr>Audio<wbr>Track<wbr>IsActive</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#checksystemrequirements" class="tsd-kind-icon">check<wbr>System<wbr>Requirements</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#checkvideotrackisactive" class="tsd-kind-icon">check<wbr>Video<wbr>Track<wbr>IsActive</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#createchannelmediarelayconfiguration" class="tsd-kind-icon">create<wbr>Channel<wbr>Media<wbr>Relay<wbr>Configuration</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#getsupportedcodec" class="tsd-kind-icon">get<wbr>Supported<wbr>Codec</a></li>
 							</ul>
@@ -814,6 +816,61 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Other Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="checkaudiotrackisactive" class="tsd-anchor"></a>
+					<h3>check<wbr>Audio<wbr>Track<wbr>IsActive</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">check<wbr>Audio<wbr>Track<wbr>IsActive<span class="tsd-signature-symbol">(</span>track<span class="tsd-signature-symbol">: </span><a href="ilocalaudiotrack.html" class="tsd-signature-type">ILocalAudioTrack</a><span class="tsd-signature-symbol"> | </span><a href="iremoteaudiotrack.html" class="tsd-signature-type">IRemoteAudioTrack</a>, timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>检测音频轨道是否活跃。</p>
+								</div>
+								<p>SDK 通过检测指定时间范围内音量是否发生变化来判断音频轨道是否活跃。</p>
+								<p>Agora 建议通过此方法在开始通话前对音频输入设备进行可用性检测。你可以将麦克风采集到的音频轨道作为参数传入该方法，判断麦克风是否正常运行。</p>
+								<blockquote>
+									<p>注意事项：</p>
+									<ul>
+										<li>极为安静的环境下可能检测失败，所以 Agora 建议你在使用此方法的时候提示用户发出声响。</li>
+										<li>当音频轨道被 mute 时，会返回 <code>false</code>。</li>
+										<li>不建议频繁调用此方法。</li>
+									</ul>
+								</blockquote>
+								<pre><code class="language-javascript"><span class="hljs-keyword">const</span> audioTrack = <span class="hljs-keyword">await</span> AgoraRTC.createMicrophoneAudioTrack({ microphoneId });
+AgoraRTC.checkAudioTrackIsActive(audioTrack).then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${ microphoneLabel }</span> is <span class="hljs-subst">${ result ? <span class="hljs-string">"available"</span> : <span class="hljs-string">"unavailable"</span> }</span>`</span>);
+}).catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"check audio track error!"</span>, e);
+});</code></pre>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>track: <a href="ilocalaudiotrack.html" class="tsd-signature-type">ILocalAudioTrack</a><span class="tsd-signature-symbol"> | </span><a href="iremoteaudiotrack.html" class="tsd-signature-type">IRemoteAudioTrack</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>需要进行检测的本地或远端音频轨道。</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> timeout: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>音频轨道检测的超时时间，单位为毫秒，默认 5,000 毫秒。</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>传入该方法的音频轨道中的音量大小是否发生了变化：</p>
+							<ul>
+								<li><code>true</code>: 音量大小有变化。对于麦克风音频轨道，说明音频采集设备采集到了声音。</li>
+								<li><code>false</code>: 音量大小未变化，说明音频采集设备没有采集到声音，或自定义音频轨道中没有音量变化，或音频轨道被 mute。</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="checksystemrequirements" class="tsd-anchor"></a>
 					<h3>check<wbr>System<wbr>Requirements</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
@@ -834,6 +891,60 @@
 							<ul>
 								<li><code>true</code>: 支持。</li>
 								<li><code>false</code>: 不支持。</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="checkvideotrackisactive" class="tsd-anchor"></a>
+					<h3>check<wbr>Video<wbr>Track<wbr>IsActive</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">check<wbr>Video<wbr>Track<wbr>IsActive<span class="tsd-signature-symbol">(</span>track<span class="tsd-signature-symbol">: </span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol"> | </span><a href="iremotevideotrack.html" class="tsd-signature-type">IRemoteVideoTrack</a>, timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>检测视频轨道是否活跃。</p>
+								</div>
+								<p>SDK 通过检测指定时间范围内视频图像是否发生变动来判断视频轨道是否活跃。</p>
+								<p>Agora 建议通过此方法在开始通话前对视频输入设备进行可用性检测。你可以将摄像头采集到的视频轨道作为参数传入该方法，判断摄像头是否正常运行。</p>
+								<blockquote>
+									<p>注意事项：</p>
+									<ul>
+										<li>当视频轨道被 mute 时，会返回 <code>false</code>。</li>
+										<li>不建议频繁调用此方法。</li>
+									</ul>
+								</blockquote>
+								<pre><code class="language-javascript"><span class="hljs-keyword">const</span> videoTrack = <span class="hljs-keyword">await</span> AgoraRTC.createCameraVideoTrack({ cameraId });
+AgoraRTC.checkVideoTrackIsActive(videoTrack).then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${ cameraLabel }</span> is <span class="hljs-subst">${ result ? <span class="hljs-string">"available"</span> : <span class="hljs-string">"unavailable"</span> }</span>`</span>);
+}).catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"check video track error!"</span>, e);
+});</code></pre>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>track: <a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol"> | </span><a href="iremotevideotrack.html" class="tsd-signature-type">IRemoteVideoTrack</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>需要进行检测的本地或远端视频轨道。</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> timeout: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>视频轨道检测的超时时间，单位为毫秒，默认 5,000 毫秒。</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>传入该方法的视频轨道中的图像是否发生了变动：</p>
+							<ul>
+								<li><code>true</code>: 视频画面发生变动。对于摄像头视频轨道，说明视频采集设备采集到了画面。</li>
+								<li><code>false</code>: 视频画面未变动，说明视频采集设备异常或被完全遮挡，或视频轨道被 mute。</li>
 							</ul>
 						</li>
 					</ul>
@@ -924,7 +1035,13 @@
 								<a href="iagorartc.html#onmicrophonechanged" class="tsd-kind-icon">on<wbr>Microphone<wbr>Changed</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="iagorartc.html#checkaudiotrackisactive" class="tsd-kind-icon">check<wbr>Audio<wbr>Track<wbr>IsActive</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartc.html#checksystemrequirements" class="tsd-kind-icon">check<wbr>System<wbr>Requirements</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="iagorartc.html#checkvideotrackisactive" class="tsd-kind-icon">check<wbr>Video<wbr>Track<wbr>IsActive</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartc.html#createbuffersourceaudiotrack" class="tsd-kind-icon">create<wbr>Buffer<wbr>Source<wbr>Audio<wbr>Track</a>

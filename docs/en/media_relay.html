@@ -67,7 +67,7 @@
               }
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Co-host across Channels</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
-<p>Co-hosting across channels refers to the process where the Agora Web SDK NG relays the media tracks of a host from a live-broadcast channel (source channel) to a maximum of four live-broadcast channels (destination channels). It has the following benefits:</p>
+<p>Co-hosting across channels is the process where the Agora Web SDK NG relays the media tracks of a host from a live-broadcast channel (source channel) to a maximum of four live-broadcast channels (destination channels). It has the following benefits:</p>
 <ul>
 <li>All hosts in the channels can see and hear each other.</li>
 <li>The audiences in the channels can see and hear all hosts.</li>
@@ -77,7 +77,7 @@
 <blockquote>
 <p>To enable media stream relay, contact <a href="mailto:sales-us@agora.io">sales-us@agora.io</a>.</p>
 </blockquote>
-<p>Before proceeding, ensure that you have implemented the basic real-time communication function in your project. For details, see <a href="/AgoraWebSDK-NG/docs/en/basic_call">Implement a Basic Video Call</a>.</p>
+<p>Before proceeding, ensure that you have implemented the basic real-time communication functions in your project. For details, see <a href="/AgoraWebSDK-NG/docs/en/basic_call">Implement a Basic Video Call</a>.</p>
 <p>The Agora Web SDK NG provides the following methods for co-hosting across channels:</p>
 <ul>
 <li><code>startChannelMediaRelay</code></li>
@@ -85,8 +85,11 @@
 <li><code>stopChannelMediaRelay</code></li>
 </ul>
 <blockquote>
-<p>API call sequence requirements:
-Call <code>startChannelMediaRelay after</code>AgoraRTCClient.publish<code>succeeds. Call</code>updateChannelMediaRelay<code>after</code>startChannelMediaRelay` succeeds.</p>
+<p>API call sequence requirements:</p>
+<ul>
+<li>Call <code>startChannelMediaRelay after</code>AgoraRTCClient.publish` succeeds.</li>
+<li>Call <code>updateChannelMediaRelay</code> after <code>startChannelMediaRelay</code> succeeds.</li>
+</ul>
 </blockquote>
 <p>During a channel media relay, the SDK reports the states and error codes of the relay with the <a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartcclient.html#event_channel_media_relay_state"><code>AgoraRTCClient.on(&quot;channel-media-relay-state&quot;)</code></a> callback, and the events of the relay with the <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_channel_media_relay_event"><code>AgoraRTCClient.on(&quot;channel-media-relay-event&quot;)</code></a> callback.</p>
 <blockquote>
@@ -101,14 +104,13 @@ Call <code>startChannelMediaRelay after</code>AgoraRTCClient.publish<code>succee
 <p>The <code>client</code> object in the following sample code is created by calling <code>AgoraRTC.createClient</code>.</p>
 <p><strong>Configure the media stream relay</strong></p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> channelMediaConfig = <span class="hljs-keyword">new</span> AgoraRTC.ChannelMediaRelayConfiguration();
-<span class="hljs-comment">// Set the source channel information</span>
+<span class="hljs-comment">// Set the source channel information.</span>
 channelMediaConfig.setSrcChannelInfo({
  <span class="hljs-attr">channelName</span>: <span class="hljs-string">"srcChannel"</span>,
  <span class="hljs-attr">uid</span>: <span class="hljs-number">0</span>,
  <span class="hljs-attr">token</span>: <span class="hljs-string">"yourSrcToken"</span>,
 })
-<span class="hljs-comment">// Set the destination channel information.</span>
-<span class="hljs-comment">// You can set a maximum of four destination channels.</span>
+<span class="hljs-comment">// Set the destination channel information. You can set a maximum of four destination channels.</span>
 channelMediaConfig.addDestChannelInfo({
  <span class="hljs-attr">channelName</span>: <span class="hljs-string">"destChannel1"</span>,
  <span class="hljs-attr">uid</span>: <span class="hljs-number">123</span>,
@@ -122,10 +124,10 @@ channelMediaConfig.addDestChannelInfo({
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`startChannelMediaRelay failed`</span>, e);
 })
 </code></pre>
-<p><strong>Update the relay channels</strong></p>
-<pre><code class="hljs css language-js"><span class="hljs-comment">// Remove a destination channel</span>
+<p><strong>Update the media stream relay configurations</strong></p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Remove a destination channel.</span>
 channelMediaConfig.removeDestChannelInfo(<span class="hljs-string">"destChannel1"</span>)
-<span class="hljs-comment">// Update the configurations of the media relay</span>
+<span class="hljs-comment">// Update the configurations of the media stream relay.</span>
 client.updateChannelMediaRelay(channelMediaConfig).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"updateChannelMediaRelay success"</span>);
 }).catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
@@ -149,7 +151,7 @@ client.updateChannelMediaRelay(channelMediaConfig).then(<span class="hljs-functi
 <ul>
 <li>The Agora Web SDK NG supports relaying media streams to a maximum of four destination channels. To add or delete a destination channel, call <code>updateChannelMediaRelay</code>.</li>
 <li>This feature supports integer user IDs only.</li>
-<li>When setting the source channel information (<code>setSrcChannelInfo</code>), ensure that the setting of <code>uid</code> is different from the UID of the current host and any other user in the source channel. We recommend setting this <code>uid</code> as 0.</li>
+<li>When setting the source channel information (<code>setSrcChannelInfo</code>), ensure that the setting of <code>uid</code> is different from the UID of the current host and any other user in the source channel. Agora recommends setting this <code>uid</code> as <code>0</code>.</li>
 <li>To call <code>startChannelMediaRelay</code> again after it succeeds, you must call <code>stopChannelMediaRelay</code> to quit the current relay.</li>
 </ul>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/AgoraWebSDK-NG/docs/en/multi_user_video"><span class="arrow-prev">← </span><span>Video for 7+ Users</span></a><a class="docs-next button" href="/AgoraWebSDK-NG/docs/en/cdn_streaming"><span>Push Streams to CDN</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#implementation">Implementation</a><ul class="toc-headings"><li><a href="#sample-code">Sample code</a></li><li><a href="#api-reference">API reference</a></li></ul></li><li><a href="#considerations">Considerations</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/" class="nav-home"><img src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/docs/en/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/api/en">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>

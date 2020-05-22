@@ -67,24 +67,22 @@
               }
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Video Stream Fallback</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
-<p>The audio and video quality of a live broadcast or a video call deteriorates under poor network conditions. The Agora Web SDK NG provides API methods for you to enable the video stream fallback. When the network condition goes bad, the SDK automatically switches from the high-quality video stream to low-quality video stream, or disables the video stream to ensure the quality of the audio.</p>
+<p>Unstable network affects the audio and video quality in a video call or a live broadcast. To ensure smooth communication under poor network conditions, Agora supports video stream fallback. When the network condition deteriorates, the SDK automatically switches from the high-quality video stream to the low-quality video stream, or disables the video to ensure the audio quality under extremely poor network conditions.</p>
 <h2><a class="anchor" aria-hidden="true" id="implementation"></a><a href="#implementation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Implementation</h2>
-<p>Before proceeding, ensure that you have implemented the basic real-time communication function in your project. For details, see <a href="/AgoraWebSDK-NG/docs/en/basic_call">Implement a Basic Video Call</a>.</p>
-<p>Follow these steps to enable the video stream fallback:</p>
+<p>Before proceeding, ensure that you have implemented the basic real-time communication functions in your project. For details, see <a href="/AgoraWebSDK-NG/docs/en/basic_call">Implement a Basic Video Call</a>.</p>
+<p>Follow these steps to enable video stream fallback:</p>
 <ol>
-<li>Before publishing their stream, the hosts in the channel call <code>AgoraRTCClient.enableDualStream</code> to enable <a href="https://docs.agora.io/en/Agora%20Platform/terms?platform=All%20Platforms#dual">dual-stream mode</a>.</li>
-<li>All the users in the channel call <code>AgoraRTCClient.setStreamFallbackOption</code> to set the stream fallback option.</li>
+<li>Before publishing the local stream, call <code>AgoraRTCClient.enableDualStream</code> for all the senders in the channel to enable <a href="https://docs.agora.io/en/Agora%20Platform/terms?platform=All%20Platforms#dual-stream">dual-stream mode</a>.</li>
+<li>Call <code>AgoraRTCClient.setStreamFallbackOption</code> to set the stream fallback option for all the receivers in the channel:</li>
 </ol>
 <ul>
-<li>Set <code>fallbackType</code> as <code>1</code>: Automatically subscribe to the low-quality video stream under poor network.</li>
-<li>Set <code>fallbackType</code> as <code>2</code>: Under poor network conditions, the SDK may subscribe to the low-quality video stream first. However, if the network still does not allow displaying the video, the SDK only subscribes to audio.</li>
+<li>Set <code>fallbackType</code> as <code>1</code>: Automatically subscribe to the low-quality video stream under poor network conditions.</li>
+<li>Set <code>fallbackType</code> as <code>2</code>: Subscribe to the low-quality video stream when the network conditions worsen, and subscribe to audio only when the conditions become too poor to support video transmission.</li>
 </ul>
-<ol start="3">
-<li>(Optional) The subscriber in the channel call t<code>setRemoteVideoStreamType</code> method and set <code>streamType</code> as <code>1</code> to only subscribe to the low-quality stream under any conditions.</li>
-</ol>
-<p>You can monitor the stream switch between the stream which includes both audio and video and the audio-only stream by the <code>AgoraRTCClient.on(&quot;stream-fallback&quot;)</code> callback; monitor the switch between the low-quality video stream and high-quality video streams by the <code>AgoraRTCClient.on(&quot;stream-type-changed&quot;)</code> callback.</p>
+<p>Alternatively, after enabling dual-stream mode, you can call <code>AgoraRTCClient.setRemoteVideoStreamType</code> and set <code>streamType</code> as <code>1</code> for the senders to only subscribe to the low-quality stream under any conditions.</p>
+<p>You can monitor the switch between the audio-and-video stream and the audio-only stream by the <code>AgoraRTCClient.on(&quot;stream-fallback&quot;)</code> callback; monitor the switch between the low-quality video stream and high-quality video stream by the <code>AgoraRTCClient.on(&quot;stream-type-changed&quot;)</code> callback.</p>
 <h3><a class="anchor" aria-hidden="true" id="sample-code"></a><a href="#sample-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sample code</h3>
-<p>The <code>client</code> object in the following sample code is created by calling <code>AgoraRTC.createClient</code>.</p>
+<p>In the following sample code, the <code>client</code> object is created by calling <code>AgoraRTC.createClient</code>, and the <code>remoteStream</code> object is obtained in the <code>stream-added</code> event.</p>
 <pre><code class="hljs css language-js"><span class="hljs-comment">// Enable dual-stream mode</span>
 client.enableDualStream().then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Enable dual stream success!"</span>)
@@ -92,10 +90,10 @@ client.enableDualStream().then(<span class="hljs-function"><span class="hljs-par
   <span class="hljs-built_in">console</span>,log(err)
 });
 
-<span class="hljs-comment">// Configuration for the subscriber. Try to receive low-quality stream under poor network conditions. When the current network conditions are not sufficient for video streams, receive audio only.</span>
+<span class="hljs-comment">// Configuration for the receivers. Subscribe to the low-quality video stream when the network conditions worsen, and subscribe to audio only when the conditions become too poor to support video transmission.</span>
 client.setStreamFallbackOption(remoteStream, <span class="hljs-number">2</span>)
 
-<span class="hljs-comment">// Configuration for the subscriber. Subscribe to the low-quality stream under any conditions.</span>
+<span class="hljs-comment">// Configuration for the receivers. Subscribe to the low-quality stream under any conditions.</span>
 client.setRemoteVideoStreamType(remoteStream, <span class="hljs-number">1</span>);
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="api-reference"></a><a href="#api-reference" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API reference</h3>
@@ -108,16 +106,16 @@ client.setRemoteVideoStreamType(remoteStream, <span class="hljs-number">1</span>
 <ul>
 <li><p><code>enableDualStream</code> does not apply to the following scenarios:</p>
 <ul>
-<li>The stream is created by defining the <code>audioSource</code> and `videoSource properties.</li>
-<li>Audio-only mode</li>
-<li>Safari browser on iOS</li>
-<li>Screen-sharing</li>
+<li>The video tracks created by calling <code>createCustomVideoTrack</code>.</li>
+<li>Audio-only mode.</li>
+<li>Safari browser on iOS.</li>
+<li>Screen-sharing.</li>
 </ul></li>
-<li><p>Some web browsers may not be fully compatible with dual streams when calling the <code>setRemoteVideoStreamType</code> method:</p>
+<li><p>When you call <code>setRemoteVideoStreamType</code>, dual streams may not be fully compatible with the following web browsers:</p>
 <ul>
 <li>Safari on macOS: A high-quality stream and a low-quality stream share the same frame rate and resolution.</li>
+<li>Safari on iOS: Safari 11 does not support switching between the low-quality stream and high-quality stream.</li>
 <li>Firefox: A low-quality stream has a fixed frame rate of 30 fps.</li>
-<li>Safari on iOS: Safari 11 does not support switching between the two kinds of video streams.</li>
 </ul></li>
 </ul>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/AgoraWebSDK-NG/docs/en/call_quality"><span class="arrow-prev">← </span><span>In-call Stats</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#implementation">Implementation</a><ul class="toc-headings"><li><a href="#sample-code">Sample code</a></li><li><a href="#api-reference">API reference</a></li></ul></li><li><a href="#considerations">Considerations</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/" class="nav-home"><img src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/docs/en/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/api/en">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>

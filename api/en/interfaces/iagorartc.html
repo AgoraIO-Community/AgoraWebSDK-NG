@@ -102,7 +102,9 @@
 							</ul>
 							<h3>Other Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#checkaudiotrackisactive" class="tsd-kind-icon">check<wbr>Audio<wbr>Track<wbr>IsActive</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#checksystemrequirements" class="tsd-kind-icon">check<wbr>System<wbr>Requirements</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#checkvideotrackisactive" class="tsd-kind-icon">check<wbr>Video<wbr>Track<wbr>IsActive</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#createchannelmediarelayconfiguration" class="tsd-kind-icon">create<wbr>Channel<wbr>Media<wbr>Relay<wbr>Configuration</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#createmicrophoneandcameratracks" class="tsd-kind-icon">create<wbr>Microphone<wbr>And<wbr>Camera<wbr>Tracks</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#getsupportedcodec" class="tsd-kind-icon">get<wbr>Supported<wbr>Codec</a></li>
@@ -767,6 +769,66 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Other Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="checkaudiotrackisactive" class="tsd-anchor"></a>
+					<h3>check<wbr>Audio<wbr>Track<wbr>IsActive</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">check<wbr>Audio<wbr>Track<wbr>IsActive<span class="tsd-signature-symbol">(</span>track<span class="tsd-signature-symbol">: </span><a href="ilocalaudiotrack.html" class="tsd-signature-type">ILocalAudioTrack</a><span class="tsd-signature-symbol"> | </span><a href="iremoteaudiotrack.html" class="tsd-signature-type">IRemoteAudioTrack</a>, timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Check whether an audio track is active.</p>
+								</div>
+								<p>The SDK determines whether an audio track is active by checking whether the volume changes during the specified time frame.</p>
+								<p>Agora recommends calling this method before starting a call to check the availability of the audio sampling device. You can pass the audio track from the audio sampled by a microphone as a parameter in this method to check whether the microphone works properly.</p>
+								<blockquote>
+									<p>Notes:</p>
+									<ul>
+										<li>The check may fail in a quiet environment. Agora suggests you instruct the end user to speak or make some noise when calling this method.</li>
+										<li>If an audio track is muted, this method returns <code>false</code>.</li>
+										<li>Do not call this method frequently as the check may affect web performance.</li>
+									</ul>
+								</blockquote>
+								<pre><code class="language-javascript"><span class="hljs-keyword">const</span> audioTrack = <span class="hljs-keyword">await</span> AgoraRTC.createMicrophoneAudioTrack({ microphoneId });
+AgoraRTC.checkAudioTrackIsActive(audioTrack).then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${ microphoneLabel }</span> is <span class="hljs-subst">${ result ? <span class="hljs-string">"available"</span> : <span class="hljs-string">"unavailable"</span> }</span>`</span>);
+}).catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"check audio track error!"</span>, e);
+});</code></pre>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>track: <a href="ilocalaudiotrack.html" class="tsd-signature-type">ILocalAudioTrack</a><span class="tsd-signature-symbol"> | </span><a href="iremoteaudiotrack.html" class="tsd-signature-type">IRemoteAudioTrack</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The local or remote audio track to be checked.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> timeout: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The time frame (ms) for checking. The default value is 5,000 ms.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Whether the volume in the specified audio track changes during the specified time frame:</p>
+							<ul>
+								<li><code>true</code>: The volume changes. For the microphone audio track, it means the audio sampling device works properly.</li>
+								<li><code>false</code>: The volume does not change. Possible reasons:<ul>
+										<li>The audio sampling device does not work properly.</li>
+										<li>The volume in the customized audio track does not change.</li>
+										<li>The audio track is muted.</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="checksystemrequirements" class="tsd-anchor"></a>
 					<h3>check<wbr>System<wbr>Requirements</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
@@ -786,6 +848,64 @@
 							<ul>
 								<li><code>true</code>: The SDK is compatible with the current web browser.</li>
 								<li><code>false</code>: The SDK is incompatible with the current web browser.</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="checkvideotrackisactive" class="tsd-anchor"></a>
+					<h3>check<wbr>Video<wbr>Track<wbr>IsActive</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">check<wbr>Video<wbr>Track<wbr>IsActive<span class="tsd-signature-symbol">(</span>track<span class="tsd-signature-symbol">: </span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol"> | </span><a href="iremotevideotrack.html" class="tsd-signature-type">IRemoteVideoTrack</a>, timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks whether a video track is active.</p>
+								</div>
+								<p>The SDK determines whether a video track is active by checking for image changes during the specified time frame.</p>
+								<p>Agora recommends calling this method before starting a call to check the availability of the video capture device. You can pass the camera video track as a parameter in this method to check whether the camera works properly.</p>
+								<blockquote>
+									<p>Notes:</p>
+									<ul>
+										<li>If a video track is muted, this method returns <code>false</code>.</li>
+										<li>Do not call this method frequently as the check may affect web performance.</li>
+									</ul>
+								</blockquote>
+								<pre><code class="language-javascript"><span class="hljs-keyword">const</span> videoTrack = <span class="hljs-keyword">await</span> AgoraRTC.createCameraVideoTrack({ cameraId });
+AgoraRTC.checkVideoTrackIsActive(videoTrack).then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${ cameraLabel }</span> is <span class="hljs-subst">${ result ? <span class="hljs-string">"available"</span> : <span class="hljs-string">"unavailable"</span> }</span>`</span>);
+}).catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"check video track error!"</span>, e);
+});</code></pre>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>track: <a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol"> | </span><a href="iremotevideotrack.html" class="tsd-signature-type">IRemoteVideoTrack</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The local or remote video track to be checked.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> timeout: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The time frame (ms) for checking. The default value is 5,000 ms.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Whether the image in the specified video track changes during the specified time frame:</p>
+							<ul>
+								<li><code>true</code>: The image changes. For the camera video track, it means the video capture device works properly.</li>
+								<li><code>false</code>: The image does not change. Possible reasons:<ul>
+										<li>The video capturing device does not work properly or is blocked.</li>
+										<li>The video track is muted.</li>
+									</ul>
+								</li>
 							</ul>
 						</li>
 					</ul>
@@ -918,7 +1038,13 @@ console.log(`</span>Supported audio codec: ${result.audio.join(<span class="hljs
 								<a href="iagorartc.html#onmicrophonechanged" class="tsd-kind-icon">on<wbr>Microphone<wbr>Changed</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="iagorartc.html#checkaudiotrackisactive" class="tsd-kind-icon">check<wbr>Audio<wbr>Track<wbr>IsActive</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartc.html#checksystemrequirements" class="tsd-kind-icon">check<wbr>System<wbr>Requirements</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="iagorartc.html#checkvideotrackisactive" class="tsd-kind-icon">check<wbr>Video<wbr>Track<wbr>IsActive</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartc.html#createbuffersourceaudiotrack" class="tsd-kind-icon">create<wbr>Buffer<wbr>Source<wbr>Audio<wbr>Track</a>
