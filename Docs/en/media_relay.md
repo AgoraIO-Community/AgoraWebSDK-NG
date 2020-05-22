@@ -6,7 +6,7 @@ sidebar_label: Co-host across Channels
 
 ## Introduction
 
-Co-hosting across channels refers to the process where the Agora Web SDK NG relays the media tracks of a host from a live-broadcast channel (source channel) to a maximum of four live-broadcast channels (destination channels). It has the following benefits:
+Co-hosting across channels is the process where the Agora Web SDK NG relays the media tracks of a host from a live-broadcast channel (source channel) to a maximum of four live-broadcast channels (destination channels). It has the following benefits:
 
 - All hosts in the channels can see and hear each other.
 - The audiences in the channels can see and hear all hosts.
@@ -17,7 +17,7 @@ Co-hosting across channels applies to scenarios such as an online singing contes
 
 > To enable media stream relay, contact sales-us@agora.io.
 
-Before proceeding, ensure that you have implemented the basic real-time communication function in your project. For details, see [Implement a Basic Video Call](basic_call.md).
+Before proceeding, ensure that you have implemented the basic real-time communication functions in your project. For details, see [Implement a Basic Video Call](basic_call.md).
 
 The Agora Web SDK NG provides the following methods for co-hosting across channels:
 
@@ -26,8 +26,8 @@ The Agora Web SDK NG provides the following methods for co-hosting across channe
 - `stopChannelMediaRelay`
 
 > API call sequence requirements:
-> Call `startChannelMediaRelay after `AgoraRTCClient.publish` succeeds.
-> Call `updateChannelMediaRelay` after `startChannelMediaRelay` succeeds.
+> - Call `startChannelMediaRelay after `AgoraRTCClient.publish` succeeds.
+> - Call `updateChannelMediaRelay` after `startChannelMediaRelay` succeeds.
 
 During a channel media relay, the SDK reports the states and error codes of the relay with the [`AgoraRTCClient.on("channel-media-relay-state")`](/api/en/interfaces/iagorartcclient.html#event_channel_media_relay_state) callback, and the events of the relay with the [`AgoraRTCClient.on("channel-media-relay-event")`](/api/cn/interfaces/iagorartcclient.html#event_channel_media_relay_event) callback.
 
@@ -43,14 +43,13 @@ The `client` object in the following sample code is created by calling `AgoraRTC
 
 ```js
 const channelMediaConfig = new AgoraRTC.ChannelMediaRelayConfiguration();
-// Set the source channel information
+// Set the source channel information.
 channelMediaConfig.setSrcChannelInfo({
  channelName: "srcChannel",
  uid: 0,
  token: "yourSrcToken",
 })
-// Set the destination channel information.
-// You can set a maximum of four destination channels.
+// Set the destination channel information. You can set a maximum of four destination channels.
 channelMediaConfig.addDestChannelInfo({
  channelName: "destChannel1",
  uid: 123,
@@ -68,12 +67,12 @@ client.startChannelMediaRelay(channelMediaConfig).then(() => {
 })
 ```
 
-**Update the relay channels**
+**Update the media stream relay configurations**
 
 ```js
-// Remove a destination channel
+// Remove a destination channel.
 channelMediaConfig.removeDestChannelInfo("destChannel1")
-// Update the configurations of the media relay
+// Update the configurations of the media stream relay.
 client.updateChannelMediaRelay(channelMediaConfig).then(() => {
   console.log("updateChannelMediaRelay success");
 }).catch(e => {
@@ -99,5 +98,5 @@ client.stopChannelMediaRelay().then(() => {
 
 - The Agora Web SDK NG supports relaying media streams to a maximum of four destination channels. To add or delete a destination channel, call `updateChannelMediaRelay`.
 - This feature supports integer user IDs only.
-- When setting the source channel information (`setSrcChannelInfo`), ensure that the setting of `uid` is different from the UID of the current host and any other user in the source channel. We recommend setting this `uid` as 0.
+- When setting the source channel information (`setSrcChannelInfo`), ensure that the setting of `uid` is different from the UID of the current host and any other user in the source channel. Agora recommends setting this `uid` as `0`.
 - To call `startChannelMediaRelay` again after it succeeds, you must call `stopChannelMediaRelay` to quit the current relay.

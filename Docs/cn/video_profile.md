@@ -5,15 +5,15 @@ sidebar_label: 设置视频编码属性
 ---
 
 ## 功能描述
-你可以根据用户的设备、浏览器、网络状况和实际应用场景设置视频属性，调整视频的清晰度和流畅度，从而获得较高的用户体验。
+你可以根据终端用户的设备、浏览器、网络状况和实际应用场景设置视频属性，调整视频的清晰度和流畅度，从而获得较高的用户体验。
 
 ## 实现方法
 在开始前，请确保已在你的项目中实现基本的实时音视频功能。详见[实现音视频通话](basic_call.md)。
 
 Agora Web SDK NG 提供两种方式设置视频属性：
 - 在调用以下两个方法创建视频轨道时，通过修改这些方法中的 `encoderConfig` 参数设置视频编码属性：
- - [AgoraRTC.createCameraVideoTrack](/api/cn/interfaces/iagorartc.html#createcameravideotrack) 创建摄像头视频轨道
- - [AgoraRTC.createScreenVideoTrack](/api/cn/interfaces/iagorartc.html#createScreenVideoTrack) 创建屏幕共享视频轨道
+  - [AgoraRTC.createCameraVideoTrack](/api/cn/interfaces/iagorartc.html#createcameravideotrack) 创建摄像头视频轨道。
+  - [AgoraRTC.createScreenVideoTrack](/api/cn/interfaces/iagorartc.html#createScreenVideoTrack) 创建屏幕共享视频轨道。
 > 调用 [AgoraRTC.createCustomVideoTrack](/api/cn/interfaces/iagorartc.html#createCustomVideoTrack) 创建自定义视频轨道时，只能设置发送码率，无法设置其他编码属性。
 - 对于摄像头视频轨道，可以调用 [CameraVideoTrack.setEncoderConfiguration](/api/cn/interfaces/icameravideotrack.html#setencoderconfiguration) 动态调整视频属性。在已发布状态也可以调用。
 

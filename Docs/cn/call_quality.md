@@ -5,10 +5,10 @@ sidebar_label: 通话中质量监测
 ---
 
 ## 功能描述
-Agora Web SDK 支持获取以下统计数据来检测通话质量：
+Agora Web SDK NG 支持获取以下统计数据来检测通话质量：
 - 当前会话的统计数据
-- 本地发布轨道的统计数据
-- 远端订阅轨道的统计数据
+- 本地轨道的统计数据
+- 远端轨道的统计数据
 - 本地用户的上下行网络质量相关的统计数据
 - 频道内的异常事件
 
@@ -19,12 +19,12 @@ Agora Web SDK 支持获取以下统计数据来检测通话质量：
 ### 获取当前会话的统计数据
 调用 [AgoraRTCClient.getRTCStats](/api/cn/interfaces/iagorartcclient.html#getrtcstats) 方法获取与当前会话相关的统计数据。数据说明详见 [AgoraRTCStats](/api/cn/interfaces/agorartcstats.html)。
 
-示例代码中的 `client` 是指通过 `AgoraRTC.createClient` 创建的本地客户端对象。
+以下示例代码中的 `client` 是指通过 `AgoraRTC.createClient` 创建的本地客户端对象。
 ```js
 const stats = client.getRTCStats();
 ```
 
-### 获取本地发布音视频的统计数据
+### 获取本地音视频轨道的统计数据
 调用 [LocalAudioTrack.getStats](/api/cn/interfaces/ilocalaudiotrack.html#getstats) 和 [LocalVideoTrack.getStats](/api/cn/interfaces/ilocalvideotrack.html#getstats) 方法获取本地发布的音频轨道和视频轨道的统计数据，数据说明详见 [LocalAudioTrackStats](/api/cn/interfaces/localaudiotrackstats.html) 和 [LocalVideoTrackStats](/api/cn/interfaces/localvideotrackstats.html)。
 
 ```js
@@ -32,7 +32,7 @@ const audioTrackStats = localAudioTrack.getStats();
 const videoTrackStats = localVideoTrack.getStats();
 ```
 
-### 获取远端订阅流的统计数据
+### 获取远端音视频轨道的统计数据
 调用 [RemoteAudioTrack.getStats](/api/cn/interfaces/iremoteaudiotrack.html#getstats) 和 [RemoteVideoTrack.getStats](/api/cn/interfaces/iremotevideotrack.html#getstats) 方法获取订阅的远端音频轨道和视频轨道的统计数据，数据说明详见 [RemoteAudioTrackStats](/api/cn/interfaces/remoteaudiotrackstats.html) 和 [RemoteVideoTrackStats](/api/cn/interfaces/remotevideotrackstats.html)。
 
 ```js
@@ -41,7 +41,7 @@ const videoTrackStats = remoteVideoTrack.getStats();
 ```
 
 ### 获取本地用户的上下行网络质量相关的统计数据
-Agora Web SDK NG 通过 `AgoraRTCClient.on` 中的 [`network-quality`](/api/cn/interfaces/iagorartcclient.html#event_network_quality) 回调向 App 报告本地用户的上下行网络质量。该回调每 2 秒触发，返回的参数包括：
+本地用户加入频道后，SDK 通过 `AgoraRTCClient.on` 中的 [`network-quality`](/api/cn/interfaces/iagorartcclient.html#event_network_quality) 回调向 app 报告本地用户的上下行网络质量。该回调每 2 秒触发，返回的参数包括：
 - `downlinkNetworkQuality`：下行网络质量打分。
 - `uplinkNetworkQuality`：上行网络质量打分。
 
@@ -57,7 +57,7 @@ Agora Web SDK NG 通过 `AgoraRTCClient.on` 中的 [`network-quality`](/api/cn/i
 | 5        | 网络质量非常差，基本不能沟通。                         |
 | 6        | 完全无法沟通。                         |
 
-示例代码中的 `client` 是指通过 `AgoraRTC.createClient` 创建的本地客户端对象。
+以下示例代码中的 `client` 是指通过 `AgoraRTC.createClient` 创建的本地客户端对象。
 
 ``` javascript
 client.on("network-quality", (stats) => {
@@ -72,16 +72,16 @@ Agora Web SDK NG 通过 `AgoraRTCClient.on` 中的 [`exception`](/api/cn/interfa
 - `msg`：提示消息。
 - `uid`：发生异常或恢复的用户 UID。
 
-示例代码中的 `client` 是指通过 `AgoraRTC.createClient` 创建的本地客户端对象
+以下示例代码中的 `client` 是指通过 `AgoraRTC.createClient` 创建的本地客户端对象。
 ``` javascript
 client.on("exception", function(evt) {
   console.log(evt.code, evt.msg, evt.uid);
 })
 ```
 
-每一个异常事件都有对应的恢复事件，详见下表：
+每个异常事件都有对应的恢复事件，详见下表：
 
-![](https://web-cdn.agora.io/docs-files/1547180167044)
+![](assets/exception-event.png)
 
 ## 开发注意事项
 
