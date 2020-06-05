@@ -199,8 +199,8 @@ rtc.localVideoTrack = <span class="hljs-keyword">await</span> AgoraRTC.createCam
     <span class="hljs-built_in">document</span>.body.append(playerContainer);
 
     <span class="hljs-comment">// Play the remote audio and video tracks</span>
-    <span class="hljs-comment">// Pass the ID of the DIV container and the SDK dynamically creates a player in the container for playing the remote video track</span>
-    remoteVideoTrack.play(user.uid);
+    <span class="hljs-comment">// SDK dynamically creates a player in the container for playing the remote video track</span>
+    remoteVideoTrack.play(playerContainer);
   }
 
   <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"audio"</span> || mediaType === <span class="hljs-string">"all"</span>) {

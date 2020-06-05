@@ -192,8 +192,8 @@ rtc.localVideoTrack = <span class="hljs-keyword">await</span> AgoraRTC.createCam
     <span class="hljs-built_in">document</span>.body.append(playerContainer);
 
     <span class="hljs-comment">// 订阅完成，播放远端音视频</span>
-    <span class="hljs-comment">// 传入我们刚刚给 DIV 节点指定的 ID，让 SDK 在这个节点下创建相应的播放器播放远端视频</span>
-    remoteVideoTrack.play(user.uid);
+    <span class="hljs-comment">// 让 SDK 在这个节点下创建相应的播放器播放远端视频</span>
+    remoteVideoTrack.play(playerContainer);
   }
 
   <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"audio"</span> || mediaType === <span class="hljs-string">"all"</span>) {
