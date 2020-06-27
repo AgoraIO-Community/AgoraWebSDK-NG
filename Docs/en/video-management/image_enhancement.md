@@ -8,7 +8,7 @@ sidebar_label: Image Enhancement
 
 Agora provides an image enhancement API for users in social and entertainment scenarios to improve their appearance in video calls or live broadcasts. With this API, users can adjust settings such as the image contrast, brightness, sharpness, and red saturation, as shown in the following figure:
 
-![](assets/image_enhancement_en.jpeg)
+![](assets-en/image_enhancement_en.jpeg)
 
 ## Implementation
 

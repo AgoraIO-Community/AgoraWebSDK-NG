@@ -79,7 +79,7 @@ client.join("<YOUR TOKEN>", "<YOUR CHANNEL>").then(() => {
 
 The following figure shows the working principles of the Agora cloud proxy.
 
-![](assets/cloud-proxy-en.jpeg)
+![](assets-en/cloud-proxy-en.jpeg)
 
 1. Before connecting to Agora SD-RTN™, the SDK sends the request to the cloud proxy.
 2. The cloud proxy sends back the proxy information.

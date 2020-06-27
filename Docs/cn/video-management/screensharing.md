@@ -83,7 +83,7 @@ AgoraRTC.createScreenVideoTrack({
 
 调用后 SDK 会提供自带的默认界面让用户选择要共享的屏幕或窗口，如下图所示：
 
-![](assets/electron.png)
+![](assets-cn/electron.png)
 
 ### 自定义界面
 如果你需要自定义选择界面，参考以下步骤：
@@ -95,7 +95,7 @@ AgoraRTC.getElectronScreenSources().then(sources => {
 ```
 `sources` 是一个 `source` 对象的列表，`source` 里包含了分享源的信息和 `sourceId`，`source` 的属性如下：
 
-![](assets/sources.png)
+![](assets-cn/sources.png)
 
 - `id`： 即 `sourceId`
 - `name`：屏幕源的名字
@@ -103,7 +103,7 @@ AgoraRTC.getElectronScreenSources().then(sources => {
 
 2. 根据 `source` 的属性，（用 html 和 css）绘制选择界面，让用户选择要共享的屏幕源。`source` 的属性与屏幕共享的选择界面对应关系如下：
 
-![](assets/electron2.jpeg)
+![](assets-cn/electron2.jpeg)
 
 3. 获取用户选择的 `sourceId`。
 4. 调用  [createScreenVideoTrack](/api/cn/interfaces/iagorartc.html#createscreenvideotrack) 时将 `sourceId` 填入 `electronScreenSourceId`，就能创建相应的屏幕共享流了。
@@ -163,7 +163,7 @@ Promise.all([startScreenCall(), startVideoCall()]).then(() => { /** ... **/ });
 
 自己订阅自己，会产生额外的计费，如图：
 
-![](assets/subscribe_screen.png)
+![](assets-cn/subscribe_screen.png)
 
 Agora 建议，为避免重复计费，每个 Client 成功加入频道以后，把返回的 uid 存在列表里。每次监听到 `user-published` 事件的时候，先判断该轨道是否为本地轨道，如果是，则不订阅。
 

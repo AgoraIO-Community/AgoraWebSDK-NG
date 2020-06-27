@@ -10,7 +10,7 @@ sidebar_label: 美颜
 
 具体效果可参考下图：
 
-![美颜示例](assets/image_enhancement.jpeg)
+![美颜示例](assets-cn/image_enhancement.jpeg)
 
 ## 实现方法
 

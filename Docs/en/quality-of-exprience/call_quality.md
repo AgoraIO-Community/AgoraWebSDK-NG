@@ -82,7 +82,7 @@ client.on("exception", function(evt) {
 
 Each exception event has a corresponding recovery event. See the table below for details.
 
-![](assets/exception-event-en.png)
+![](assets-en/exception-event-en.png)
 
 ## Considerations
 All the above methods must be called after joining the channel.

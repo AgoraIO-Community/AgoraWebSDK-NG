@@ -29,7 +29,7 @@ console.log("create audio file track success");
 使用音频文件创建轨道后，如果直接调用 `audioFileTrack.play()` 或者 `client.publish([audioFileTrack])`，你会发现无论是本地还是远端都无法听到音乐声。这是因为通过音频文件创建的音频轨道在音频数据的处理流程上和麦克风音频轨道 (`MicrophoneAudioTrack`) 不同。
 
 **MicrophoneAudioTrack**
-![](assets/microphone_audio_track.png)
+![](assets-cn/microphone_audio_track.png)
 
 对于麦克风音频轨道来说，SDK 会源源不断地从目标麦克风设备中采集最新的音频数据（`AudioBuffer`）。
 
@@ -39,7 +39,7 @@ console.log("create audio file track success");
 一旦麦克风音频轨道被创建，采集操作就会持续进行，直到调用 `close()` 方法才会停止，此时音频轨道也将不再可用。
 
 **BufferSourceAudioTrack**
-![](assets/buffer_source_audio_track.png)
+![](assets-cn/buffer_source_audio_track.png)
 
 对于音频文件来说，SDK 无法采集音频数据，只能通过读取文件达到类似的效果，也就是上图的 `processing` 过程。
 

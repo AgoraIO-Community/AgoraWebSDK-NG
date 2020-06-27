@@ -9,13 +9,13 @@ sidebar_label: 推流到 CDN
 
 在推流到 CDN 过程中，当频道中有多个主播时，通常会涉及到[转码](https://docs.agora.io/cn/Agora%20Platform/terms?platform=All%20Platforms#%E8%BD%AC%E7%A0%81)，将多个直播流组合成单个流，并设置这个流的音视频属性和合图布局。
 
-![](assets/cdn_streaming.png)
+![](assets-cn/cdn_streaming.png)
 
 ## 前提条件
 请确保已开通 CDN 旁路推流功能，步骤如下：
-1. 登录[控制台](https://console.agora.io)，点击左侧导航栏 ![img](assets/usage.jpeg) 按钮进入**产品用量**页面。
+1. 登录[控制台](https://console.agora.io)，点击左侧导航栏 ![img](assets-cn/usage.jpeg) 按钮进入**产品用量**页面。
 2. 在页面左上角展开下拉列表选择需要开通 CDN 旁路推流的项目，然后点击旁路推流下的**分钟数**。
-![](assets/enable_cdn_streaming.png)
+![](assets-cn/enable_cdn_streaming.png)
 3. 点击**开启旁路推流服务**。
 4. 点击**应用**即可开通旁路推流服务，并得到 500 个最大并发频道数。
 
