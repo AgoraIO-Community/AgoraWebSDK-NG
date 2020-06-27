@@ -16,7 +16,7 @@ Agora recommends you read through [Changes in SDK behaviors and API methods](#ch
 - Read the [advanced guides](screensharing.md) for an advanced feature, such as sharing the screen and pushing streams to CDN.
 - Read the [API reference](api/en/). Search for a specific API by API name to see the function signature.
 
-![](assets/doc_search.png)
+![](assets-en/doc_search.png)
 
 > The Agora Web SDK NG **does not allow backward compatibility**, which means migration may take enormous efforts. Since we replace all callbacks with `Promise` in the Agora Web SDK NG, you need to change the implementation of more than 70% of the API methods. You also need to pay attention to the changes in infrastructure and logic.
 

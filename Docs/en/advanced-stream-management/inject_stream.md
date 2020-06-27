@@ -13,7 +13,7 @@ Injecting an online media stream is the action of adding an external audio or vi
 
 ### Working principles
 
-![](assets/inject-online-media-stream-en.png)
+![](assets-en/inject-online-media-stream-en.png)
 
 The host in a live-broadcast channel pulls an online media stream and pushes it through the Video Inject Server to the Agora SD-RTN™ and the channel.
 

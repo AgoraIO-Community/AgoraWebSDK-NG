@@ -16,7 +16,7 @@ sidebar_label: 迁移指南
 - 在迁移某一个具体功能（如屏幕共享、推流到 CDN）时，阅读 Agora Web SDK NG 文档站上提供的[进阶功能](screensharing.md)。
 - 阅读 Agora Web SDK NG 的 [API 文档](api/cn/)，使用 API 文档右上角的搜索功能，搜索 API 名称查看该 API 在 Agora Web SDK NG 中的具体函数签名。
 
-![](assets/doc_search.png)
+![](assets-cn/doc_search.png)
 
 > Agora Web SDK NG 是一个**不向下兼容**的版本，这意味着迁移的过程可能不会那么顺利。由于我们移除了所有回调转而使用 `Promise`，70% 以上的 API 都需要手动修改。此外你还需注意一些架构及逻辑层面的改动。因此，与其说是迁移，不如说是从头重新集成 Agora Web SDK NG。
 

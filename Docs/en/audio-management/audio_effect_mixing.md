@@ -31,7 +31,7 @@ console.log("create audio file track success");
 If you call `audioFileTrack.play()` or `client.publish([audioFileTrack])` immediately after creating the audio track, your users will not hear anything. This is because the SDK processes the audio track created from an audio file differently from the microphone audio track (`MicrophoneAudioTrack`).
 
 **MicrophoneAudioTrack**
-![](assets/microphone_audio_track.png)
+![](assets-en/microphone_audio_track-en.png)
 
 For the microphone audio track, the SDK keeps sampling the latest audio data (`AudioBuffer`) from the microphone.
 
@@ -41,7 +41,7 @@ For the microphone audio track, the SDK keeps sampling the latest audio data (`A
 Once the microphone audio track is created, the sampling continues until `close()` is called, and then the audio track becomes unavailable.
 
 **BufferSourceAudioTrack**
-![](assets/buffer_source_audio_track.png)
+![](assets-en/buffer_source_audio_track-en.png)
 
 For an audio file, the SDK cannot sample the audio data directly, and instead reads the file to achieve similar effects, such as the `processing` phase in the previous figure.
 

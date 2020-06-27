@@ -70,7 +70,7 @@ AgoraRTC.createScreenVideoTrack({
 > - For the audio sharing to take effect, the user must check **Share audio** on the pop-up window when sharing a screen.
 > - Audio sharing is disabled when the user shares a single application window.
 
-![](assets/screenaudio_en.png)
+![](assets-en/screenaudio_en.png)
 
 ## Screen sharing on Electron
 
@@ -89,7 +89,7 @@ AgoraRTC.createScreenVideoTrack({
 
 The default UI for screen source selection is as follows:
 
-![](assets/electron-en.png)
+![](assets-en/electron-en.png)
 
 ### Customize the UI
 Follow these steps to customize the UI for screen source selection:
@@ -101,7 +101,7 @@ AgoraRTC.getElectronScreenSources().then(sources => {
 ```
   The `sources` parameter is an array of the `source` objects. A `source` object contains the following properties of the screen source:
 
-![](assets/source-en.png)
+![](assets-en/source-en.png)
 
   - `id`: The `sourceId`.
   - `name`: The name of the screen source.
@@ -109,7 +109,7 @@ AgoraRTC.getElectronScreenSources().then(sources => {
 
 2. Based on the properties of `source`, draw the UI (by HTML and CSS) for selecting the screen source to share. The following figure shows the properties' corresponding elements on the UI for screen source selection:
 
-![](assets/electron2-en.jpeg)
+![](assets-en/electron2-en.jpeg)
 
 3. Get the `sourceId` of the source selected by the user.
 4. Set `sourceId` when creating the video track for screen sharing.
@@ -171,7 +171,7 @@ Promise.all([startScreenCall(), startVideoCall()]).then(() => { /** ... **/ });
 
 If two clients of a host subscribe to each other, extra charges incur.
 
-![](assets/subscribe_screen-en.png)
+![](assets-en/subscribe_screen-en.png)
 
 Agora recommends that you save the returned uid when each client joins the channel. When the `user-published` event occurs, first check if the joined client is a local stream, if yes, do not subscribe to the client.
 

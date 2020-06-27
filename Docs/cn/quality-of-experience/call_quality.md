@@ -81,7 +81,7 @@ client.on("exception", function(evt) {
 
 每个异常事件都有对应的恢复事件，详见下表：
 
-![](assets/exception-event.png)
+![](assets-cn/exception-event.png)
 
 ## 开发注意事项
 

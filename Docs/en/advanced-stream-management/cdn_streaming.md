@@ -10,14 +10,14 @@ The process of publishing streams into the CDN (Content Delivery Network) is cal
 
 When multiple hosts are in a channel in CDN live streaming, [transcoding](https://docs.agora.io/en/Agora%20Platform/terms?platform=All%20Platforms#%E8%BD%AC%E7%A0%81) is used to combine the streams of all the hosts into a single stream. Transcoding sets the audio/video profiles and the picture-in-picture layout for the stream to be pushed to the CDN.
 
-![](assets/cdn_streaming-en.png)
+![](assets-en/cdn_streaming-en.png)
 
 ## Prerequisites
 Ensure that you enable the RTMP Converter service before using this function.
 
-1. Log in to [Console](https://console.agora.io), and click ![img](assets/usage.jpeg) in the left navigation menu to go to the **Products & Usage** page.
+1. Log in to [Console](https://console.agora.io), and click ![img](assets-en/usage-en.jpeg) in the left navigation menu to go to the **Products & Usage** page.
 2. Select a project from the drop-down list in the upper-left corner, and click **Duration** under RTMP Converter.
-![](assets/enable_cdn_streaming-en.png)
+![](assets-en/enable_cdn_streaming-en.png)
 3. Click **Enable RTMP Converter**.
 4. Click **Apply** to enable the RTMP Converter service and get 500 max concurrent channels.
 
