@@ -70,7 +70,7 @@ $("#audio-mixing").click(function (e) {
 
 $("#audio-effect").click(async function (e) {
   // play the audio effect
-  await playEffect(1, { source: "audio.mp3" });
+  await playEffect(1, { source: "biu.mp3", cacheOnlineFile: true });
   console.log("play audio effect success");
 })
 
