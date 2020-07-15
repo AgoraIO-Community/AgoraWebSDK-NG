@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>跨直播间连麦 · Agora Web SDK NG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## 功能描述"/><meta name="docsearch:language" content="zh-CN"/><meta property="og:title" content="跨直播间连麦 · Agora Web SDK NG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://agoraio-community.github.io/AgoraWebSDK-NG/"/><meta property="og:description" content="## 功能描述"/><meta property="og:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/AgoraWebSDK-NG/0.1.9/img/favicon.ico"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/AgoraWebSDK-NG/0.1.9/js/code-block-buttons.js"></script><script src="/AgoraWebSDK-NG/0.1.9/js/scrollSpy.js"></script><link rel="stylesheet" href="/AgoraWebSDK-NG/0.1.9/css/main.css"/><script src="/AgoraWebSDK-NG/0.1.9/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/AgoraWebSDK-NG/0.1.9/zh-CN"><img class="logo" src="/AgoraWebSDK-NG/0.1.9/img/logo.png" alt="Agora Web SDK NG"/><h2 class="headerTitleWithLogo">Agora Web SDK NG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/overview" target="_self">文档</a></li><li class=""><a href="/AgoraWebSDK-NG/0.1.9/api/en" target="_self">API</a></li><li class=""><a href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/migration_guide" target="_self">迁移文档</a></li><li class=""><a href="/AgoraWebSDK-NG/0.1.9/demo" target="_self">Demos</a></li><li class=""><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" target="_self">Github</a></li><li class=""><a href="https://agoraio-community.github.io/AgoraWebSDK-NG/versions" target="_self">版本</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/AgoraWebSDK-NG/0.1.9/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/AgoraWebSDK-NG/0.1.9/docs/en/media_relay">English</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>高级媒体流管理</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">入门</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/overview">概览</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/setup">集成 SDK</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/basic_call">实现基本通话</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">音频管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/volume">调整通话音量</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/audio_profile">设置音频属性</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/audio_effect_mixing">播放音效/混音</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/custom_audio">自定义音频采集</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">视频管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/video_profile">设置视频属性</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/image_enhancement">美颜</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/screensharing">屏幕共享</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/custom_video">自定义视频采集</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">高级媒体流管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/multi_user_video">七人以上视频场景</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/media_relay">跨直播间连麦</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/cdn_streaming">推流到 CDN</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/inject_stream">输入在线媒体流</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/cloud_proxy">使用云代理</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/channel_encryption">媒体流加密</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">设备管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/test_switch_device">音视频设备测试/切换</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">体验提升</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/call_quality">通话中质量监测</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/stream_fallback">视频流回退</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">跨直播间连麦</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="功能描述"></a><a href="#功能描述" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>功能描述</h2>
+<p>跨直播间连麦，指 SDK 将源频道内主播的媒体流同时转发进多个目标频道，实现主播跨频道与其他主播进行实时互动的场景。其中：</p>
+<ul>
+<li>频道中的所有主播可以看见彼此，并听到彼此的声音。</li>
+<li>频道中的观众可以看到所有主播，并听到主播的声音。</li>
+</ul>
+<p>该功能因其实时性和互动性，尤其适用于连麦 PK、在线合唱等直播场景，在增加直播趣味的同时，有效吸粉。</p>
+<h2><a class="anchor" aria-hidden="true" id="实现方法"></a><a href="#实现方法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>实现方法</h2>
+<blockquote>
+<p>跨频道连麦功能需要联系 <a href="mailto:sales@agora.io">sales@agora.io</a> 开通。</p>
+</blockquote>
+<p>在开始前，请确保已在你的项目中实现基本的实时音视频功能。详见<a href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/basic_call">实现音视频通话</a>。</p>
+<p>Agora Web SDK NG 提供如下跨频道媒体流转发接口，支持将源频道中的媒体流转发至最多 4 个目标频道，实现跨直播间连麦功能：</p>
+<ul>
+<li><code>startChannelMediaRelay</code></li>
+<li><code>updateChannelMediaRelay</code></li>
+<li><code>stopChannelMediaRelay</code></li>
+</ul>
+<blockquote>
+<p>API 调用顺序要求：</p>
+<ul>
+<li><code>startChannelMediaRelay</code> 方法必须在调用 <code>AgoraRTCClient.publish</code> 发布之后调用。</li>
+<li><code>updateChannelMediaRelay</code> 方法必须在 <code>startChannelMediaRelay</code> 后调用。</li>
+</ul>
+</blockquote>
+<p>在跨频道媒体流转发过程中，SDK 会通过 <a href="/AgoraWebSDK-NG/0.1.9/api/cn/interfaces/iagorartcclient.html#event_channel_media_relay_state"><code>AgoraRTCClient.on(&quot;channel-media-relay-state&quot;)</code></a> 回调报告媒体流转发的状态码 <code>state</code> 和错误码 <code>code</code>， 通过 <a href="/AgoraWebSDK-NG/0.1.9/api/cn/interfaces/iagorartcclient.html#event_channel_media_relay_event"><code>AgoraRTCClient.on(&quot;channel-media-relay-event&quot;)</code></a> 回调报告媒体流转发的事件码。</p>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>一个频道内可以有多个主播转发媒体流。哪个主播调用 <code>startChannelMediaRelay</code> 方法，SDK 就转发哪个主播的流。</li>
+<li>调用 <code>startChannelMediaRelay</code> 或 <code>updateChannelMediaRelay</code> 成功跨频道连麦后，目标频道的用户会收到 <code>AgoraRTCClient.on(&quot;user-published&quot;)</code> 回调。</li>
+<li>跨频道连麦中，如果目标频道的主播掉线或离开频道，源频道的主播会收到 <code>AgoraRTCClient.on(&quot;user-left&quot;)</code> 回调。</li>
+</ul>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="示例代码"></a><a href="#示例代码" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>示例代码</h3>
+<p>以下示例代码中的 <code>client</code> 是指通过 <code>AgoraRTC.createClient</code> 创建的本地客户端对象。</p>
+<p><strong>配置跨频道媒体流转发</strong></p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> channelMediaConfig = <span class="hljs-keyword">new</span> AgoraRTC.ChannelMediaRelayConfiguration();
+<span class="hljs-comment">// 设置源频道信息</span>
+channelMediaConfig.setSrcChannelInfo({
+ <span class="hljs-attr">channelName</span>: <span class="hljs-string">"srcChannel"</span>,
+ <span class="hljs-attr">uid</span>: <span class="hljs-number">0</span>,
+ <span class="hljs-attr">token</span>: <span class="hljs-string">"yourSrcToken"</span>,
+})
+<span class="hljs-comment">// 设置目标频道信息，可多次调用，最多设置 4 个目标频道。</span>
+channelMediaConfig.addDestChannelInfo({
+ <span class="hljs-attr">channelName</span>: <span class="hljs-string">"destChannel1"</span>,
+ <span class="hljs-attr">uid</span>: <span class="hljs-number">123</span>,
+ <span class="hljs-attr">token</span>: <span class="hljs-string">"yourDestToken"</span>,
+})
+</code></pre>
+<p><strong>开始跨频道媒体流转发</strong></p>
+<pre><code class="hljs css language-js">client.startChannelMediaRelay(channelMediaConfig).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`startChannelMediaRelay success`</span>);
+}).catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`startChannelMediaRelay failed`</span>, e);
+})
+</code></pre>
+<p><strong>更新媒体流转发频道</strong></p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 删除一个目标频道。</span>
+channelMediaConfig.removeDestChannelInfo(<span class="hljs-string">"destChannel1"</span>)
+<span class="hljs-comment">// 更新跨频道媒体流转发设置。</span>
+client.updateChannelMediaRelay(channelMediaConfig).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"updateChannelMediaRelay success"</span>);
+}).catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"updateChannelMediaRelay failed"</span>, e);
+})
+</code></pre>
+<p><strong>停止跨频道媒体流转发</strong></p>
+<pre><code class="hljs css language-js">client.stopChannelMediaRelay().then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"stop media relay success"</span>);
+}).catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"stop media relay failed"</span>, e);
+})
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="api-参考"></a><a href="#api-参考" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API 参考</h3>
+<ul>
+<li><a href="/AgoraWebSDK-NG/0.1.9/api/cn/interfaces/iagorartcclient.html#startchannelmediarelay">startChannelMediaRelay</a></li>
+<li><a href="/AgoraWebSDK-NG/0.1.9/api/cn/interfaces/iagorartcclient.html#updatechannelmediarelay">updateChannelMediaRelay</a></li>
+<li><a href="/AgoraWebSDK-NG/0.1.9/api/cn/interfaces/iagorartcclient.html#stopchannelmediarelay">stopChannelMediaRelay</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="开发注意事项"></a><a href="#开发注意事项" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>开发注意事项</h2>
+<ul>
+<li>该功能最多支持将媒体流转发至 4 个目标频道。转发过程中，如果想添加或删除目标频道，可以调用 <code>updateChannelMediaRelay</code> 方法。</li>
+<li>该功能不支持 String 型用户名。</li>
+<li>在设置源频道信息（<code>setSrcChannelInfo</code>）时，请确保 <code>uid</code> 设置与当前主播的 UID 不同。我们建议将这里的 <code>uid</code> 设置为 <code>0</code>，由服务器随机分配。</li>
+<li>在成功调用 <code>startChannelMediaRelay</code> 方法后，如果想再次调用该方法，必须先调用 <code>stopChannelMediaRelay</code> 方法退出当前的转发状态。</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/multi_user_video"><span class="arrow-prev">← </span><span>七人以上视频场景</span></a><a class="docs-next button" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/cdn_streaming"><span>推流到 CDN</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#功能描述">功能描述</a></li><li><a href="#实现方法">实现方法</a><ul class="toc-headings"><li><a href="#示例代码">示例代码</a></li><li><a href="#api-参考">API 参考</a></li></ul></li><li><a href="#开发注意事项">开发注意事项</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/0.1.9/" class="nav-home"><img src="/AgoraWebSDK-NG/0.1.9/img/logo.png" alt="Agora Web SDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/0.1.9/api/cn">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/0.1.9/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>

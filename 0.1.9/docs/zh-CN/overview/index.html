@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Agora Web SDK NG 概述 · Agora Web SDK NG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## 简介"/><meta name="docsearch:language" content="zh-CN"/><meta property="og:title" content="Agora Web SDK NG 概述 · Agora Web SDK NG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://agoraio-community.github.io/AgoraWebSDK-NG/"/><meta property="og:description" content="## 简介"/><meta property="og:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/AgoraWebSDK-NG/0.1.9/img/favicon.ico"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/AgoraWebSDK-NG/0.1.9/js/code-block-buttons.js"></script><script src="/AgoraWebSDK-NG/0.1.9/js/scrollSpy.js"></script><link rel="stylesheet" href="/AgoraWebSDK-NG/0.1.9/css/main.css"/><script src="/AgoraWebSDK-NG/0.1.9/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/AgoraWebSDK-NG/0.1.9/zh-CN"><img class="logo" src="/AgoraWebSDK-NG/0.1.9/img/logo.png" alt="Agora Web SDK NG"/><h2 class="headerTitleWithLogo">Agora Web SDK NG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive siteNavItemActive"><a href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/overview" target="_self">文档</a></li><li class=""><a href="/AgoraWebSDK-NG/0.1.9/api/en" target="_self">API</a></li><li class=""><a href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/migration_guide" target="_self">迁移文档</a></li><li class=""><a href="/AgoraWebSDK-NG/0.1.9/demo" target="_self">Demos</a></li><li class=""><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" target="_self">Github</a></li><li class=""><a href="https://agoraio-community.github.io/AgoraWebSDK-NG/versions" target="_self">版本</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/AgoraWebSDK-NG/0.1.9/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/AgoraWebSDK-NG/0.1.9/docs/en/overview">English</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>入门</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">入门</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/overview">概览</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/setup">集成 SDK</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/basic_call">实现基本通话</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">音频管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/volume">调整通话音量</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/audio_profile">设置音频属性</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/audio_effect_mixing">播放音效/混音</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/custom_audio">自定义音频采集</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">视频管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/video_profile">设置视频属性</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/image_enhancement">美颜</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/screensharing">屏幕共享</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/custom_video">自定义视频采集</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">高级媒体流管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/multi_user_video">七人以上视频场景</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/media_relay">跨直播间连麦</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/cdn_streaming">推流到 CDN</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/inject_stream">输入在线媒体流</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/cloud_proxy">使用云代理</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/channel_encryption">媒体流加密</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">设备管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/test_switch_device">音视频设备测试/切换</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">体验提升</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/call_quality">通话中质量监测</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/stream_fallback">视频流回退</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Agora Web SDK NG 概述</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="简介"></a><a href="#简介" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>简介</h2>
+<p>Agora Web SDK NG 是基于 <a href="https://docs.agora.io/cn/Video/start_call_web?platform=Web">Agora Web SDK</a> 开发的下一代 SDK，能实现基于 Agora SD-RTN™ 的实时音视频通信功能，支持语音通话、视频通话、音频互动直播、视频互动直播等场景。Agora Web SDK NG 是一个全量重构的版本，主要针对 API 的易用性和内部架构做了较大的调整。</p>
+<p>如果你之前没有接触过 Agora Web SDK 相关的产品，Agora Web SDK NG 将会成为一个很好的起点。如果你之前接触过 Agora Web SDK，请注意 Agora Web SDK NG 在使用和开发步骤上和原先的 SDK 有较大的不同。最明显的不同之处在于，Agora Web SDK NG 删除了原来的 <code>Stream</code> 对象，通过 <code>LocalTrack</code> 和 <code>RemoteTrack</code> 对象来控制媒体流。</p>
+<p>如果你是 Agora Web SDK 用户，希望迁移到 Agora Web SDK NG，请参考<a href="./migration_guide">迁移指南</a>。</p>
+<h2><a class="anchor" aria-hidden="true" id="浏览器兼容性"></a><a href="#浏览器兼容性" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>浏览器兼容性</h2>
+<p>Agora Web SDK NG 兼容大部分主流浏览器，如下表所示：</p>
+<table>
+<thead>
+<tr><th>平台</th><th>Chrome 58+</th><th>Firefox 56+</th><th>Safari 11+</th><th>Opera 45+</th><th>QQ 浏览器最新版</th><th>360 安全浏览器</th><th>微信浏览器</th></tr>
+</thead>
+<tbody>
+<tr><td>Android 4.1+</td><td>✔</td><td>✘</td><td>N/A</td><td>✘</td><td>✘</td><td>✘</td><td>✘</td></tr>
+<tr><td>iOS 11+</td><td>✘</td><td>✘</td><td>✔</td><td>✘</td><td>✘</td><td>✘</td><td>✘</td></tr>
+<tr><td>macOS 10+</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td><td>✘</td></tr>
+<tr><td>Windows 7+</td><td>✔</td><td>✔</td><td>N/A</td><td>✔</td><td>✔</td><td>✔</td><td>✘</td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/setup"><span>集成 SDK</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#简介">简介</a></li><li><a href="#浏览器兼容性">浏览器兼容性</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/0.1.9/" class="nav-home"><img src="/AgoraWebSDK-NG/0.1.9/img/logo.png" alt="Agora Web SDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/0.1.9/api/cn">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/0.1.9/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>

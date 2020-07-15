@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>通话中质量监测 · Agora Web SDK NG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## 功能描述"/><meta name="docsearch:language" content="zh-CN"/><meta property="og:title" content="通话中质量监测 · Agora Web SDK NG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://agoraio-community.github.io/AgoraWebSDK-NG/"/><meta property="og:description" content="## 功能描述"/><meta property="og:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/AgoraWebSDK-NG/0.1.9/img/favicon.ico"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/AgoraWebSDK-NG/0.1.9/js/code-block-buttons.js"></script><script src="/AgoraWebSDK-NG/0.1.9/js/scrollSpy.js"></script><link rel="stylesheet" href="/AgoraWebSDK-NG/0.1.9/css/main.css"/><script src="/AgoraWebSDK-NG/0.1.9/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/AgoraWebSDK-NG/0.1.9/zh-CN"><img class="logo" src="/AgoraWebSDK-NG/0.1.9/img/logo.png" alt="Agora Web SDK NG"/><h2 class="headerTitleWithLogo">Agora Web SDK NG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/overview" target="_self">文档</a></li><li class=""><a href="/AgoraWebSDK-NG/0.1.9/api/en" target="_self">API</a></li><li class=""><a href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/migration_guide" target="_self">迁移文档</a></li><li class=""><a href="/AgoraWebSDK-NG/0.1.9/demo" target="_self">Demos</a></li><li class=""><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" target="_self">Github</a></li><li class=""><a href="https://agoraio-community.github.io/AgoraWebSDK-NG/versions" target="_self">版本</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/AgoraWebSDK-NG/0.1.9/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/AgoraWebSDK-NG/0.1.9/docs/en/call_quality">English</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>体验提升</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">入门</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/overview">概览</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/setup">集成 SDK</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/basic_call">实现基本通话</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">音频管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/volume">调整通话音量</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/audio_profile">设置音频属性</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/audio_effect_mixing">播放音效/混音</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/custom_audio">自定义音频采集</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">视频管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/video_profile">设置视频属性</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/image_enhancement">美颜</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/screensharing">屏幕共享</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/custom_video">自定义视频采集</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">高级媒体流管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/multi_user_video">七人以上视频场景</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/media_relay">跨直播间连麦</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/cdn_streaming">推流到 CDN</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/inject_stream">输入在线媒体流</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/cloud_proxy">使用云代理</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/channel_encryption">媒体流加密</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">设备管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/test_switch_device">音视频设备测试/切换</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">体验提升</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/call_quality">通话中质量监测</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/stream_fallback">视频流回退</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">通话中质量监测</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="功能描述"></a><a href="#功能描述" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>功能描述</h2>
+<p>Agora Web SDK NG 支持获取以下统计数据来检测通话质量：</p>
+<ul>
+<li>当前会话的统计数据</li>
+<li>本地轨道的统计数据</li>
+<li>远端轨道的统计数据</li>
+<li>本地用户的上下行网络质量相关的统计数据</li>
+<li>频道内的异常事件</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="实现方法"></a><a href="#实现方法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>实现方法</h2>
+<p>在开始前，请确保已在你的项目中实现基本的实时音视频功能。详见<a href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/basic_call">实现音视频通话</a>。</p>
+<h3><a class="anchor" aria-hidden="true" id="获取当前会话的统计数据"></a><a href="#获取当前会话的统计数据" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>获取当前会话的统计数据</h3>
+<p>调用 <a href="/AgoraWebSDK-NG/0.1.9/api/cn/interfaces/iagorartcclient.html#getrtcstats">AgoraRTCClient.getRTCStats</a> 方法获取与当前会话相关的统计数据。数据说明详见 <a href="/AgoraWebSDK-NG/0.1.9/api/cn/interfaces/agorartcstats.html">AgoraRTCStats</a>。</p>
+<p>以下示例代码中的 <code>client</code> 是指通过 <code>AgoraRTC.createClient</code> 创建的本地客户端对象。</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> stats = client.getRTCStats();
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="获取本地音视频轨道的统计数据"></a><a href="#获取本地音视频轨道的统计数据" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>获取本地音视频轨道的统计数据</h3>
+<p>调用 <a href="/AgoraWebSDK-NG/0.1.9/api/cn/interfaces/ilocalaudiotrack.html#getstats">LocalAudioTrack.getStats</a> 和 <a href="/AgoraWebSDK-NG/0.1.9/api/cn/interfaces/ilocalvideotrack.html#getstats">LocalVideoTrack.getStats</a> 方法获取本地发布的音频轨道和视频轨道的统计数据，数据说明详见 <a href="/AgoraWebSDK-NG/0.1.9/api/cn/interfaces/localaudiotrackstats.html">LocalAudioTrackStats</a> 和 <a href="/AgoraWebSDK-NG/0.1.9/api/cn/interfaces/localvideotrackstats.html">LocalVideoTrackStats</a>。</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> audioTrackStats = localAudioTrack.getStats();
+<span class="hljs-keyword">const</span> videoTrackStats = localVideoTrack.getStats();
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="获取远端音视频轨道的统计数据"></a><a href="#获取远端音视频轨道的统计数据" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>获取远端音视频轨道的统计数据</h3>
+<p>调用 <a href="/AgoraWebSDK-NG/0.1.9/api/cn/interfaces/iremoteaudiotrack.html#getstats">RemoteAudioTrack.getStats</a> 和 <a href="/AgoraWebSDK-NG/0.1.9/api/cn/interfaces/iremotevideotrack.html#getstats">RemoteVideoTrack.getStats</a> 方法获取订阅的远端音频轨道和视频轨道的统计数据，数据说明详见 <a href="/AgoraWebSDK-NG/0.1.9/api/cn/interfaces/remoteaudiotrackstats.html">RemoteAudioTrackStats</a> 和 <a href="/AgoraWebSDK-NG/0.1.9/api/cn/interfaces/remotevideotrackstats.html">RemoteVideoTrackStats</a>。</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> audioTrackStats = remoteAudioTrack.getStats();
+<span class="hljs-keyword">const</span> videoTrackStats = remoteVideoTrack.getStats();
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="获取本地用户的上下行网络质量相关的统计数据"></a><a href="#获取本地用户的上下行网络质量相关的统计数据" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>获取本地用户的上下行网络质量相关的统计数据</h3>
+<p>本地用户加入频道后，SDK 通过 <code>AgoraRTCClient.on</code> 中的 <a href="/AgoraWebSDK-NG/0.1.9/api/cn/interfaces/iagorartcclient.html#event_network_quality"><code>network-quality</code></a> 回调向 app 报告本地用户的上下行网络质量。该回调每 2 秒触发，返回的参数包括：</p>
+<ul>
+<li><code>downlinkNetworkQuality</code>：下行网络质量打分。</li>
+<li><code>uplinkNetworkQuality</code>：上行网络质量打分。</li>
+</ul>
+<p>质量打分对照表如下：</p>
+<table>
+<thead>
+<tr><th>分数</th><th style="text-align:left">说明</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td style="text-align:left">网络质量未知。</td></tr>
+<tr><td>1</td><td style="text-align:left">网络质量极好。</td></tr>
+<tr><td>2</td><td style="text-align:left">用户主观感觉和极好差不多，但码率可能略低于极好。</td></tr>
+<tr><td>3</td><td style="text-align:left">用户主观感受有瑕疵但不影响沟通。</td></tr>
+<tr><td>4</td><td style="text-align:left">勉强能沟通但不顺畅。</td></tr>
+<tr><td>5</td><td style="text-align:left">网络质量非常差，基本不能沟通。</td></tr>
+<tr><td>6</td><td style="text-align:left">完全无法沟通。</td></tr>
+</tbody>
+</table>
+<p>以下示例代码中的 <code>client</code> 是指通过 <code>AgoraRTC.createClient</code> 创建的本地客户端对象。</p>
+<pre><code class="hljs css language-javascript">client.on(<span class="hljs-string">"network-quality"</span>, (stats) =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"downlinkNetworkQuality"</span>, stats.downlinkNetworkQuality);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"uplinkNetworkQuality"</span>, stats.uplinkNetworkQuality);
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="关注频道内的异常事件"></a><a href="#关注频道内的异常事件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>关注频道内的异常事件</h3>
+<p>Agora Web SDK NG 通过 <code>AgoraRTCClient.on</code> 中的 <a href="/AgoraWebSDK-NG/0.1.9/api/cn/interfaces/iagorartcclient.html#event_exception"><code>exception</code></a> 回调通知 App 频道内的异常事件。异常事件不是错误，但是往往会引起通话质量问题。发生异常事件后，如果恢复正常，也会收到该回调。该回调返回：</p>
+<ul>
+<li><code>code</code>：事件码。</li>
+<li><code>msg</code>：提示消息。</li>
+<li><code>uid</code>：发生异常或恢复的用户 UID。</li>
+</ul>
+<p>以下示例代码中的 <code>client</code> 是指通过 <code>AgoraRTC.createClient</code> 创建的本地客户端对象。</p>
+<pre><code class="hljs css language-javascript">client.on(<span class="hljs-string">"exception"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(evt.code, evt.msg, evt.uid);
+})
+</code></pre>
+<p>每个异常事件都有对应的恢复事件，详见下表：</p>
+<p><img src="/AgoraWebSDK-NG/0.1.9/docs/assets/exception-event.png" alt=""></p>
+<h2><a class="anchor" aria-hidden="true" id="开发注意事项"></a><a href="#开发注意事项" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>开发注意事项</h2>
+<p>上述所有方法必须在成功加入频道之后调用。</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/test_switch_device"><span class="arrow-prev">← </span><span>音视频设备测试/切换</span></a><a class="docs-next button" href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/stream_fallback"><span>视频流回退</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#功能描述">功能描述</a></li><li><a href="#实现方法">实现方法</a><ul class="toc-headings"><li><a href="#获取当前会话的统计数据">获取当前会话的统计数据</a></li><li><a href="#获取本地音视频轨道的统计数据">获取本地音视频轨道的统计数据</a></li><li><a href="#获取远端音视频轨道的统计数据">获取远端音视频轨道的统计数据</a></li><li><a href="#获取本地用户的上下行网络质量相关的统计数据">获取本地用户的上下行网络质量相关的统计数据</a></li><li><a href="#关注频道内的异常事件">关注频道内的异常事件</a></li></ul></li><li><a href="#开发注意事项">开发注意事项</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/0.1.9/" class="nav-home"><img src="/AgoraWebSDK-NG/0.1.9/img/logo.png" alt="Agora Web SDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/0.1.9/api/cn">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/0.1.9/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>

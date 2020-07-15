@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Share the Screen · Agora Web SDK NG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Introduction"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Share the Screen · Agora Web SDK NG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://agoraio-community.github.io/AgoraWebSDK-NG/"/><meta property="og:description" content="## Introduction"/><meta property="og:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/AgoraWebSDK-NG/0.1.9/img/favicon.ico"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/AgoraWebSDK-NG/0.1.9/js/code-block-buttons.js"></script><script src="/AgoraWebSDK-NG/0.1.9/js/scrollSpy.js"></script><link rel="stylesheet" href="/AgoraWebSDK-NG/0.1.9/css/main.css"/><script src="/AgoraWebSDK-NG/0.1.9/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/AgoraWebSDK-NG/0.1.9/en"><img class="logo" src="/AgoraWebSDK-NG/0.1.9/img/logo.png" alt="Agora Web SDK NG"/><h2 class="headerTitleWithLogo">Agora Web SDK NG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/AgoraWebSDK-NG/0.1.9/docs/en/overview" target="_self">Docs</a></li><li class=""><a href="/AgoraWebSDK-NG/0.1.9/api/en" target="_self">API</a></li><li class=""><a href="/AgoraWebSDK-NG/0.1.9/docs/en/migration_guide" target="_self">Migration Guide</a></li><li class=""><a href="/AgoraWebSDK-NG/0.1.9/demo" target="_self">Demos</a></li><li class=""><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" target="_self">Github</a></li><li class=""><a href="https://agoraio-community.github.io/AgoraWebSDK-NG/versions" target="_self">Versions</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/AgoraWebSDK-NG/0.1.9/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/AgoraWebSDK-NG/0.1.9/docs/zh-CN/screensharing">中文</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Video Management</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Get Stated</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/setup">Integrate the SDK</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/basic_call">Implement Basic Call</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Audio Management</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/volume">Adjust the Volume</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/audio_profile">Audio Profiles</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/audio_effect_mixing">Audio Effects/Mixing</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/custom_audio">Custom Audio Source</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Video Management</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/video_profile">Video Profiles</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/image_enhancement">Image Enhancement</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/screensharing">Share Screen</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/custom_video">Custom Video Source</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Advanced Stream Management</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/multi_user_video">Video for 7+ Users</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/media_relay">Co-host across Channels</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/cdn_streaming">Push Streams to CDN</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/inject_stream">Inject Online Media Stream</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/cloud_proxy">Cloud Proxy</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/channel_encryption">Channel Encryption</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Device Management</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/test_switch_device">Test/Switch a Media Device</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Quality of Experience</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/call_quality">In-call Stats</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/0.1.9/docs/en/stream_fallback">Video Stream Fallback</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Share the Screen</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>During a video call or live broadcast, sharing the screen enhances the communication experience by displaying the speaker's screen on the display of other speakers or audience members in the channel.</p>
+<p>You can use screen sharing in the following scenarios:</p>
+<ul>
+<li>Video conference: The speaker can share an image of a local file, web page, or presentation with other users in the channel.</li>
+<li>Online class: The teacher can share slides or notes with students.</li>
+</ul>
+<p>Before enabling screen sharing, ensure that you have implemented the basic real-time communication function in your project. For details, see <a href="/AgoraWebSDK-NG/0.1.9/docs/en/basic_call">Implement a Basic Video Call</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="working-principles"></a><a href="#working-principles" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Working principles</h2>
+<p>You can enabling screen sharing on the web client by calling <a href="/AgoraWebSDK-NG/0.1.9/api/en/interfaces/iagorartc.html#createscreenvideotrack">createScreenVideoTrack</a> to create a video track for screen sharing. The web browser asks you to select which screens to share.</p>
+<blockquote>
+<p>In the Agora Web SDK NG, an <code>AgoraRTCClient</code> object can publish only one video track at a time. For this reason, if you want to share your screen while sending the video captured by the camera, you need to create two <code>AgoraRTCClient</code> objects: one for publishing the video track from the camera, and one for publishing the video track for screen sharing.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="screen-sharing-on-google-chrome"></a><a href="#screen-sharing-on-google-chrome" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Screen sharing on Google Chrome</h2>
+<h3><a class="anchor" aria-hidden="true" id="screen-sharing-without-the-google-chrome-extension"></a><a href="#screen-sharing-without-the-google-chrome-extension" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Screen sharing without the Google Chrome extension</h3>
+<p>To share the screen on Chrome, simply call <a href="/AgoraWebSDK-NG/0.1.9/api/en/interfaces/iagorartc.html#createscreenvideotrack">createScreenVideoTrack</a> to create a video track for screen sharing.</p>
+<blockquote>
+<p>This function requires Google Chrome 72 or later. Otherwise, use the Google Chrome extension provided by Agora to share the screen.</p>
+</blockquote>
+<pre><code class="hljs css language-js">AgoraRTC.createScreenVideoTrack({
+  <span class="hljs-comment">// Set the encoder configurations. For details, see the API description</span>
+  <span class="hljs-attr">encoderConfig</span>: <span class="hljs-string">"1080p_1"</span>,
+}).then(<span class="hljs-function"><span class="hljs-params">localScreenTrack</span> =&gt;</span> {
+  <span class="hljs-comment">/** ... **/</span>
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="screen-sharing-with-the-google-chrome-extension"></a><a href="#screen-sharing-with-the-google-chrome-extension" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Screen sharing with the Google Chrome extension</h3>
+<ol>
+<li><p>Add the <a href="https://docs.agora.io/en/Interactive%20Broadcast/chrome_screensharing_plugin">Google Chrome Extension for Screen Sharing</a> provided by Agora.</p></li>
+<li><p>Set the <code>extensionId</code> parameter when you create a video track for screen sharing.</p></li>
+</ol>
+<pre><code class="hljs css language-js">AgoraRTC.createScreenTrack({
+  <span class="hljs-attr">extensionId</span>: <span class="hljs-string">'minllpmhdgpndnkomcoccfekfegnlikg'</span>,
+}).then(<span class="hljs-function"><span class="hljs-params">localScreenTrack</span> =&gt;</span> {
+  <span class="hljs-comment">/** ... **/</span>
+});
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="share-audio"></a><a href="#share-audio" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Share audio</h3>
+<p>The Agora Web SDK NG supports sharing the local audio playback when sharing a screen on Windows Chrome 74 or later. To share the audio, set the <code>withAudio</code> parameter as <code>true</code> when calling <a href="/AgoraWebSDK-NG/0.1.9/api/cn/interfaces/iagorartc.html#createscreenvideotrack">createScreenVideoTrack</a>.</p>
+<p>After doing this, this method returns a list containing a video track object for screen sharing and an audio track object.</p>
+<pre><code class="hljs css language-js">AgoraRTC.createScreenVideoTrack({
+  <span class="hljs-attr">encoderConfig</span>: <span class="hljs-string">"1080p_1"</span>,
+}, <span class="hljs-literal">true</span>).then([screenVideoTrack, screenAudioTrack] =&gt; {
+  <span class="hljs-comment">/** ... **/</span>
+});
+</code></pre>
+<blockquote>
+<ul>
+<li>Notes:</li>
+<li>For the audio sharing to take effect, the user must check <strong>Share audio</strong> on the pop-up window when sharing a screen.</li>
+<li>Audio sharing is disabled when the user shares a single application window.</li>
+</ul>
+</blockquote>
+<p><img src="/AgoraWebSDK-NG/0.1.9/docs/assets/screenaudio_en.png" alt=""></p>
+<h2><a class="anchor" aria-hidden="true" id="screen-sharing-on-electron"></a><a href="#screen-sharing-on-electron" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Screen sharing on Electron</h2>
+<p>To share the screen on Electron, you need to draw the UI for your users to select which screen or window to share. For quick integration, Agora provides a default UI.</p>
+<h3><a class="anchor" aria-hidden="true" id="use-the-default-ui"></a><a href="#use-the-default-ui" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use the Default UI</h3>
+<p>To use the default UI, directly call <a href="/AgoraWebSDK-NG/0.1.9/api/en/interfaces/iagorartc.html#createscreenvideotrack">createScreenVideoTrack</a>.</p>
+<pre><code class="hljs css language-js">AgoraRTC.createScreenVideoTrack({
+  <span class="hljs-attr">encoderConfig</span>: <span class="hljs-string">"1080p_1"</span>,
+}).then(<span class="hljs-function"><span class="hljs-params">localScreenTrack</span> =&gt;</span> {
+  <span class="hljs-comment">/** ... **/</span>
+});
+</code></pre>
+<p>The default UI for screen source selection is as follows:</p>
+<p><img src="/AgoraWebSDK-NG/0.1.9/docs/assets/electron-en.png" alt=""></p>
+<h3><a class="anchor" aria-hidden="true" id="customize-the-ui"></a><a href="#customize-the-ui" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Customize the UI</h3>
+<p>Follow these steps to customize the UI for screen source selection:</p>
+<ol>
+<li>Call <code>AgoraRTC.getElectronScreenSources</code> to get the sources of the screens to share.</li>
+</ol>
+<pre><code class="hljs">AgoraRTC.getElectronScreenSources().then(<span class="hljs-function"><span class="hljs-params">sources</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(sources);
+})
+</code></pre>
+<p>The <code>sources</code> parameter is an array of the <code>source</code> objects. A <code>source</code> object contains the following properties of the screen source:</p>
+<p><img src="/AgoraWebSDK-NG/0.1.9/docs/assets/source-en.png" alt=""></p>
+<ul>
+<li><code>id</code>: The <code>sourceId</code>.</li>
+<li><code>name</code>: The name of the screen source.</li>
+<li><code>thumbnail</code>: The thumbnail of the screen source.</li>
+</ul>
+<ol start="2">
+<li>Based on the properties of <code>source</code>, draw the UI (by HTML and CSS) for selecting the screen source to share. The following figure shows the properties' corresponding elements on the UI for screen source selection:</li>
+</ol>
+<p><img src="/AgoraWebSDK-NG/0.1.9/docs/assets/electron2-en.jpeg" alt=""></p>
+<ol start="3">
+<li>Get the <code>sourceId</code> of the source selected by the user.</li>
+<li>Set <code>sourceId</code> when creating the video track for screen sharing.</li>
+</ol>
+<pre><code class="hljs css language-javascript">AgoraRTC.createScreenVideoTrack({
+  <span class="hljs-comment">// Pass the sourceId of the source selected by the user</span>
+  electronScreenSourceId： sourceId,
+}).then(<span class="hljs-function"><span class="hljs-params">localScreenTrack</span> =&gt;</span> {
+  <span class="hljs-comment">/** ... **/</span>
+});
+</code></pre>
+<blockquote>
+<ul>
+<li>The <code>getScreenSources</code> method is a wrapper of <code>desktopCapturer.getSources</code> provided by Electron. See <a href="https://electronjs.org/docs/api/desktop-capturer">desktopCapturer</a>.</li>
+<li>Only Electron requires the <code>sourceId</code> parameter.</li>
+</ul>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="screen-sharing-on-firefox"></a><a href="#screen-sharing-on-firefox" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Screen sharing on Firefox</h2>
+<p>To share the screen on Firefox, you need to set the <code>screenSourceType</code> parameter when creating the video track for screen sharing:</p>
+<ul>
+<li><code>screen</code>: Share the whole screen.</li>
+<li><code>application</code>: Share all windows of an app.</li>
+<li><code>window</code>: Share a specific window of an app.</li>
+</ul>
+<pre><code class="hljs css language-js">AgoraRTC.createScreenVideoTrack({
+  <span class="hljs-attr">screenSourceType</span>: <span class="hljs-string">'screen'</span> <span class="hljs-comment">// 'screen', 'application', 'window'</span>
+}).then(<span class="hljs-function"><span class="hljs-params">localScreenTrack</span> =&gt;</span> { <span class="hljs-comment">/** ... **/</span> });
+</code></pre>
+<blockquote>
+<p>Firefox on Windows does not support the <code>application</code> mode.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="enable-both-screen-sharing-and-video"></a><a href="#enable-both-screen-sharing-and-video" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Enable both screen sharing and video</h2>
+<p>An <code>AgoraRTCClient</code> object can publish only one video track at a time. For this reason, if you want to enable both screen sharing and video on one host, you need to create two <code>AgoraRTCClient</code> objects: one for publishing the video track from the camera, and one for publishing the video track for screen sharing.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">startScreenCall</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> screenClient = AgoraRTC.createClient({ <span class="hljs-attr">mode</span>: <span class="hljs-string">"rtc"</span>, <span class="hljs-attr">codec</span>: <span class="hljs-string">"vp8"</span> });
+  <span class="hljs-keyword">await</span> screenClient.join(<span class="hljs-string">"&lt;TOKEN&gt;"</span>, <span class="hljs-string">"&lt;CHANNEL&gt;"</span>);
+
+  <span class="hljs-keyword">const</span> screenTrack = <span class="hljs-keyword">await</span> AgoraRTC.createScreenVideoTrack();
+  <span class="hljs-keyword">await</span> screenClient.publish(screenTrack);
+
+  <span class="hljs-keyword">return</span> screenClient;
+}
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">startVideoCall</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> videoClient = AgoraRTC.createClient({ <span class="hljs-attr">mode</span>: <span class="hljs-string">"rtc"</span>, <span class="hljs-attr">codec</span>: <span class="hljs-string">"vp8"</span> });
+  <span class="hljs-keyword">await</span> videoClient.join(<span class="hljs-string">"&lt;TOKEN&gt;"</span>, <span class="hljs-string">"&lt;CHANNEL&gt;"</span>);
+
+  <span class="hljs-keyword">const</span> videoTrack = <span class="hljs-keyword">await</span> AgoraRTC.createCameraVideoTrack();
+  <span class="hljs-keyword">await</span> videoClient.publish(videoTrack);
+
+  <span class="hljs-keyword">return</span> videoClient;
+}
+
+<span class="hljs-built_in">Promise</span>.all([startScreenCall(), startVideoCall()]).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> { <span class="hljs-comment">/** ... **/</span> });
+</code></pre>
+<p>If two clients of a host subscribe to each other, extra charges incur.</p>
+<p><img src="/AgoraWebSDK-NG/0.1.9/docs/assets/subscribe_screen-en.png" alt=""></p>
+<p>Agora recommends that you save the returned uid when each client joins the channel. When the <code>user-published</code> event occurs, first check if the joined client is a local stream, if yes, do not subscribe to the client.</p>
+<h2><a class="anchor" aria-hidden="true" id="considerations"></a><a href="#considerations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Considerations</h2>
+<ul>
+<li>An <code>AgoraRTCClient</code> object can publish only one video track at a time.</li>
+<li>Do not set the UID of the screen-sharing track to a fixed value. Tracks with the same UID can interfere with each other.</li>
+<li><strong>Do not subscribe to a locally published screen-sharing track</strong>, else additional charges incur.</li>
+<li>Sharing the window of a QQ chat on Windows causes a black screen.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/AgoraWebSDK-NG/0.1.9/docs/en/image_enhancement"><span class="arrow-prev">← </span><span>Image Enhancement</span></a><a class="docs-next button" href="/AgoraWebSDK-NG/0.1.9/docs/en/custom_video"><span>Custom Video Source</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#working-principles">Working principles</a></li><li><a href="#screen-sharing-on-google-chrome">Screen sharing on Google Chrome</a><ul class="toc-headings"><li><a href="#screen-sharing-without-the-google-chrome-extension">Screen sharing without the Google Chrome extension</a></li><li><a href="#screen-sharing-with-the-google-chrome-extension">Screen sharing with the Google Chrome extension</a></li><li><a href="#share-audio">Share audio</a></li></ul></li><li><a href="#screen-sharing-on-electron">Screen sharing on Electron</a><ul class="toc-headings"><li><a href="#use-the-default-ui">Use the Default UI</a></li><li><a href="#customize-the-ui">Customize the UI</a></li></ul></li><li><a href="#screen-sharing-on-firefox">Screen sharing on Firefox</a></li><li><a href="#enable-both-screen-sharing-and-video">Enable both screen sharing and video</a></li><li><a href="#considerations">Considerations</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/0.1.9/" class="nav-home"><img src="/AgoraWebSDK-NG/0.1.9/img/logo.png" alt="Agora Web SDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/0.1.9/docs/en/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/0.1.9/api/en">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/0.1.9/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>
