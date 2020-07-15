@@ -16,7 +16,7 @@ sidebar_label: 迁移指南
 - 在迁移某一个具体功能（如屏幕共享、推流到 CDN）时，阅读 Agora Web SDK NG 文档站上提供的[进阶功能](screensharing.md)。
 - 阅读 Agora Web SDK NG 的 [API 文档](api/cn/)，使用 API 文档右上角的搜索功能，搜索 API 名称查看该 API 在 Agora Web SDK NG 中的具体函数签名。
 
-![](assets-cn/doc_search.png)
+![](assets/doc_search.png)
 
 > Agora Web SDK NG 是一个**不向下兼容**的版本，这意味着迁移的过程可能不会那么顺利。由于我们移除了所有回调转而使用 `Promise`，70% 以上的 API 都需要手动修改。此外你还需注意一些架构及逻辑层面的改动。因此，与其说是迁移，不如说是从头重新集成 Agora Web SDK NG。
 
@@ -26,13 +26,13 @@ sidebar_label: 迁移指南
 对于加入和离开频道、发布和订阅、获取媒体设备、开启和关闭转码推流等异步方法，在 Agora Web SDK 中，通过回调函数（比如加入房间）、事件通知（比如发布/订阅）等方式来通知用户异步操作的结果；在 Agora Web SDK NG 中，统一使用 Promise。
 
 ### 基于音视频轨道的媒体控制
-在 Agora Web SDK NG 中，我们移除了 [Stream](https://docs.agora.io/cn/Video/API%20Reference/web/interfaces/agorartc.stream.html) 对象，取而代之的是 `Track` 对象。一个音视频流是由多个音视频轨道构成的，我们现在不直接创建、发布或订阅一个流，而是通过创建、发布或订阅一个或多个轨道来实现媒体管理。这样实现的好处是音视频的逻辑互不干扰、各自独立，同时新方法也比 Agora Web SDK 的 `Stream.addTrack` 和 `Stream.removeTrack` 更方便易用。
+在 Agora Web SDK NG 中，我们移除了 [Stream](https://docs.agora.io/cn/Video/API%20Reference/web/interfaces/agorartc.stream.html) 对象，取而代之的是 `Track` 轨道对象。一个音视频流是由多个音视频轨道构成的。你不直接创建、发布或订阅一个流，而是通过创建、发布或订阅一个或多个轨道来实现媒体管理。这样实现的好处是音视频的逻辑互不干扰、各自独立，同时新方法也比 Agora Web SDK 的 `Stream.addTrack` 和 `Stream.removeTrack` 更方便易用。
 
 > Agora Web SDK NG 允许同时发布多个音频轨道，SDK 会自动混音，但是视频轨道只允许同时发布一个。
 
 除了把 `Stream` 拆分成 `Track`，在 Agora Web SDK NG 中还区分 `RemoteTrack` 和 `LocalTrack`，有些方法和对象只在本地有，有些只在远端有。
 
-这一改动影响多个 API 的使用，包括本地媒体对象的采集、发布音视频和订阅音视频，详见下文迁移实例详解中的[通过本地摄像头和麦克风采集音频和视频](#通过本地摄像头和麦克风采集音频和视频)和[发布本地的音视频](#发布本地的音视频)。
+这一改动影响多个 API 的使用，包括创建本地媒体对象、发布和订阅音视频，详见下文迁移实例详解中的[通过本地摄像头和麦克风采集音频和视频](#通过本地摄像头和麦克风采集音频和视频)和[发布本地的音视频](#发布本地的音视频)。
 
 ### 改进频道内事件通知机制
 
@@ -46,13 +46,14 @@ Agora Web SDK 的事件回调如果需要携带多个参数，会把这些参数
 
 以 "connection-state-change" 事件为例：
 ```js
-// Agora Web SDK
+// 使用 Agora Web SDK
 client.on("connection-state-change", e => {
   console.log("current", e.curState, "prev", e.prevState);
 });
 ```
+
 ```js
-// Agora Web SDK NG
+// 使用 Agora Web SDK NG
 client.on("connection-state-change", (curState, prevState) => {
   console.log("current", curState, "prev", prevState);
 });
@@ -60,7 +61,7 @@ client.on("connection-state-change", (curState, prevState) => {
 
 #### 改进频道内事件通知机制
 
-Agora Web SDK NG 改进了频道内事件通知机制。在 Agora Web SDK NG 中，**不会收到重复的**频道内状态通知事件。
+Agora Web SDK NG 改进了频道内事件通知机制，确保客户端**不会收到重复的**频道内状态通知事件。
 
 假设**本地用户 A** 和**远端用户 B、C、D** 同时加入了一个频道，B、C、D 均发布了流。如果本地用户 A 发生了网络波动，和频道暂时失去了连接，SDK 会自动帮 A 重连，**在重连过程中 B 离开了频道，C 取消了发流**。这整个过程中，触发了哪些频道事件？
 
@@ -110,14 +111,14 @@ try {
   console.log("join failed", e);
 }
 ```
-> 我们假设代码运行在一个 async 函数下，以下 Agora Web SDK NG 相关示例代码为了叙述方便都会直接使用 await。
+> 我们假设代码运行在一个 `async` 函数下，以下 Agora Web SDK NG 相关示例代码为了叙述方便都会直接使用 `await`。
 
 改动点：
-- 在 Agora Web SDK NG 中，异步操作 `join` 返回 Promise，配合 async/await 使用。
+- 在 Agora Web SDK NG 中，异步操作 `join` 返回 `Promise`，配合 `async/await` 使用。
 - Agora Web SDK NG 移除了 `client.init`, 在 `client.join` 时传入 `APPID`，这意味你可以使用一个 Client 对象先后加入不同 App ID 的频道。
 
 ### 通过本地摄像头和麦克风采集音频和视频
-我们访问本地的摄像头和麦克风创建本地的音视频对象。我们默认播放本地视频，不播放本地音频。
+通过本地麦克风采集的音频创建音频轨道对象，通过本地摄像头采集的视频创建视频轨道对象。示例代码中，默认播放本地视频，不播放本地音频。
 
 ```js
 // 使用 Agora Web SDK
@@ -145,7 +146,7 @@ localVideo.play("DOM_ELEMENT_ID");
 - 由于在 Agora Web SDK NG 中音视频对象分开控制，`play` 方法中移除了 `muted` 参数。如不想播放音频，不调用音频轨道中的 `play` 即可。
 
 ### 发布本地的音视频
-音视频采集完成后，我们需要将这些音视频发布到频道中。
+音视频采集完成后，将这些音视频发布到频道中。
 
 ```js
 // 使用 Agora Web SDK
@@ -160,7 +161,7 @@ client.on("stream-published",  () => {
 ```js
 // 使用 Agora Web SDK NG
 try {
-  // 如果你使用的不是直播模式则不需要这一句
+  // 如果使用通信场景，则不需要这一行。
   await client.setClientRole("host");
   await client.publish([localAudio, localVideo]);
   console.log("publish success");
@@ -171,11 +172,11 @@ try {
 
 改动点：
 - 如果你的频道场景为[直播场景](/api/cn/interfaces/clientconfig.html#mode)，在 Agora Web SDK 中发布时 SDK 会自动将你的用户角色设为 `host`，但是在 Agora Web SDK NG 中，你需要手动将用户角色设为 `host`。
-- 在 Agora Web SDK NG 中，异步操作 `join` 返回 Promise。
-- 在 Agora Web SDK NG 中， `publish` 时传入的参数是 `LocalTrack` 列表而非 `Stream`。可以重复调用 `publish` 来增加需要发布的轨道，或者重复调用 `unpublish` 来取消发布轨道。
+- 在 Agora Web SDK NG 中，异步操作 `join` 返回 `Promise`。
+- 在 Agora Web SDK NG 中，调用 `publish` 时传入的参数是 `LocalTrack` 列表而非 `Stream`。可以重复调用 `publish` 来增加需要发布的轨道，或者重复调用 `unpublish` 来取消发布轨道。
 
 ### 订阅远端音视频并播放
-如果频道里的远端用户发布了他们的音视频，我们需要自动订阅并播放。这个过程分为两步，首先，在加入频道之前，我们就需要注册远端用户发布的相关事件，之后在收到事件回调时发起订阅。
+如果频道里的远端用户发布了音视频轨道，你需要订阅这个用户并播放音视频轨道。在加入频道之前，你需要监听远端用户发布的相关事件，然后在收到事件回调时发起订阅。
 
 ```js
 // 使用 Agora Web SDK
@@ -264,3 +265,5 @@ client.on("user-published", async (remoteUser, mediaType) => {
 - 移除 `Client.on("network-type-changed")` 事件， SDK 无法保证其可靠性
 - 移除 `Client.on("connected")` / `Client.on("reconnect")` 事件，连接状态事件统一从 [Client.on("connection-state-change")](/api/cn/interfaces/iagorartcclient.html#event_connection_state_change) 获取
 - [Client.on("stream-fallback")](/api/cn/interfaces/iagorartcclient.html#event_stream_fallback) 参数修改，增加 `isFallbackOrRecover` 参数，详见 API 文档
+
+> 移除 `Stream.setAudioOutput` 方法。我们不建议用户在页面里设置音频输出设备，建议使用系统默认的输出设备。
