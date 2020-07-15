@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>实现基本音视频通话 · Agora Web SDK NG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="本文介绍如何使用 Agora Web SDK NG 实现基本音视频通话。"/><meta name="docsearch:language" content="zh-CN"/><meta property="og:title" content="实现基本音视频通话 · Agora Web SDK NG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://agoraio-community.github.io/AgoraWebSDK-NG/"/><meta property="og:description" content="本文介绍如何使用 Agora Web SDK NG 实现基本音视频通话。"/><meta property="og:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/AgoraWebSDK-NG/img/favicon.ico"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/AgoraWebSDK-NG/js/code-block-buttons.js"></script><script src="/AgoraWebSDK-NG/js/scrollSpy.js"></script><link rel="stylesheet" href="/AgoraWebSDK-NG/css/main.css"/><script src="/AgoraWebSDK-NG/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/AgoraWebSDK-NG/zh-CN"><img class="logo" src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG"/><h2 class="headerTitleWithLogo">Agora Web SDK NG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/AgoraWebSDK-NG/docs/zh-CN/overview" target="_self">文档</a></li><li class=""><a href="/AgoraWebSDK-NG/api/en" target="_self">API</a></li><li class=""><a href="/AgoraWebSDK-NG/docs/zh-CN/migration_guide" target="_self">迁移文档</a></li><li class=""><a href="/AgoraWebSDK-NG/demo" target="_self">Demos</a></li><li class=""><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" target="_self">Github</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/AgoraWebSDK-NG/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/AgoraWebSDK-NG/docs/en/basic_call">English</a></li></ul></div></li><script>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>实现基本音视频通话 · Agora Web SDK NG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="本文介绍如何使用 Agora Web SDK NG 实现基本音视频通话。"/><meta name="docsearch:language" content="zh-CN"/><meta property="og:title" content="实现基本音视频通话 · Agora Web SDK NG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://agoraio-community.github.io/AgoraWebSDK-NG/"/><meta property="og:description" content="本文介绍如何使用 Agora Web SDK NG 实现基本音视频通话。"/><meta property="og:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/AgoraWebSDK-NG/img/favicon.ico"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/AgoraWebSDK-NG/js/code-block-buttons.js"></script><script src="/AgoraWebSDK-NG/js/scrollSpy.js"></script><link rel="stylesheet" href="/AgoraWebSDK-NG/css/main.css"/><script src="/AgoraWebSDK-NG/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/AgoraWebSDK-NG/zh-CN"><img class="logo" src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG"/><h2 class="headerTitleWithLogo">Agora Web SDK NG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/AgoraWebSDK-NG/docs/zh-CN/overview" target="_self">文档</a></li><li class=""><a href="/AgoraWebSDK-NG/api/en" target="_self">API</a></li><li class=""><a href="/AgoraWebSDK-NG/docs/zh-CN/migration_guide" target="_self">迁移文档</a></li><li class=""><a href="/AgoraWebSDK-NG/demo" target="_self">Demos</a></li><li class=""><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" target="_self">Github</a></li><li class=""><a href="/AgoraWebSDK-NG/zh-CN/versions" target="_self">版本</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/AgoraWebSDK-NG/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/AgoraWebSDK-NG/docs/en/basic_call">English</a></li></ul></div></li><script>
         const languagesMenuItem = document.getElementById("languages-menu");
         const languagesDropDown = document.getElementById("languages-dropdown");
         languagesMenuItem.addEventListener("click", function(event) {
@@ -10,7 +10,7 @@
             languagesDropDown.className = "hide";
           }
         });
-      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>入门</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">入门</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/overview">概览</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/setup">集成 SDK</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/basic_call">实现基本通话</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">音频管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/volume">调整通话音量</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/audio_profile">设置音频属性</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/audio_effect_mixing">播放音效/混音</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/custom_audio">自定义音频采集</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">视频管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/video_profile">设置视频属性</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/image_enhancement">美颜</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/screensharing">屏幕共享</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/custom_video">自定义视频采集</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">高级媒体流管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/multi_user_video">七人以上视频场景</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/media_relay">跨直播间连麦</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/cdn_streaming">推流到 CDN</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/inject_stream">输入在线媒体流</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/cloud_proxy">使用云代理</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/channel_encryption">媒体流加密</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">设备管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/test_switch_device">音视频设备测试/切换</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">体验提升</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/call_quality">通话中质量监测</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/stream_fallback">视频流回退</a></li></ul></div></div></section></div><script>
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>入门</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">发版记录</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/release_note">Release Note</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">入门</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/overview">概览</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/setup">集成 SDK</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/basic_call">实现基本通话</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/join_and_leave">加入/离开频道</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/create_local_track">创建本地轨道对象</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/publish_and_subscribe">发布和订阅</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">音频管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/volume">调整通话音量</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/audio_profile">设置音频属性</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/audio_effect_mixing">播放音效/混音</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/custom_audio">自定义音频采集</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">视频管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/video_profile">设置视频属性</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/optimization_mode">清晰优先和流畅优先</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/image_enhancement">美颜</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/screensharing">屏幕共享</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/custom_video">自定义视频采集</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">高级媒体流管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/multi_user_video">七人以上视频场景</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/media_relay">跨直播间连麦</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/cdn_streaming">推流到 CDN</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/inject_stream">输入在线媒体流</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/cloud_proxy">使用云代理</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/channel_encryption">媒体流加密</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">设备管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/test_switch_device">音视频设备测试/切换</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">体验提升</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/call_quality">通话中质量监测</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/stream_fallback">视频流回退</a></li></ul></div></div></section></div><script>
             var coll = document.getElementsByClassName('collapsible');
             var checkActiveCategory = true;
             for (var i = 0; i < coll.length; i++) {
@@ -74,7 +74,7 @@
 <p>在使用 Agora Web SDK NG 时，你会经常用到以下三种对象：</p>
 <ul>
 <li><a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartcclient.html">AgoraRTCClient</a> 对象，代表一个本地客户端。<code>AgoraRTCClient</code> 类的方法提供了音视频通话的主要功能，例如加入频道、发布音视频轨道等。</li>
-<li><a href="/AgoraWebSDK-NG/api/en/interfaces/ilocalaudiotrack.html">LocalTrack</a> 对象 和 <a href="/AgoraWebSDK-NG/api/en/interfaces/iremotetrack.html">RemoteTrack</a> 对象，代表本地和远端的音视频轨道对象。音视频轨道对象用于播放等音视频相关的控制。</li>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/ilocalaudiotrack.html">LocalTrack</a> 对象和 <a href="/AgoraWebSDK-NG/api/en/interfaces/iremotetrack.html">RemoteTrack</a> 对象，代表本地和远端的音视频轨道对象，用于播放等音视频相关的控制。</li>
 </ul>
 <blockquote>
 <p>音视频流由音视频轨道构成。在 Agora Web SDK NG 中，我们通过操作音视频轨道对象来控制音视频流的行为。</p>
@@ -82,7 +82,7 @@
 <h2><a class="anchor" aria-hidden="true" id="基本流程"></a><a href="#基本流程" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>基本流程</h2>
 <p>一次简单的音视频通话的步骤一般如下：</p>
 <ol>
-<li>根据项目的 <code>APP ID</code> 创建一个本地客户端 <code>AgoraRTCClient</code> 对象。</li>
+<li>根据项目的 App ID 创建一个本地客户端 <code>AgoraRTCClient</code> 对象。</li>
 <li>通过 <code>AgoraRTCClient.join</code> 加入到一个指定的频道中。</li>
 <li>通过麦克风采集的音频创建一个 <code>MicrophoneAudioTrack</code> 对象（本地音频轨道对象）；通过摄像头采集的视频创建一个 <code>CameraVideoTrack</code> 对象（本地视频轨道对象）。</li>
 <li>通过 <code>AgoraRTCClient.publish</code> 将创建的本地音视频轨道对象发布到频道中。</li>
@@ -90,30 +90,30 @@
 <p>当有其他用户加入频道并且也发布音视频轨道时：</p>
 <ol>
 <li>SDK 会触发 <code>client.on(&quot;user-published&quot;)</code> 事件，在这个事件回调函数的参数中你可以拿到远端用户对象 <code>AgoraRTCRemoteUser</code>，表示这个用户刚刚发布了音视频轨道。</li>
-<li>通过 <code>AgoraRTCClient.subscribe</code> 订阅我们刚刚获取到的 <code>AgoraRTCRemoteUser</code>。</li>
-<li>订阅完成后，访问 <code>AgoraRTCRemoteUser.audioTrack</code> 和 <code>AgoraRTCRemoteUser.videoTrack</code> 即可获取到 <code>RemoteAudioTrack</code>（远端音频轨道对象） 和 <code>RemoteVideoTrack</code>（远端视频轨道对象）。</li>
+<li>通过 <code>AgoraRTCClient.subscribe</code> 订阅获取到的 <code>AgoraRTCRemoteUser</code>。</li>
+<li>订阅完成后，访问 <code>AgoraRTCRemoteUser.audioTrack</code> 和 <code>AgoraRTCRemoteUser.videoTrack</code> 即可获取到 <code>RemoteAudioTrack</code>（远端音频轨道对象）和 <code>RemoteVideoTrack</code>（远端视频轨道对象）。</li>
 </ol>
-<p>为方便起见，我们为下面要用到的示例代码预定义了两个变量和一个函数，接下来的示例代码都包裹在这个函数中。此步骤不是必须的，你可以根据你的项目有其他的实现。</p>
+<p>为方便起见，我们预定义了两个变量和一个函数，下面的所有示例代码都包裹在这个函数中。此步骤不是必须的，你可以根据你的项目有其他的实现。</p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> rtc = {
-  <span class="hljs-comment">// 用来放置本地客户端</span>
+  <span class="hljs-comment">// 用来放置本地客户端。</span>
   <span class="hljs-attr">client</span>: <span class="hljs-literal">null</span>,
-  <span class="hljs-comment">// 用来放置本地音视频频轨道对象</span>
+  <span class="hljs-comment">// 用来放置本地音视频频轨道对象。</span>
   <span class="hljs-attr">localAudioTrack</span>: <span class="hljs-literal">null</span>,
   <span class="hljs-attr">localVideoTrack</span>: <span class="hljs-literal">null</span>,
 };
 
 <span class="hljs-keyword">const</span> options = {
-  <span class="hljs-comment">// 这里需要替换成你自己项目的 APP ID</span>
+  <span class="hljs-comment">// 替换成你自己项目的 App ID。</span>
   <span class="hljs-attr">appId</span>: <span class="hljs-string">"&lt;YOUR APP ID&gt;"</span>,
-  <span class="hljs-comment">// 目标频道名</span>
+  <span class="hljs-comment">// 传入目标频道名。</span>
   <span class="hljs-attr">channel</span>: <span class="hljs-string">"demo_channel_name"</span>,
-  <span class="hljs-comment">// 如果你的项目开启了 Token 鉴权，这里填写生成的 Token 值</span>
+  <span class="hljs-comment">// 如果你的项目开启了 App 证书进行 Token 鉴权，这里填写生成的 Token 值。</span>
   <span class="hljs-attr">token</span>: <span class="hljs-literal">null</span>,
 };
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">startBasicCall</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-comment">/**
-   * 接下来的代码写在这里
+   * 接下来的代码写在这里。
    */</span>
 }
 
@@ -122,132 +122,135 @@ startBasicCall();
 <h3><a class="anchor" aria-hidden="true" id="1创建本地客户端"></a><a href="#1创建本地客户端" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.创建本地客户端</h3>
 <pre><code class="hljs css language-js">rtc.client = AgoraRTC.createClient({ <span class="hljs-attr">mode</span>: <span class="hljs-string">"rtc"</span>, <span class="hljs-attr">codec</span>: <span class="hljs-string">"h264"</span> });
 </code></pre>
-<p>调用 <code>createClient</code> 方法创建本地客户端。需注意 <code>mode</code> 和 <code>codec</code> 这两个参数的设置：</p>
+<p>调用 <code>createClient</code> 方法创建本地客户端对象。需注意 <code>mode</code> 和 <code>codec</code> 这两个参数的设置：</p>
 <ul>
-<li><code>mode</code> 用于设置<a href="https://docs.agora.io/cn/Agora%20Platform/terms?platform=All%20Platforms%23live-broadcast-core-concepts#%E9%A2%91%E9%81%93%E6%A8%A1%E5%BC%8F">频道场景</a>。一对一或多人通话中，建议设为 <code>&quot;rtc&quot;</code>，使用通信场景；互动直播中，建议设为 <code>&quot;live&quot;</code>，使用直播场景。Agora Web SDK NG 会根据使用场景的不同实行不同的优化策略</li>
+<li><code>mode</code> 用于设置<a href="https://docs.agora.io/cn/Agora%20Platform/terms?platform=All%20Platforms#channel-profile">频道场景</a>。Agora Web SDK NG 会根据使用场景的不同实行不同的优化策略。
+<ul>
+<li>一对一或多人通话中，建议设为 <code>&quot;rtc&quot;</code>，使用通信场景。</li>
+<li>互动直播中，建议设为 <code>&quot;live&quot;</code>，使用直播场景。</li>
+</ul></li>
 <li><code>codec</code> 用于设置浏览器使用的编解码格式。如果你需要使用 Safari 12.1 及之前版本，将该参数设为 <code>&quot;h264&quot;</code>；其他情况我们推荐使用 <code>&quot;vp8&quot;</code>。</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="2加入目标频道"></a><a href="#2加入目标频道" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.加入目标频道</h3>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> uid = <span class="hljs-keyword">await</span> rtc.client.join(options.appId, options.channel, options.token, <span class="hljs-literal">null</span>);
 </code></pre>
-<p>调用 <code>join</code> 方法即可加入目标频道。该方法返回一个 <code>Promise</code>，当其 <code>resolve</code> 时表示加入频道成功，如果 <code>reject</code> 了表示加入频道出现错误。我们可以利用 <code>async/await</code> 极大地简化我们的代码。</p>
-<p>在 <code>join</code> 方法中需要注意以下参数：</p>
+<p>调用 <code>join</code> 加入目标频道。该方法返回一个 <code>Promise</code>，当返回 <code>resolve</code> 时表示加入频道成功，返回 <code>reject</code> 时表示加入频道出现错误。我们可以利用 <code>async/await</code> 极大地简化我们的代码。</p>
+<p>调用 <code>join</code> 方法时你需要注意以下参数：</p>
 <ul>
-<li><code>appid</code>: 上文中提到的项目 App ID，如果不清楚，请参考<a href="/AgoraWebSDK-NG/docs/zh-CN/setup#前提条件">前提条件</a></li>
-<li><code>channel</code>: 频道名，长度在 64 字节以内的字符串。</li>
-<li><code>token</code>: 该参数为可选。如果你的 Agora 项目开启了 App 证书，你需要在该参数中传入一个 Token，详见 <a href="https://docs.agora.io/cn/Agora%20Platform/token?platform=All%20Platforms#%E4%BD%BF%E7%94%A8-token">使用 Token</a>。
+<li><code>appid</code>: 你的 App ID。详见<a href="/AgoraWebSDK-NG/docs/zh-CN/setup#前提条件">前提条件</a>。</li>
+<li><code>channel</code>: 频道名，长度在 64 字节以内的字符串。在我们的示例项目中，<code>channel</code> 的值设为 <code>demo_channel_name</code>。</li>
+<li><code>token</code>: （可选）如果你的 Agora 项目开启了 App 证书，你需要在该参数中传入一个 Token，详见<a href="https://docs.agora.io/cn/Agora%20Platform/token?platform=All%20Platforms#%E4%BD%BF%E7%94%A8-token">使用 Token</a>。
 <ul>
 <li>在测试环境，我们推荐使用控制台生成临时 Token，详见 <a href="https://docs.agora.io/cn/Agora%20Platform/token?platform=All%20Platforms%23get-a-temporary-token#%E8%8E%B7%E5%8F%96%E4%B8%B4%E6%97%B6-token">获取临时 Token</a>。</li>
 <li>在生产环境，我们推荐你在自己的服务端生成 Token，详见 <a href="https://docs.agora.io/cn/Interactive%20Broadcast/token_server">生成 Token</a>。</li>
 </ul></li>
-<li><code>uid</code>：用户 ID，频道内每个用户的 UID 必须是唯一的。你可以通过这个参数指定用户的 UID，一般来说这里都填 <code>null</code>，表示让 Agora 自动分配一个 UID 并在 <code>join</code> 的结果中返回。</li>
 </ul>
 <blockquote>
-<ul>
-<li>在我们的示例项目中，<code>channel</code> 的值为 <code>demo_channel_name</code>。</li>
-<li>在我们的示例项目中，为了叙述方便，没有开启 App 证书，所以不需要校验 Token，<code>token</code> 的值为 <code>null</code>。如果你启用了 App 证书，请注意上面传入的 <code>channel</code> 值和生成 Token 的 <code>channel</code> 值需要保持一致。</li>
-</ul>
+<p>在我们的示例项目中，为了叙述方便，没有开启 App 证书，所以不需要校验 Token，<code>token</code> 的值为 <code>null</code>。如果你启用了 App 证书，请确保上面传入的 <code>channel</code> 值和生成 Token 时传入的 <code>channel</code> 值保持一致。</p>
 </blockquote>
+<ul>
+<li><code>uid</code>：用户 ID，频道内每个用户的 UID 必须是唯一的。你可以填 <code>null</code>，Agora 会自动分配一个 UID 并在 <code>join</code> 的结果中返回。</li>
+</ul>
 <p>更多的 API 介绍和注意事项请参考 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#join">AgoraRTCClient.join</a> 接口中的参数描述。</p>
 <h3><a class="anchor" aria-hidden="true" id="3创建并发布本地音视频轨道"></a><a href="#3创建并发布本地音视频轨道" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.创建并发布本地音视频轨道</h3>
-<pre><code class="hljs css language-js"><span class="hljs-comment">// 通过采集麦克风创建本地音频轨道对象</span>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 通过麦克风采集的音频创建本地音频轨道对象。</span>
 rtc.localAudioTrack = <span class="hljs-keyword">await</span> AgoraRTC.createMicrophoneAudioTrack();
-<span class="hljs-comment">// 通过采集摄像头创建本地视频轨道对象</span>
+<span class="hljs-comment">// 通过摄像头采集的视频创建本地视频轨道对象。</span>
 rtc.localVideoTrack = <span class="hljs-keyword">await</span> AgoraRTC.createCameraVideoTrack();
-<span class="hljs-comment">// 将这些音视频轨道对象发布到频道中</span>
+<span class="hljs-comment">// 将这些音视频轨道对象发布到频道中。</span>
 <span class="hljs-keyword">await</span> rtc.client.publish([rtc.localAudioTrack, rtc.localVideoTrack]);
 
 <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"publish success!"</span>);
 </code></pre>
-<p>以上 3 行代码展示了创建并发布本地音视频轨道的整个过程。前两行我们会通过采集摄像头/麦克风来创建本地音视频轨道对象，之后直接调用 <code>publish</code> 方法，将这些本地音视频轨道对象当作参数即可完成音视频的发布。</p>
-<p>注意上面 2 个方法都会返回 <code>Promise</code>，和刚刚的 <code>join</code> 一样，<code>resolve</code> 时代表成功，<code>reject</code> 时代表失败。我们使用 <code>async/await</code> 来让代码逻辑更清晰。</p>
+<p>我们先调用 <code>createMicrophoneAudioTrack</code> 通过麦克风采集的音频创建本地音频轨道对象，调用 <code>createCameraVideoTrack</code> 通过摄像头采集的视频创建本地视频轨道对象；然后调用 <code>publish</code> 方法，将这些本地音视频轨道对象当作参数即可将音视频发布到频道中。</p>
 <blockquote>
-<p>可以利用 <code>Promise.all</code> 同时执行本地音视频轨道创建和加入频道，因为这 2 个异步操作没有依赖关系。</p>
+<ul>
+<li>以上方法都会返回 <code>Promise</code>，<code>resolve</code> 时代表成功，<code>reject</code> 时代表失败。我们使用 <code>async/await</code> 来让代码逻辑更清晰。</li>
+<li>由于加入频道和创建本地音视频轨道没有依赖关系，你可以利用 <code>Promise.all</code> 同时执行这些异步操作。</li>
+</ul>
 </blockquote>
-<p>详细的采集参数（采集设备/编码参数）控制可以参考相关 API 文档：</p>
+<p>详细的参数设置（如采集设备和编码参数）请参考相关 API 文档：</p>
 <ul>
 <li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createmicrophoneaudiotrack">createMicrophoneAudioTrack</a></li>
 <li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createcameravideotrack">createCameraVideoTrack</a></li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#publish">publish</a></li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="4订阅远端用户"></a><a href="#4订阅远端用户" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.订阅远端用户</h3>
-<p>当远端用户发布音视频轨道时，会触发 <code>client.on(&quot;user-published&quot;)</code> 事件，我们需要通过 <code>client.on</code> 监听该事件并在回调中订阅新加入的远端用户。</p>
+<p>当远端用户发布音视频轨道时，SDK 会触发 <code>client.on(&quot;user-published&quot;)</code> 事件。我们需要通过 <code>client.on</code> 监听该事件并在回调中订阅新加入的远端用户。</p>
 <blockquote>
-<p>我们建议在创建客户端对象之后立即监听事件，以避免有些事件因为没有监听而错过没有收到。放在这里介绍是因为叙述顺序。</p>
+<p>我们建议<strong>在创建客户端对象之后立即监听事件</strong>，以避免错过任何事件。放在这里介绍是因为叙述顺序。</p>
 </blockquote>
-<p>在 <code>createClient</code> 后下一行插入以下代码，监听 <code>client.on(&quot;user-published&quot;)</code> 事件。当有远端用户发布时开始订阅，并在订阅后自动播放远端音视频轨道对象。</p>
+<p>在 <code>createClient</code> 后下一行插入以下代码，监听 <code>client.on(&quot;user-published&quot;)</code> 事件，当有远端用户发布时开始订阅，并在订阅后自动播放远端音视频轨道对象。</p>
 <pre><code class="hljs css language-js">rtc.client.on(<span class="hljs-string">"user-published"</span>, <span class="hljs-keyword">async</span> (user, mediaType) =&gt; {
-  <span class="hljs-comment">// 开始订阅远端用户</span>
+  <span class="hljs-comment">// 开始订阅远端用户。</span>
   <span class="hljs-keyword">await</span> rtc.client.subscribe(user);
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"subscribe success"</span>);
 
-  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"video"</span> || mediaType === <span class="hljs-string">"all"</span>) {
-    <span class="hljs-comment">// 当订阅完成后，就可以从 `user` 中获取远端视频轨道对象了</span>
+  <span class="hljs-comment">// 表示本次订阅的是视频。</span>
+  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"video"</span>) {
+    <span class="hljs-comment">// 订阅完成后，从 `user` 中获取远端视频轨道对象。</span>
     <span class="hljs-keyword">const</span> remoteVideoTrack = user.videoTrack;
-    <span class="hljs-comment">// 动态插入一个 DIV 节点作为播放远端视频轨道的容器</span>
+    <span class="hljs-comment">// 动态插入一个 DIV 节点作为播放远端视频轨道的容器。</span>
     <span class="hljs-keyword">const</span> playerContainer = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>);
-    <span class="hljs-comment">// 给这个 DIV 节点指定一个 ID，这里指定的是远端用户的 UID</span>
-    playerContainer.id = user.uid;
+    <span class="hljs-comment">// 给这个 DIV 节点指定一个 ID，这里指定的是远端用户的 UID。</span>
+    playerContainer.id = user.uid.toString();
     playerContainer.style.width = <span class="hljs-string">"640px"</span>;
     playerContainer.style.height = <span class="hljs-string">"480px"</span>;
     <span class="hljs-built_in">document</span>.body.append(playerContainer);
 
-    <span class="hljs-comment">// 订阅完成，播放远端音视频</span>
-    <span class="hljs-comment">// 传入我们刚刚给 DIV 节点指定的 ID，让 SDK 在这个节点下创建相应的播放器播放远端视频</span>
-    remoteVideoTrack.play(user.uid);
+    <span class="hljs-comment">// 订阅完成，播放远端音视频。</span>
+    <span class="hljs-comment">// 传入 DIV 节点，让 SDK 在这个节点下创建相应的播放器播放远端视频。</span>
+    remoteVideoTrack.play(playerContainer);
+
+    <span class="hljs-comment">// 也可以只传入该 DIV 节点的 ID。</span>
+    <span class="hljs-comment">// remoteVideoTrack.play(playerContainer.id);</span>
   }
 
-  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"audio"</span> || mediaType === <span class="hljs-string">"all"</span>) {
-    <span class="hljs-comment">// 当订阅完成后，就可以从 `user` 中获取远端音视频轨道对象了</span>
+  <span class="hljs-comment">// 表示本次订阅的是音频。</span>
+  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"audio"</span>) {
+    <span class="hljs-comment">// 订阅完成后，从 `user` 中获取远端音频轨道对象。</span>
     <span class="hljs-keyword">const</span> remoteAudioTrack = user.audioTrack;
-    <span class="hljs-comment">// 播放音频因为不会有画面，不需要提供 DOM 元素的信息</span>
+    <span class="hljs-comment">// 播放音频因为不会有画面，不需要提供 DOM 元素的信息。</span>
     remoteAudioTrack.play();
   }
 });
 </code></pre>
-<p>注意 <code>user-published</code> 事件的第二个参数 <code>mediaType</code>, 它指远端用户当前发布的媒体类型：</p>
+<p>你需要注意 <code>user-published</code> 事件的第二个参数 <code>mediaType</code>, 代表远端用户当前发布的媒体类型：</p>
 <ul>
-<li><code>audio</code>: 远端用户发布了音频轨道</li>
-<li><code>video</code>: 远端用户发布了视频轨道</li>
-<li><code>all</code>: 远端用户发布了音频和视频轨道。</li>
+<li><code>audio</code>: 远端用户发布了音频轨道。</li>
+<li><code>video</code>: 远端用户发布了视频轨道。</li>
 </ul>
-<p>在我们的示例项目中，远端用户发布了音频和视频轨道。由于网络和发送端的不确定性，可能会出现以下两种情况：</p>
-<ul>
-<li>收到一次 <code>user-published(mediaType: &quot;all&quot;)</code>。</li>
-<li>先收到一次 <code>user-published(mediaType: &quot;audio&quot;)</code>，再收到一次 <code>user-published(mediaType: &quot;video&quot;)</code>。</li>
-</ul>
-<p>出现第二种情况时，在 SDK 第一次触发 <code>user-published</code> 时我们无法获取 <code>videoTrack</code>。所以我们要先通过判断 <code>mediaType</code> 来决定是否可以播放音频或视频。</p>
-<blockquote>
-<p>更多信息详见 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_user_published">client.on(&quot;user-published&quot;)</a> 注释。</p>
-</blockquote>
-<p>当远端用户取消发布/远端用户离开了频道时，会触发 <code>client.on(&quot;user-unpublished&quot;)</code> 事件。此时我们需要销毁刚刚动态创建的 DIV 节点。</p>
+<p>当远端用户取消发布或离开频道时，SDK 会触发 <code>client.on(&quot;user-unpublished&quot;)</code> 事件。此时我们需要销毁刚刚动态创建的 DIV 节点。</p>
 <p>在刚刚监听 <code>client.on(&quot;user-published&quot;)</code> 事件的代码下一行插入以下代码，监听 <code>client.on(&quot;user-unpublished&quot;)</code> 事件。</p>
-<pre><code class="hljs css language-js">rtc.client.on(<span class="hljs-string">"user-unpublished"</span>, user =&gt; {
-  <span class="hljs-comment">// 获取刚刚动态创建的 DIV 节点</span>
-  <span class="hljs-keyword">const</span> playerContainer = <span class="hljs-built_in">document</span>.getElementById(user.uid);
-  <span class="hljs-comment">// 销毁这个节点</span>
-  playerContainer.remove();
+<pre><code class="hljs css language-js">rtc.client.on(<span class="hljs-string">"user-unpublished"</span>, (user, mediaType) =&gt; {
+  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"video"</span>) {
+    <span class="hljs-comment">// 获取刚刚动态创建的 DIV 节点。</span>
+    <span class="hljs-keyword">const</span> playerContainer = <span class="hljs-built_in">document</span>.getElementById(user.uid.toString());
+    <span class="hljs-comment">// 销毁这个节点。</span>
+    playerContainer.remove();
+  }
 });
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="5离开频道"></a><a href="#5离开频道" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.离开频道</h3>
-<p>一般来说，离开频道有以下几个步骤：</p>
+<p>通过以下步骤离开频道：</p>
 <ol>
 <li>销毁创建的本地音视频轨道，解除网页对摄像头和麦克风的访问。</li>
 <li>手动销毁之前动态创建的 DIV 节点。</li>
 <li>调用 <code>leave</code> 离开频道。</li>
 </ol>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">leaveCall</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-comment">// 销毁本地音视频轨道</span>
+  <span class="hljs-comment">// 销毁本地音视频轨道。</span>
   rtc.localAudioTrack.close();
   rtc.localVideoTrack.close();
 
-  <span class="hljs-comment">// 遍历远端用户</span>
+  <span class="hljs-comment">// 遍历远端用户。</span>
   rtc.client.remoteUsers.forEach(<span class="hljs-function"><span class="hljs-params">user</span> =&gt;</span> {
-    <span class="hljs-comment">// 销毁动态创建的 DIV 节点</span>
+    <span class="hljs-comment">// 销毁动态创建的 DIV 节点。</span>
     <span class="hljs-keyword">const</span> playerContainer = <span class="hljs-built_in">document</span>.getElementById(user.uid);
     playerContainer &amp;&amp; playerContainer.remove();
   });
 
-  <span class="hljs-comment">// 离开频道</span>
+  <span class="hljs-comment">// 离开频道。</span>
   <span class="hljs-keyword">await</span> rtc.client.leave();
 }
 </code></pre>
@@ -255,5 +258,5 @@ rtc.localVideoTrack = <span class="hljs-keyword">await</span> AgoraRTC.createCam
 <p>在不同的产品设计中，离开频道可以既不销毁本地流，也不销毁动态创建的 DIV 节点。这些操作不是必须的，根据您自己的情况调整代码。</p>
 </blockquote>
 <h2><a class="anchor" aria-hidden="true" id="demo-体验"></a><a href="#demo-体验" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Demo 体验</h2>
-<p>我们提供了一个简单的演示页面，完成了上面所述的基本步骤。你可以访问这个 <a href="/AgoraWebSDK-NG/demo/basicVideoCall/index.html">地址</a> 在线体验。</p>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/AgoraWebSDK-NG/docs/zh-CN/setup"><span class="arrow-prev">← </span><span>集成 SDK</span></a><a class="docs-next button" href="/AgoraWebSDK-NG/docs/zh-CN/volume"><span>调整通话音量</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#常用对象">常用对象</a></li><li><a href="#基本流程">基本流程</a><ul class="toc-headings"><li><a href="#1创建本地客户端">1.创建本地客户端</a></li><li><a href="#2加入目标频道">2.加入目标频道</a></li><li><a href="#3创建并发布本地音视频轨道">3.创建并发布本地音视频轨道</a></li><li><a href="#4订阅远端用户">4.订阅远端用户</a></li><li><a href="#5离开频道">5.离开频道</a></li></ul></li><li><a href="#demo-体验">Demo 体验</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/" class="nav-home"><img src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/docs/zh-CN/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/api/cn">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>
+<p>我们提供了一个简单的演示页面，完成了上述的步骤。你可以访问这个<a href="/AgoraWebSDK-NG/demo/basicVideoCall/index.html">地址</a>在线体验。</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/AgoraWebSDK-NG/docs/zh-CN/setup"><span class="arrow-prev">← </span><span>集成 SDK</span></a><a class="docs-next button" href="/AgoraWebSDK-NG/docs/zh-CN/join_and_leave"><span>加入/离开频道</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#常用对象">常用对象</a></li><li><a href="#基本流程">基本流程</a><ul class="toc-headings"><li><a href="#1创建本地客户端">1.创建本地客户端</a></li><li><a href="#2加入目标频道">2.加入目标频道</a></li><li><a href="#3创建并发布本地音视频轨道">3.创建并发布本地音视频轨道</a></li><li><a href="#4订阅远端用户">4.订阅远端用户</a></li><li><a href="#5离开频道">5.离开频道</a></li></ul></li><li><a href="#demo-体验">Demo 体验</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/" class="nav-home"><img src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/docs/zh-CN/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/api/cn">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>

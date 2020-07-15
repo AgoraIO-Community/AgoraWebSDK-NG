@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>加入/离开频道 · Agora Web SDK NG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="在 Agora Web SDK NG 中，我们使用 [AgoraRTCClient](/api/cn/interfaces/iagorartcclient.html) 对象来管理一个本地用户在目标频道内的行为。所以在加入目标频道之前，让我们先创建一个 `AgoraRTCClient` 对象。"/><meta name="docsearch:language" content="zh-CN"/><meta property="og:title" content="加入/离开频道 · Agora Web SDK NG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://agoraio-community.github.io/AgoraWebSDK-NG/"/><meta property="og:description" content="在 Agora Web SDK NG 中，我们使用 [AgoraRTCClient](/api/cn/interfaces/iagorartcclient.html) 对象来管理一个本地用户在目标频道内的行为。所以在加入目标频道之前，让我们先创建一个 `AgoraRTCClient` 对象。"/><meta property="og:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/AgoraWebSDK-NG/img/favicon.ico"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/AgoraWebSDK-NG/js/code-block-buttons.js"></script><script src="/AgoraWebSDK-NG/js/scrollSpy.js"></script><link rel="stylesheet" href="/AgoraWebSDK-NG/css/main.css"/><script src="/AgoraWebSDK-NG/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/AgoraWebSDK-NG/zh-CN"><img class="logo" src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG"/><h2 class="headerTitleWithLogo">Agora Web SDK NG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/AgoraWebSDK-NG/docs/zh-CN/overview" target="_self">文档</a></li><li class=""><a href="/AgoraWebSDK-NG/api/en" target="_self">API</a></li><li class=""><a href="/AgoraWebSDK-NG/docs/zh-CN/migration_guide" target="_self">迁移文档</a></li><li class=""><a href="/AgoraWebSDK-NG/demo" target="_self">Demos</a></li><li class=""><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" target="_self">Github</a></li><li class=""><a href="/AgoraWebSDK-NG/zh-CN/versions" target="_self">版本</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/AgoraWebSDK-NG/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/AgoraWebSDK-NG/docs/en/join_and_leave">English</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>入门</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">发版记录</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/release_note">Release Note</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">入门</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/overview">概览</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/setup">集成 SDK</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/basic_call">实现基本通话</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/join_and_leave">加入/离开频道</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/create_local_track">创建本地轨道对象</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/publish_and_subscribe">发布和订阅</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">音频管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/volume">调整通话音量</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/audio_profile">设置音频属性</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/audio_effect_mixing">播放音效/混音</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/custom_audio">自定义音频采集</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">视频管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/video_profile">设置视频属性</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/optimization_mode">清晰优先和流畅优先</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/image_enhancement">美颜</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/screensharing">屏幕共享</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/custom_video">自定义视频采集</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">高级媒体流管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/multi_user_video">七人以上视频场景</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/media_relay">跨直播间连麦</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/cdn_streaming">推流到 CDN</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/inject_stream">输入在线媒体流</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/cloud_proxy">使用云代理</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/channel_encryption">媒体流加密</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">设备管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/test_switch_device">音视频设备测试/切换</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">体验提升</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/call_quality">通话中质量监测</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/stream_fallback">视频流回退</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">加入/离开频道</h1></header><article><div><span><p>在 Agora Web SDK NG 中，我们使用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html">AgoraRTCClient</a> 对象来管理一个本地用户在目标频道内的行为。所以在加入目标频道之前，让我们先创建一个 <code>AgoraRTCClient</code> 对象。</p>
+<h2><a class="anchor" aria-hidden="true" id="创建-agorartcclient-对象"></a><a href="#创建-agorartcclient-对象" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>创建 AgoraRTCClient 对象</h2>
+<p>创建 <code>AgoraRTCClient</code> 对象非常简单，直接调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createclient">AgoraRTC.createClient</a> 即可。在创建 <code>AgoraRTCClient</code> 时，我们需要指定使用的编码格式以及频道场景：</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> client = AgoraRTC.createClient({
+  <span class="hljs-attr">codec</span>: <span class="hljs-string">"vp8"</span>,
+  <span class="hljs-attr">mode</span>: <span class="hljs-string">"live"</span>,
+  
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="选择合适的编码格式"></a><a href="#选择合适的编码格式" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>选择合适的编码格式</h3>
+<p>Agora Web SDK NG 支持两种编码格式 <code>&quot;vp8&quot;</code> 和 <code>&quot;h264&quot;</code>，不同的浏览器和不同的设备对这两种格式的编解码支持都不同。建议您根据实际需求并结合实际的设备/浏览器选择合适的编码格式。</p>
+<p>该配置只会影响发布端的编码格式，对于订阅端来说只要其支持该格式的解码，都能正常完成解码。比如 Desktop Chrome 57 以上即支持 VP8 也支持 H.264，如果频道中有两个主播分别发布了 VP8 和 H.264 的视频，使用 Desktop Chrome 57 的观众都可以完成订阅和解码，但是 Safari 12.1 以下的设备不支持 VP8 的编解码，那么使用 Safari 12.1 以下版本浏览器的观众就无法解码 VP8 那一路的流。</p>
+<p>下面列出不同浏览器和平台所支持的编解码格式作为参考：</p>
+<table>
+<thead>
+<tr><th>Browser</th><th>VP8</th><th>H.264</th></tr>
+</thead>
+<tbody>
+<tr><td>Desktop Chrome 58+</td><td>✔</td><td>✔</td></tr>
+<tr><td>Firefox 56+</td><td>✔</td><td>✔*</td></tr>
+<tr><td>Safari 12.1+</td><td>✔</td><td>✔</td></tr>
+<tr><td>Safari &lt; 12.1</td><td>✘</td><td>✔</td></tr>
+<tr><td>Android Chrome 58+</td><td>✔</td><td>?*</td></tr>
+</tbody>
+</table>
+<blockquote>
+<ul>
+<li>Firefox 的 H.264 依赖 <code>OpenH264 Video Codec provided by Cisco Systems, Inc.</code> 插件，这个插件会在 Firefox 安装成功后自动在后台下载并默认启用，但是如果此时插件没有下载完成，Firefox 的 H.264 将不可用。</li>
+<li>Chrome 会在 Android 设备上对 H.264 强制使用硬件编解码。此时就算 Chrome 声称支持 H.264，如果 Android 设备的芯片没有 H.264 的硬件编解码支持，H.264 实际上也是不可用的。</li>
+</ul>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="选择合适的频道场景"></a><a href="#选择合适的频道场景" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>选择合适的频道场景</h3>
+<p>Agora RTC SDK NG 支持两种频道场景 <code>&quot;rtc&quot;</code>(通信场景) 和 <code>&quot;live&quot;</code>(直播场景)。</p>
+<p>通信场景适合多人会议，在线聊天等场景。这种场景的特征是频道内的所有用户往往需要互相交流但是频道内用户的总数不会太多。在这种场景下，发布端除了第一帧以外不会主动编码关键帧，只有当有人需要订阅时，会发起一个关键帧请求，此时发布端才会编码一个关键帧。这样的好处是可以加快首帧出图的时间，同时减少编码不必要的关键帧来降低对带宽的占用。但是如果订阅端的人数很多而且订阅操作很频繁，短时间内大量的关键帧请求会给发布端带来很大压力，此时我们推荐使用直播场景。</p>
+<p>直播场景适合发布端很少但是订阅端很多的场景，这种场景下我们定义了两种用户角色：观众和主播。主播能够发送和接收音视频，观众不能发送，只能接收音视频。你可以通过修改 <code>createClient</code> 的 <a href="/AgoraWebSDK-NG/api/cn/interfaces/clientconfig.html#role">role</a> 参数来指定用户角色，也可以调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#setclientrole">setClientRole</a> 来动态修改。在直播场景下，主播会固定每隔 1 秒编码一个关键帧，不会依赖关键帧请求。</p>
+<h2><a class="anchor" aria-hidden="true" id="加入频道"></a><a href="#加入频道" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>加入频道</h2>
+<p>创建好 <code>AgoraRTCClient</code> 对象后，接下来就可以加入频道了，直接调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#join">AgoraRTCClient.join</a> 即可加入频道。</p>
+<blockquote>
+<p><code>join</code> 方法详细参数说明请参阅 API 文档。注意该方法为异步方法，使用时需要配合 Promise 或者 async/await。</p>
+</blockquote>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 自动分配数字 UID</span>
+<span class="hljs-keyword">const</span> uid = <span class="hljs-keyword">await</span> client.join(<span class="hljs-string">"APPID"</span>, <span class="hljs-string">"CHANNEL"</span>, <span class="hljs-string">"TOKEN"</span>);
+
+<span class="hljs-comment">// 指定数字 UID</span>
+<span class="hljs-keyword">await</span> client.join(<span class="hljs-string">"APPID"</span>, <span class="hljs-string">"CHANNEL"</span>, <span class="hljs-string">"TOKEN"</span>, <span class="hljs-number">393939</span>);
+
+<span class="hljs-comment">// 指定 String UID</span>
+<span class="hljs-keyword">await</span> client.join(<span class="hljs-string">"APPID"</span>, <span class="hljs-string">"CHANNEL"</span>, <span class="hljs-string">"TOKEN"</span>, <span class="hljs-string">"my_user_id"</span>);
+</code></pre>
+<p>这里需要注意 <code>join</code> 方法的第四个参数，当不传入任何值时，Agora 将会为这个加入的本地用户自动分配一个数字 UID 作为其唯一的身份标识。你也可以自己传入相应的 UID 参数来实现指定 UID，UID 目前支持数字和 String 两种类型，在使用指定 UID 功能时请注意以下事项：</p>
+<ul>
+<li>指定 UID 时，一个频道内的 UID 类型必须是一致的，也就是不能出现数字 UID 和 String UID 混用的情况</li>
+<li>指定 UID 时，如果频道内有其他用户也在使用这个 UID，那么正在使用这个 UID 用户会被 Agora 网关立刻踢出，新用户将会使用 UID 成功加入。（用户因为 UID 重复被踢出时会触发 <code>connection-state-change</code> 回调，详细见下文的连接状态介绍）</li>
+<li>使用 String UID 时，实际上是在 Agora 内部服务里注册了一个 String UID 到数字 UID 的映射关系，所以使用 String UID 会增加加入房间的流程，会在一定程度上影响加入频道的时间</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="离开频道"></a><a href="#离开频道" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>离开频道</h2>
+<p>通过调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#leave">AgoraRTCClient.leave</a> 可以离开当前频道。该方法在任何时候调用，即使当前正在加入频道或者正在重连。当调用离开频道后，SDK 会立刻销毁所有频道内的连接对象并重置整个频道。如果需要再次加入频道，先调用 <code>leave</code> 后再调用 <code>join</code> 即可。</p>
+<blockquote>
+<p>注意该方法为异步方法，使用时需要配合 Promise 或者 async/await。</p>
+</blockquote>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">await</span> client.leave();
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="频道内的连接状态"></a><a href="#频道内的连接状态" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>频道内的连接状态</h2>
+<p>当一个用户加入目标频道后，因为网络波动可能会导致和 Agora 服务的连接断开，此时 SDK 会自动重新尝试加入频道。下面介绍所有的连接状态：</p>
+<ul>
+<li>&quot;DISCONNECTED&quot;: 连接断开。当出于这个状态时，SDK 不会尝试重连。该状态表示用户处于以下任一阶段：
+<ul>
+<li>尚未通过 join 加入频道。</li>
+<li>已经通过 leave 离开频道。</li>
+<li>被 Agora 服务踢出频道或者连接失败等异常情况。</li>
+</ul></li>
+<li>&quot;CONNECTING&quot;: 正在连接中。当调用 join 时为此状态。</li>
+<li>&quot;CONNECTED&quot;: 已连接。该状态表示用户已经加入频道，可以在频道内发布或订阅媒体流。</li>
+<li>&quot;RECONNECTING&quot;: 连接断开，但是正在尝试重连中。因网络断开或切换而导致 SDK 与服务器的连接中断，SDK 会自动重连，此时连接状态变为 &quot;RECONNECTING&quot;。</li>
+<li>&quot;DISCONNECTING&quot;: 正在断开连接。在调用 leave 的时候为此状态。</li>
+</ul>
+<p>你可以通过 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#connectionstate">AgoraRTCClient.connectionState</a> 或者 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_connection_state_change">AgoraRTCClient.on(&quot;connection-state-change&quot;)</a> 获取当前最新的状态变化。</p>
+<h2><a class="anchor" aria-hidden="true" id="错误处理"></a><a href="#错误处理" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>错误处理</h2>
+<p>在加入频道的过程中，因为 SDK 使用不当或者网络异常等原因，可能会抛出以下错误：</p>
+<ul>
+<li>INVALID_PARAMS: 提供的参数错误，比如提供了格式非法的 Token</li>
+<li>INVALID_OPERATION: 非法操作，通常由于重复加入频道引起的，请确保重复加入时先调用 <code>leave</code></li>
+<li>OPERATION_ABORT: 加入中止，说明在 <code>join</code> 方法成功之前就调用了 <code>leave</code> 方法</li>
+<li>UNEXPECTED_RESPONSE: Agora 后台返回了非预期的响应，通常是因为 APPID 或 Token 鉴权失败</li>
+<li>INVALID_UINT_UID_FROM_STRING_UID：通过 String UID 映射数字 UID 失败</li>
+<li>UID_CONFLICT：创建了多个 <code>AgoraRTCClient</code> 对象，其中重复使用了同一个 UID</li>
+<li>WS_ABORT: 和 Agora 网关建立 WebSocket 连接失败</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/AgoraWebSDK-NG/docs/zh-CN/basic_call"><span class="arrow-prev">← </span><span>实现基本通话</span></a><a class="docs-next button" href="/AgoraWebSDK-NG/docs/zh-CN/create_local_track"><span>创建本地轨道对象</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#创建-agorartcclient-对象">创建 AgoraRTCClient 对象</a><ul class="toc-headings"><li><a href="#选择合适的编码格式">选择合适的编码格式</a></li><li><a href="#选择合适的频道场景">选择合适的频道场景</a></li></ul></li><li><a href="#加入频道">加入频道</a></li><li><a href="#离开频道">离开频道</a></li><li><a href="#频道内的连接状态">频道内的连接状态</a></li><li><a href="#错误处理">错误处理</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/" class="nav-home"><img src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/docs/zh-CN/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/api/cn">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>

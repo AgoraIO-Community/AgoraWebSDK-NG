@@ -47,10 +47,8 @@
 	<div class="row">
 		<div class="col-9 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#agora-web-sdk-ng-api-reference" id="agora-web-sdk-ng-api-reference" style="color: inherit; text-decoration: none;">
-					<h1>Agora Web SDK NG API Reference</h1>
-				</a>
-				<p>The Agora Web SDK NG provides a JavaScript/Typescript library. Powered by WebRTC, it enables you to establish and manage audio and video communications or live broadcast services from a web browser.</p>
+				<p>The Agora Web SDK NG provides a JavaScript and Typescript library. Powered by WebRTC, it enables you to establish and manage audio and video communications or live broadcast services from a web browser.</p>
+				<p>The Agora Web SDK NG is compatible with mainstream browsers. For details, see <a href="/AgoraWebSDK-NG/docs/en/overview#compatibility">Compatibility</a>.</p>
 				<blockquote>
 					<p>Ensure that you use the HTTPS protocol or localhost, otherwise the error WEB_SECURITY_RESTRICT occurs.</p>
 				</blockquote>
@@ -64,8 +62,7 @@
 				<a href="#global-module" id="global-module" style="color: inherit; text-decoration: none;">
 					<h2>Global module</h2>
 				</a>
-				<p><a href="interfaces/iagorartc.html">AgoraRTC</a> is the entry point for all the methods provided by the Agora Web SDK NG.</p>
-				<p><a href="interfaces/iagorartc.html">AgoraRTC</a> provides the following methods:</p>
+				<p><a href="interfaces/iagorartc.html">AgoraRTC</a> is the entry point for all the methods provided by the Agora Web SDK NG. <a href="interfaces/iagorartc.html">AgoraRTC</a> provides the following methods:</p>
 				<a href="#core-methods" id="core-methods" style="color: inherit; text-decoration: none;">
 					<h3>Core methods</h3>
 				</a>
@@ -81,8 +78,8 @@
 							<td align="left">Creates a local client object.</td>
 						</tr>
 				</tbody></table>
-				<a href="#local-track-methods" id="local-track-methods" style="color: inherit; text-decoration: none;">
-					<h3>Local track methods</h3>
+				<a href="#local-audio-and-video-methods" id="local-audio-and-video-methods" style="color: inherit; text-decoration: none;">
+					<h3>Local audio and video methods</h3>
 				</a>
 				<table>
 					<thead>
@@ -120,8 +117,8 @@
 							<td align="left">Creates a customized video track.</td>
 						</tr>
 				</tbody></table>
-				<a href="#media-devices-methods" id="media-devices-methods" style="color: inherit; text-decoration: none;">
-					<h3>Media devices methods</h3>
+				<a href="#media-device-methods" id="media-device-methods" style="color: inherit; text-decoration: none;">
+					<h3>Media device methods</h3>
 				</a>
 				<table>
 					<thead>
@@ -170,6 +167,29 @@
 							<td align="left">Sets the output log level of the SDK</td>
 						</tr>
 				</tbody></table>
+				<a href="#global-callbacks" id="global-callbacks" style="color: inherit; text-decoration: none;">
+					<h3>Global callbacks</h3>
+				</a>
+				<table>
+					<thead>
+						<tr>
+							<th>Callback</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><a href="interfaces/iagorartc.html#oncamerachanged">onCameraChanged</a></td>
+							<td>Occurs when a video capture device is added or removed.</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/iagorartc.html#onmicrophonechanged">onMicrophoneChanged</a></td>
+							<td>Occurs when an audio sampling device is added or removed.</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/iagorartc.html#onaudioautoplayfailed">onAudioAutoplayFailed</a></td>
+							<td>Occurs when the autoplay of an audio track fails.</td>
+						</tr>
+				</tbody></table>
 				<a href="#other-methods" id="other-methods" style="color: inherit; text-decoration: none;">
 					<h3>Other methods</h3>
 				</a>
@@ -193,9 +213,6 @@
 							<td align="left">Creates a <code>ChannelMediaRelayConfiguration</code> object</td>
 						</tr>
 				</tbody></table>
-				<a href="#main-modules" id="main-modules" style="color: inherit; text-decoration: none;">
-					<h2>Main modules</h2>
-				</a>
 				<a href="#agorartcclient" id="agorartcclient" style="color: inherit; text-decoration: none;">
 					<h3>AgoraRTCClient</h3>
 				</a>
@@ -232,41 +249,60 @@
 							<td align="left">Unsubscribes from the audio and/or tracks of a remote user.</td>
 						</tr>
 				</tbody></table>
-				<a href="#localtrack-and-remotetrack" id="localtrack-and-remotetrack" style="color: inherit; text-decoration: none;">
-					<h3>LocalTrack and RemoteTrack</h3>
+				<a href="#localtrack" id="localtrack" style="color: inherit; text-decoration: none;">
+					<h2>LocalTrack</h2>
 				</a>
-				<p>An <a href="interfaces/ilocaltrack.html">localTrack</a> object represents a local track; an <a href="interfaces/iremotetrack.html">RemoteTrack</a> object represents a remote track.</p>
-				<p>To get a local track:</p>
-				<ul>
-					<li>Call <a href="interfaces/iagorartc.html#createmicrophoneaudiotrack">AgoraRTC.createMicrophoneAudioTrack</a> to get a local audio track.</li>
-					<li>Call <a href="interfaces/iagorartc.html#createcameravideotrack">AgoraRTC.createCameraVideoTrack</a> to get a local video track.</li>
-				</ul>
-				<p>To get a remote track: Call <a href="interfaces/iagorartcclient.html#subscribe">subscribe</a> to subscribe to a remote user, and then get the remote audio and video tracks from <a href="interfaces/iagorartcremoteuser.html">AgoraRTCRemoteUser</a>.</p>
-				<p>An AgoraRTCClient object can publish only one stream at a time, which includes one audio track and one video track. An <code>AgoraRTCClient</code> object can publish multiple audio tracks but only one video track. The SDK automatically mixes the audio tracks into one when publishing the stream.</p>
+				<p><a href="interfaces/ilocaltrack.html">localTrack</a> is the abstract interface that defines local audio and video tracks and can be used for playing and publishing audio and video.</p>
+				<p>You can call different methods to create different local track objects based on the derived interfaces of <a href="interfaces/ilocaltrack.html">localTrack</a>:</p>
+				<a href="#local-audio-tracks" id="local-audio-tracks" style="color: inherit; text-decoration: none;">
+					<h3>Local audio tracks</h3>
+				</a>
+				<p>The SDK provides the following three kinds of local audio tracks. <code>LocalAudioTrack</code> is derived from <code>LocalTrack</code>; <code>MicrophoneAudioTrack</code> and <code>BufferSourceAudioTrack</code> is derived from <code>LocalAudioTrack</code>.</p>
 				<table>
 					<thead>
 						<tr>
-							<th align="left">Method</th>
-							<th align="left">Description</th>
+							<th>Local Audio Track</th>
+							<th>Description</th>
 						</tr>
 					</thead>
 					<tbody><tr>
-							<td align="left"><a href="interfaces/ilocalvideotrack.html#play">LocalAudioTrack.play</a></td>
-							<td align="left">Plays the local audio track.</td>
+							<td><a href="interfaces/ilocalaudiotrack.html">LocalAudioTrack</a></td>
+							<td>The basic interface for local audio tracks, providing the main methods of managing local audio, such as playing and setting volume. <br>Created by calling <a href="interfaces/iagorartc.html#createcustomaudiotrack">AgoraRTC.createCustomAudioTrack</a>.</td>
 						</tr>
 						<tr>
-							<td align="left"><a href="interfaces/ilocalvideotrack.html#play">LocalVideoTrack.play</a></td>
-							<td align="left">Plays the local video track.</td>
+							<td><a href="interfaces/imicrophoneaudiotrack.html">MicrophoneAudioTrack</a></td>
+							<td>The interface for the audio sampled by a local microphone, adding functions such as switching devices. <br>Created by calling <a href="interfaces/iagorartc.html#createmicrophoneaudiotrack">AgoraRTC.createMicrophoneAudioTrack</a>.</td>
 						</tr>
 						<tr>
-							<td align="left"><a href="interfaces/iremoteaudiotrack.html#play">RemoteAudioTrack.play</a></td>
-							<td align="left">Plays the remote audio track.</td>
-						</tr>
-						<tr>
-							<td align="left"><a href="interfaces/iremotevideotrack.html#play">RemoteVideoTrack.play</a></td>
-							<td align="left">Plays the remote video track.</td>
+							<td><a href="interfaces/ibuffersourceaudiotrack.html">BufferSourceAudioTrack</a></td>
+							<td>The interface for the audio from a local audio file, adding functions for controlling the processing of the audio buffer. <br>Created by calling <a href="interfaces/iagorartc.html#createbuffersourceaudiotrack">AgoraRTC.createBufferSourceAudioTrack</a>.</td>
 						</tr>
 				</tbody></table>
+				<a href="#local-video-tracks" id="local-video-tracks" style="color: inherit; text-decoration: none;">
+					<h3>Local video tracks</h3>
+				</a>
+				<p>The SDK provides the following two kinds of local video tracks. <code>LocalVideoTrack</code> is derived from <code>LocalTrack</code>, and <code>CameraVideoTrack</code> is derived from <code>LocalVideoTrack</code>.</p>
+				<table>
+					<thead>
+						<tr>
+							<th>Local Video Track</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><a href="interfaces/ilocalvideotrack.html">LocalVideoTrack</a></td>
+							<td>The basic interface for local video tracks, providing the main methods for managing local video, such as playing and applying image enhancement.<br>Created by calling <a href="interfaces/iagorartc.html#createcustomvideotrack">AgoraRTC.createCustomVideoTrack</a> or <a href="interfaces/iagorartc.html#createscreenvideotrack">AgoraRTC.createScreenVideoTrack</a>.</td>
+						</tr>
+						<tr>
+							<td><a href="interfaces/icameravideotrack.html">CameraVideoTrack</a></td>
+							<td>The interface for the video captured by a local camera, adding functions such as switching devices and adjusting video encoder configurations.<br>Created by calling <a href="interfaces/iagorartc.html#createcameravideotrack">AgoraRTC.createCameraVideoTrack</a>.</td>
+						</tr>
+				</tbody></table>
+				<a href="#remotetrack" id="remotetrack" style="color: inherit; text-decoration: none;">
+					<h2>RemoteTrack</h2>
+				</a>
+				<p><code>RemoteTrack</code> is the abstract interface that defines remote audio and video tracks.</p>
+				<p>To get a remote track: Call <a href="interfaces/iagorartcclient.html#subscribe">subscribe</a> to subscribe to a remote user, and then get the <a href="interfaces/iremoteaudiotrack.html">RemoteAudioTrack</a> track and the <a href="interfaces/iremotevideotrack.html">RemoteVideoTrack</a> track from <a href="interfaces/iagorartcremoteuser.html">AgoraRTCRemoteUser</a>. Both <code>RemoteAudioTrack</code> and <code>RemoteVideoTrack</code> are derived from <code>RemoteTrack</code>.</p>
 				<a href="#import-the-sdk" id="import-the-sdk" style="color: inherit; text-decoration: none;">
 					<h2>Import the SDK</h2>
 				</a>
@@ -303,6 +339,9 @@
 					</li>
 					<li class=" tsd-kind-enum">
 						<a href="enums/connectiondisconnectedreason.html" class="tsd-kind-icon">Connection<wbr>Disconnected<wbr>Reason</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-is-not-exported">
+						<a href="enums/injectstreameventstatus.html" class="tsd-kind-icon">Inject<wbr>Stream<wbr>Event<wbr>Status</a>
 					</li>
 					<li class=" tsd-kind-enum">
 						<a href="enums/remotestreamfallbacktype.html" class="tsd-kind-icon">Remote<wbr>Stream<wbr>Fallback<wbr>Type</a>
@@ -348,6 +387,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/electrondesktopcapturersource.html" class="tsd-kind-icon">Electron<wbr>Desktop<wbr>Capturer<wbr>Source</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/eventcustomreportparams.html" class="tsd-kind-icon">Event<wbr>Custom<wbr>Report<wbr>Params</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/iagorartc.html" class="tsd-kind-icon">IAgoraRTC</a>
@@ -474,6 +516,12 @@
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#agorartc" class="tsd-kind-icon">AgoraRTC</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#event_stream_inject_status" class="tsd-kind-icon">event_<wbr>stream_<wbr>inject_<wbr>status</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#event_user_info_updated" class="tsd-kind-icon">event_<wbr>user_<wbr>info_<wbr>updated</a>
 					</li>
 				</ul>
 			</nav>

@@ -76,6 +76,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="remoteaudiotrackstats.html#freezerate" class="tsd-kind-icon">freeze<wbr>Rate</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="remoteaudiotrackstats.html#mutestate" class="tsd-kind-icon">mute<wbr>State</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="remoteaudiotrackstats.html#packetlossrate" class="tsd-kind-icon">packet<wbr>Loss<wbr>Rate</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="remoteaudiotrackstats.html#publishduration" class="tsd-kind-icon">publish<wbr>Duration</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="remoteaudiotrackstats.html#receivebitrate" class="tsd-kind-icon">receive<wbr>Bitrate</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="remoteaudiotrackstats.html#receivebytes" class="tsd-kind-icon">receive<wbr>Bytes</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="remoteaudiotrackstats.html#receivedelay" class="tsd-kind-icon">receive<wbr>Delay</a></li>
@@ -144,7 +145,8 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>是否静音。</p>
+							<p><strong>DEPRECATED</strong>
+							是否静音。</p>
 							<ul>
 								<li><code>true</code>: 音频静音。</li>
 								<li><code>false</code>: 音频未静音。</li>
@@ -161,6 +163,19 @@
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>接收的音频丢包率。</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="publishduration" class="tsd-anchor"></a>
+					<h3>publish<wbr>Duration</h3>
+					<div class="tsd-signature tsd-kind-icon">publish<wbr>Duration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>远端发布音频时长
+							如果为 -1，说明暂时还无法获取发布时长</p>
 						</div>
 					</div>
 				</section>
@@ -308,6 +323,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="remoteaudiotrackstats.html#packetlossrate" class="tsd-kind-icon">packet<wbr>Loss<wbr>Rate</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="remoteaudiotrackstats.html#publishduration" class="tsd-kind-icon">publish<wbr>Duration</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="remoteaudiotrackstats.html#receivebitrate" class="tsd-kind-icon">receive<wbr>Bitrate</a>

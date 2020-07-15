@@ -135,6 +135,23 @@
 					<div class="tsd-signature tsd-kind-icon">optimization<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"motion"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"detail"</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether to prioritize video quality or smoothness:</p>
+							<ul>
+								<li><code>&quot;detail&quot;</code>: Prioritizes video quality.<ul>
+										<li>The SDK ensures high-quality images by automatically calculating a minimum bitrate based on the capturing resolution and frame rate. No matter how poor the network condition is, the sending bitrate will never be lower than the minimum value.</li>
+										<li>In most cases, the SDK does not reduce the sending resolution, but may reduce the frame rate.</li>
+									</ul>
+								</li>
+								<li><code>&quot;motion&quot;</code>: Prioritizes video smoothness.<ul>
+										<li>In poor network conditions, the SDK reduces the sending bitrate to minimize video freezes.</li>
+										<li>In most cases, the SDK does not reduce the frame rate, but may reduce the sending resolution.</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>

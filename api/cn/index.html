@@ -47,13 +47,28 @@
 	<div class="row">
 		<div class="col-9 col-content">
 			<div class="tsd-panel tsd-typography">
-				<div class="alert note">注意：<br/>本文适用于 Agora Web SDK NG (Next Generation)，这是 Agora Web SDK 的全量重构版本。如果你使用的是旧版 Agora Web SDK，请点击以下链接：<li>下载地址：<a href="http://download.agora.io/sdk/release/Agora_Web_SDK_v3_1_0_FULL.zip">Agora Web SDK v3.1.0</a>。</li><li><a href="https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/index.html">API 参考</a>。</div>
+				<blockquote>
+					<p>注意：</p>
+					<ul>
+						<li>本文适用于 Agora Web SDK NG (Next Generation)，这是 Agora Web SDK 的全量重构版本。如果你使用的是旧版 Agora Web SDK，请点击以下链接：<ul>
+								<li><a href="http://download.agora.io/sdk/release/Agora_Web_SDK_v3_1_0_FULL.zip">Agora Web SDK v3.1.0 下载地址</a></li>
+								<li><a href="https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/web/index.html">API 参考</a></li>
+							</ul>
+						</li>
+					</ul>
+				</blockquote>
 				<p>Agora Web SDK NG 是通过 HTML 网页加载的 JavaScript 和 Typescript 库。你可以使用 Agora Web SDK NG 在网页浏览器中调用 API 建立连接，控制音视频通话和直播服务。</p>
 				<p>Agora Web SDK NG 支持所有的主流浏览器，详见<a href="/AgoraWebSDK-NG/docs/zh-CN/overview/#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7">浏览器支持</a>。</p>
 				<blockquote>
 					<p>请务必使用 HTTPS 协议或者 localhost，否则 SDK 无法正常工作。</p>
 				</blockquote>
-				<p><a name="global"></a></p>
+				<a href="#阅读建议" id="阅读建议" style="color: inherit; text-decoration: none;">
+					<h2>阅读建议</h2>
+				</a>
+				<ul>
+					<li>Agora 建议你在查看 API 注释前先阅读<a href="/AgoraWebSDK-NG/docs/zh-CN/overview">功能文档</a>。</li>
+					<li>你可以通过页面右上方的搜索功能快速查找 API。</li>
+				</ul>
 				<a href="#全局模块" id="全局模块" style="color: inherit; text-decoration: none;">
 					<h2>全局模块</h2>
 				</a>
@@ -174,15 +189,15 @@
 					</thead>
 					<tbody><tr>
 							<td><a href="interfaces/iagorartc.html#oncamerachanged">onCameraChanged</a></td>
-							<td>通知有摄像头设备插入或拔出</td>
+							<td>视频采集设备状态变化回调</td>
 						</tr>
 						<tr>
 							<td><a href="interfaces/iagorartc.html#onmicrophonechanged">onMicrophoneChanged</a></td>
-							<td>通知有麦克风设备被</td>
+							<td>音频采集设备状态变化回调</td>
 						</tr>
 						<tr>
 							<td><a href="interfaces/iagorartc.html#onaudioautoplayfailed">onAudioAutoplayFailed</a></td>
-							<td>通知音频自动播放失败</td>
+							<td>音频轨道自动播放失败回调</td>
 						</tr>
 				</tbody></table>
 				<a href="#其他" id="其他" style="color: inherit; text-decoration: none;">
@@ -209,8 +224,8 @@
 						</tr>
 				</tbody></table>
 				<p><a name="client"></a></p>
-				<a href="#agorartcclient" id="agorartcclient" style="color: inherit; text-decoration: none;">
-					<h2>AgoraRTCClient</h2>
+				<a href="#agorartcclient-类" id="agorartcclient-类" style="color: inherit; text-decoration: none;">
+					<h2>AgoraRTCClient 类</h2>
 				</a>
 				<p>调用 <a href="interfaces/iagorartc.html#createclient">createClient</a> 创建一个本地客户端对象 <a href="interfaces/iagorartcclient.html">AgoraRTCClient</a>，代表一个通话中的本地用户。<code>AgoraRTCClient</code> 类提供音视频通话的核心功能，主要包含以下方法。</p>
 				<table>
@@ -246,11 +261,11 @@
 						</tr>
 				</tbody></table>
 				<p><a name="local-track"></a></p>
-				<a href="#localtrack" id="localtrack" style="color: inherit; text-decoration: none;">
-					<h2>LocalTrack</h2>
+				<a href="#localtrack-类" id="localtrack-类" style="color: inherit; text-decoration: none;">
+					<h2>LocalTrack 类</h2>
 				</a>
 				<p><code>LocalTrack</code> 是 Agora Web SDK NG 中定义本地音视频轨道的抽象类，可用于本地播放和发布。</p>
-				<p>SDK 通过不同的方式创建不同的 <code>LocalTrack</code>，返回不同的 <code>LocalTrack</code> 派生类对象。以下列举了所有的 <code>LocalTrack</code> 派生类以及所对应的创建方式：</p>
+				<p>SDK 通过不同的方式创建不同的 <code>LocalTrack</code>，返回不同的 <code>LocalTrack</code> 派生类对象。以下列举了所有的 <code>LocalTrack</code> 派生类以及所对应的创建方式。</p>
 				<a href="#本地音频轨道" id="本地音频轨道" style="color: inherit; text-decoration: none;">
 					<h3>本地音频轨道</h3>
 				</a>
@@ -296,8 +311,8 @@
 						</tr>
 				</tbody></table>
 				<p><a name="remote-track"></a></p>
-				<a href="#remotetrack" id="remotetrack" style="color: inherit; text-decoration: none;">
-					<h2>RemoteTrack</h2>
+				<a href="#remotetrack-类" id="remotetrack-类" style="color: inherit; text-decoration: none;">
+					<h2>RemoteTrack 类</h2>
 				</a>
 				<p><code>RemoteTrack</code> 是 Agora Web SDK NG 中用于定义远端音视频轨道的抽象类。</p>
 				<p>在实际操作中，你需要先调用 <a href="interfaces/iagorartcclient.html#subscribe">AgoraRTCClient.subscribe</a> 订阅远端用户，然后从远端用户对象 <a href="interfaces/iagorartcremoteuser.html">AgoraRTCRemoteUser</a> 中获取派生自 <code>RemoteTrack</code> 的 <a href="interfaces/iremoteaudiotrack.html">RemoteAudioTrack</a> 对象和 <a href="interfaces/iremotevideotrack.html">RemoteVideoTrack</a> 对象。</p>
@@ -308,8 +323,8 @@
 				<p>如果你通过 <code>npm</code> 或者模块化的方式引入 Agora Web SDK NG，可以通过以下方式访问 <code>AgoraRTC</code>:</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> AgoraRTC <span class="hljs-keyword">from</span> <span class="hljs-string">"agora-rtc-sdk-ng"</span>;
 <span class="hljs-built_in">console</span>.log(AgoraRTC.createClient);</code></pre>
-				<a href="#类型模块（用于-typescript）" id="类型模块（用于-typescript）" style="color: inherit; text-decoration: none;">
-					<h2>类型模块（用于 Typescript）</h2>
+				<a href="#类型模块（适用于-typescript）" id="类型模块（适用于-typescript）" style="color: inherit; text-decoration: none;">
+					<h2>类型模块（适用于 Typescript）</h2>
 				</a>
 				<p>对于 Typescript 开发者，我们提供了 <code>.d.ts</code> 文件导出详细的类型定义。你可以查看 API 文档的 <a href="./globals.html">Global</a> 页面，该页面列出了所有 SDK 导出的模块和类型。</p>
 				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> AgoraRTC, { IAgoraRTCClient } <span class="hljs-keyword">from</span> <span class="hljs-string">"agora-rtc-sdk-ng"</span>;
@@ -338,6 +353,9 @@
 					</li>
 					<li class=" tsd-kind-enum">
 						<a href="enums/connectiondisconnectedreason.html" class="tsd-kind-icon">Connection<wbr>Disconnected<wbr>Reason</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-is-not-exported">
+						<a href="enums/injectstreameventstatus.html" class="tsd-kind-icon">Inject<wbr>Stream<wbr>Event<wbr>Status</a>
 					</li>
 					<li class=" tsd-kind-enum">
 						<a href="enums/remotestreamfallbacktype.html" class="tsd-kind-icon">Remote<wbr>Stream<wbr>Fallback<wbr>Type</a>
@@ -383,6 +401,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/electrondesktopcapturersource.html" class="tsd-kind-icon">Electron<wbr>Desktop<wbr>Capturer<wbr>Source</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/eventcustomreportparams.html" class="tsd-kind-icon">Event<wbr>Custom<wbr>Report<wbr>Params</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/iagorartc.html" class="tsd-kind-icon">IAgoraRTC</a>
@@ -515,6 +536,9 @@
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#support_video_encoder_config_list" class="tsd-kind-icon">SUPPORT_<wbr>VIDEO_<wbr>ENCODER_<wbr>CONFIG_<wbr>LIST</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#event_user_info_updated" class="tsd-kind-icon">event_<wbr>user_<wbr>info_<wbr>updated</a>
 					</li>
 				</ul>
 			</nav>

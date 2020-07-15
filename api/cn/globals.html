@@ -57,6 +57,7 @@
 								<li class="tsd-kind-enum"><a href="enums/channelmediarelayevent.html" class="tsd-kind-icon">Channel<wbr>Media<wbr>Relay<wbr>Event</a></li>
 								<li class="tsd-kind-enum"><a href="enums/channelmediarelaystate.html" class="tsd-kind-icon">Channel<wbr>Media<wbr>Relay<wbr>State</a></li>
 								<li class="tsd-kind-enum"><a href="enums/connectiondisconnectedreason.html" class="tsd-kind-icon">Connection<wbr>Disconnected<wbr>Reason</a></li>
+								<li class="tsd-kind-enum tsd-is-not-exported"><a href="enums/injectstreameventstatus.html" class="tsd-kind-icon">Inject<wbr>Stream<wbr>Event<wbr>Status</a></li>
 								<li class="tsd-kind-enum"><a href="enums/remotestreamfallbacktype.html" class="tsd-kind-icon">Remote<wbr>Stream<wbr>Fallback<wbr>Type</a></li>
 								<li class="tsd-kind-enum"><a href="enums/remotestreamtype.html" class="tsd-kind-icon">Remote<wbr>Stream<wbr>Type</a></li>
 							</ul>
@@ -77,6 +78,7 @@
 								<li class="tsd-kind-interface"><a href="interfaces/customvideotrackinitconfig.html" class="tsd-kind-icon">Custom<wbr>Video<wbr>Track<wbr>Init<wbr>Config</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/deviceinfo.html" class="tsd-kind-icon">Device<wbr>Info</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/electrondesktopcapturersource.html" class="tsd-kind-icon">Electron<wbr>Desktop<wbr>Capturer<wbr>Source</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/eventcustomreportparams.html" class="tsd-kind-icon">Event<wbr>Custom<wbr>Report<wbr>Params</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/iagorartc.html" class="tsd-kind-icon">IAgoraRTC</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/iagorartcclient.html" class="tsd-kind-icon">IAgoraRTCClient</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/iagorartcremoteuser.html" class="tsd-kind-icon">IAgoraRTCRemote<wbr>User</a></li>
@@ -131,6 +133,12 @@
 								<li class="tsd-kind-variable"><a href="globals.html#agorartc" class="tsd-kind-icon">AgoraRTC</a></li>
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#support_screen_encoder_config_list" class="tsd-kind-icon">SUPPORT_<wbr>SCREEN_<wbr>ENCODER_<wbr>CONFIG_<wbr>LIST</a></li>
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#support_video_encoder_config_list" class="tsd-kind-icon">SUPPORT_<wbr>VIDEO_<wbr>ENCODER_<wbr>CONFIG_<wbr>LIST</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#event_user_info_updated" class="tsd-kind-icon">user-<wbr>info-<wbr>updated</a></li>
 							</ul>
 						</section>
 					</div>
@@ -266,16 +274,17 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="encryptionmode" class="tsd-anchor"></a>
 					<h3>Encryption<wbr>Mode</h3>
-					<div class="tsd-signature tsd-kind-icon">Encryption<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"aes-128-xts"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"aes-256-xts"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"aes-128-ecb"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"none"</span></div>
+					<div class="tsd-signature tsd-kind-icon">Encryption<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"aes-128-xts"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"aes-256-xts"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"aes-128-ecb"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"sm4-128-ecb"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"none"</span></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>加密方案，在调用 <a href="interfaces/iagorartcclient.html#setencryptionconfig">setEncryptionConfig</a> 时使用。包含以下几种：</p>
 							<ul>
-								<li><code>&quot;aes-128-xts&quot;</code>: AES128XTS 加密方案。</li>
-								<li><code>&quot;aes-256-xts&quot;</code>: AES256XTS 加密方案。</li>
-								<li><code>&quot;aes-128-ecb&quot;</code>: AES128ECB 加密方案。</li>
+								<li><code>&quot;aes-128-xts&quot;</code>: 128 位 AES 加密，XTS 模式。</li>
+								<li><code>&quot;aes-256-xts&quot;</code>: 128 位 AES 加密，ECB 模式。</li>
+								<li><code>&quot;aes-128-ecb&quot;</code>: 256 位 AES 加密，XTS 模式。</li>
+								<li><code>&quot;sm4-128-ecb&quot;</code>: 128 位 SM4 加密，ECB 模式。</li>
 								<li><code>&quot;none&quot;</code>: 不加密。</li>
 							</ul>
 						</div>
@@ -341,12 +350,12 @@
 							<tbody><tr>
 									<td>480p</td>
 									<td>640 × 480</td>
-									<td>5</td>
+									<td>1</td>
 								</tr>
 								<tr>
 									<td>480p_1</td>
 									<td>640 × 480</td>
-									<td>5</td>
+									<td>1</td>
 								</tr>
 								<tr>
 									<td>480p_2</td>
@@ -356,12 +365,12 @@
 								<tr>
 									<td>720p</td>
 									<td>1280 × 720</td>
-									<td>5</td>
+									<td>1</td>
 								</tr>
 								<tr>
 									<td>720p_1</td>
 									<td>1280 × 720</td>
-									<td>5</td>
+									<td>1</td>
 								</tr>
 								<tr>
 									<td>720p_2</td>
@@ -371,12 +380,12 @@
 								<tr>
 									<td>1080p</td>
 									<td>1920 × 1080</td>
-									<td>5</td>
+									<td>1</td>
 								</tr>
 								<tr>
 									<td>1080p_1</td>
 									<td>1920 × 1080</td>
-									<td>5</td>
+									<td>1</td>
 								</tr>
 								<tr>
 									<td>1080p_2</td>
@@ -1107,6 +1116,48 @@
 					</div>
 				</section>
 			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
+					<a name="event_user_info_updated" class="tsd-anchor"></a>
+					<h3>user-<wbr>info-<wbr>updated</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">user-<wbr>info-<wbr>updated<span class="tsd-signature-symbol">(</span>uid<span class="tsd-signature-symbol">: </span><a href="globals.html#uid" class="tsd-signature-type">UID</a>, msg<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"mute-audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"mute-video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"enable-local-video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"unmute-audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"unmute-video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"disable-local-video"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>该回调用于和 Agora RTC Native SDK 互通时提示来自 Native SDK 的用户状态变化。</p>
+								</div>
+								<p>该事件仅用于和 Native 应用之间同步状态。</p>
+								<p>在大部分情况下，你只需要监听 <a href="interfaces/iagorartcclient.html#event_user_published">user-published</a> 和 <a href="interfaces/iagorartcclient.html#event_user_unpublished">user-unpublished</a> 就可以完成订阅、取消订阅、展示远端用户是否打开了摄像头和麦克风等工作，无需特别关注实际用户状态的变化，SDK 会自动处理用户状态变化。</p>
+								<blockquote>
+									<p>即使用户状态表示该用户的音视频流是活跃的，不一定意味着该用户可订阅。是否可订阅的唯一标志是收到 <a href="interfaces/iagorartcclient.html#event_user_published">user-published</a> 事件。</p>
+								</blockquote>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>uid: <a href="globals.html#uid" class="tsd-signature-type">UID</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>发生状态变化的用户的 ID。</p>
+									</div>
+								</li>
+								<li>
+									<h5>msg: <span class="tsd-signature-type">"mute-audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"mute-video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"enable-local-video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"unmute-audio"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"unmute-video"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"disable-local-video"</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>当前状态。</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
 		</div>
 		<div class="col-3 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
@@ -1129,6 +1180,9 @@
 					</li>
 					<li class=" tsd-kind-enum">
 						<a href="enums/connectiondisconnectedreason.html" class="tsd-kind-icon">Connection<wbr>Disconnected<wbr>Reason</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-is-not-exported">
+						<a href="enums/injectstreameventstatus.html" class="tsd-kind-icon">Inject<wbr>Stream<wbr>Event<wbr>Status</a>
 					</li>
 					<li class=" tsd-kind-enum">
 						<a href="enums/remotestreamfallbacktype.html" class="tsd-kind-icon">Remote<wbr>Stream<wbr>Fallback<wbr>Type</a>
@@ -1174,6 +1228,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/electrondesktopcapturersource.html" class="tsd-kind-icon">Electron<wbr>Desktop<wbr>Capturer<wbr>Source</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/eventcustomreportparams.html" class="tsd-kind-icon">Event<wbr>Custom<wbr>Report<wbr>Params</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/iagorartc.html" class="tsd-kind-icon">IAgoraRTC</a>
@@ -1306,6 +1363,9 @@
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#support_video_encoder_config_list" class="tsd-kind-icon">SUPPORT_<wbr>VIDEO_<wbr>ENCODER_<wbr>CONFIG_<wbr>LIST</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#event_user_info_updated" class="tsd-kind-icon">event_<wbr>user_<wbr>info_<wbr>updated</a>
 					</li>
 				</ul>
 			</nav>

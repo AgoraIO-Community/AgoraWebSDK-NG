@@ -49,6 +49,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-9 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The entry point of the Agora Web SDK NG.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -168,7 +175,7 @@
 };</code></pre>
 						<dl class="tsd-comment-tags">
 							<dt>param</dt>
-							<dd><p>Information of the video capture device.</p>
+							<dd><p>deviceInfo: Information of the video capture device. See <a href="deviceinfo.html">DeviceInfo</a>.</p>
 							</dd>
 						</dl>
 					</div>
@@ -188,7 +195,7 @@
 };</code></pre>
 						<dl class="tsd-comment-tags">
 							<dt>param</dt>
-							<dd><p>Information of the audio sampling device.</p>
+							<dd><p>deviceInfo: Information of the video capture device. See <a href="deviceinfo.html">DeviceInfo</a>.</p>
 							</dd>
 						</dl>
 					</div>
@@ -399,9 +406,9 @@
 					<a name="createscreenvideotrack" class="tsd-anchor"></a>
 					<h3>create<wbr>Screen<wbr>Video<wbr>Track</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Screen<wbr>Video<wbr>Track<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="screenvideotrackinitconfig.html" class="tsd-signature-type">ScreenVideoTrackInitConfig</a>, withAudio<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">, </span><a href="ilocalaudiotrack.html" class="tsd-signature-type">ILocalAudioTrack</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></li>
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Screen<wbr>Video<wbr>Track<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="screenvideotrackinitconfig.html" class="tsd-signature-type">ScreenVideoTrackInitConfig</a>, withAudio<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">&gt;</span></li>
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Screen<wbr>Video<wbr>Track<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="screenvideotrackinitconfig.html" class="tsd-signature-type">ScreenVideoTrackInitConfig</a>, withAudio<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">, </span><a href="ilocalaudiotrack.html" class="tsd-signature-type">ILocalAudioTrack</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Screen<wbr>Video<wbr>Track<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="screenvideotrackinitconfig.html" class="tsd-signature-type">ScreenVideoTrackInitConfig</a>, withAudio<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"enable"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">, </span><a href="ilocalaudiotrack.html" class="tsd-signature-type">ILocalAudioTrack</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Screen<wbr>Video<wbr>Track<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="screenvideotrackinitconfig.html" class="tsd-signature-type">ScreenVideoTrackInitConfig</a>, withAudio<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"disable"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Screen<wbr>Video<wbr>Track<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="screenvideotrackinitconfig.html" class="tsd-signature-type">ScreenVideoTrackInitConfig</a>, withAudio<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">"enable"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"disable"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"auto"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">, </span><a href="ilocalaudiotrack.html" class="tsd-signature-type">ILocalAudioTrack</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -421,16 +428,17 @@
 									</div>
 								</li>
 								<li>
-									<h5>withAudio: <span class="tsd-signature-type">true</span></h5>
+									<h5>withAudio: <span class="tsd-signature-type">"enable"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Marks whether to share the audio of the audio output device when sharing the screen.</p>
+										<p>Whether to share the audio of the audio output device when sharing the screen.</p>
 										<ul>
-											<li><code>true</code>: Share the audio.</li>
-											<li><code>false</code>: Do not share the audio.<blockquote>
+											<li><code>enable</code>: Share the audio.</li>
+											<li><code>disable</code>: (Default) Do not share the audio.</li>
+											<li><code>auto</code>: Share the audio, dependent on whether the browser supports this function.<blockquote>
 													<p>Note:</p>
 													<ul>
-														<li>This function is only supported on Chrome 73 or later on Windows.</li>
-														<li>For the audio sharing to take effect, the user must check <strong>Share audio</strong> in the pop-up window when sharing the screen.</li>
+														<li>This function is only supported on Chrome 74 or later on Windows.</li>
+														<li>For the audio sharing to take effect, the end user must check <strong>Share audio</strong> in the pop-up window when sharing the screen.</li>
 													</ul>
 												</blockquote>
 											</li>
@@ -440,8 +448,13 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">, </span><a href="ilocalaudiotrack.html" class="tsd-signature-type">ILocalAudioTrack</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<ul>
-								<li>A list containing a video track for screen sharing and an audio track, if <code>withAudio</code> is <code>true</code>.</li>
-								<li>A video track for screen-sharing, if <code>withAudio</code> is <code>false</code> or undefined.</li>
+								<li>If <code>withAudio</code> is <code>enable</code>, then this method returns a list containing a video track for screen sharing and an audio track. If the end user does not check <strong>Share audio</strong>, the SDK throws an error.</li>
+								<li>If <code>withAudio</code> is <code>disable</code>, then this method returns a video track for screen sharing.</li>
+								<li>If <code>withAudio</code> is <code>auto</code>, then the SDK attempts to share the audio on browsers supporting this function.<ul>
+										<li>If the end user checks <strong>Share audio</strong>, then this method returns a list containing a video track for screen sharing and an audio track.</li>
+										<li>If the end user does not check <strong>Share audio</strong>, then this method only returns a video track for screen sharing.</li>
+									</ul>
+								</li>
 							</ul>
 						</li>
 						<li class="tsd-description">
@@ -466,16 +479,17 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> withAudio: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span></h5>
+									<h5>withAudio: <span class="tsd-signature-type">"disable"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Marks whether to share the audio of the audio output device when sharing the screen.</p>
+										<p>Whether to share the audio of the audio output device when sharing the screen.</p>
 										<ul>
-											<li><code>true</code>: Share the audio.</li>
-											<li><code>false</code>: Do not share the audio.<blockquote>
+											<li><code>enable</code>: Share the audio.</li>
+											<li><code>disable</code>: (Default) Do not share the audio.</li>
+											<li><code>auto</code>: Share the audio, dependent on whether the browser supports this function.<blockquote>
 													<p>Note:</p>
 													<ul>
-														<li>This function is only supported on Chrome 73 or later on Windows.</li>
-														<li>For the audio sharing to take effect, the user must check <strong>Share audio</strong> in the pop-up window when sharing the screen.</li>
+														<li>This function is only supported on Chrome 74 or later on Windows.</li>
+														<li>For the audio sharing to take effect, the end user must check <strong>Share audio</strong> in the pop-up window when sharing the screen.</li>
 													</ul>
 												</blockquote>
 											</li>
@@ -485,8 +499,13 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">&gt;</span></h4>
 							<ul>
-								<li>A list containing a video track for screen sharing and an audio track, if <code>withAudio</code> is <code>true</code>.</li>
-								<li>A video track for screen-sharing, if <code>withAudio</code> is <code>false</code> or undefined.</li>
+								<li>If <code>withAudio</code> is <code>enable</code>, then this method returns a list containing a video track for screen sharing and an audio track. If the end user does not check <strong>Share audio</strong>, the SDK throws an error.</li>
+								<li>If <code>withAudio</code> is <code>disable</code>, then this method returns a video track for screen sharing.</li>
+								<li>If <code>withAudio</code> is <code>auto</code>, then the SDK attempts to share the audio on browsers supporting this function.<ul>
+										<li>If the end user checks <strong>Share audio</strong>, then this method returns a list containing a video track for screen sharing and an audio track.</li>
+										<li>If the end user does not check <strong>Share audio</strong>, then this method only returns a video track for screen sharing.</li>
+									</ul>
+								</li>
 							</ul>
 						</li>
 						<li class="tsd-description">
@@ -511,16 +530,17 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> withAudio: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> withAudio: <span class="tsd-signature-type">"enable"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"disable"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"auto"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Marks whether to share the audio of the audio output device when sharing the screen.</p>
+										<p>Whether to share the audio of the audio output device when sharing the screen.</p>
 										<ul>
-											<li><code>true</code>: Share the audio.</li>
-											<li><code>false</code>: Do not share the audio.<blockquote>
+											<li><code>enable</code>: Share the audio.</li>
+											<li><code>disable</code>: (Default) Do not share the audio.</li>
+											<li><code>auto</code>: Share the audio, dependent on whether the browser supports this function.<blockquote>
 													<p>Note:</p>
 													<ul>
-														<li>This function is only supported on Chrome 73 or later on Windows.</li>
-														<li>For the audio sharing to take effect, the user must check <strong>Share audio</strong> in the pop-up window when sharing the screen.</li>
+														<li>This function is only supported on Chrome 74 or later on Windows.</li>
+														<li>For the audio sharing to take effect, the end user must check <strong>Share audio</strong> in the pop-up window when sharing the screen.</li>
 													</ul>
 												</blockquote>
 											</li>
@@ -530,8 +550,13 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">, </span><a href="ilocalaudiotrack.html" class="tsd-signature-type">ILocalAudioTrack</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="ilocalvideotrack.html" class="tsd-signature-type">ILocalVideoTrack</a><span class="tsd-signature-symbol">&gt;</span></h4>
 							<ul>
-								<li>A list containing a video track for screen sharing and an audio track, if <code>withAudio</code> is <code>true</code>.</li>
-								<li>A video track for screen-sharing, if <code>withAudio</code> is <code>false</code> or undefined.</li>
+								<li>If <code>withAudio</code> is <code>enable</code>, then this method returns a list containing a video track for screen sharing and an audio track. If the end user does not check <strong>Share audio</strong>, the SDK throws an error.</li>
+								<li>If <code>withAudio</code> is <code>disable</code>, then this method returns a video track for screen sharing.</li>
+								<li>If <code>withAudio</code> is <code>auto</code>, then the SDK attempts to share the audio on browsers supporting this function.<ul>
+										<li>If the end user checks <strong>Share audio</strong>, then this method returns a list containing a video track for screen sharing and an audio track.</li>
+										<li>If the end user does not check <strong>Share audio</strong>, then this method only returns a video track for screen sharing.</li>
+									</ul>
+								</li>
 							</ul>
 						</li>
 					</ul>
@@ -783,7 +808,7 @@
 									<p>Check whether an audio track is active.</p>
 								</div>
 								<p>The SDK determines whether an audio track is active by checking whether the volume changes during the specified time frame.</p>
-								<p>Agora recommends calling this method before starting a call to check the availability of the audio sampling device. You can pass the audio track from the audio sampled by a microphone as a parameter in this method to check whether the microphone works properly.</p>
+								<p>Agora recommends calling this method before starting a call to check the availability of the audio sampling device. You can pass the audio track from the audio sampled by a microphone as a parameter in this method to check whether the microphone works.</p>
 								<blockquote>
 									<p>Notes:</p>
 									<ul>
@@ -817,7 +842,7 @@ AgoraRTC.checkAudioTrackIsActive(audioTrack).then(<span class="hljs-function"><s
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>Whether the volume in the specified audio track changes during the specified time frame:</p>
 							<ul>
-								<li><code>true</code>: The volume changes. For the microphone audio track, it means the audio sampling device works properly.</li>
+								<li><code>true</code>: The volume changes. For the microphone audio track, it means the audio sampling device works.</li>
 								<li><code>false</code>: The volume does not change. Possible reasons:<ul>
 										<li>The audio sampling device does not work properly.</li>
 										<li>The volume in the customized audio track does not change.</li>
@@ -867,7 +892,7 @@ AgoraRTC.checkAudioTrackIsActive(audioTrack).then(<span class="hljs-function"><s
 									<p>Checks whether a video track is active.</p>
 								</div>
 								<p>The SDK determines whether a video track is active by checking for image changes during the specified time frame.</p>
-								<p>Agora recommends calling this method before starting a call to check the availability of the video capture device. You can pass the camera video track as a parameter in this method to check whether the camera works properly.</p>
+								<p>Agora recommends calling this method before starting a call to check the availability of the video capture device. You can pass the camera video track as a parameter in this method to check whether the camera works.</p>
 								<blockquote>
 									<p>Notes:</p>
 									<ul>
@@ -900,7 +925,7 @@ AgoraRTC.checkVideoTrackIsActive(videoTrack).then(<span class="hljs-function"><s
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>Whether the image in the specified video track changes during the specified time frame:</p>
 							<ul>
-								<li><code>true</code>: The image changes. For the camera video track, it means the video capture device works properly.</li>
+								<li><code>true</code>: The image changes. For the camera video track, it means the video capture device works.</li>
 								<li><code>false</code>: The image does not change. Possible reasons:<ul>
 										<li>The video capturing device does not work properly or is blocked.</li>
 										<li>The video track is muted.</li>

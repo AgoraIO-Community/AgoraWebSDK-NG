@@ -78,6 +78,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#height" class="tsd-kind-icon">height</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#images" class="tsd-kind-icon">images</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#transcodingusers" class="tsd-kind-icon">transcoding<wbr>Users</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#userconfigextrainfo" class="tsd-kind-icon">user<wbr>Config<wbr>Extra<wbr>Info</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#videobitrate" class="tsd-kind-icon">video<wbr>Bitrate</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#videocodecprofile" class="tsd-kind-icon">video<wbr>Codec<wbr>Profile</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#videoframerate" class="tsd-kind-icon">video<wbr>Frame<wbr>Rate</a></li>
@@ -179,6 +180,9 @@
 						<div class="lead">
 							<p>用于给直播推流的视频添加水印。</p>
 						</div>
+						<blockquote>
+							<p>目前推流后台只支持添加一张水印图片</p>
+						</blockquote>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -192,6 +196,18 @@
 							<p>用于管理参与直播推流的视频合图的用户。</p>
 						</div>
 						<p>最多支持 17 人同时转码合图。</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="userconfigextrainfo" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> user<wbr>Config<wbr>Extra<wbr>Info</h3>
+					<div class="tsd-signature tsd-kind-icon">user<wbr>Config<wbr>Extra<wbr>Info<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>用户自定义的发送到旁路推流客户端的信息，用于填充 H264/H265 视频中 SEI 帧内容。长度限制：4096字节。关于 SEI 的详细信息，详见 <a href="https://docs.agora.io/cn/faq/sei">SEI 帧相关问题</a>。</p>
+						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -302,6 +318,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="livestreamingtranscodingconfig.html#transcodingusers" class="tsd-kind-icon">transcoding<wbr>Users</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="livestreamingtranscodingconfig.html#userconfigextrainfo" class="tsd-kind-icon">user<wbr>Config<wbr>Extra<wbr>Info</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="livestreamingtranscodingconfig.html#videobitrate" class="tsd-kind-icon">video<wbr>Bitrate</a>
