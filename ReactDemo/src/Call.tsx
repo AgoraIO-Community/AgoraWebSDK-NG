@@ -36,7 +36,7 @@ function Call() {
       </form>
       <div className='player-container'>
         <div className='local-player-wrapper'>
-          <p className='local-player-text'>{localVideoTrack && `localTrack`}{joinState && localVideoTrack ? `(${localVideoTrack.getUserId()})` : ''}</p>
+          <p className='local-player-text'>{localVideoTrack && `localTrack`}{joinState && localVideoTrack ? `(${client.uid})` : ''}</p>
           <MediaPlayer videoTrack={localVideoTrack} audioTrack={localAudioTrack}></MediaPlayer>
         </div>
         {remoteUsers.map(user => (<div className='remote-player-wrapper' key={user.uid}>
