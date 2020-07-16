@@ -59,8 +59,8 @@ export default function useAgora(client: IAgoraRTCClient | undefined)
     if (!client) return;
     setRemoteUsers(client.remoteUsers);
 
-    const handleUserPublished = async (user: IAgoraRTCRemoteUser, mediaType: string) => {
-      await client.subscribe(user);
+    const handleUserPublished = async (user: IAgoraRTCRemoteUser, mediaType: 'audio' | 'video') => {
+      await client.subscribe(user, mediaType);
       // toggle rerender while state of remoteUsers changed.
       setRemoteUsers(remoteUsers => Array.from(client.remoteUsers));
     }
