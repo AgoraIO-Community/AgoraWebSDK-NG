@@ -2,7 +2,7 @@
 
 *English | [简体中文](README.cn.md)*
 
-The Agora Web SDK NG is the next-generation SDK of the current Agora Web SDK, enabling audio and video real-time communications based on Agora SD-RTNTM and implementing scenarios such as voice-only calls, video call, voice-only interactive broadcast, and video interactive broadcast. The Agora Web SDK NG makes full-scale refactoring to the internal architecture of the Agora Web SDK and improves usability of APIs.
+The Agora Web SDK NG is the next-generation SDK of the current Agora Web SDK, enabling audio and video real-time communications based on Agora SD-RTN™ and implementing scenarios such as voice-only calls, video call, voice-only interactive broadcast, and video interactive broadcast. The Agora Web SDK NG makes full-scale refactoring to the internal architecture of the Agora Web SDK and improves usability of APIs.
 
 ```shell
 npm install agora-rtc-sdk-ng --save
