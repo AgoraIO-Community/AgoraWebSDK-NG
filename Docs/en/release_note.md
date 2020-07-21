@@ -6,6 +6,15 @@ sidebar_label: Release Note
 
 This page provides the release notes for the Agora Web SDK NG.
 
+## v4.0.1
+
+### Fixed issues
+
+v4.0.1 fixed the following issues:
+
+- Publishing failure in Chrome 70
+- Publish operation may not be aborted when leaving the channel
+
 ## v4.0.0
 
 Agora Web SDK NG v4.0.0 was released on July 15, 2020.

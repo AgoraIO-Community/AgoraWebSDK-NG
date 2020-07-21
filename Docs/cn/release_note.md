@@ -6,6 +6,16 @@ sidebar_label: Release Note
 
 本页提供 Agora Web SDK NG 的发版说明。
 
+## 4.0.1 版
+
+Agora Web SDK NG v4.0.0 于 2020 年 7 月 18 日发布。
+
+### 问题修复
+
+- 修复 Chrome 70 下发布失败的问题
+- 修复某些情况下离开频道发布操作没有被中止的问题
+
+
 ## 4.0.0 版
 
 Agora Web SDK NG v4.0.0 于 2020 年 7 月 15 日发布。
