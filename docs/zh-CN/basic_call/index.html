@@ -183,7 +183,7 @@ rtc.localVideoTrack = <span class="hljs-keyword">await</span> AgoraRTC.createCam
 <p>在 <code>createClient</code> 后下一行插入以下代码，监听 <code>client.on(&quot;user-published&quot;)</code> 事件，当有远端用户发布时开始订阅，并在订阅后自动播放远端音视频轨道对象。</p>
 <pre><code class="hljs css language-js">rtc.client.on(<span class="hljs-string">"user-published"</span>, <span class="hljs-keyword">async</span> (user, mediaType) =&gt; {
   <span class="hljs-comment">// 开始订阅远端用户。</span>
-  <span class="hljs-keyword">await</span> rtc.client.subscribe(user);
+  <span class="hljs-keyword">await</span> rtc.client.subscribe(user, mediaType);
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"subscribe success"</span>);
 
   <span class="hljs-comment">// 表示本次订阅的是视频。</span>

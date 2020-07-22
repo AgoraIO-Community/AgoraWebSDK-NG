@@ -184,7 +184,7 @@ rtc.localVideoTrack = <span class="hljs-keyword">await</span> AgoraRTC.createCam
 <p>Add the following code snippet after calling<code>createClient</code> to listen for the <code>client.on(&quot;user-published&quot;)</code> event, subscribe to the remote user who publishes media tracks, and automatically play the media tracks.</p>
 <pre><code class="hljs css language-js">rtc.client.on(<span class="hljs-string">"user-published"</span>, <span class="hljs-keyword">async</span> (user, mediaType) =&gt; {
   <span class="hljs-comment">// Subscribe to a remote user.</span>
-  <span class="hljs-keyword">await</span> rtc.client.subscribe(user);
+  <span class="hljs-keyword">await</span> rtc.client.subscribe(user, mediaType);
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"subscribe success"</span>);
 
   <span class="hljs-comment">// If the subscribed track is video.</span>
