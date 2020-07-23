@@ -103,7 +103,7 @@ async function leave() {
 async function subscribe(user, mediaType) {
   const uid = user.uid;
   // subscribe to a remote user
-  await client.subscribe(user);
+  await client.subscribe(user, mediaType);
   console.log("subscribe success");
   if (mediaType !== 'audio') {
     const player = $(`
