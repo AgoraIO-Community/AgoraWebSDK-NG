@@ -13,10 +13,13 @@ A clear and concise description of what the bug is.
 ### SDK Logs
 > You should call [enableLogUpload](https://agoraio-community.github.io/AgoraWebSDK-NG/api/en/interfaces/iagorartc.html#enablelogupload) to enable log upload to Agora's Log Server.
 
-**Channel**:
-**UID**:
-Platform: 
-SDK Version: 
+**Channel**:    
+
+**UID**:    
+
+Platform and Browser:    
+
+SDK Version:    
 
 ### To Reproduce
 Steps to reproduce the behavior:
