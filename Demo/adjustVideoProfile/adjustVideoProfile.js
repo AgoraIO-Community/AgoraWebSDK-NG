@@ -20,7 +20,7 @@ var videoProfiles = [
   { label: "720p_2", detail: "1280×720, 30fps, 2000Kbps", value: "720p_2" },
   { label: "1080p_1", detail: "1920×1080, 15fps, 2080Kbps", value: "1080p_1" },
   { label: "1080p_2", detail: "1920×1080, 30fps, 3000Kbps", value: "1080p_2" },
-  { label: "640×640", detail: "640×640, 30fps", value: { width: 640, height: 640, frameRate: 30 } } // custom video profile
+  { label: "200×640", detail: "200×640, 30fps", value: { width: 200, height: 640, frameRate: 30 } } // custom video profile
 ]
 
 var curVideoProfile;
@@ -122,9 +122,9 @@ async function leave() {
 async function subscribe(user, mediaType) {
   const uid = user.uid;
   // subscribe to a remote user
-  await client.subscribe(user);
+  await client.subscribe(user, mediaType);
   console.log("subscribe success");
-  if (mediaType !== 'audio') {
+  if (mediaType === 'video') {
     const player = $(`
       <div id="player-wrapper-${uid}">
         <p class="player-name">remoteUser(${uid})</p>
@@ -134,7 +134,7 @@ async function subscribe(user, mediaType) {
     $("#remote-playerlist").append(player);
     user.videoTrack.play(`player-${uid}`);
   }
-  if (mediaType !== 'video') {
+  if (mediaType === 'audio') {
     user.audioTrack.play();
   }
 }

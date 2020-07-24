@@ -160,9 +160,9 @@ async function leave() {
 async function subscribe(user, mediaType) {
   const uid = user.uid;
   // subscribe to a remote user
-  await client.subscribe(user);
+  await client.subscribe(user, mediaType);
   console.log("subscribe success");
-  if (mediaType !== 'audio') {
+  if (mediaType === 'video') {
     const player = $(`
       <div id="player-wrapper-${uid}">
         <p class="player-name">remoteUser(${uid})</p>
@@ -172,7 +172,7 @@ async function subscribe(user, mediaType) {
     $("#remote-playerlist").append(player);
     user.videoTrack.play(`player-${uid}`);
   }
-  if (mediaType !== 'video') {
+  if (mediaType === 'audio') {
     user.audioTrack.play();
   }
 }
@@ -200,7 +200,7 @@ async function switchMicrophone(label) {
   currentMic = mics.find(mic => mic.label === label);
   $(".mic-input").val(currentMic.label);
   // switch device of local audio track.
-  await localTracks.videoTrack.setDevice(currentMic.deviceId);
+  await localTracks.audioTrack.setDevice(currentMic.deviceId);
 }
 
 // show real-time volume while adjusting device. 
