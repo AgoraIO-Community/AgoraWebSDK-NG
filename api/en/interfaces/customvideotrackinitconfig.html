@@ -126,7 +126,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Whether to prioritize video quality or smoothness:</p>
+							<p>Transmission optimization mode. Whether to prioritize video quality or smoothness:</p>
 							<ul>
 								<li><code>&quot;detail&quot;</code>: Prioritizes video quality.<ul>
 										<li>The SDK ensures high-quality images by automatically calculating a minimum bitrate based on the capturing resolution and frame rate. No matter how poor the network condition is, the sending bitrate will never be lower than the minimum value.</li>
@@ -138,6 +138,7 @@
 										<li>In most cases, the SDK does not reduce the frame rate, but may reduce the sending resolution.</li>
 									</ul>
 								</li>
+								<li>Empty: Uses the default transmission optimization mode. The SDK may reduce the frame rate or the sending resolution in poor network conditions.</li>
 							</ul>
 						</div>
 					</div>

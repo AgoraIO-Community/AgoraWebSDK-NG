@@ -67,42 +67,53 @@
               }
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">清晰优先和流畅优先</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="功能描述"></a><a href="#功能描述" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>功能描述</h2>
-<p>在不同的视频场景和产品需求中，对视频体验的侧重点不同，有些需求希望在网络波动时视频画面即使卡顿也要尽量保持清晰，有些需求要求视频画面不能卡顿但是可以模糊。对于这两种需求，Agora Web SDK NG 对本地视频轨道提供了清晰优先和流畅优先两种优化模式的选项。</p>
+<p>不同的场景或产品对视频体验有不同的需求：</p>
+<ul>
+<li>有些场景要求视频画面在网络波动时即使卡顿也要尽量保持清晰。</li>
+<li>有些场景允许视频画面在网络波动时模糊，但是不能卡顿。</li>
+</ul>
+<p>基于以上两种不同的需求，Agora Web SDK NG 对本地视频轨道提供了以下两种传输优化策略：</p>
+<ul>
+<li>清晰优先：
+<ul>
+<li>SDK 会自动根据你采集分辨率和帧率设定一个最小码率。即使遭遇网络波动，发送码率也不会低于这个值，从而确保清晰的视频画面。</li>
+<li>大部分情况下，SDK 不会降低发送分辨率，但是可能会降低帧率。</li>
+</ul></li>
+<li>流畅优先：
+<ul>
+<li>SDK 不会启用最小码率策略。遭遇网络波动时，发送端会降低码率来确保接收端的视频画面不会出现中断和卡顿。</li>
+<li>大部分情况下，SDK 不会降低帧率，但是可能会降低发送分辨率。</li>
+</ul></li>
+</ul>
 <h2><a class="anchor" aria-hidden="true" id="实现方法"></a><a href="#实现方法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>实现方法</h2>
-<p>在创建本地视频轨道时，我们可以通过 <code>optimizationMode</code> 来设置该视频是清晰优先还是流畅优先。如果该参数留空，则使用 SDK 默认的优化策略：</p>
+<p>在调用 <code>createCameraVideoTrack</code>、<code>createScreenVideoTrack</code> 或 <code>createCustomVideoTrack</code> 方法创建本地视频轨道时，你可以通过设置 <code>optimizationMode</code> 参数：</p>
 <ul>
-<li>对于屏幕共享的轨道，SDK 默认的优化策略为清晰优先</li>
-<li>对于其他类型的本地视频轨道，SDK 默认的优化策略为兼顾清晰和流畅，也就是说帧率和分辨率在弱网下都会被调整。</li>
+<li><code>&quot;motion&quot;</code>: 流畅优先。</li>
+<li><code>&quot;detail&quot;</code>: 清晰优先。</li>
 </ul>
-<p>如果你设置了清晰优先：</p>
+<p>如果该参数留空，则使用 SDK 默认的优化策略：</p>
 <ul>
-<li>SDK 会自动根据你采集的分辨率/帧率设置一个最小清晰码率，以保证当你遭遇网络波动时，发送码率不会低于这个值。</li>
-<li>视频编码器大部分情况下将不会降低发送分辨率，但是可能会降低帧率</li>
-</ul>
-<p>如果你设置了流畅优先:</p>
-<ul>
-<li>SDK 将不会启用最小码率策略，证当你遭遇网络波动时，发送端将会尽可能地降低码率来保证订阅端的画面不会出现中断和卡顿</li>
-<li>视频编码器大部分情况下将不会降低帧率，但是可能会降低发送分辨率</li>
+<li>对于屏幕共享视频轨道，SDK 默认的优化策略为清晰优先。</li>
+<li>对于其他类型的本地视频轨道，SDK 默认的优化策略为兼顾清晰和流畅，也就是说弱网条件下，帧率和分辨率都会被调整。</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="示例代码"></a><a href="#示例代码" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>示例代码</h3>
+<p><strong>使用清晰优先</strong></p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> videoTrack = <span class="hljs-keyword">await</span> AgoraRTC.createCameraVideoTrack({
-  <span class="hljs-comment">// 使用清晰优先</span>
   <span class="hljs-attr">optimizationMode</span>: <span class="hljs-string">"detail"</span>,
 });
-
-
-<span class="hljs-keyword">const</span> videoTrack2 = <span class="hljs-keyword">await</span> AgoraRTC.createCameraVideoTrack({
-  <span class="hljs-comment">// 使用流畅优先</span>
+</code></pre>
+<p><strong>使用流畅优先</strong></p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> videoTrack2 = <span class="hljs-keyword">await</span> AgoraRTC.createCameraVideoTrack({
   <span class="hljs-attr">optimizationMode</span>: <span class="hljs-string">"motion"</span>,
 });
-
-<span class="hljs-comment">// 使用默认策略</span>
-<span class="hljs-keyword">const</span> videoTrack2 = <span class="hljs-keyword">await</span> AgoraRTC.createScreenVideoTrack();
+</code></pre>
+<p><strong>使用默认策略</strong></p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> videoTrack2 = <span class="hljs-keyword">await</span> AgoraRTC.createScreenVideoTrack();
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="api-参考"></a><a href="#api-参考" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API 参考</h3>
 <ul>
 <li><a href="/AgoraWebSDK-NG/api/cn/interfaces/cameravideotrackinitconfig.html#optimizationmode">CameraVideoTrackInitConfig.optimizationMode</a></li>
 <li><a href="/AgoraWebSDK-NG/api/cn/interfaces/screenvideotrackinitconfig.html#optimizationmode">ScreenVideoTrackInitConfig.optimizationMode</a></li>
-<li><a href="api/cn/interfaces/screenvideotrackinitconfig.html#optimizationmode">CustomVideoTrackInitConfig.optimizationMode</a></li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/screenvideotrackinitconfig.html#optimizationmode">CustomVideoTrackInitConfig.optimizationMode</a></li>
 </ul>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/AgoraWebSDK-NG/docs/zh-CN/video_profile"><span class="arrow-prev">← </span><span>设置视频属性</span></a><a class="docs-next button" href="/AgoraWebSDK-NG/docs/zh-CN/image_enhancement"><span>美颜</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#功能描述">功能描述</a></li><li><a href="#实现方法">实现方法</a><ul class="toc-headings"><li><a href="#示例代码">示例代码</a></li><li><a href="#api-参考">API 参考</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/" class="nav-home"><img src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/docs/zh-CN/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/api/cn">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>

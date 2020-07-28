@@ -181,12 +181,12 @@ client.on(<span class="hljs-string">"stream-subscribed"</span>, e =&gt; {
 </code></pre>
 <pre><code class="hljs css language-js"><span class="hljs-comment">// 使用 Agora Web SDK NG</span>
 client.on(<span class="hljs-string">"user-published"</span>, <span class="hljs-keyword">async</span> (remoteUser, mediaType) =&gt; {
-  <span class="hljs-keyword">await</span> client.subscribe(remoteUser);
-  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"video"</span> || mediaType === <span class="hljs-string">"all"</span>) {
+  <span class="hljs-keyword">await</span> client.subscribe(remoteUser, mediaType);
+  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"video"</span>) {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"subscribe video success"</span>);
     remoteUser.videoTrack.play(<span class="hljs-string">"DOM_ELEMENT_ID"</span>);
   }
-  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"audio"</span> || mediaType === <span class="hljs-string">"all"</span>) {
+  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"audio"</span>) {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"subscribe audio success"</span>);
     remoteUser.audioTrack.play();
   }
@@ -197,7 +197,7 @@ client.on(<span class="hljs-string">"user-published"</span>, <span class="hljs-k
 <li>Agora Web SDK NG 移除了 <code>stream-added</code>、<code>stream-removed</code> 和 <code>stream-updated</code>，取而代之的是 <code>user-published</code> 和 <code>user-unpublished</code>。</li>
 </ul>
 <blockquote>
-<p>注意 <code>user-published</code> 回调中的第二个参数 <code>mediaType</code>，该参数有 3 个可能的值：<code>&quot;video&quot;</code>，<code>&quot;audio&quot;</code> 和 <code>&quot;all&quot;</code>。在我们的示例代码中，远端同时发布了音视频，所以 <code>mediaType</code> 理应为 <code>&quot;all&quot;</code>。但是在实际情况中，由于网络和发送端的不确定性，订阅端可能先收到一次 <code>user-published(mediaType: &quot;audio&quot;)</code>，再收到一次 <code>user-published(mediaType: &quot;video&quot;)</code>。因此在我们的示例代码中，我们做了一个简单的判断来处理这种情况。更多信息详见 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_user_published">client.on(&quot;user-published&quot;)</a>。</p>
+<p>注意 <code>user-published</code> 回调中的第二个参数 <code>mediaType</code>，该参数有两个可能的值：<code>&quot;video&quot;</code> 和 <code>&quot;audio&quot;</code>。如果远端用户同时发布了音视频，那么就会触发两次 <code>user-published</code>，其中 <code>mediaType</code> 分别为 <code>&quot;audio&quot;</code> 和 <code>&quot;video&quot;</code>。</p>
 </blockquote>
 <ul>
 <li>Agora Web SDK NG 中，<code>subscribe</code> 是异步操作，会返回 Promise。传入的参数为 <code>remoteUser</code>，也就是远端用户对象，详见 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcremoteuser.html">AgoraRTCRemoteUser</a>。</li>

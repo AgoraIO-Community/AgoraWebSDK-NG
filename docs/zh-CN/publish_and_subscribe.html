@@ -67,7 +67,7 @@
               }
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">发布和订阅</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="发布音视频"></a><a href="#发布音视频" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>发布音视频</h2>
-<p>当地完成本地轨道的创建并且成功加入频道后，就可以调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#publish">AgoraRTCClient.publish</a> 将这些本地的音视频数据发布到当前频道以供其他人订阅。</p>
+<p>完成本地轨道的创建并且成功加入频道后，就可以调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#publish">AgoraRTCClient.publish</a> 将本地的音视频数据发布到当前频道，以供频道中的其他用户订阅。</p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> localAudioTrack = ...;
 <span class="hljs-keyword">const</span> localVideoTrack = ...;
 
@@ -80,52 +80,52 @@
 </code></pre>
 <p>关于发布，需要注意以下行为：</p>
 <ul>
-<li>Agora Web SDK NG 同一时间只能发布一个视频轨道</li>
-<li>Agora Web SDK NG 允许同时发布多个音频轨道，SDK 会自动混音</li>
+<li>Agora Web SDK NG 同一时间只能发布一个视频轨道。</li>
+<li>Agora Web SDK NG 允许同时发布多个音频轨道，SDK 会自动混音。</li>
 </ul>
 <blockquote>
-<p>Safari 12 以下的浏览器不支持混音，无法使用此特性</p>
+<p>Safari 12 以下的浏览器不支持混音，无法使用此特性。</p>
 </blockquote>
 <ul>
-<li>可以重复调用 <code>publish</code> 方法来添加需要发布的轨道，但是不要重复发布同一个轨道对象</li>
-<li>该方法为异步方法，使用时需要配合 <code>Promise</code> 或 <code>async/await</code></li>
+<li>可以多次调用 <code>publish</code> 方法来添加需要发布的轨道，但是不能重复发布同一个轨道对象。</li>
+<li>该方法为异步方法，使用时需要配合 <code>Promise</code> 或 <code>async/await</code>。</li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="错误处理"></a><a href="#错误处理" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>错误处理</h3>
 <p>在发布音视频的过程中，可能因为网络环境或者集成问题抛出以下错误：</p>
 <ul>
-<li>INVALID_OPERATION: 非法操作，说明在加入频道成功之前就调用 <code>publish</code> 方法</li>
-<li>OPERATION_ABORT: 发布被中止，可能在发布成功之前就主动调用 <code>leave</code> 离开了频道</li>
-<li>INVALID_LOCAL_TRACK: 参数错误，传入了非法的 <code>LocalTrack</code> 对象</li>
-<li>CAN_NOT_PUBLISH_MULTIPLE_VIDEO_TRACKS: 不允许同时发布多个视频轨道</li>
-<li>NOT_SUPPORT：发布了多个音频轨道，但是浏览器不支持混音</li>
-<li>UNEXPECTED_RESPONSE：收到了 Agora 网关异常的返回，发布失败</li>
-<li>NO_ICE_CANDIDATE: 找不到本地网络出口，可能是网络防火墙或者启用了一些禁止 WebRTC 的浏览器插件</li>
+<li>INVALID_OPERATION: 非法操作，说明在加入频道成功之前就调用了 <code>publish</code> 方法。</li>
+<li>OPERATION_ABORT: 发布被中止，可能是因为在发布成功之前就主动调用 <code>leave</code> 离开了频道。</li>
+<li>INVALID_LOCAL_TRACK: 参数错误，传入了非法的 <code>LocalTrack</code> 对象。</li>
+<li>CAN_NOT_PUBLISH_MULTIPLE_VIDEO_TRACKS: 不允许同时发布多个视频轨道。</li>
+<li>NOT_SUPPORT：发布了多个音频轨道，但是浏览器不支持混音。</li>
+<li>UNEXPECTED_RESPONSE：收到了 Agora 服务器异常的返回，发布失败。建议保留日志，联系 Agora <a href="https://agora-ticket.agora.io/">技术支持</a>。</li>
+<li>NO_ICE_CANDIDATE: 找不到本地网络出口，可能是网络防火墙或者启用了禁止 WebRTC 的浏览器插件。详见 <a href="https://docs.agora.io/cn/faq/console_error_web#none-ice-candidate-not-alloweda-namecandidatea">FAQ</a>。</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="取消发布音视频"></a><a href="#取消发布音视频" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>取消发布音视频</h2>
-<p>当完成本地轨道的发布后，就可以调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#unpublish">AgoraRTCClient.unpublish</a> 来将正在发布的轨道取消发布。</p>
-<pre><code class="hljs css language-js"><span class="hljs-comment">// 现在已经发布了音视频</span>
+<p>成功发布本地轨道后，如果想取消发布，可以调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#unpublish">AgoraRTCClient.unpublish</a>。</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 发布音视频</span>
 <span class="hljs-keyword">await</span> client.publish([localAudioTrack, localVideoTrack]);
 
 <span class="hljs-comment">// 取消发布视频，此时音频还在正常发布</span>
 <span class="hljs-keyword">await</span> client.unpublish(localVideoTrack);
 
-<span class="hljs-comment">// 也可以，一次性将所有正在发布的轨道全部取消发布</span>
+<span class="hljs-comment">// 也可以一次将所有正在发布的轨道全部取消发布</span>
 <span class="hljs-keyword">await</span> client.unpublish();
 <span class="hljs-comment">// 或者批量取消发布</span>
 <span class="hljs-keyword">await</span> client.unpublish([localAudioTrack, localVideoTrack]);
 </code></pre>
 <p>关于取消发布，需要注意以下行为：</p>
 <ul>
-<li>和 <code>publish</code> 一样，<code>unpublish</code> 也可以重复调用，你可以配合 <code>publish</code> 实现添加删除某个本地轨道</li>
-<li>该方法为异步方法，使用时需要配合 <code>Promise</code> 或 <code>async/await</code></li>
+<li>和 <code>publish</code> 一样，<code>unpublish</code> 也可以多次调用，你可以配合 <code>publish</code> 实现添加和删除某个本地轨道。</li>
+<li>该方法为异步方法，使用时需要配合 <code>Promise</code> 或 <code>async/await</code>。</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="订阅音视频"></a><a href="#订阅音视频" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>订阅音视频</h2>
-<p>当远端用户成功发布他的音视频流之后，我们会收到 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_user_published">&quot;user-published&quot;</a> 事件，这个事件携带两个参数：远端用户对象和远端本地发布的媒体类型。通过这个事件，我们就可以知道此时这名远端用户已经成功发布了他的音频或者视频。此时，我们就可以发起订阅了，也就是调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#subscribe">AgoraRTCClient.subscribe</a> 即可。</p>
+<p>当远端用户成功发布音视频轨道之后，我们会收到 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_user_published">user-published</a> 事件，这个事件携带两个参数：远端用户对象和远端发布的媒体类型。此时，我们就可以调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#subscribe">AgoraRTCClient.subscribe</a> 发起订阅了。</p>
 <pre><code class="hljs css language-js">client.on(<span class="hljs-string">"user-published"</span>, <span class="hljs-keyword">async</span> (user, mediaType) =&gt; {
   <span class="hljs-comment">// 发起订阅</span>
-  <span class="hljs-keyword">await</span> client.subscribe(user, mediaTrack);
+  <span class="hljs-keyword">await</span> client.subscribe(user, mediaType);
 
-  <span class="hljs-comment">// 如果 mediaType 是 audio 说明订阅是音频轨道</span>
+  <span class="hljs-comment">// 如果 mediaType 是 audio 说明订阅的是音频轨道</span>
   <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"audio"</span>) {
     <span class="hljs-keyword">const</span> audioTrack = user.audioTrack;
     <span class="hljs-comment">// 自动播放音频</span>
@@ -139,26 +139,26 @@
 </code></pre>
 <p>当订阅方法调用完成之后，我们可以通过 <code>user.audioTrack</code> 和 <code>user.videoTrack</code> 获取相应的 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iremoteaudiotrack.html">RemoteAudioTrack</a> 和 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iremotevideotrack.html">RemoteVideoTrack</a> 对象。</p>
 <blockquote>
-<p>该方法为异步方法，使用时需要配合 <code>Promise</code> 或者 <code>async/await</code></p>
+<p>该方法为异步方法，使用时需要配合 <code>Promise</code> 或者 <code>async/await</code>。</p>
 </blockquote>
-<p>订阅和发布不同，每次订阅只能订阅音频或视频中的一路轨道。即使发布端同时发布了音视频，SDK 也会分两次事件下发，一次 <code>user-published(audio)</code> 一次 <code>user-published(video)</code>。按照上面的代码逻辑，也就会完成两次订阅。</p>
+<p>订阅和发布不同，每次订阅只能订阅一个音频或视频轨道。即使发布端同时发布了音频轨道和视频轨道，SDK 也会触发两次 <code>user-published</code> 事件，一次 <code>user-published(audio)</code>，一次 <code>user-published(video)</code>。按照上面的代码逻辑，会完成两次订阅。</p>
 <h3><a class="anchor" aria-hidden="true" id="处理-autoplay-问题"></a><a href="#处理-autoplay-问题" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>处理 Autoplay 问题</h3>
-<p>当我们订阅音频并自动播放这个音频轨道时，可能会遭遇 <a href="https://www.google.com/search?q=autoplay+policy&amp;oq=autoplay+policy&amp;aqs=chrome..69i57j69i60l2.5828j0j4&amp;sourceid=chrome&amp;ie=UTF-8">浏览器音频自动播放限制</a>(以下简称 autoplay 限制)。如果一个用户在页面上没有发生任何交互动作（点击、触摸等），那么这个网页就不能自动播放音频，这就是Autoplay 限制。</p>
-<p>对于 Agora Web SDK NG，如果在交互之前就调用 <code>RemoteAudioTrack.play</code> 播放音频，浏览器的 Autoplay 限制可能就会让用户听不到声音。但是只要用户在任何时候和页面发生了交互，SDK 就会自动检测到这个行为然后尝试自动恢复播放音频。</p>
-<p>SDK 推荐你在调用 <code>RemoteAudioTrack.play</code> 之前就确保用户已经和页面发生交互，如果产品设计无法保证这一点，你可以使用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#onaudioautoplayfailed">AgoraRTC.onAudioAutoplayFailed</a> 回调来在播放之后提示用户和页面发生交互。</p>
+<p>当我们订阅并播放音频轨道时，可能会受到<a href="https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide#Autoplay_and_autoplay_blocking">浏览器音频自动播放限制</a>(以下简称 Autoplay 限制)。Autoplay 限制是指，如果用户在页面上没有发生任何交互动作（如点击、触摸等），那么这个网页就不能自动播放音频。</p>
+<p>对于 Agora Web SDK NG 来说，如果在发生交互之前调用了 <code>RemoteAudioTrack.play</code> 播放音频，浏览器的 Autoplay 限制可能导致用户听不到声音。但是只要用户在任何时候和页面发生了交互，SDK 会检测到这个行为然后尝试自动恢复播放音频。</p>
+<p>我们推荐你在调用 <code>RemoteAudioTrack.play</code> 之前就确保用户已经和页面发生交互，如果产品设计无法保证这一点，你可以使用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#onaudioautoplayfailed">AgoraRTC.onAudioAutoplayFailed</a> 回调，在播放失败时提示用户和页面发生交互。</p>
 <h3><a class="anchor" aria-hidden="true" id="错误处理-1"></a><a href="#错误处理-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>错误处理</h3>
 <p>在订阅过程中，因为网络环境等因素 SDK 可能抛出如下错误：</p>
 <ul>
-<li>INVALID_OPERATION: 非法操作，可能在加入频道成功之前就发起了订阅</li>
-<li>INVALID_REMOTE_USER: 传入了非法的远端用户对象，该用户可能不在频道</li>
-<li>REMOTE_USER_IS_NOT_PUBLISHED：传入的远端用户没有发布目标的媒体类型</li>
-<li>UNEXPECTED_RESPONSE：收到了 Agora 网关异常的返回，订阅失败</li>
-<li>OPERATION_ABORT：操作中止，可能在订阅成功之前就离开了频道</li>
-<li>NO_ICE_CANDIDATE: 找不到本地网络出口，可能是网络防火墙或者启用了一些禁止 WebRTC 的浏览器插件</li>
+<li>INVALID_OPERATION: 非法操作，可能在加入频道成功之前就调用了 <code>subscribe</code>。</li>
+<li>INVALID_REMOTE_USER: 传入了非法的远端用户对象，例如该用户不在频道内。</li>
+<li>REMOTE_USER_IS_NOT_PUBLISHED：传入的远端用户没有发布 <code>subscribe</code> 方法中传入的媒体类型。</li>
+<li>UNEXPECTED_RESPONSE：收到了 Agora 服务器异常的返回，订阅失败。建议保留日志，联系 Agora <a href="https://agora-ticket.agora.io/">技术支持</a>。</li>
+<li>OPERATION_ABORT：操作中止，可能在订阅成功之前就调用 <code>leave</code> 离开了频道。</li>
+<li>NO_ICE_CANDIDATE: 找不到本地网络出口，可能是网络防火墙或者启用了禁止 WebRTC 的浏览器插件。详见 <a href="https://docs.agora.io/cn/faq/console_error_web#none-ice-candidate-not-alloweda-namecandidatea">FAQ</a>。</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="取消订阅音视频"></a><a href="#取消订阅音视频" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>取消订阅音视频</h2>
 <p>你可以通过 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#unsubscribe">AgoraRTCClient.unsubscribe</a> 来取消订阅远端的音视频。</p>
-<pre><code class="hljs css language-js"><span class="hljs-comment">// 先订阅目标用户的音视频</span>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 订阅目标用户的音视频</span>
 <span class="hljs-keyword">await</span> client.subscribe(user, <span class="hljs-string">"audio"</span>);
 <span class="hljs-keyword">await</span> client.subscribe(user, <span class="hljs-string">"video"</span>);
 
@@ -169,8 +169,8 @@
 </code></pre>
 <p>关于取消订阅，有如下注意事项：</p>
 <ul>
-<li>当取消订阅成功后，相应的 <code>RemoteTrack</code> 对象就会被释放，一旦远端轨道对象被释放，视频的播放元素会被自动移除，音频的播放也会被停止。</li>
-<li>当远端主动取消发布，本地会收到 <code>user-unpublished</code> 回调，此时因为远端已经取消发布，当收到回调的时候 SDK 就已经把相应的 <code>RemoteTrack</code> 对象释放，无需再调用 <code>unsubscribe</code>。</li>
+<li>取消订阅成功后，相应的 <code>RemoteTrack</code> 对象就会被释放，一旦远端轨道对象被释放，视频的播放元素会被自动移除，音频的播放也会被停止。</li>
+<li>如果远端用户主动取消发布，本地会收到 <code>user-unpublished</code> 回调，收到该回调时 SDK 会自动把相应的 <code>RemoteTrack</code> 对象释放，无需再调用 <code>unsubscribe</code>。</li>
 <li>该方法为异步方法，使用时需要配合 <code>Promise</code> 或 <code>async/await</code>。</li>
 </ul>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/AgoraWebSDK-NG/docs/zh-CN/create_local_track"><span class="arrow-prev">← </span><span>创建本地轨道对象</span></a><a class="docs-next button" href="/AgoraWebSDK-NG/docs/zh-CN/volume"><span>调整通话音量</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#发布音视频">发布音视频</a><ul class="toc-headings"><li><a href="#错误处理">错误处理</a></li></ul></li><li><a href="#取消发布音视频">取消发布音视频</a></li><li><a href="#订阅音视频">订阅音视频</a><ul class="toc-headings"><li><a href="#处理-autoplay-问题">处理 Autoplay 问题</a></li><li><a href="#错误处理-1">错误处理</a></li></ul></li><li><a href="#取消订阅音视频">取消订阅音视频</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/" class="nav-home"><img src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/docs/zh-CN/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/api/cn">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>

@@ -72,6 +72,7 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodinguser.html#alpha" class="tsd-kind-icon">alpha</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodinguser.html#audiochannel" class="tsd-kind-icon">audio<wbr>Channel</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodinguser.html#height" class="tsd-kind-icon">height</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodinguser.html#uid" class="tsd-kind-icon">uid</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodinguser.html#width" class="tsd-kind-icon">width</a></li>
@@ -100,6 +101,26 @@
 							<li>0.0: Completely transparent.</li>
 							<li>1.0: (Default) Opaque.</li>
 						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="audiochannel" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> audio<wbr>Channel</h3>
+					<div class="tsd-signature tsd-kind-icon">audio<wbr>Channel<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The audio channel ranging between 0 and 5. The default value is 0.</p>
+							<ul>
+								<li>0: (default) Supports dual channels. Depends on the upstream of the broadcaster.</li>
+								<li>1: The audio stream of the broadcaster uses the FL audio channel. If the broadcaster’s upstream uses multiple audio channels, these channels are mixed into mono first.</li>
+								<li>2: The audio stream of the broadcaster uses the FC audio channel. If the broadcaster’s upstream uses multiple audio channels, these channels are mixed into mono first.</li>
+								<li>3: The audio stream of the broadcaster uses the FR audio channel. If the broadcaster’s upstream uses multiple audio channels, these channels are mixed into mono first.</li>
+								<li>4: The audio stream of the broadcaster uses the BL audio channel. If the broadcaster’s upstream uses multiple audio channels, these channels are mixed into mono first.</li>
+								<li>5: The audio stream of the broadcaster uses the BR audio channel. If the broadcaster’s upstream uses multiple audio channels, these channels are mixed into mono first.</li>
+							</ul>
+						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -202,6 +223,9 @@
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="livestreamingtranscodinguser.html#alpha" class="tsd-kind-icon">alpha</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="livestreamingtranscodinguser.html#audiochannel" class="tsd-kind-icon">audio<wbr>Channel</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="livestreamingtranscodinguser.html#height" class="tsd-kind-icon">height</a>

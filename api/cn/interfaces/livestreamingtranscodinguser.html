@@ -72,6 +72,7 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodinguser.html#alpha" class="tsd-kind-icon">alpha</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodinguser.html#audiochannel" class="tsd-kind-icon">audio<wbr>Channel</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodinguser.html#height" class="tsd-kind-icon">height</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodinguser.html#uid" class="tsd-kind-icon">uid</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodinguser.html#width" class="tsd-kind-icon">width</a></li>
@@ -99,6 +100,26 @@
 							<li>0.0: 该区域图像完全透明。</li>
 							<li>1.0:（默认值）该区域图像完全不透明。</li>
 						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="audiochannel" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> audio<wbr>Channel</h3>
+					<div class="tsd-signature tsd-kind-icon">audio<wbr>Channel<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>直播音频所在声道。取值范围为 [0, 5]，默认值为 0。</p>
+							<ul>
+								<li>0：（推荐）默认混音设置，最多支持双声道，与主播端上行音频相关</li>
+								<li>1：对应主播的音频，推流中位于 FL 声道。如果主播上行为双声道，会先把多声道混音成单声道</li>
+								<li>2：对应主播的音频，推流中位于 FC 声道。如果主播上行为双声道，会先把多声道混音成单声道</li>
+								<li>3：对应主播的音频，推流中位于 FR 声道。如果主播上行为双声道，会先把多声道混音成单声道</li>
+								<li>4：对应主播的音频，推流中位于 BL 声道。如果主播上行为双声道，会先把多声道混音成单声道</li>
+								<li>5：对应主播的音频，推流中位于 BR 声道。如果主播上行为双声道，会先把多声道混音成单声道</li>
+							</ul>
+						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -197,6 +218,9 @@
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="livestreamingtranscodinguser.html#alpha" class="tsd-kind-icon">alpha</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="livestreamingtranscodinguser.html#audiochannel" class="tsd-kind-icon">audio<wbr>Channel</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="livestreamingtranscodinguser.html#height" class="tsd-kind-icon">height</a>
