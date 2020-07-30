@@ -842,7 +842,7 @@
 									<p>如果用户加入频道时频道内已经有其他用户的音视频轨道，也会收到该回调报告已经存在的远端轨道。</p>
 								</blockquote>
 								<pre><code class="language-javascript">client.on(<span class="hljs-string">"user-published"</span>, <span class="hljs-keyword">async</span> (user, mediaType) =&gt; {
-  <span class="hljs-keyword">await</span> client.subscribe(user);
+  <span class="hljs-keyword">await</span> client.subscribe(user, mediaType);
   <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"video"</span>) {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"subscribe video success"</span>);
     user.videoTrack.play(<span class="hljs-string">"xxx"</span>);

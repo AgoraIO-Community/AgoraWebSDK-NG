@@ -798,7 +798,7 @@
 									<p>The SDK also triggers this callback to report the existing tracks in the channel when a user joins the channel.</p>
 								</blockquote>
 								<pre><code class="language-javascript">client.on(<span class="hljs-string">"user-published"</span>, <span class="hljs-keyword">async</span> (user, mediaType) =&gt; {
-  <span class="hljs-keyword">await</span> client.subscribe(user);
+  <span class="hljs-keyword">await</span> client.subscribe(user, mediaType);
   <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"video"</span>) {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"subscribe video success"</span>);
     user.videoTrack.play(<span class="hljs-string">"xxx"</span>);
