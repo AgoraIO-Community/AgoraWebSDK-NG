@@ -87,8 +87,8 @@ async function join() {
   if (!localTracks.audioTrack || !localTracks.videoTrack) {
     [ localTracks.audioTrack, localTracks.videoTrack ] = await Promise.all([
       // create local tracks, using microphone and camera
-      AgoraRTC.createMicrophoneAudioTrack(),
-      AgoraRTC.createCameraVideoTrack()
+      AgoraRTC.createMicrophoneAudioTrack({ microphoneId: currentMic.deviceId }),
+      AgoraRTC.createCameraVideoTrack({ cameraId: currentCam.deviceId })
     ]);
   }
 
