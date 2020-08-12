@@ -173,7 +173,7 @@ function flushStats() {
   `)
 
   // get the local track stats message
-  const localStats = { video: localTracks.videoTrack.getStats(), audio: localTracks.audioTrack.getStats() };
+  const localStats = { video: client.getLocalVideoStats(), audio: client.getLocalAudioStats() };
   const localStatsList = [
     { description: "Send audio bit rate", value: localStats.audio.sendBitrate, unit: "bps" },
     { description: "Total audio bytes sent", value: localStats.audio.sendBytes, unit: "bytes" },
@@ -197,7 +197,7 @@ function flushStats() {
   
   Object.keys(remoteUsers).forEach(uid => {
     // get the remote track stats message
-    const remoteTracksStats = { video: remoteUsers[uid].videoTrack.getStats(), audio: remoteUsers[uid].audioTrack.getStats()};
+    const remoteTracksStats = { video: client.getRemoteVideoStats()[uid], audio: client.getRemoteAudioStats()[uid] };
     const remoteTracksStatsList = [
       { description: "Delay of audio from sending to receiving", value: Number(remoteTracksStats.audio.receiveDelay).toFixed(2), unit: "ms" },
       { description: "Delay of video from sending to receiving", value: Number(remoteTracksStats.video.receiveDelay).toFixed(2), unit: "ms" },

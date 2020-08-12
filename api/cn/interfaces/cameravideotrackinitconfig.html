@@ -135,12 +135,12 @@
 						<div class="lead">
 							<p>传输优化模式。设置该值后，SDK 会自动调整码率配置以及使用不同的回退策略。</p>
 							<ul>
-								<li><code>&quot;motion&quot;</code>: 流畅优先。<ul>
+								<li><code>&quot;detail&quot;</code>: 清晰优先。<ul>
 										<li>SDK 会自动根据你的采集分辨率和帧率设定一个最小码率。即使遭遇网络波动，发送码率也不会低于这个值，从而确保清晰的视频画面。</li>
 										<li>大部分情况下，SDK 不会降低发送分辨率，但是可能会降低帧率。</li>
 									</ul>
 								</li>
-								<li><code>&quot;detail&quot;</code>: 清晰优先。<ul>
+								<li><code>&quot;motion&quot;</code>: 流畅优先。<ul>
 										<li>SDK 不会启用最小码率策略。遭遇网络波动时，发送端会降低码率来确保接收端的视频画面不会出现中断和卡顿。</li>
 										<li>大部分情况下，SDK 不会降低帧率，但是可能会降低发送分辨率。</li>
 									</ul>
