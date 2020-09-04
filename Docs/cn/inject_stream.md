@@ -15,7 +15,7 @@ sidebar_label: 输入在线媒体流
 
 ### 工作原理
 
-![](https://web-cdn.agora.io/docs-files/1576059223619)
+![](assets/inject-online-media-stream.png)
 
 直播频道中的主播通过 Video Inject 服务器将在线媒体流拉到 Agora SD-RTN™ 中，输入到直播频道内。
 

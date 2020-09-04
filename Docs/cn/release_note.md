@@ -6,6 +6,56 @@ sidebar_label: Release Note
 
 本页提供 Agora Web SDK NG 的发版说明。
 
+## 4.1.0 版
+
+Agora Web SDK NG v4.1.0 于 2020 年 9 月 4 日发布。
+
+### 新增特性
+
+#### 客户端截图
+
+v4.1.0 新增 `getCurrentFrameData` 方法，用于获取当前渲染的视频帧数据。
+
+#### 音频播放设备管理
+
+v4.1.0 新增了以下方法和回调，用于音频播放设备的管理：
+- `setPlaybackDevice`: 用于设置音频播放设备，比如扬声器。该方法仅支持 Chrome 浏览器。
+- `getPlaybackDevices`: 用于获取可用的音频播放设备。
+- `onPlaybackDeviceChanged`: 用于提示有音频播放设备被添加或移除。
+
+### 改进
+
+- 全面支持基于 Chromium 内核的 Windows Edge 浏览器（80 及以上版本）。
+- 提升了 `network-quality` 事件的准确性。
+- 新增支持在 macOS 平台上共享 Chrome 标签页时分享标签页的音频。
+
+### 问题修复
+
+- Safari 上 `checkVideoTrackIsActive` 不准确。
+- 开启双流模式后断线重连可能失败。
+- 离开频道后调用 `setEnabled` 可能失败。
+- CDN 推流转码和非转码不能同时使用。
+- 断开连接后自动重新订阅可能失败，报错 `UNEXPECTED_RESPONSE: ERR_SUBSCRIBE_REQUEST_INVALID`。
+- 在同一个标签页中相同 UID 加入不同频道会失败。
+- 频繁加入离开频道可能导致的频道连接状态错误。
+
+### API 变更
+
+#### 新增
+- `AgoraRTC.getPlaybackDevices`
+- `AgoraRTC.onPlaybackDeviceChanged`
+- `Client.getLocalAudioStats`
+- `Client.getRemoteAudioStats`
+- `Client.getLocalVideoStats`
+- `Client.getRemoteVideoStats`
+- `LocalVideoTrack.getCurrentFrameData`
+- `RemoteVideoTrack.getCurrentFrameData`
+- `LocalAudioTrack.setPlaybackDevice`
+- `RemoteAudioTrack.setPlaybackDevice`
+
+#### 废弃
+  - 废弃了  `LocalTrack.getStats` 和 `RemoteTrack.getStats`，请使用 `Client.getLocalAudioStats` 等方法来获取本地和远端的媒体质量信息。
+
 ## 4.0.1 版
 
 Agora Web SDK NG v4.0.0 于 2020 年 7 月 18 日发布。
@@ -74,7 +124,7 @@ v4.0.0 修复了以下问题：
 
 - `AgoraRTC.createScreenVideoTrack` 的 `withAudio` 参数新增支持设为 `auto`。
 - `Client.subscribe` 的 `mediaType` 参数不能设为 `"all"`。
-- [Client.on("user-published")](/api/cn/interfaces/iagorartcclient.html#event_user_published) 和 `Client.on("user-unpublished")` 回调的 `mediaType` 参数不再报告 `"all"`。
+- `Client.on("user-published")` 和 `Client.on("user-unpublished")` 回调的 `mediaType` 参数不再报告 `"all"`。
 
 #### 废弃
 

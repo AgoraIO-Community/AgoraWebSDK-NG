@@ -5,42 +5,51 @@ sidebar_label: 清晰优先和流畅优先
 ---
 
 ## 功能描述
-在不同的视频场景和产品需求中，对视频体验的侧重点不同，有些需求希望在网络波动时视频画面即使卡顿也要尽量保持清晰，有些需求要求视频画面不能卡顿但是可以模糊。对于这两种需求，Agora Web SDK NG 对本地视频轨道提供了清晰优先和流畅优先两种优化模式的选项。
+声网致力于不断优化视频通话或互动直播中的视频体验，既保证视频画面的流畅，又追求清晰度。但是，弱网环境中，视频画面的清晰度和流畅度往往不可兼得，需要我们在两者之间进行取舍。
+
+不同的场景或产品对视频体验有不同的需求：
+- 有些场景，例如进行屏幕共享时，要求视频画面在网络波动时即使卡顿也要尽量保持清晰。
+- 有些场景，允许视频画面在网络波动时模糊，但是不能出现卡顿。
+
+基于以上两种不同的需求，Agora Web SDK NG 对本地视频轨道提供以下两种传输优化策略：
+- 清晰优先：
+  - SDK 会自动根据你采集分辨率和帧率设定一个最小码率。即使遭遇网络波动，发送码率也不会低于这个值，从而确保清晰的视频画面。
+  - 大部分情况下，SDK 不会降低发送分辨率，但是可能会降低帧率。
+- 流畅优先：
+  - SDK 不会启用最小码率策略。遭遇网络波动时，发送端会降低码率来确保接收端的视频画面不会出现中断和卡顿。
+  - 大部分情况下，SDK 不会降低帧率，但是可能会降低发送分辨率。
 
 ## 实现方法
-在创建本地视频轨道时，我们可以通过 `optimizationMode` 来设置该视频是清晰优先还是流畅优先。如果该参数留空，则使用 SDK 默认的优化策略：
-- 对于屏幕共享的轨道，SDK 默认的优化策略为清晰优先
-- 对于其他类型的本地视频轨道，SDK 默认的优化策略为兼顾清晰和流畅，也就是说帧率和分辨率在弱网下都会被调整。
+在调用 `createCameraVideoTrack`、`createScreenVideoTrack` 或 `createCustomVideoTrack` 方法创建本地视频轨道时，你可以通过设置 `optimizationMode` 参数：
+- `"motion"`: 流畅优先。
+- `"detail"`: 清晰优先。
 
-
-如果你设置了清晰优先：
-- SDK 会自动根据你采集的分辨率/帧率设置一个最小清晰码率，以保证当你遭遇网络波动时，发送码率不会低于这个值。
-- 视频编码器大部分情况下将不会降低发送分辨率，但是可能会降低帧率
-
-如果你设置了流畅优先:
-- SDK 将不会启用最小码率策略，证当你遭遇网络波动时，发送端将会尽可能地降低码率来保证订阅端的画面不会出现中断和卡顿
-- 视频编码器大部分情况下将不会降低帧率，但是可能会降低发送分辨率
+如果该参数留空，则使用 SDK 默认的优化策略：
+- 对于屏幕共享视频轨道，SDK 默认的优化策略为清晰优先。
+- 对于其他两种类型的本地视频轨道，SDK 默认的优化策略为兼顾清晰和流畅，也就是说弱网条件下，帧率和分辨率都会被调整。
 
 ### 示例代码
 
+**使用清晰优先**
 ```js
 const videoTrack = await AgoraRTC.createCameraVideoTrack({
-  // 使用清晰优先
   optimizationMode: "detail",
 });
+```
 
-
+**使用流畅优先**
+```js
 const videoTrack2 = await AgoraRTC.createCameraVideoTrack({
-  // 使用流畅优先
   optimizationMode: "motion",
 });
+```
 
-// 使用默认策略
+**使用默认策略**
+```js
 const videoTrack2 = await AgoraRTC.createScreenVideoTrack();
 ```
 
 ### API 参考
-
 - [CameraVideoTrackInitConfig.optimizationMode](/api/cn/interfaces/cameravideotrackinitconfig.html#optimizationmode)
 - [ScreenVideoTrackInitConfig.optimizationMode](/api/cn/interfaces/screenvideotrackinitconfig.html#optimizationmode)
-- [CustomVideoTrackInitConfig.optimizationMode](api/cn/interfaces/screenvideotrackinitconfig.html#optimizationmode)
+- [CustomVideoTrackInitConfig.optimizationMode](/api/cn/interfaces/screenvideotrackinitconfig.html#optimizationmode)

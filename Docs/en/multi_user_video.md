@@ -24,7 +24,7 @@ See the following steps to implement an live broadcast for more than seven hosts
 > |----|----|----|
 > |640x480|15 fps|500 Kbps|
 > |640x360|15 fps|400 Kbps|
-> |640x360|39 fps|600 Kbps|
+> |640x360|30 fps|600 Kbps|
 
 3. (Optional) Call `AgoraRTCClient.setLowStreamParameter` to customize the encoder configurations of the low-quality stream at the application level.
 > - The aspect ratio (width x height) of the low-quality stream should be identical to that of the high-quality stream.

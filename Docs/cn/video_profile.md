@@ -18,8 +18,8 @@ Agora Web SDK NG 提供两种方式设置视频属性：
 - 对于摄像头视频轨道，可以调用 [CameraVideoTrack.setEncoderConfiguration](/api/cn/interfaces/icameravideotrack.html#setencoderconfiguration) 动态调整视频属性。在已发布状态也可以调用。
 
 `encoderConfig` 支持以下两种设置：
-- SDK 预设的视频编码预设值
-- 自定义各种视频编码参数的对象
+- SDK 预设的视频编码预设值。
+- 自定义各种视频编码参数的对象。
 
 ### 示例代码
 
@@ -37,7 +37,7 @@ AgoraRTC.createCameraVideoTrack({
 AgoraRTC.createCameraVideoTrack({
   encoderConfig: {
     width: 640,
-    // 支持指定一个范围和参考值，具体配置参考相关 API 文档
+    // 支持指定一个范围和参考值，具体配置参考相关 API 文档。
     height: { ideal: 480, min: 400, max: 500 },
     frameRate: 15,
     bitrateMin: 600, bitrateMax: 1000,

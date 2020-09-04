@@ -14,7 +14,7 @@ sidebar_label: 迁移指南
 我们建议你先阅读本文的[改动简介](#改动简介)和[迁移实例](#迁移实例)，初步了解 Agora Web SDK 和 Agora Web SDK NG 在设计上的差异。在实际迁移过程中，如遇到问题，你可以：
 - 参考 [Agora Web SDK NG API 改动表](#agora-web-sdk-ng-api-改动表)。
 - 在迁移某一个具体功能（如屏幕共享、推流到 CDN）时，阅读 Agora Web SDK NG 文档站上提供的[进阶功能](screensharing.md)。
-- 阅读 Agora Web SDK NG 的 [API 文档](api/cn/)，使用 API 文档右上角的搜索功能，搜索 API 名称查看该 API 在 Agora Web SDK NG 中的具体函数签名。
+- 阅读 Agora Web SDK NG 的 [API 文档](https://agoraio-community.github.io/AgoraWebSDK-NG/api/cn/)，使用 API 文档右上角的搜索功能，搜索 API 名称查看该 API 在 Agora Web SDK NG 中的具体函数签名。
 
 ![](assets/doc_search.png)
 
@@ -195,12 +195,12 @@ client.on("stream-subscribed", e => {
 ```js
 // 使用 Agora Web SDK NG
 client.on("user-published", async (remoteUser, mediaType) => {
-  await client.subscribe(remoteUser);
-  if (mediaType === "video" || mediaType === "all") {
+  await client.subscribe(remoteUser, mediaType);
+  if (mediaType === "video") {
     console.log("subscribe video success");
     remoteUser.videoTrack.play("DOM_ELEMENT_ID");
   }
-  if (mediaType === "audio" || mediaType === "all") {
+  if (mediaType === "audio") {
     console.log("subscribe audio success");
     remoteUser.audioTrack.play();
   }
@@ -209,7 +209,7 @@ client.on("user-published", async (remoteUser, mediaType) => {
 
 改动点：
 - Agora Web SDK NG 移除了 `stream-added`、`stream-removed` 和 `stream-updated`，取而代之的是 `user-published` 和 `user-unpublished`。
-> 注意 `user-published` 回调中的第二个参数 `mediaType`，该参数有 3 个可能的值：`"video"`，`"audio"` 和 `"all"`。在我们的示例代码中，远端同时发布了音视频，所以 `mediaType` 理应为 `"all"`。但是在实际情况中，由于网络和发送端的不确定性，订阅端可能先收到一次 `user-published(mediaType: "audio")`，再收到一次 `user-published(mediaType: "video")`。因此在我们的示例代码中，我们做了一个简单的判断来处理这种情况。更多信息详见 [client.on("user-published")](/api/cn/interfaces/iagorartcclient.html#event_user_published)。
+> 注意 `user-published` 回调中的第二个参数 `mediaType`，该参数有两个可能的值：`"video"` 和 `"audio"`。如果远端用户同时发布了音视频，那么就会触发两次 `user-published`，其中 `mediaType` 分别为 `"audio"` 和 `"video"`。
 
 - Agora Web SDK NG 中，`subscribe` 是异步操作，会返回 Promise。传入的参数为 `remoteUser`，也就是远端用户对象，详见 [AgoraRTCRemoteUser](/api/cn/interfaces/iagorartcremoteuser.html)。
 - 远端音视频轨道对象会在订阅操作成功后保存在 `remoteUser` 下，直接调用 play 即可播放。

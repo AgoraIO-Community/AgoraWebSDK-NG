@@ -6,7 +6,62 @@ sidebar_label: Release Note
 
 This page provides the release notes for the Agora Web SDK NG.
 
+## v4.1.0
+
+Agora Web SDK NG v4.1.0 was released on September 4, 2020.
+
+### New features
+
+#### Screenshot capture
+
+v4.1.0 adds the `getCurrentFrameData` method which gets the data of the video frame being rendered.
+
+#### Audio playback device management
+
+v4.1.0 adds the following APIs to manage audio playback devices:
+
+- `setPlaybackDevice`: Sets the audio playback device, for example, the speaker. This method supports Chrome only.
+- `getPlaybackDevices`: Retrieves the audio playback devices available.
+- `onPlaybackDeviceChanged`: Occurs when an audio playback device is added or removed.
+
+### Improvements
+
+- Fully supports Chromium-based versions of Microsoft Edge (versions 80 and later).
+- Improves the accuracy of the `network-quality` event.
+- Supports sharing audio when sharing Chrome tabs on macOS.
+
+### Fixed issues
+
+- Information retrieved by `checkVideoTrackIsActive` on Safari is inaccurate.
+- Occasional failure of reconnection after enabling dual-stream mode.
+- Occasional failure to call `setEnabled` after leaving the channel.
+- Failure to push streams to CDN with transcoding and without transcoding at the same time.
+- Occasional failure to automatically re-subscribe to the remote streams after disconnection, indicated by the `UNEXPECTED_RESPONSE: ERR_SUBSCRIBE_REQUEST_INVALID` error.
+- Failure to join different channels with the same UID in one browser tab.
+- Occasional misreport on connection states due to frequent channel join and leave.
+
+### API changes
+
+#### Added
+
+- `LocalVideoTrack.getCurrentFrameData`
+- `RemoteVideoTrack.getCurrentFrameData`
+- `AgoraRTC.getPlaybackDevices`
+- `LocalAudioTrack.setPlaybackDevice`
+- `RemoteAudioTrack.setPlaybackDevice`
+- `AgoraRTC.onPlaybackDeviceChanged`
+- `Client.getLocalAudioStats`
+- `Client.getRemoteAudioStats`
+- `Client.getLocalVideoStats`
+- `Client.getRemoteVideoStats`
+
+#### Deprecated
+
+- The `LocalTrack.getStats` and `RemoteTrack.getStats` methods. Use the `Client.getLocalAudioStats`, `Client.getRemoteAudioStats`, `Client.getLocalVideoStats` and `Client.getRemoteVideoStats` methods instead.
+
 ## v4.0.1
+
+Agora Web SDK NG v4.0.1 was released on July 18, 2020.
 
 ### Fixed issues
 
@@ -71,9 +126,9 @@ v4.0.0 fixed the following issues:
 
 #### Updated
 
-- Adds the value of `auto` to the withAudio parameter in [`AgoraRTC`.createScreenVideoTrack](./api/cn/interfaces/iagorartc.html#createscreenvideotrack).
+- Adds the value of `auto` to the withAudio parameter in `AgoraRTC.createScreenVideoTrack`.
 - Removes the value of `"all"` from the mediaType parameter in `Client.subscribe`.
-- The `mediaType` parameter in the [Client.on("user-published")](https://confluence.agoralab.co/api/cn/interfaces/iagorartcclient.html#event_user_published) and `Client.on("user-unpublished")` callbacks does report `"all"`
+- The `mediaType` parameter in the `Client.on("user-published")` and `Client.on("user-unpublished")` callbacks does report `"all"`
 
 #### Deprecated
 

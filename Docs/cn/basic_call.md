@@ -80,9 +80,9 @@ const uid = await rtc.client.join(options.appId, options.channel, options.token,
 调用 `join` 方法时你需要注意以下参数：
 - `appid`: 你的 App ID。详见[前提条件](setup.md#前提条件)。
 - `channel`: 频道名，长度在 64 字节以内的字符串。在我们的示例项目中，`channel` 的值设为 `demo_channel_name`。
-- `token`: （可选）如果你的 Agora 项目开启了 App 证书，你需要在该参数中传入一个 Token，详见[使用 Token](https://docs.agora.io/cn/Agora%20Platform/token?platform=All%20Platforms#%E4%BD%BF%E7%94%A8-token)。
-  - 在测试环境，我们推荐使用控制台生成临时 Token，详见 [获取临时 Token](https://docs.agora.io/cn/Agora%20Platform/token?platform=All%20Platforms%23get-a-temporary-token#%E8%8E%B7%E5%8F%96%E4%B8%B4%E6%97%B6-token)。
-  - 在生产环境，我们推荐你在自己的服务端生成 Token，详见 [生成 Token](https://docs.agora.io/cn/Interactive%20Broadcast/token_server)。
+- `token`: （可选）如果你的 Agora 项目开启了 App 证书，你需要在该参数中传入一个 Token，详见[使用 Token](https://docs.agora.io/cn/Agora%20Platform/token#Token)。
+  - 在测试环境，我们推荐使用控制台生成临时 Token，详见[获取临时 Token](https://docs.agora.io/cn/Agora%20Platform/token?platform=All%20Platforms#get-a-temporary-token)。
+  - 在生产环境，我们推荐你在自己的服务端生成 Token，详见[生成 Token](https://docs.agora.io/cn/Interactive%20Broadcast/token_server_cpp)。
 > 在我们的示例项目中，为了叙述方便，没有开启 App 证书，所以不需要校验 Token，`token` 的值为 `null`。如果你启用了 App 证书，请确保上面传入的 `channel` 值和生成 Token 时传入的 `channel` 值保持一致。
 - `uid`：用户 ID，频道内每个用户的 UID 必须是唯一的。你可以填 `null`，Agora 会自动分配一个 UID 并在 `join` 的结果中返回。
 
@@ -121,7 +121,7 @@ console.log("publish success!");
 ```js
 rtc.client.on("user-published", async (user, mediaType) => {
   // 开始订阅远端用户。
-  await rtc.client.subscribe(user);
+  await rtc.client.subscribe(user, mediaType);
   console.log("subscribe success");
 
   // 表示本次订阅的是视频。

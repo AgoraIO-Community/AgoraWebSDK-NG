@@ -6,7 +6,7 @@ sidebar_label: 发布和订阅
 
 ## 发布音视频
 
-当地完成本地轨道的创建并且成功加入频道后，就可以调用 [AgoraRTCClient.publish](/api/cn/interfaces/iagorartcclient.html#publish) 将这些本地的音视频数据发布到当前频道以供其他人订阅。
+完成本地轨道的创建并且成功加入频道后，就可以调用 [AgoraRTCClient.publish](/api/cn/interfaces/iagorartcclient.html#publish) 将本地的音视频数据发布到当前频道，以供频道中的其他用户订阅。
 
 ```js
 const localAudioTrack = ...;
@@ -21,55 +21,59 @@ await client.publish([localAudioTrack, localVideoTrack]);
 ```
 
 关于发布，需要注意以下行为：
-- Agora Web SDK NG 同一时间只能发布一个视频轨道
-- Agora Web SDK NG 允许同时发布多个音频轨道，SDK 会自动混音
 
-> Safari 12 以下的浏览器不支持混音，无法使用此特性
+- Agora Web SDK NG 同一时间只能发布一个视频轨道。
+- Agora Web SDK NG 允许同时发布多个音频轨道，SDK 会自动混音。
 
-- 可以重复调用 `publish` 方法来添加需要发布的轨道，但是不要重复发布同一个轨道对象
-- 该方法为异步方法，使用时需要配合 `Promise` 或 `async/await`
+> Safari 12 以下的浏览器不支持混音，无法使用此特性。
+
+- 可以多次调用 `publish` 方法来添加需要发布的轨道，但是不能重复发布同一个轨道对象。
+- 该方法为异步方法，使用时需要配合 `Promise` 或 `async/await`。
 
 ### 错误处理
+
 在发布音视频的过程中，可能因为网络环境或者集成问题抛出以下错误：
-- INVALID_OPERATION: 非法操作，说明在加入频道成功之前就调用 `publish` 方法
-- OPERATION_ABORT: 发布被中止，可能在发布成功之前就主动调用 `leave` 离开了频道
-- INVALID_LOCAL_TRACK: 参数错误，传入了非法的 `LocalTrack` 对象
-- CAN_NOT_PUBLISH_MULTIPLE_VIDEO_TRACKS: 不允许同时发布多个视频轨道
-- NOT_SUPPORT：发布了多个音频轨道，但是浏览器不支持混音
-- UNEXPECTED_RESPONSE：收到了 Agora 网关异常的返回，发布失败
-- NO_ICE_CANDIDATE: 找不到本地网络出口，可能是网络防火墙或者启用了一些禁止 WebRTC 的浏览器插件
+
+- INVALID_OPERATION: 非法操作，说明在加入频道成功之前就调用了 `publish` 方法。
+- OPERATION_ABORT: 发布被中止，可能是因为在发布成功之前就主动调用 `leave` 离开了频道。
+- INVALID_LOCAL_TRACK: 参数错误，传入了非法的 `LocalTrack` 对象。
+- CAN_NOT_PUBLISH_MULTIPLE_VIDEO_TRACKS: 不允许同时发布多个视频轨道。
+- NOT_SUPPORT：发布了多个音频轨道，但是浏览器不支持混音。
+- UNEXPECTED_RESPONSE：收到了 Agora 服务器异常的返回，发布失败。建议保留日志，联系 Agora [技术支持](https://agora-ticket.agora.io/)。
+- NO_ICE_CANDIDATE: 找不到本地网络出口，可能是网络防火墙或者启用了禁止 WebRTC 的浏览器插件。详见 [FAQ](https://docs.agora.io/cn/faq/console_error_web#none-ice-candidate-not-alloweda-namecandidatea)。
 
 ## 取消发布音视频
 
-当完成本地轨道的发布后，就可以调用 [AgoraRTCClient.unpublish](/api/cn/interfaces/iagorartcclient.html#unpublish) 来将正在发布的轨道取消发布。
+成功发布本地轨道后，如果想取消发布，可以调用 [AgoraRTCClient.unpublish](/api/cn/interfaces/iagorartcclient.html#unpublish)。
 
 ```js
-// 现在已经发布了音视频
+// 发布音视频
 await client.publish([localAudioTrack, localVideoTrack]);
 
 // 取消发布视频，此时音频还在正常发布
 await client.unpublish(localVideoTrack);
 
-// 也可以，一次性将所有正在发布的轨道全部取消发布
+// 也可以一次将所有正在发布的轨道全部取消发布
 await client.unpublish();
 // 或者批量取消发布
 await client.unpublish([localAudioTrack, localVideoTrack]);
 ```
 
 关于取消发布，需要注意以下行为：
-- 和 `publish` 一样，`unpublish` 也可以重复调用，你可以配合 `publish` 实现添加删除某个本地轨道
-- 该方法为异步方法，使用时需要配合 `Promise` 或 `async/await`
+
+- 和 `publish` 一样，`unpublish` 也可以多次调用，你可以配合 `publish` 实现添加和删除某个本地轨道。
+- 该方法为异步方法，使用时需要配合 `Promise` 或 `async/await`。
 
 ## 订阅音视频
 
-当远端用户成功发布他的音视频流之后，我们会收到 ["user-published"](/api/cn/interfaces/iagorartcclient.html#event_user_published) 事件，这个事件携带两个参数：远端用户对象和远端本地发布的媒体类型。通过这个事件，我们就可以知道此时这名远端用户已经成功发布了他的音频或者视频。此时，我们就可以发起订阅了，也就是调用 [AgoraRTCClient.subscribe](/api/cn/interfaces/iagorartcclient.html#subscribe) 即可。
+当远端用户成功发布音视频轨道之后，我们会收到 [user-published](/api/cn/interfaces/iagorartcclient.html#event_user_published) 事件，这个事件携带两个参数：远端用户对象和远端发布的媒体类型。此时，我们就可以调用 [AgoraRTCClient.subscribe](/api/cn/interfaces/iagorartcclient.html#subscribe) 发起订阅了。
 
 ```js
 client.on("user-published", async (user, mediaType) => {
   // 发起订阅
-  await client.subscribe(user, mediaTrack);
+  await client.subscribe(user, mediaType);
 
-  // 如果 mediaType 是 audio 说明订阅是音频轨道
+  // 如果 mediaType 是 audio 说明订阅的是音频轨道
   if (mediaType === "audio") {
     const audioTrack = user.audioTrack;
     // 自动播放音频
@@ -84,33 +88,35 @@ client.on("user-published", async (user, mediaType) => {
 
 当订阅方法调用完成之后，我们可以通过 `user.audioTrack` 和 `user.videoTrack` 获取相应的 [RemoteAudioTrack](/api/cn/interfaces/iremoteaudiotrack.html) 和 [RemoteVideoTrack](/api/cn/interfaces/iremotevideotrack.html) 对象。
 
-> 该方法为异步方法，使用时需要配合 `Promise` 或者 `async/await`
+> 该方法为异步方法，使用时需要配合 `Promise` 或者 `async/await`。
 
-订阅和发布不同，每次订阅只能订阅音频或视频中的一路轨道。即使发布端同时发布了音视频，SDK 也会分两次事件下发，一次 `user-published(audio)` 一次 `user-published(video)`。按照上面的代码逻辑，也就会完成两次订阅。
+订阅和发布不同，每次订阅只能订阅一个音频或视频轨道。即使发布端同时发布了音频轨道和视频轨道，SDK 也会触发两次 `user-published` 事件，一次 `user-published(audio)`，一次 `user-published(video)`。按照上面的代码逻辑，会完成两次订阅。
 
 ### 处理 Autoplay 问题
 
-当我们订阅音频并自动播放这个音频轨道时，可能会遭遇 [浏览器音频自动播放限制](https://www.google.com/search?q=autoplay+policy&oq=autoplay+policy&aqs=chrome..69i57j69i60l2.5828j0j4&sourceid=chrome&ie=UTF-8)(以下简称 autoplay 限制)。如果一个用户在页面上没有发生任何交互动作（点击、触摸等），那么这个网页就不能自动播放音频，这就是Autoplay 限制。
+当我们订阅并播放音频轨道时，可能会受到[浏览器音频自动播放限制](https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide#Autoplay_and_autoplay_blocking)(以下简称 Autoplay 限制)。Autoplay 限制是指，如果用户在页面上没有发生任何交互动作（如点击、触摸等），那么这个网页就不能自动播放音频。
 
-对于 Agora Web SDK NG，如果在交互之前就调用 `RemoteAudioTrack.play` 播放音频，浏览器的 Autoplay 限制可能就会让用户听不到声音。但是只要用户在任何时候和页面发生了交互，SDK 就会自动检测到这个行为然后尝试自动恢复播放音频。
+对于 Agora Web SDK NG 来说，如果在发生交互之前调用了 `RemoteAudioTrack.play` 播放音频，浏览器的 Autoplay 限制可能导致用户听不到声音。但是只要用户在任何时候和页面发生了交互，SDK 会检测到这个行为然后尝试自动恢复播放音频。
 
-SDK 推荐你在调用 `RemoteAudioTrack.play` 之前就确保用户已经和页面发生交互，如果产品设计无法保证这一点，你可以使用 [AgoraRTC.onAudioAutoplayFailed](/api/cn/interfaces/iagorartc.html#onaudioautoplayfailed) 回调来在播放之后提示用户和页面发生交互。
+我们推荐你在调用 `RemoteAudioTrack.play` 之前就确保用户已经和页面发生交互，如果产品设计无法保证这一点，你可以使用 [AgoraRTC.onAudioAutoplayFailed](/api/cn/interfaces/iagorartc.html#onaudioautoplayfailed) 回调，在播放失败时提示用户和页面发生交互。
 
 ### 错误处理
+
 在订阅过程中，因为网络环境等因素 SDK 可能抛出如下错误：
-- INVALID_OPERATION: 非法操作，可能在加入频道成功之前就发起了订阅
-- INVALID_REMOTE_USER: 传入了非法的远端用户对象，该用户可能不在频道
-- REMOTE_USER_IS_NOT_PUBLISHED：传入的远端用户没有发布目标的媒体类型
-- UNEXPECTED_RESPONSE：收到了 Agora 网关异常的返回，订阅失败
-- OPERATION_ABORT：操作中止，可能在订阅成功之前就离开了频道
-- NO_ICE_CANDIDATE: 找不到本地网络出口，可能是网络防火墙或者启用了一些禁止 WebRTC 的浏览器插件
+
+- INVALID_OPERATION: 非法操作，可能在加入频道成功之前就调用了 `subscribe`。
+- INVALID_REMOTE_USER: 传入了非法的远端用户对象，例如该用户不在频道内。
+- REMOTE_USER_IS_NOT_PUBLISHED：传入的远端用户没有发布 `subscribe` 方法中传入的媒体类型。
+- UNEXPECTED_RESPONSE：收到了 Agora 服务器异常的返回，订阅失败。建议保留日志，联系 Agora [技术支持](https://agora-ticket.agora.io/)。
+- OPERATION_ABORT：操作中止，可能在订阅成功之前就调用 `leave` 离开了频道。
+- NO_ICE_CANDIDATE: 找不到本地网络出口，可能是网络防火墙或者启用了禁止 WebRTC 的浏览器插件。详见 [FAQ](https://docs.agora.io/cn/faq/console_error_web#none-ice-candidate-not-alloweda-namecandidatea)。
 
 ## 取消订阅音视频
 
 你可以通过 [AgoraRTCClient.unsubscribe](/api/cn/interfaces/iagorartcclient.html#unsubscribe) 来取消订阅远端的音视频。
 
 ```js
-// 先订阅目标用户的音视频
+// 订阅目标用户的音视频
 await client.subscribe(user, "audio");
 await client.subscribe(user, "video");
 
@@ -121,8 +127,7 @@ await client.unsubscribe(user);
 ```
 
 关于取消订阅，有如下注意事项：
-- 当取消订阅成功后，相应的 `RemoteTrack` 对象就会被释放，一旦远端轨道对象被释放，视频的播放元素会被自动移除，音频的播放也会被停止。
-- 当远端主动取消发布，本地会收到 `user-unpublished` 回调，此时因为远端已经取消发布，当收到回调的时候 SDK 就已经把相应的 `RemoteTrack` 对象释放，无需再调用 `unsubscribe`。
+
+- 取消订阅成功后，相应的 `RemoteTrack` 对象就会被释放，一旦远端轨道对象被释放，视频的播放元素会被自动移除，音频的播放也会被停止。
+- 如果远端用户主动取消发布，本地会收到 `user-unpublished` 回调，收到该回调时 SDK 会自动把相应的 `RemoteTrack` 对象释放，无需再调用 `unsubscribe`。
 - 该方法为异步方法，使用时需要配合 `Promise` 或 `async/await`。
-
-

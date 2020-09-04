@@ -14,7 +14,7 @@ This guide covers the following topics:
 Agora recommends you read [Changes in SDK behaviors and API methods](#changes-in-sdk-behaviors-and-api-methods) and [Migration examples](#migration-examples) to get a basic understanding of the differences between the Agora Web SDK and the Agora Web SDK NG. To explore a specific issue during the migration, you can:
 - Refer to [API Change List](#api-change-list).
 - Read the [advanced guides](screensharing.md) for advanced features, such as sharing the screen and pushing streams to CDN.
-- Read the [API reference](api/en/). Search for a specific API by name to see the function signature.
+- Read the [API reference](https://agoraio-community.github.io/AgoraWebSDK-NG/api/en/). Search for a specific API by name to see the function signature.
 
 ![](assets/doc_search.png)
 
@@ -199,12 +199,12 @@ client.on("stream-subscribed", e => {
 ```js
 // Use the Agora Web SDK NG
 client.on("user-published", async (remoteUser, mediaType) => {
-  await client.subscribe(remoteUser);
-  if (mediaType === "video" || mediaType === "all") {
+  await client.subscribe(remoteUser, mediaType);
+  if (mediaType === "video") {
     console.log("subscribe video success");
     remoteUser.videoTrack.play("DOM_ELEMENT_ID");
   }
-  if (mediaType === "audio" || mediaType === "all") {
+  if (mediaType === "audio") {
     console.log("subscribe audio success");
     remoteUser.audioTrack.play();
   }
@@ -213,12 +213,12 @@ client.on("user-published", async (remoteUser, mediaType) => {
 
 Key points:
 - The Agora Web SDK NG replaces the `stream-added`, `stream-removed`, and `stream-updated` events with the `user-published` and `user-unpublished` events.
+> Pay attention to the `mediaType` parameter of the `user-published` event, which marks the type of the current track the remote user publishes. It can be `"video"` or `"audio"`. If the remote user publishes an audio track and a video track at the same time, the SDK triggers two `user-published` events, in which `mediaType` is `"audio"` and `"video"` respectively.
 
-> Pay attention to the `mediaType` parameter of the `user-published` event, which marks the type of the current track the remote user publishes. It can be `"video"`, `"audio"`, or `"all"`. In our sample code, the remote user publishes an audio track and a video track at the same time and `mediaType` should be `"all"`. However, due to the uncertainty of network transmission, the SDK may first trigger the `user-published(mediaType: "audio")` event, and then triggers the `user-published(mediaType: "video")` event. Therefore, in the sample code, we need to check the value of `mediaType` to see if we can play the audio or video. For more information, see [client.on("user-published")](/api/en/interfaces/iagorartcclient.html#event_user_published).
 - In the Agora Web SDK NG, `subscribe` returns a `Promise` object representing the eventual completion or failure of the asynchronous operation. When calling `subscribe`, pass a `remoteUser` object. For details, see [AgoraRTCRemoteUser](/api/en/interfaces/iagorartcremoteuser.html).
 - When the subscription succeeds, the subscribed tracks are updated to `remoteUser` and you can go on to call `play`.
 
-## API Change List
+## API change list
 ### AgoraRTC
 - Rename `getScreenSources` as [getElectronScreenSources](/api/en/interfaces/iagorartc.html#getelectronscreensources), remove callbacks, and return a promise
 - [getDevices](/api/en/interfaces/iagorartc.html#getdevices) returns a promise. Add [getCameras](/api/en/interfaces/iagorartc.html#getcameras) and [getMicrophones](/api/en/interfaces/iagorartc.html#getmicrophones)

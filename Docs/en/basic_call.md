@@ -81,9 +81,9 @@ Call `join` to join a specified channel. This method returns a `Promise` object.
 Pay attention to the following parameters when joining the channel:
 - `appid`: The App ID you get when creating a project in Agora Console. See [Prerequisites](setup.md#Prerequisites).
 - `channel`: The channel name, a string within 64 bytes. In our sample project, we set `channel` as `demo_channel_name`.
-- `token`: (Optional) A token that identifies the role and privilege of the user if your project enables the App Certificate. See [Use a token for authentication](hhttps://docs.agora.io/en/Agora%20Platform/token?platform=All%20Platforms) for details.
+- `token`: (Optional) A token that identifies the role and privilege of the user if your project enables the App Certificate. See [Use a token for authentication](https://docs.agora.io/en/Agora%20Platform/token#Token) for details.
   - For testing, Agora recommends using a Temp Token generated in Agora Console. See [Get a Temp Token](https://docs.agora.io/en/Agora%20Platform/token?platform=All%20Platforms#get-a-temporary-token).
-  - For production, Agora recommends using a token generated at your server. For details on how to generate a token, see [Generate a token from your server](https://docs.agora.io/en/cloud-recording/token_server?platform=CPP).
+  - For production, Agora recommends using a token generated at your server. For details on how to generate a token, see [Generate a token from your server](https://docs.agora.io/en/Interactive%20Broadcast/token_server_cpp).
 > For simplicity, we do not enable the App Certificate and set `token` as `null` in our sample project. If your project enables the App Certificate, ensure the value of `channel` you set here is the same as the value you use when generating a token at your server.
 - `uid`: The user ID, which should be unique in a channel. If you set `uid` as `null`, Agora automatically assigns a user ID and returns it in the result of `join`.
 
@@ -124,7 +124,7 @@ Add the following code snippet after calling`createClient` to listen for the `cl
 ```js
 rtc.client.on("user-published", async (user, mediaType) => {
   // Subscribe to a remote user.
-  await rtc.client.subscribe(user);
+  await rtc.client.subscribe(user, mediaType);
   console.log("subscribe success");
 
   // If the subscribed track is video.
