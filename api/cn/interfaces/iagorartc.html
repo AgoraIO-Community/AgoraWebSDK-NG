@@ -74,6 +74,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iagorartc.html#onaudioautoplayfailed" class="tsd-kind-icon">on<wbr>Audio<wbr>Autoplay<wbr>Failed</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iagorartc.html#oncamerachanged" class="tsd-kind-icon">on<wbr>Camera<wbr>Changed</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iagorartc.html#onmicrophonechanged" class="tsd-kind-icon">on<wbr>Microphone<wbr>Changed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iagorartc.html#onplaybackdevicechanged" class="tsd-kind-icon">on<wbr>Playback<wbr>Device<wbr>Changed</a></li>
 							</ul>
 							<h3>Other Properties</h3>
 							<ul class="tsd-index-list">
@@ -107,6 +108,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#getdevices" class="tsd-kind-icon">get<wbr>Devices</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#getelectronscreensources" class="tsd-kind-icon">get<wbr>Electron<wbr>Screen<wbr>Sources</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#getmicrophones" class="tsd-kind-icon">get<wbr>Microphones</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#getplaybackdevices" class="tsd-kind-icon">get<wbr>Playback<wbr>Devices</a></li>
 							</ul>
 							<h3>Other Methods</h3>
 							<ul class="tsd-index-list">
@@ -172,11 +174,10 @@
 						<pre><code class="language-javascript">AgoraRTC.onCameraChanged = <span class="hljs-function">(<span class="hljs-params">info</span>) =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"camera changed!"</span>, info.state, info.device);
 };</code></pre>
-						<dl class="tsd-comment-tags">
-							<dt>param</dt>
-							<dd><p>deviceInfo: 设备信息，详见 <a href="deviceinfo.html">DeviceInfo</a>。</p>
-							</dd>
-						</dl>
+						<p><strong>Parameters</strong></p>
+						<ul>
+							<li><strong>deviceInfo</strong>：设备信息，详见 <a href="deviceinfo.html">DeviceInfo</a>。</li>
+						</ul>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -193,11 +194,30 @@
 						<pre><code class="language-javascript">AgoraRTC.onMicrophoneChanged = <span class="hljs-function">(<span class="hljs-params">info</span>) =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"microphone changed!"</span>, info.state, info.device);
 };</code></pre>
-						<dl class="tsd-comment-tags">
-							<dt>param</dt>
-							<dd><p>deviceInfo: 设备信息，详见 <a href="deviceinfo.html">DeviceInfo</a>。</p>
-							</dd>
-						</dl>
+						<p><strong>Parameters</strong></p>
+						<ul>
+							<li><strong>deviceInfo</strong>：设备信息，详见 <a href="deviceinfo.html">DeviceInfo</a>。</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="onplaybackdevicechanged" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> on<wbr>Playback<wbr>Device<wbr>Changed</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Playback<wbr>Device<wbr>Changed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>音频播放设备状态变化回调。</p>
+						</div>
+						<p>该回调提示有音频播放设备被添加或移除。</p>
+						<pre><code class="language-javascript">AgoraRTC.onPlaybackDeviceChanged = <span class="hljs-function">(<span class="hljs-params">info</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"speaker changed!"</span>, info.state, info.device);
+};</code></pre>
+						<p><strong>Parameters</strong></p>
+						<ul>
+							<li><strong>deviceInfo</strong>：设备信息，详见 <a href="deviceinfo.html">DeviceInfo</a>。</li>
+						</ul>
 					</div>
 				</section>
 			</section>
@@ -471,14 +491,15 @@
 								<li>
 									<h5>withAudio: <span class="tsd-signature-type">"enable"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>屏幕共享时是否同时分享设备输出的音频。</p>
+										<p>屏幕共享时是否同时分享<strong>屏幕共享输入源</strong>的音频。</p>
 										<ul>
-											<li><code>enable</code>: 分享设备输出的音频。</li>
-											<li><code>disable</code>: （默认）不分享设备输出的音频。</li>
+											<li><code>enable</code>: 分享音频。</li>
+											<li><code>disable</code>: （默认）不分享音频。</li>
 											<li><code>auto</code>: 根据浏览器是否支持决定是否分享音频。<blockquote>
 													<p>注意事项：</p>
 													<ul>
-														<li>该功能仅支持 Windows 平台下的 Chrome 浏览器 74 及以上版本。</li>
+														<li>该功能仅支持 Windows 和 macOS 平台下的 Chrome 浏览器 74 及以上版本。</li>
+														<li>Windows 平台支持在共享整个屏幕和共享 Chrome 标签页时分享音频，不支持在共享应用窗口时分享音频。macOS 平台仅支持在共享 Chrome 标签页时分享音频。</li>
 														<li>设置了 <code>withAudio</code> 为 <code>enable</code> 后，还需要在屏幕共享的弹出框上，勾选<strong>分享音频</strong>才能真正生效。</li>
 													</ul>
 												</blockquote>
@@ -522,14 +543,15 @@
 								<li>
 									<h5>withAudio: <span class="tsd-signature-type">"disable"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>屏幕共享时是否同时分享设备输出的音频。</p>
+										<p>屏幕共享时是否同时分享<strong>屏幕共享输入源</strong>的音频。</p>
 										<ul>
-											<li><code>enable</code>: 分享设备输出的音频。</li>
-											<li><code>disable</code>: （默认）不分享设备输出的音频。</li>
+											<li><code>enable</code>: 分享音频。</li>
+											<li><code>disable</code>: （默认）不分享音频。</li>
 											<li><code>auto</code>: 根据浏览器是否支持决定是否分享音频。<blockquote>
 													<p>注意事项：</p>
 													<ul>
-														<li>该功能仅支持 Windows 平台下的 Chrome 浏览器 74 及以上版本。</li>
+														<li>该功能仅支持 Windows 和 macOS 平台下的 Chrome 浏览器 74 及以上版本。</li>
+														<li>Windows 平台支持在共享整个屏幕和共享 Chrome 标签页时分享音频，不支持在共享应用窗口时分享音频。macOS 平台仅支持在共享 Chrome 标签页时分享音频。</li>
 														<li>设置了 <code>withAudio</code> 为 <code>enable</code> 后，还需要在屏幕共享的弹出框上，勾选<strong>分享音频</strong>才能真正生效。</li>
 													</ul>
 												</blockquote>
@@ -573,14 +595,15 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> withAudio: <span class="tsd-signature-type">"enable"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"disable"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"auto"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>屏幕共享时是否同时分享设备输出的音频。</p>
+										<p>屏幕共享时是否同时分享<strong>屏幕共享输入源</strong>的音频。</p>
 										<ul>
-											<li><code>enable</code>: 分享设备输出的音频。</li>
-											<li><code>disable</code>: （默认）不分享设备输出的音频。</li>
+											<li><code>enable</code>: 分享音频。</li>
+											<li><code>disable</code>: （默认）不分享音频。</li>
 											<li><code>auto</code>: 根据浏览器是否支持决定是否分享音频。<blockquote>
 													<p>注意事项：</p>
 													<ul>
-														<li>该功能仅支持 Windows 平台下的 Chrome 浏览器 74 及以上版本。</li>
+														<li>该功能仅支持 Windows 和 macOS 平台下的 Chrome 浏览器 74 及以上版本。</li>
+														<li>Windows 平台支持在共享整个屏幕和共享 Chrome 标签页时分享音频，不支持在共享应用窗口时分享音频。macOS 平台仅支持在共享 Chrome 标签页时分享音频。</li>
 														<li>设置了 <code>withAudio</code> 为 <code>enable</code> 后，还需要在屏幕共享的弹出框上，勾选<strong>分享音频</strong>才能真正生效。</li>
 													</ul>
 												</blockquote>
@@ -830,6 +853,42 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="getplaybackdevices" class="tsd-anchor"></a>
+					<h3>get<wbr>Playback<wbr>Devices</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Playback<wbr>Devices<span class="tsd-signature-symbol">(</span>skipPermissionCheck<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MediaDeviceInfo</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>该方法枚举可用的音频播放设备，比如扬声器。</p>
+								</div>
+								<p>调用成功后 SDK 会通过 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo">MediaDeviceInfo</a> 对象返回可用的音频播放设备。</p>
+								<blockquote>
+									<p>调用本方法会暂时打开麦克风以触发浏览器的媒体设备权限申请。在 Chrome 81+、Firefox、 Safari 等浏览器上，没有媒体设备权限时无法获取到准确的设备信息。</p>
+								</blockquote>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> skipPermissionCheck: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>是否跳过权限检查。你可以通过将该参数设置成 <code>true</code> 来跳过媒体设备权限申请步骤，但是 SDK 无法保证可以通过本方法获取准确的媒体设备信息。</p>
+										<ul>
+											<li><code>true</code>: 跳过权限检查。</li>
+											<li><code>false</code>:（默认）不跳过权限检查。</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MediaDeviceInfo</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Other Methods</h2>
@@ -1052,6 +1111,9 @@ AgoraRTC.checkVideoTrackIsActive(videoTrack).then(<span class="hljs-function"><s
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="iagorartc.html#onmicrophonechanged" class="tsd-kind-icon">on<wbr>Microphone<wbr>Changed</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="iagorartc.html#onplaybackdevicechanged" class="tsd-kind-icon">on<wbr>Playback<wbr>Device<wbr>Changed</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartc.html#checkaudiotrackisactive" class="tsd-kind-icon">check<wbr>Audio<wbr>Track<wbr>IsActive</a>
 							</li>
@@ -1105,6 +1167,9 @@ AgoraRTC.checkVideoTrackIsActive(videoTrack).then(<span class="hljs-function"><s
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartc.html#getmicrophones" class="tsd-kind-icon">get<wbr>Microphones</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="iagorartc.html#getplaybackdevices" class="tsd-kind-icon">get<wbr>Playback<wbr>Devices</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartc.html#getsupportedcodec" class="tsd-kind-icon">get<wbr>Supported<wbr>Codec</a>

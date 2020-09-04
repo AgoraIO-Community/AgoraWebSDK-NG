@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>NetworkQuality | AgoraWebSDK NG API Docs</title>
+	<title>LiveStreamingTranscodingImage | AgoraWebSDK NG API Docs</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -23,8 +23,8 @@
 						<li class="state failure">The search index is not available</li>
 					</ul>
 					<a href="../index.html" class="title">AgoraWebSDK NG API Docs</a>
-					<a href="/AgoraWebSDK-NG/zh-CN/" class="header-custom-link" id="home_link">Home</a>
-					<a href="/AgoraWebSDK-NG/api/en/" class="header-custom-link" id="lang_link">English</a>
+					<a href="/AgoraWebSDK-NG/en/" class="header-custom-link" id="home_link">Home</a>
+					<a href="/AgoraWebSDK-NG/api/cn/" class="header-custom-link" id="lang_link">简体中文</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -39,10 +39,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="networkquality.html">NetworkQuality</a>
+					<a href="livestreamingtranscodingimage.html">LiveStreamingTranscodingImage</a>
 				</li>
 			</ul>
-			<h1>Interface NetworkQuality</h1>
+			<h1>Interface LiveStreamingTranscodingImage</h1>
 		</div>
 	</div>
 </header>
@@ -52,17 +52,15 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>上下行 last mile 网络质量。</p>
+						<p>Configurations for the watermark images to put on top of the video in <a href="livestreamingtranscodingconfig.html">LiveStreamingTranscodingConfig</a>.</p>
 					</div>
-					<p>last mile 是指设备到 Agora 边缘服务器的网络连接。</p>
-					<p>用户加入频道后，SDK 会每两秒触发一次 <a href="iagorartcclient.html#event_network_quality">AgoraRTCClient.on(&quot;network-quality&quot;)</a> 回调，并通过该接口提供上下行网络质量水平。</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">NetworkQuality</span>
+						<span class="target">LiveStreamingTranscodingImage</span>
 					</li>
 				</ul>
 			</section>
@@ -73,8 +71,12 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="networkquality.html#downlinknetworkquality" class="tsd-kind-icon">downlink<wbr>Network<wbr>Quality</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="networkquality.html#uplinknetworkquality" class="tsd-kind-icon">uplink<wbr>Network<wbr>Quality</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingimage.html#alpha" class="tsd-kind-icon">alpha</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingimage.html#height" class="tsd-kind-icon">height</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingimage.html#url" class="tsd-kind-icon">url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingimage.html#width" class="tsd-kind-icon">width</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingimage.html#x" class="tsd-kind-icon">x</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingimage.html#y" class="tsd-kind-icon">y</a></li>
 							</ul>
 						</section>
 					</div>
@@ -83,47 +85,85 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="downlinknetworkquality" class="tsd-anchor"></a>
-					<h3>downlink<wbr>Network<wbr>Quality</h3>
-					<div class="tsd-signature tsd-kind-icon">downlink<wbr>Network<wbr>Quality<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">0</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">1</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">2</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">3</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">4</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">5</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">6</span></div>
+					<a name="alpha" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> alpha</h3>
+					<div class="tsd-signature tsd-kind-icon">alpha<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>下行网络质量。</p>
+							<p>The transparency level of the watermark image.</p>
 						</div>
-						<p>基于下行发送码率、下行丢包率、平均往返时延和网络抖动计算。</p>
+						<p>The value range is [0.0,1.0]:</p>
 						<ul>
-							<li>0：质量未知。</li>
-							<li>1：质量极好。</li>
-							<li>2：用户主观感觉和极好差不多，但码率可能略低于极好。</li>
-							<li>3：用户主观感受有瑕疵但不影响沟通。</li>
-							<li>4：勉强能沟通但不顺畅。</li>
-							<li>5：网络质量非常差，基本不能沟通。</li>
-							<li>6: 网络连接断开，完全无法沟通。</li>
+							<li>0.0: Completely transparent.</li>
+							<li>1.0: (Default) Opaque.</li>
 						</ul>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="uplinknetworkquality" class="tsd-anchor"></a>
-					<h3>uplink<wbr>Network<wbr>Quality</h3>
-					<div class="tsd-signature tsd-kind-icon">uplink<wbr>Network<wbr>Quality<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">0</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">1</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">2</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">3</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">4</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">5</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">6</span></div>
+					<a name="height" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> height</h3>
+					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>上行网络质量。</p>
+							<p>The height (pixel) of the watermark image.</p>
 						</div>
-						<p>基于上行发送码率、上行丢包率、平均往返时延和网络抖动计算。</p>
-						<ul>
-							<li>0: 质量未知。</li>
-							<li>1: 质量极好。</li>
-							<li>2: 用户主观感觉和极好差不多，但码率可能略低于极好。</li>
-							<li>3: 用户主观感受有瑕疵但不影响沟通。</li>
-							<li>4: 勉强能沟通但不顺畅。</li>
-							<li>5: 网络质量非常差，基本不能沟通。</li>
-							<li>6: 网络连接断开，完全无法沟通。</li>
-						</ul>
+						<p>The default value is <code>160</code>.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="url" class="tsd-anchor"></a>
+					<h3>url</h3>
+					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The HTTP/HTTPS URL address of the watermark image on the broadcasting video.</p>
+						</div>
+						<p>Supports online PNG only.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="width" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> width</h3>
+					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The width (pixel) of the watermark image.</p>
+						</div>
+						<p>The default value is <code>160</code>.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="x" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> x</h3>
+					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The horizontal distance (pixel) between the watermark image&#39;s top-left corner and the video&#39;s top-left corner.</p>
+						</div>
+						<p>The default value is <code>0</code>.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="y" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> y</h3>
+					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The vertical distance (pixel) between the watermark image&#39;s top-left corner and the video&#39;s top-left corner.</p>
+						</div>
+						<p>The default value is <code>0</code>.</p>
 					</div>
 				</section>
 			</section>
@@ -141,13 +181,25 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="networkquality.html" class="tsd-kind-icon">Network<wbr>Quality</a>
+						<a href="livestreamingtranscodingimage.html" class="tsd-kind-icon">Live<wbr>Streaming<wbr>Transcoding<wbr>Image</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="networkquality.html#downlinknetworkquality" class="tsd-kind-icon">downlink<wbr>Network<wbr>Quality</a>
+								<a href="livestreamingtranscodingimage.html#alpha" class="tsd-kind-icon">alpha</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="networkquality.html#uplinknetworkquality" class="tsd-kind-icon">uplink<wbr>Network<wbr>Quality</a>
+								<a href="livestreamingtranscodingimage.html#height" class="tsd-kind-icon">height</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="livestreamingtranscodingimage.html#url" class="tsd-kind-icon">url</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="livestreamingtranscodingimage.html#width" class="tsd-kind-icon">width</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="livestreamingtranscodingimage.html#x" class="tsd-kind-icon">x</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="livestreamingtranscodingimage.html#y" class="tsd-kind-icon">y</a>
 							</li>
 						</ul>
 					</li>

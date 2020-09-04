@@ -74,6 +74,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iagorartc.html#onaudioautoplayfailed" class="tsd-kind-icon">on<wbr>Audio<wbr>Autoplay<wbr>Failed</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iagorartc.html#oncamerachanged" class="tsd-kind-icon">on<wbr>Camera<wbr>Changed</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iagorartc.html#onmicrophonechanged" class="tsd-kind-icon">on<wbr>Microphone<wbr>Changed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iagorartc.html#onplaybackdevicechanged" class="tsd-kind-icon">on<wbr>Playback<wbr>Device<wbr>Changed</a></li>
 							</ul>
 							<h3>Other Properties</h3>
 							<ul class="tsd-index-list">
@@ -106,6 +107,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#getdevices" class="tsd-kind-icon">get<wbr>Devices</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#getelectronscreensources" class="tsd-kind-icon">get<wbr>Electron<wbr>Screen<wbr>Sources</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#getmicrophones" class="tsd-kind-icon">get<wbr>Microphones</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartc.html#getplaybackdevices" class="tsd-kind-icon">get<wbr>Playback<wbr>Devices</a></li>
 							</ul>
 							<h3>Other Methods</h3>
 							<ul class="tsd-index-list">
@@ -173,11 +175,10 @@
 						<pre><code class="language-javascript">AgoraRTC.onCameraChanged = <span class="hljs-function">(<span class="hljs-params">info</span>) =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"camera changed!"</span>, info.state, info.device);
 };</code></pre>
-						<dl class="tsd-comment-tags">
-							<dt>param</dt>
-							<dd><p>deviceInfo: Information of the video capture device. See <a href="deviceinfo.html">DeviceInfo</a>.</p>
-							</dd>
-						</dl>
+						<p><strong>Parameters</strong></p>
+						<ul>
+							<li><strong>deviceInfo</strong>: The information of the video capture device. See <a href="deviceinfo.html">DeviceInfo</a>.</li>
+						</ul>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -193,11 +194,29 @@
 						<pre><code class="language-javascript">AgoraRTC.onMicrophoneChanged = <span class="hljs-function">(<span class="hljs-params">info</span>) =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"microphone changed!"</span>, info.state, info.device);
 };</code></pre>
-						<dl class="tsd-comment-tags">
-							<dt>param</dt>
-							<dd><p>deviceInfo: Information of the video capture device. See <a href="deviceinfo.html">DeviceInfo</a>.</p>
-							</dd>
-						</dl>
+						<p><strong>Parameters</strong></p>
+						<ul>
+							<li><strong>deviceInfo</strong>: The information of the device. See <a href="deviceinfo.html">DeviceInfo</a>.</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="onplaybackdevicechanged" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> on<wbr>Playback<wbr>Device<wbr>Changed</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Playback<wbr>Device<wbr>Changed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Occurs when an audio playback device is added or removed.</p>
+						</div>
+						<pre><code class="language-javascript">AgoraRTC.onPlaybackDeviceChanged = <span class="hljs-function">(<span class="hljs-params">info</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"speaker changed!"</span>, info.state, info.device);
+};</code></pre>
+						<p><strong>Parameters</strong></p>
+						<ul>
+							<li><strong>deviceInfo</strong>: The information of the device. See <a href="deviceinfo.html">DeviceInfo</a>.</li>
+						</ul>
 					</div>
 				</section>
 			</section>
@@ -430,14 +449,16 @@
 								<li>
 									<h5>withAudio: <span class="tsd-signature-type">"enable"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Whether to share the audio of the audio output device when sharing the screen.</p>
+										<p>Whether to share the audio of the <strong>screen sharing input source</strong> when sharing the screen.</p>
 										<ul>
 											<li><code>enable</code>: Share the audio.</li>
 											<li><code>disable</code>: (Default) Do not share the audio.</li>
 											<li><code>auto</code>: Share the audio, dependent on whether the browser supports this function.<blockquote>
 													<p>Note:</p>
 													<ul>
-														<li>This function is only supported on Chrome 74 or later on Windows.</li>
+														<li>This function is only supported on Chrome 74 or later on Windows and macOS platforms.</li>
+														<li>On Windows, this function allows you to share the audio when sharing the entire screen and sharing Chrome tabs, but not when sharing the application window.
+														On macOS, this function allows you to share the audio only when sharing Chrome tabs.</li>
 														<li>For the audio sharing to take effect, the end user must check <strong>Share audio</strong> in the pop-up window when sharing the screen.</li>
 													</ul>
 												</blockquote>
@@ -481,14 +502,16 @@
 								<li>
 									<h5>withAudio: <span class="tsd-signature-type">"disable"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Whether to share the audio of the audio output device when sharing the screen.</p>
+										<p>Whether to share the audio of the <strong>screen sharing input source</strong> when sharing the screen.</p>
 										<ul>
 											<li><code>enable</code>: Share the audio.</li>
 											<li><code>disable</code>: (Default) Do not share the audio.</li>
 											<li><code>auto</code>: Share the audio, dependent on whether the browser supports this function.<blockquote>
 													<p>Note:</p>
 													<ul>
-														<li>This function is only supported on Chrome 74 or later on Windows.</li>
+														<li>This function is only supported on Chrome 74 or later on Windows and macOS platforms.</li>
+														<li>On Windows, this function allows you to share the audio when sharing the entire screen and sharing Chrome tabs, but not when sharing the application window.
+														On macOS, this function allows you to share the audio only when sharing Chrome tabs.</li>
 														<li>For the audio sharing to take effect, the end user must check <strong>Share audio</strong> in the pop-up window when sharing the screen.</li>
 													</ul>
 												</blockquote>
@@ -532,14 +555,16 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> withAudio: <span class="tsd-signature-type">"enable"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"disable"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"auto"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Whether to share the audio of the audio output device when sharing the screen.</p>
+										<p>Whether to share the audio of the <strong>screen sharing input source</strong> when sharing the screen.</p>
 										<ul>
 											<li><code>enable</code>: Share the audio.</li>
 											<li><code>disable</code>: (Default) Do not share the audio.</li>
 											<li><code>auto</code>: Share the audio, dependent on whether the browser supports this function.<blockquote>
 													<p>Note:</p>
 													<ul>
-														<li>This function is only supported on Chrome 74 or later on Windows.</li>
+														<li>This function is only supported on Chrome 74 or later on Windows and macOS platforms.</li>
+														<li>On Windows, this function allows you to share the audio when sharing the entire screen and sharing Chrome tabs, but not when sharing the application window.
+														On macOS, this function allows you to share the audio only when sharing Chrome tabs.</li>
 														<li>For the audio sharing to take effect, the end user must check <strong>Share audio</strong> in the pop-up window when sharing the screen.</li>
 													</ul>
 												</blockquote>
@@ -771,6 +796,42 @@
 								<p>If this method call succeeds, the SDK returns a list of audio input devices in an array of <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo">MediaDeviceInfo</a> objects.</p>
 								<blockquote>
 									<p>Calling this method turns on the microphone shortly for the device permission request. On browsers including Chrome 81 or later, Firefox, and Safari, the SDK cannot get accurate device information without permission for the media device.</p>
+								</blockquote>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> skipPermissionCheck: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Whether to skip the permission check. If you set this parameter as <code>true</code>, the SDK does not trigger the request for media device permission. In this case, the retrieved media device information may be inaccurate.</p>
+										<ul>
+											<li><code>true</code>: Skip the permission check.</li>
+											<li><code>false</code>: (Default) Do not skip the permission check.</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MediaDeviceInfo</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="getplaybackdevices" class="tsd-anchor"></a>
+					<h3>get<wbr>Playback<wbr>Devices</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Playback<wbr>Devices<span class="tsd-signature-symbol">(</span>skipPermissionCheck<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MediaDeviceInfo</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Enumerates the audio playback devices available, such as speakers.</p>
+								</div>
+								<p>If this method call succeeds, the SDK returns a list of audio playback devices in an array of <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo">MediaDeviceInfo</a> objects.</p>
+								<blockquote>
+									<p>Calling this method turns on the microphone briefly for the device permission request. On browsers including Chrome 81 or later, Firefox, and Safari, the SDK cannot get accurate device information without permission for the media device.</p>
 								</blockquote>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1062,6 +1123,9 @@ console.log(`</span>Supported audio codec: ${result.audio.join(<span class="hljs
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="iagorartc.html#onmicrophonechanged" class="tsd-kind-icon">on<wbr>Microphone<wbr>Changed</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="iagorartc.html#onplaybackdevicechanged" class="tsd-kind-icon">on<wbr>Playback<wbr>Device<wbr>Changed</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartc.html#checkaudiotrackisactive" class="tsd-kind-icon">check<wbr>Audio<wbr>Track<wbr>IsActive</a>
 							</li>
@@ -1115,6 +1179,9 @@ console.log(`</span>Supported audio codec: ${result.audio.join(<span class="hljs
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartc.html#getmicrophones" class="tsd-kind-icon">get<wbr>Microphones</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="iagorartc.html#getplaybackdevices" class="tsd-kind-icon">get<wbr>Playback<wbr>Devices</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartc.html#getsupportedcodec" class="tsd-kind-icon">get<wbr>Supported<wbr>Codec</a>

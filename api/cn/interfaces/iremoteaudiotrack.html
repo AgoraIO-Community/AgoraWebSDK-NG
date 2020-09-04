@@ -95,6 +95,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite"><a href="iremoteaudiotrack.html#play" class="tsd-kind-icon">play</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iremoteaudiotrack.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iremoteaudiotrack.html#setaudioframecallback" class="tsd-kind-icon">set<wbr>Audio<wbr>Frame<wbr>Callback</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iremoteaudiotrack.html#setplaybackdevice" class="tsd-kind-icon">set<wbr>Playback<wbr>Device</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iremoteaudiotrack.html#setvolume" class="tsd-kind-icon">set<wbr>Volume</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iremoteaudiotrack.html#stop" class="tsd-kind-icon">stop</a></li>
 							</ul>
@@ -473,6 +474,37 @@ track.setAudioFrameCallback(<span class="hljs-literal">null</span>);</code></pre
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="setplaybackdevice" class="tsd-anchor"></a>
+					<h3>set<wbr>Playback<wbr>Device</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Playback<wbr>Device<span class="tsd-signature-symbol">(</span>deviceId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>设置音频输出设备，比如扬声器。</p>
+									<blockquote>
+										<p>该方法只支持 Chrome 浏览器，其他浏览器调用将会抛出 <code>NOT_SUPPORT</code> 错误。</p>
+									</blockquote>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>deviceId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>设备 ID，可以通过 <a href="iagorartc.html#getplaybackdevices">getPlaybackDevices</a> 方法获取。</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="setvolume" class="tsd-anchor"></a>
 					<h3>set<wbr>Volume</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
@@ -578,6 +610,9 @@ track.setAudioFrameCallback(<span class="hljs-literal">null</span>);</code></pre
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iremoteaudiotrack.html#setaudioframecallback" class="tsd-kind-icon">set<wbr>Audio<wbr>Frame<wbr>Callback</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="iremoteaudiotrack.html#setplaybackdevice" class="tsd-kind-icon">set<wbr>Playback<wbr>Device</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iremoteaudiotrack.html#setvolume" class="tsd-kind-icon">set<wbr>Volume</a>

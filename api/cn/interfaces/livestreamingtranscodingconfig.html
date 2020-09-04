@@ -75,6 +75,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#audiochannels" class="tsd-kind-icon">audio<wbr>Channels</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#audiosamplerate" class="tsd-kind-icon">audio<wbr>Sample<wbr>Rate</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#backgroundcolor" class="tsd-kind-icon">background<wbr>Color</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#backgroundimage" class="tsd-kind-icon">background<wbr>Image</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#height" class="tsd-kind-icon">height</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#images" class="tsd-kind-icon">images</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#transcodingusers" class="tsd-kind-icon">transcoding<wbr>Users</a></li>
@@ -83,6 +84,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#videocodecprofile" class="tsd-kind-icon">video<wbr>Codec<wbr>Profile</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#videoframerate" class="tsd-kind-icon">video<wbr>Frame<wbr>Rate</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#videogop" class="tsd-kind-icon">video<wbr>Gop</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#watermark" class="tsd-kind-icon">watermark</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="livestreamingtranscodingconfig.html#width" class="tsd-kind-icon">width</a></li>
 							</ul>
 						</section>
@@ -155,6 +157,18 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="backgroundimage" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> background<wbr>Image</h3>
+					<div class="tsd-signature tsd-kind-icon">background<wbr>Image<span class="tsd-signature-symbol">:</span> <a href="livestreamingtranscodingimage.html" class="tsd-signature-type">LiveStreamingTranscodingImage</a></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>用于给直播推流的视频添加背景图片。</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="height" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> height</h3>
 					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
@@ -173,13 +187,15 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="images" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> images</h3>
-					<div class="tsd-signature tsd-kind-icon">images<span class="tsd-signature-symbol">:</span> <a href="livestreamingtranscodingwatermark.html" class="tsd-signature-type">LiveStreamingTranscodingWaterMark</a><span class="tsd-signature-symbol">[]</span></div>
+					<div class="tsd-signature tsd-kind-icon">images<span class="tsd-signature-symbol">:</span> <a href="livestreamingtranscodingimage.html" class="tsd-signature-type">LiveStreamingTranscodingImage</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>用于给直播推流的视频添加水印。</p>
+							<p><strong>DEPRECATED</strong></p>
 						</div>
+						<p>用于给直播推流的视频添加水印。</p>
+						<p>推荐使用 <a href="livestreamingtranscodingconfig.html#watermark">LiveStreamingTranscodingConfig.watermark</a> 为直播推流的视频添加水印。</p>
 						<blockquote>
 							<p>目前推流后台只支持添加一张水印图片</p>
 						</blockquote>
@@ -266,6 +282,18 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="watermark" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> watermark</h3>
+					<div class="tsd-signature tsd-kind-icon">watermark<span class="tsd-signature-symbol">:</span> <a href="livestreamingtranscodingimage.html" class="tsd-signature-type">LiveStreamingTranscodingImage</a></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>用于给直播推流的视频添加水印。</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="width" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> width</h3>
 					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
@@ -311,6 +339,9 @@
 								<a href="livestreamingtranscodingconfig.html#backgroundcolor" class="tsd-kind-icon">background<wbr>Color</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="livestreamingtranscodingconfig.html#backgroundimage" class="tsd-kind-icon">background<wbr>Image</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="livestreamingtranscodingconfig.html#height" class="tsd-kind-icon">height</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
@@ -333,6 +364,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="livestreamingtranscodingconfig.html#videogop" class="tsd-kind-icon">video<wbr>Gop</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="livestreamingtranscodingconfig.html#watermark" class="tsd-kind-icon">watermark</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="livestreamingtranscodingconfig.html#width" class="tsd-kind-icon">width</a>

@@ -97,6 +97,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="ilocalvideotrack.html#close" class="tsd-kind-icon">close</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ilocalvideotrack.html#getcurrentframedata" class="tsd-kind-icon">get<wbr>Current<wbr>Frame<wbr>Data</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="ilocalvideotrack.html#getlisteners" class="tsd-kind-icon">get<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="ilocalvideotrack.html#getmediastreamtrack" class="tsd-kind-icon">get<wbr>Media<wbr>Stream<wbr>Track</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite"><a href="ilocalvideotrack.html#getstats" class="tsd-kind-icon">get<wbr>Stats</a></li>
@@ -202,6 +203,29 @@
 								<p>Once you close a local track, you can no longer reuse it.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="getcurrentframedata" class="tsd-anchor"></a>
+					<h3>get<wbr>Current<wbr>Frame<wbr>Data</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Current<wbr>Frame<wbr>Data<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ImageData</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the data of the video frame being rendered.</p>
+								</div>
+								<blockquote>
+									<p>You should call this method after calling <a href="ilocalvideotrack.html#play">play</a>. Otherwise, the method call returns null.</p>
+								</blockquote>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ImageData</span></h4>
+							<p>An <code>ImageData</code> object that stores RGBA data. <code>ImageData</code> is a web API supported by the browser. For details, see <a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageData">ImageData</a>.</p>
 						</li>
 					</ul>
 				</section>
@@ -637,6 +661,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="ilocalvideotrack.html#close" class="tsd-kind-icon">close</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="ilocalvideotrack.html#getcurrentframedata" class="tsd-kind-icon">get<wbr>Current<wbr>Frame<wbr>Data</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="ilocalvideotrack.html#getlisteners" class="tsd-kind-icon">get<wbr>Listeners</a>

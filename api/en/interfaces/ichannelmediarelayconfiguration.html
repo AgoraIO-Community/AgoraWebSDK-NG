@@ -55,7 +55,7 @@
 						<p>Configurations of the media stream relay.</p>
 					</div>
 					<p>Use this interface to set the media stream relay when calling <a href="iagorartcclient.html#startchannelmediarelay">startChannelMediaRelay</a> or <a href="iagorartcclient.html#updatechannelmediarelay">updateChannelMediaRelay</a>.</p>
-					<pre><code class="language-javascript"><span class="hljs-keyword">const</span> configuration = <span class="hljs-keyword">new</span> AgoraRTC.ChannelMediaRelayConfiguration();
+					<pre><code class="language-javascript"><span class="hljs-keyword">const</span> configuration = AgoraRTC.createChannelMediaRelayConfiguration();
 configuration.setSrcChannelInfo({ <span class="hljs-attr">channelName</span>: <span class="hljs-string">"test"</span>, <span class="hljs-attr">token</span>: <span class="hljs-string">"xxx"</span>, <span class="hljs-attr">uid</span>: <span class="hljs-number">12345</span> });
 configuration.addDestChannelInfo({ <span class="hljs-attr">channelName</span>: <span class="hljs-string">"test2"</span>, <span class="hljs-attr">token</span>: <span class="hljs-string">"xxx"</span>, <span class="hljs-attr">uid</span>: <span class="hljs-number">23456</span> });</code></pre>
 				</div>

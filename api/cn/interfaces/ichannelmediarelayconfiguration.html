@@ -55,7 +55,7 @@
 						<p>跨频道媒体流转发的配置。</p>
 					</div>
 					<p>在调用 <a href="iagorartcclient.html#startchannelmediarelay">startChannelMediaRelay</a> 和 <a href="iagorartcclient.html#updatechannelmediarelay">updateChannelMediaRelay</a> 时，通过该接口设置跨频道媒体流转发的具体信息。</p>
-					<pre><code class="language-javascript"><span class="hljs-keyword">const</span> configuration = <span class="hljs-keyword">new</span> AgoraRTC.ChannelMediaRelayConfiguration();
+					<pre><code class="language-javascript"><span class="hljs-keyword">const</span> configuration = AgoraRTC.createChannelMediaRelayConfiguration();
 configuration.setSrcChannelInfo({ <span class="hljs-attr">channelName</span>: <span class="hljs-string">"test"</span>, <span class="hljs-attr">token</span>: <span class="hljs-string">"xxx"</span>, <span class="hljs-attr">uid</span>: <span class="hljs-number">12345</span> });
 configuration.addDestChannelInfo({ <span class="hljs-attr">channelName</span>: <span class="hljs-string">"test2"</span>, <span class="hljs-attr">token</span>: <span class="hljs-string">"xxx"</span>, <span class="hljs-attr">uid</span>: <span class="hljs-number">23456</span> });</code></pre>
 				</div>
