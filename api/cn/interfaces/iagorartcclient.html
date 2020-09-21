@@ -322,8 +322,107 @@
 								</div>
 								<p>该回调报告频道内 SDK 监测出的异常事件。</p>
 								<p>异常事件不是错误，但是一般会引起通话质量问题。发生异常事件后，如果恢复正常，也会收到该回调。</p>
-								<p>每个异常事件都有对应的恢复事件，详见下表：</p>
-								<p><img src="https://web-cdn.agora.io/docs-files/1547180167044" alt=""></p>
+								<p>每个异常事件都有对应的恢复事件。</p>
+								<p><strong>异常事件</strong>见下表：</p>
+								<table>
+									<thead>
+										<tr>
+											<th align="left">事件码</th>
+											<th align="left">提示消息</th>
+											<th align="left">异常</th>
+										</tr>
+									</thead>
+									<tbody><tr>
+											<td align="left">1001</td>
+											<td align="left">FRAMERATE_INPUT_TOO_LOW</td>
+											<td align="left">视频采集帧率过低</td>
+										</tr>
+										<tr>
+											<td align="left">1002</td>
+											<td align="left">FRAMERATE_SENT_TOO_LOW</td>
+											<td align="left">视频发送帧率过低</td>
+										</tr>
+										<tr>
+											<td align="left">1003</td>
+											<td align="left">SEND_VIDEO_BITRATE_TOO_LOW</td>
+											<td align="left">视频发送码率过低</td>
+										</tr>
+										<tr>
+											<td align="left">1005</td>
+											<td align="left">RECV_VIDEO_DECODE_FAILED</td>
+											<td align="left">接收视频解码失败</td>
+										</tr>
+										<tr>
+											<td align="left">2001</td>
+											<td align="left">AUDIO_INPUT_LEVEL_TOO_LOW</td>
+											<td align="left">发送音量过低</td>
+										</tr>
+										<tr>
+											<td align="left">2002</td>
+											<td align="left">AUDIO_OUTPUT_LEVEL_TOO_LOW</td>
+											<td align="left">接收音量过低</td>
+										</tr>
+										<tr>
+											<td align="left">2003</td>
+											<td align="left">SEND_AUDIO_BITRATE_TOO_LOW</td>
+											<td align="left">音频发送码率过低</td>
+										</tr>
+										<tr>
+											<td align="left">2005</td>
+											<td align="left">RECV_AUDIO_DECODE_FAILED</td>
+											<td align="left">接收音频解码失败</td>
+										</tr>
+								</tbody></table>
+								<p><strong>恢复事件</strong>详见下表：</p>
+								<table>
+									<thead>
+										<tr>
+											<th align="left">事件码</th>
+											<th align="left">提示消息</th>
+											<th align="left">恢复</th>
+										</tr>
+									</thead>
+									<tbody><tr>
+											<td align="left">3001</td>
+											<td align="left">FRAMERATE_INPUT_TOO_LOW_RECOVER</td>
+											<td align="left">视频采集帧率恢复正常</td>
+										</tr>
+										<tr>
+											<td align="left">3002</td>
+											<td align="left">FRAMERATE_SENT_TOO_LOW_RECOVER</td>
+											<td align="left">视频发送帧率恢复正常</td>
+										</tr>
+										<tr>
+											<td align="left">3003</td>
+											<td align="left">SEND_VIDEO_BITRATE_TOO_LOW_RECOVER</td>
+											<td align="left">视频发送码率恢复正常</td>
+										</tr>
+										<tr>
+											<td align="left">3005</td>
+											<td align="left">RECV_VIDEO_DECODE_FAILED_RECOVER</td>
+											<td align="left">接收视频解码恢复正常</td>
+										</tr>
+										<tr>
+											<td align="left">4001</td>
+											<td align="left">AUDIO_INPUT_LEVEL_TOO_LOW_RECOVER</td>
+											<td align="left">发送音量恢复正常</td>
+										</tr>
+										<tr>
+											<td align="left">4002</td>
+											<td align="left">AUDIO_OUTPUT_LEVEL_TOO_LOW_RECOVER</td>
+											<td align="left">接收音量恢复正常</td>
+										</tr>
+										<tr>
+											<td align="left">4003</td>
+											<td align="left">SEND_AUDIO_BITRATE_TOO_LOW_RECOVER</td>
+											<td align="left">音频发送码率恢复正常</td>
+										</tr>
+										<tr>
+											<td align="left">4005</td>
+											<td align="left">RECV_AUDIO_DECODE_FAILED_RECOVER</td>
+											<td align="left">接收音频解码恢复正常</td>
+										</tr>
+								</tbody></table>
 								<dl class="tsd-comment-tags">
 									<div></div>
 								</dl>
