@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>从 Agora Web SDK 迁移到 Agora Web SDK NG · Agora Web SDK NG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="本文的目标读者是已经使用过 [Agora Web SDK](https://docs.agora.io/cn/Video/start_call_web?platform=Web) 的开发者。如果你想要把你的应用从 Agora Web SDK 迁移到 Agora Web SDK NG，希望这篇文档对你能有所帮助。"/><meta name="docsearch:language" content="zh-CN"/><meta property="og:title" content="从 Agora Web SDK 迁移到 Agora Web SDK NG · Agora Web SDK NG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://agoraio-community.github.io/AgoraWebSDK-NG/"/><meta property="og:description" content="本文的目标读者是已经使用过 [Agora Web SDK](https://docs.agora.io/cn/Video/start_call_web?platform=Web) 的开发者。如果你想要把你的应用从 Agora Web SDK 迁移到 Agora Web SDK NG，希望这篇文档对你能有所帮助。"/><meta property="og:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/AgoraWebSDK-NG/img/favicon.ico"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/AgoraWebSDK-NG/js/code-block-buttons.js"></script><script src="/AgoraWebSDK-NG/js/scrollSpy.js"></script><link rel="stylesheet" href="/AgoraWebSDK-NG/css/main.css"/><script src="/AgoraWebSDK-NG/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/AgoraWebSDK-NG/zh-CN"><img class="logo" src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG"/><h2 class="headerTitleWithLogo">Agora Web SDK NG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/AgoraWebSDK-NG/docs/zh-CN/overview" target="_self">文档</a></li><li class=""><a href="/AgoraWebSDK-NG/api/en" target="_self">API</a></li><li class="siteNavItemActive"><a href="/AgoraWebSDK-NG/docs/zh-CN/migration_guide" target="_self">迁移文档</a></li><li class=""><a href="/AgoraWebSDK-NG/demo" target="_self">Demos</a></li><li class=""><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" target="_self">Github</a></li><li class=""><a href="/AgoraWebSDK-NG/zh-CN/versions" target="_self">版本</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/AgoraWebSDK-NG/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/AgoraWebSDK-NG/docs/en/migration_guide">English</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">从 Agora Web SDK 迁移到 Agora Web SDK NG</h1></header><article><div><span><p>本文的目标读者是已经使用过 <a href="https://docs.agora.io/cn/Video/start_call_web?platform=Web">Agora Web SDK</a> 的开发者。如果你想要把你的应用从 Agora Web SDK 迁移到 Agora Web SDK NG，希望这篇文档对你能有所帮助。</p>
+<p>本文包含以下内容：</p>
+<ul>
+<li><a href="#改动简介">改动简介</a>：列出 Agora Web SDK NG 在行为和方法上与原先的 Agora Web SDK 相比存在哪些区别。</li>
+<li><a href="#迁移实例">迁移实例</a>：以一个多人会议应用为例，从创建 <code>Client</code> 开始详细对比 Agora Web SDK NG 和原先的 Agora Web SDK 在用法上的不同。</li>
+<li><a href="#agora-web-sdk-ng-api-改动表">Agora Web SDK NG API 改动表</a>：提供完整的 API 改动列表，以便你进行后续的迁移工作。</li>
+</ul>
+<p>我们建议你先阅读本文的<a href="#改动简介">改动简介</a>和<a href="#迁移实例">迁移实例</a>，初步了解 Agora Web SDK 和 Agora Web SDK NG 在设计上的差异。在实际迁移过程中，如遇到问题，你可以：</p>
+<ul>
+<li>参考 <a href="#agora-web-sdk-ng-api-改动表">Agora Web SDK NG API 改动表</a>。</li>
+<li>在迁移某一个具体功能（如屏幕共享、推流到 CDN）时，阅读 Agora Web SDK NG 文档站上提供的<a href="/AgoraWebSDK-NG/docs/zh-CN/screensharing">进阶功能</a>。</li>
+<li>阅读 Agora Web SDK NG 的 <a href="https://agoraio-community.github.io/AgoraWebSDK-NG/api/cn/">API 文档</a>，使用 API 文档右上角的搜索功能，搜索 API 名称查看该 API 在 Agora Web SDK NG 中的具体函数签名。</li>
+</ul>
+<p><img src="/AgoraWebSDK-NG/docs/assets/doc_search.png" alt=""></p>
+<blockquote>
+<p>Agora Web SDK NG 是一个<strong>不向下兼容</strong>的版本，这意味着迁移的过程可能不会那么顺利。由于我们移除了所有回调转而使用 <code>Promise</code>，70% 以上的 API 都需要手动修改。此外你还需注意一些架构及逻辑层面的改动。因此，与其说是迁移，不如说是从头重新集成 Agora Web SDK NG。</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="改动简介"></a><a href="#改动简介" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>改动简介</h2>
+<h3><a class="anchor" aria-hidden="true" id="异步方法均返回-promise"></a><a href="#异步方法均返回-promise" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>异步方法均返回 Promise</h3>
+<p>对于加入和离开频道、发布和订阅、获取媒体设备、开启和关闭转码推流等异步方法，在 Agora Web SDK 中，通过回调函数（比如加入房间）、事件通知（比如发布/订阅）等方式来通知用户异步操作的结果；在 Agora Web SDK NG 中，统一使用 Promise。</p>
+<h3><a class="anchor" aria-hidden="true" id="基于音视频轨道的媒体控制"></a><a href="#基于音视频轨道的媒体控制" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>基于音视频轨道的媒体控制</h3>
+<p>在 Agora Web SDK NG 中，我们移除了 <a href="https://docs.agora.io/cn/Video/API%20Reference/web/interfaces/agorartc.stream.html">Stream</a> 对象，取而代之的是 <code>Track</code> 轨道对象。一个音视频流是由多个音视频轨道构成的。你不直接创建、发布或订阅一个流，而是通过创建、发布或订阅一个或多个轨道来实现媒体管理。这样实现的好处是音视频的逻辑互不干扰、各自独立，同时新方法也比 Agora Web SDK 的 <code>Stream.addTrack</code> 和 <code>Stream.removeTrack</code> 更方便易用。</p>
+<blockquote>
+<p>Agora Web SDK NG 允许同时发布多个音频轨道，SDK 会自动混音，但是视频轨道只允许同时发布一个。</p>
+</blockquote>
+<p>除了把 <code>Stream</code> 拆分成 <code>Track</code>，在 Agora Web SDK NG 中还区分 <code>RemoteTrack</code> 和 <code>LocalTrack</code>，有些方法和对象只在本地有，有些只在远端有。</p>
+<p>这一改动影响多个 API 的使用，包括创建本地媒体对象、发布和订阅音视频，详见下文迁移实例详解中的<a href="#通过本地摄像头和麦克风采集音频和视频">通过本地摄像头和麦克风采集音频和视频</a>和<a href="#发布本地的音视频">发布本地的音视频</a>。</p>
+<h3><a class="anchor" aria-hidden="true" id="改进频道内事件通知机制"></a><a href="#改进频道内事件通知机制" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>改进频道内事件通知机制</h3>
+<h4><a class="anchor" aria-hidden="true" id="更改事件名"></a><a href="#更改事件名" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>更改事件名</h4>
+<p>在 Agora Web SDK NG 中，我们统一了事件名。举例来说，原来的 Token 过期事件 <code>onTokenPrivilegeWillExpire</code> 更名为 <code>token-privilege-will-expire</code>。我们还调整了一些事件名以便它可以更好地被理解，比如 <code>peer-online</code> 和 <code>peer-offline</code> 更名为 <code>user-joined</code> 和 <code>user-left</code>，<code>stream-added</code> 和 <code>stream-removed</code> 更名为 <code>user-published</code> 和 <code>user-unpublished</code>。详见下文 <a href="#agora-web-sdk-ng-api-改动表">Agora Web SDK NG API 改动表</a>。</p>
+<h4><a class="anchor" aria-hidden="true" id="调整事件回调携带参数的格式"></a><a href="#调整事件回调携带参数的格式" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>调整事件回调携带参数的格式</h4>
+<p>Agora Web SDK 的事件回调如果需要携带多个参数，会把这些参数统一包在一个对象中，但是 Agora Web SDK NG 会直接携带多个参数到回调函数中。</p>
+<p>以 &quot;connection-state-change&quot; 事件为例：</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 使用 Agora Web SDK</span>
+client.on(<span class="hljs-string">"connection-state-change"</span>, e =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"current"</span>, e.curState, <span class="hljs-string">"prev"</span>, e.prevState);
+});
+</code></pre>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 使用 Agora Web SDK NG</span>
+client.on(<span class="hljs-string">"connection-state-change"</span>, (curState, prevState) =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"current"</span>, curState, <span class="hljs-string">"prev"</span>, prevState);
+});
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="改进频道内事件通知机制-1"></a><a href="#改进频道内事件通知机制-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>改进频道内事件通知机制</h4>
+<p>Agora Web SDK NG 改进了频道内事件通知机制，确保客户端<strong>不会收到重复的</strong>频道内状态通知事件。</p>
+<p>假设<strong>本地用户 A</strong> 和<strong>远端用户 B、C、D</strong> 同时加入了一个频道，B、C、D 均发布了流。如果本地用户 A 发生了网络波动，和频道暂时失去了连接，SDK 会自动帮 A 重连，<strong>在重连过程中 B 离开了频道，C 取消了发流</strong>。这整个过程中，触发了哪些频道事件？</p>
+<p>首先在 A 首次加入频道时，两个版本的 SDK 事件行为都是一致的，A 会收到：</p>
+<ul>
+<li>用户 B、C、D 加入频道的事件。</li>
+<li>用户 B、C、D 发流的事件。</li>
+</ul>
+<p>当 A 由于网络问题和频道暂时失去了连接，然后重连：</p>
+<ul>
+<li>如果 A 使用的是 Agora Web SDK，当 SDK 和频道失去连接时，无论是否可以重连， SDK 都会认为 A 已经离开频道并清空频道内的所有状态。所以 A 重连回频道和 A 第一次加入频道时没有区别，会收到：
+<ul>
+<li>用户 C、D 加入频道的事件。</li>
+<li>用户 D 发流的事件。</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>在 Agora Web SDK 中，你会因为偶然发生的断线重连而收到重复的事件，这可能会导致你在上层事件处理时引发一些预期之外的问题。你需要监听连接状态变化，在断线重连时重置一些应用层的状态，以避免第二次收到这些事件时引发问题。</p>
+</blockquote>
+<ul>
+<li>如果 A 使用的是 Agora Web SDK NG，当 SDK 和频道失去连接时，SDK 会认为 A 此时还在频道中，不会清空频道内的状态（用户主动调用 <code>leave</code> 离开频道除外）。所以当 A 重连回频道时，SDK 只会向 A 发送那些在重连过程中丢失的事件，包括：
+<ul>
+<li>用户 B 退出频道的事件。</li>
+<li>用户 C 取消发流的事件。</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>在 Agora Web SDK NG 中，即使你没有像使用 Agora Web SDK 时那样在断线重连时做一些特殊的逻辑，SDK 也能够确保你的上层应用可以正常工作，不会收到重复的事件。</p>
+</blockquote>
+<p>简单来说，Agora Web SDK NG 中的事件通知机制<strong>更符合人类直觉</strong>，你不需要像使用 Agora Web SDK 时那样做一些额外的工作。</p>
+<h2><a class="anchor" aria-hidden="true" id="迁移实例详解"></a><a href="#迁移实例详解" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>迁移实例详解</h2>
+<p>本节以一个多人通话应用为例，比对 Agora Web SDK NG 和 Agora Web SDK 在使用上的差别。</p>
+<h3><a class="anchor" aria-hidden="true" id="加入频道"></a><a href="#加入频道" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>加入频道</h3>
+<p>首先，创建一个 <code>Client</code> 对象，然后加入目标频道：</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 使用 Agora Web SDK</span>
+<span class="hljs-keyword">const</span> client = AgoraRTC.createClient({ <span class="hljs-attr">mode</span>: <span class="hljs-string">"live"</span>, <span class="hljs-attr">codec</span>: <span class="hljs-string">"vp8"</span> });
+client.init(<span class="hljs-string">"APPID"</span>, () =&gt; {
+  client.join(<span class="hljs-string">"Token"</span>, <span class="hljs-string">"Channel"</span>, <span class="hljs-literal">null</span>, (uid) =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"join success"</span>, uid);
+  }, (e) =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"join failed"</span>, e);
+  });
+});
+</code></pre>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 使用 Agora Web SDK NG</span>
+<span class="hljs-keyword">const</span> client = AgoraRTC.createClient({ <span class="hljs-attr">mode</span>: <span class="hljs-string">"live"</span>, <span class="hljs-attr">codec</span>: <span class="hljs-string">"vp8"</span> });
+
+<span class="hljs-keyword">try</span> {
+  <span class="hljs-keyword">const</span> uid = <span class="hljs-keyword">await</span> client.join(<span class="hljs-string">"APPID"</span>, <span class="hljs-string">"Token"</span>, <span class="hljs-string">"Channel"</span>, <span class="hljs-literal">null</span>);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"join success"</span>);
+} <span class="hljs-keyword">catch</span> (e) {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"join failed"</span>, e);
+}
+</code></pre>
+<blockquote>
+<p>我们假设代码运行在一个 <code>async</code> 函数下，以下 Agora Web SDK NG 相关示例代码为了叙述方便都会直接使用 <code>await</code>。</p>
+</blockquote>
+<p>改动点：</p>
+<ul>
+<li>在 Agora Web SDK NG 中，异步操作 <code>join</code> 返回 <code>Promise</code>，配合 <code>async/await</code> 使用。</li>
+<li>Agora Web SDK NG 移除了 <code>client.init</code>, 在 <code>client.join</code> 时传入 <code>APPID</code>，这意味你可以使用一个 Client 对象先后加入不同 App ID 的频道。</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="通过本地摄像头和麦克风采集音频和视频"></a><a href="#通过本地摄像头和麦克风采集音频和视频" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>通过本地摄像头和麦克风采集音频和视频</h3>
+<p>通过本地麦克风采集的音频创建音频轨道对象，通过本地摄像头采集的视频创建视频轨道对象。示例代码中，默认播放本地视频，不播放本地音频。</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 使用 Agora Web SDK</span>
+<span class="hljs-keyword">const</span> localStream = AgoraRTC.createStream({ <span class="hljs-attr">audio</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">video</span>: <span class="hljs-literal">true</span> });
+localStream.init(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"init stream success"</span>);
+  localStream.play(<span class="hljs-string">"DOM_ELEMENT_ID"</span>, { <span class="hljs-attr">muted</span>: <span class="hljs-literal">true</span> });
+}, (e) =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"init local stream failed"</span>, e);
+});
+</code></pre>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 使用 Agora Web SDK NG</span>
+<span class="hljs-keyword">const</span> localAudio = <span class="hljs-keyword">await</span> AgoraRTC.createMicrophoneAudioTrack();
+<span class="hljs-keyword">const</span> localVideo = <span class="hljs-keyword">await</span> AgoraRTC.createCameraVideoTrack();
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"create local audio/video track success"</span>);
+
+localVideo.play(<span class="hljs-string">"DOM_ELEMENT_ID"</span>);
+</code></pre>
+<p>改动点：</p>
+<ul>
+<li>Agora Web SDK NG 移除了 <code>Stream</code> 对象。采集麦克风和采集摄像头现在是两个独立的方法，分别返回音频轨道对象和视频轨道对象。</li>
+<li>Agora Web SDK NG 中的音视频对象没有 <code>init</code> 方法，因为在创建音视频对象时 SDK 会初始化摄像头和麦克风，并通过 Promise 返回异步操作的结果。</li>
+<li>由于在 Agora Web SDK NG 中音视频对象分开控制，<code>play</code> 方法中移除了 <code>muted</code> 参数。如不想播放音频，不调用音频轨道中的 <code>play</code> 即可。</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="发布本地的音视频"></a><a href="#发布本地的音视频" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>发布本地的音视频</h3>
+<p>音视频采集完成后，将这些音视频发布到频道中。</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 使用 Agora Web SDK</span>
+client.publish(localStream, err =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"publish failed"</span>, err);
+});
+client.on(<span class="hljs-string">"stream-published"</span>,  () =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"publish success"</span>);
+});
+</code></pre>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 使用 Agora Web SDK NG</span>
+<span class="hljs-keyword">try</span> {
+  <span class="hljs-comment">// 如果使用通信场景，则不需要这一行。</span>
+  <span class="hljs-keyword">await</span> client.setClientRole(<span class="hljs-string">"host"</span>);
+  <span class="hljs-keyword">await</span> client.publish([localAudio, localVideo]);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"publish success"</span>);
+} <span class="hljs-keyword">catch</span> (e) {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"publish failed"</span>, e);
+}
+</code></pre>
+<p>改动点：</p>
+<ul>
+<li>如果你的频道场景为<a href="/AgoraWebSDK-NG/api/cn/interfaces/clientconfig.html#mode">直播场景</a>，在 Agora Web SDK 中发布时 SDK 会自动将你的用户角色设为 <code>host</code>，但是在 Agora Web SDK NG 中，你需要手动将用户角色设为 <code>host</code>。</li>
+<li>在 Agora Web SDK NG 中，异步操作 <code>join</code> 返回 <code>Promise</code>。</li>
+<li>在 Agora Web SDK NG 中，调用 <code>publish</code> 时传入的参数是 <code>LocalTrack</code> 列表而非 <code>Stream</code>。可以重复调用 <code>publish</code> 来增加需要发布的轨道，或者重复调用 <code>unpublish</code> 来取消发布轨道。</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="订阅远端音视频并播放"></a><a href="#订阅远端音视频并播放" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>订阅远端音视频并播放</h3>
+<p>如果频道里的远端用户发布了音视频轨道，你需要订阅这个用户并播放音视频轨道。在加入频道之前，你需要监听远端用户发布的相关事件，然后在收到事件回调时发起订阅。</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 使用 Agora Web SDK</span>
+client.on(<span class="hljs-string">"stream-added"</span>, e =&gt; {
+  client.subscribe(e.stream, { <span class="hljs-attr">audio</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">video</span>: <span class="hljs-literal">true</span> }, err =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"subscribe failed"</span>, err);
+  });
+});
+
+client.on(<span class="hljs-string">"stream-subscribed"</span>, e =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"subscribe success"</span>);
+  e.stream.play(<span class="hljs-string">"DOM_ELEMENT_ID"</span>);
+});
+</code></pre>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 使用 Agora Web SDK NG</span>
+client.on(<span class="hljs-string">"user-published"</span>, <span class="hljs-keyword">async</span> (remoteUser, mediaType) =&gt; {
+  <span class="hljs-keyword">await</span> client.subscribe(remoteUser, mediaType);
+  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"video"</span>) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"subscribe video success"</span>);
+    remoteUser.videoTrack.play(<span class="hljs-string">"DOM_ELEMENT_ID"</span>);
+  }
+  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"audio"</span>) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"subscribe audio success"</span>);
+    remoteUser.audioTrack.play();
+  }
+});
+</code></pre>
+<p>改动点：</p>
+<ul>
+<li>Agora Web SDK NG 移除了 <code>stream-added</code>、<code>stream-removed</code> 和 <code>stream-updated</code>，取而代之的是 <code>user-published</code> 和 <code>user-unpublished</code>。</li>
+</ul>
+<blockquote>
+<p>注意 <code>user-published</code> 回调中的第二个参数 <code>mediaType</code>，该参数有两个可能的值：<code>&quot;video&quot;</code> 和 <code>&quot;audio&quot;</code>。如果远端用户同时发布了音视频，那么就会触发两次 <code>user-published</code>，其中 <code>mediaType</code> 分别为 <code>&quot;audio&quot;</code> 和 <code>&quot;video&quot;</code>。</p>
+</blockquote>
+<ul>
+<li>Agora Web SDK NG 中，<code>subscribe</code> 是异步操作，会返回 Promise。传入的参数为 <code>remoteUser</code>，也就是远端用户对象，详见 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcremoteuser.html">AgoraRTCRemoteUser</a>。</li>
+<li>远端音视频轨道对象会在订阅操作成功后保存在 <code>remoteUser</code> 下，直接调用 play 即可播放。</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="agora-web-sdk-ng-api-改动表"></a><a href="#agora-web-sdk-ng-api-改动表" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Agora Web SDK NG API 改动表</h2>
+<h3><a class="anchor" aria-hidden="true" id="agorartc"></a><a href="#agorartc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AgoraRTC</h3>
+<ul>
+<li><code>getScreenSources</code> 更名为 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#getelectronscreensources">getElectronScreenSources</a>，并且移除了回调参数，现在会返回一个 Promise。</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#getdevices">getDevices</a> 现在会返回一个 Promise，同时新增 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#getcameras">getCameras</a> 和 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#getmicrophones">getMicrophones</a>。</li>
+<li>移除 <code>Logger</code> 对象，增加 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#disablelogupload">disableLogUpload</a> / <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#enablelogupload">enableLogUpload</a> / <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#setloglevel">setLogLevel</a> 用于控制日志上报和打印行为。</li>
+<li>移除 <code>createStream</code>，新增以下方法创建音视频对象：</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createmicrophoneaudiotrack">createMicrophoneAudioTrack</a>: 创建麦克风轨道</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createcameravideotrack">createCameraVideoTrack</a>: 创建摄像头轨道</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createscreenvideotrack">createScreenVideoTrack</a>: 创建屏幕共享轨道</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createbuffersourceaudiotrack">createBufferSourceAudioTrack</a>: 创建音频文件轨道（用于混音）</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createcustomaudiotrack">createCustomAudioTrack</a> 和 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createcustomvideotrack">createCustomVideoTrack</a>: 创建自定义音视频轨道（用于自采集）</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="client"></a><a href="#client" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Client</h3>
+<ul>
+<li>移除 <code>Client.init</code></li>
+<li>移除 <code>Client.getConnectionState</code>，新增 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#connectionstate">Client.connectionState</a> 字段表示当前和服务器的连接状态</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/globals.html#connectionstate">ConnectionState</a> 中新增状态 <code>RECONNECTING</code> 表示当前正在重连，原来的 <code>CONNECTING</code> 仅表示首次正在建立连接</li>
+<li>新增 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#uid">Client.uid</a> 来表示当前本地用户的用户 ID</li>
+<li>新增 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#remoteusers">Client.remoteUsers</a> 来表示当前远端用户的用户列表</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#addinjectstreamurl">Client.addInjectStreamUrl</a> 现在会返回一个 Promise 来标志输入媒体流成功/失败，移除 <code>Client.on(&quot;streamInjectStatus&quot;)</code></li>
+<li>移除 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#addinjectstreamurl">Client.removeInjectStream</a> 的 <code>url</code> 参数</li>
+<li>移除 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#enabledualstream">Client.enableDualStream</a> 和 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#disabledualstream">Client.disableDualStream</a> 的回调参数，现在会返回 Promise</li>
+<li>移除 <code>Client.getCameras</code>, <code>Client.getDevices</code>, <code>Client.getRecordingDevices</code>, 现在这些方法被移动到 <code>AgoraRTC</code> 下</li>
+<li>移除 <code>Client.getPlayoutDevices</code></li>
+<li>移除 <code>Client.getLocalAudioStats</code>、<code>Client.getLocalVideoStats</code>、<code>Client.getRemoteAudioStats</code>、<code>Client.getRemoteVideoStats</code>，现在音视频媒体统计数据统一通过 <a href="/AgoraWebSDK-NG/api/cn/interfaces/ilocalaudiotrack.html#getstats">LocalAudioTrack.getStats</a> 、<a href="/AgoraWebSDK-NG/api/cn/interfaces/ilocalvideotrack.html#getstats">LocalVideoTrack.getStats</a> 、<a href="/AgoraWebSDK-NG/api/cn/interfaces/iremoteaudiotrack.html#getstats">RemoteAudioTrack.getStats</a> 、<a href="/AgoraWebSDK-NG/api/cn/interfaces/iremotevideotrack.html#getstats">RemoteVideoTrack.getStats</a> 这些方法来获取，同时字段都做了改变，具体参阅 API 文档</li>
+<li>移除 <code>Client.getSystemStats</code></li>
+<li>移除 <code>Client.getSessionStats</code> / <code>Client.getTransportStats</code>，现在使用一个方法统一获取这些状态 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#getrtcstats">Client.getRTCStats</a></li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#join">Client.join</a> 现在会返回一个 Promise，移除回调参数，增加 <code>appid</code> 参数</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#leave">Client.leave</a> 现在会返回一个 Promise，移除回调参数</li>
+<li>增加 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#once">Client.once</a> 只监听目标事件一次</li>
+<li>增加 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#removealllisteners">Client.removeAllListeners</a> 用于删除所有事件监听</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#publish">Client.publish</a> 现在需要传入 <a href="/AgoraWebSDK-NG/api/cn/interfaces/ilocaltrack.html">LocalTrack</a> 的列表，现在会返回一个 Promise，同时移除 <code>Client.on(&quot;stream-published&quot;)</code> 回调</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#publish">Client.unpublish</a> 现在会返回一个 Promise</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#subscribe">Client.subscribe</a> 现在使用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcremoteuser.html">AgoraRTCRemoteUser</a> 作为参数，返回一个 Promise，移除 <code>Client.on(&quot;stream-subscribed&quot;)</code></li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#unsubscribe">Client.unsubscribe</a> 现在使用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcremoteuser.html">AgoraRTCRemoteUser</a> 作为参数，返回一个 Promise</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#renewtoken">Client.renewToken</a> 现在会返回一个 Promise</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#setclientrole">Client.setClientRole</a> 移除回调参数，现在会返回一个 Promise。<strong>现在设置角色为 audience 后不会自动 unpublish，调用 publish 时也不会自动把角色设置成 host</strong></li>
+<li>移除 <code>Client.setEncryptionMode</code> 和 <code>Client.setEncryptionSecret</code>，现在通过一个方法 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#setencryptionconfig">Client.setEncryptionConfig</a> 来配置</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#setlivetranscoding">Client.setLiveTranscoding</a> / <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#startlivestreaming">Client.startLiveStreaming</a> / <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#stoplivestreaming">Client.stopLiveStreaming</a> 现在都会返回 Promise，同时移除 <code>Client.on(&quot;liveTranscodingUpdated&quot;)</code> / <code>Client.on(&quot;liveStreamingStarted&quot;)</code> / <code>Client.on(&quot;liveStreamingFailed&quot;)</code> / <code>Client.on(&quot;liveStreamingStopped&quot;)</code> 事件</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#startchannelmediarelay">Client.startChannelMediaRelay</a> 现在会返回一个 Promise
+<ul>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/ichannelmediarelayconfiguration.html">ChannelMediaRelayConfiguration</a> 移除 <code>setDestChannelInfo</code>, 改为 <a href="/AgoraWebSDK-NG/api/cn/interfaces/ichannelmediarelayconfiguration.html#adddestchannelinfo">addDestChannelInfo</a> 并去除冗余参数，具体参考 API 文档</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/ichannelmediarelayconfiguration.html">ChannelMediaRelayConfiguration</a> 去除了 <a href="/AgoraWebSDK-NG/api/cn/interfaces/ichannelmediarelayconfiguration.html#setsrcchannelinfo">setSrcChannelInfo</a> 的冗余参数</li>
+</ul></li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#stopchannelmediarelay">Client.stopChannelMediaRelay</a> 现在会返回一个 Promise</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#updatechannelmediarelay">Client.updateChannelMediaRelay</a> 移除回调参数，现在会返回一个 Promise</li>
+<li>移除 <code>Client.on(&quot;first-video-frame-decode&quot;)</code> 和 <code>Client.on(&quot;first-audio-frame-decode&quot;)</code>，现在这两个事件通过 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iremotetrack.html#event_first_frame_decoded">RemoteTrack.on(&quot;first-frame-decode&quot;)</a> 触发</li>
+<li>移除 <code>Client.on(&quot;mute-audio&quot;)</code>、<code>Client.on(&quot;mute-video&quot;)</code>、<code>Client.on(&quot;unmute-audio&quot;)</code>、<code>Client.on(&quot;unmute-video&quot;)</code>，现在统一使用事件 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_user_mute_updated">Client.on(&quot;user-mute-updated&quot;)</a> 来通知</li>
+<li>移除 <code>Client.on(&quot;active-speaker&quot;)</code> 事件，相同的功能由 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_volume_indicator">Client.on(&quot;volume-indicator&quot;)</a> 提供</li>
+<li><code>Client.on(&quot;onTokenPrivilegeWillExpire&quot;)</code> 和 <code>Client.on(&quot;onTokenPrivilegeDidExpire&quot;)</code> 更名为 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_token_privilege_will_expire">Client.on(&quot;token-privilege-will-expire&quot;)</a> 和 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_token_privilege_did_expire">Client.on(&quot;token-privilege-did-expire&quot;)</a></li>
+<li>移除 <code>Client.on(&quot;network-type-changed&quot;)</code> 事件， SDK 无法保证其可靠性</li>
+<li>移除 <code>Client.on(&quot;connected&quot;)</code> / <code>Client.on(&quot;reconnect&quot;)</code> 事件，连接状态事件统一从 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_connection_state_change">Client.on(&quot;connection-state-change&quot;)</a> 获取</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_stream_fallback">Client.on(&quot;stream-fallback&quot;)</a> 参数修改，增加 <code>isFallbackOrRecover</code> 参数，详见 API 文档</li>
+</ul>
+<blockquote>
+<p>移除 <code>Stream.setAudioOutput</code> 方法。我们不建议用户在页面里设置音频输出设备，建议使用系统默认的输出设备。</p>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#改动简介">改动简介</a><ul class="toc-headings"><li><a href="#异步方法均返回-promise">异步方法均返回 Promise</a></li><li><a href="#基于音视频轨道的媒体控制">基于音视频轨道的媒体控制</a></li><li><a href="#改进频道内事件通知机制">改进频道内事件通知机制</a></li></ul></li><li><a href="#迁移实例详解">迁移实例详解</a><ul class="toc-headings"><li><a href="#加入频道">加入频道</a></li><li><a href="#通过本地摄像头和麦克风采集音频和视频">通过本地摄像头和麦克风采集音频和视频</a></li><li><a href="#发布本地的音视频">发布本地的音视频</a></li><li><a href="#订阅远端音视频并播放">订阅远端音视频并播放</a></li></ul></li><li><a href="#agora-web-sdk-ng-api-改动表">Agora Web SDK NG API 改动表</a><ul class="toc-headings"><li><a href="#agorartc">AgoraRTC</a></li><li><a href="#client">Client</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/" class="nav-home"><img src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/docs/zh-CN/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/api/cn">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>

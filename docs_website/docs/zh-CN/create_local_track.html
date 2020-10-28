@@ -1,0 +1,166 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>创建本地轨道对象 · Agora Web SDK NG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## 简介"/><meta name="docsearch:language" content="zh-CN"/><meta property="og:title" content="创建本地轨道对象 · Agora Web SDK NG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://agoraio-community.github.io/AgoraWebSDK-NG/"/><meta property="og:description" content="## 简介"/><meta property="og:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/AgoraWebSDK-NG/img/favicon.ico"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/AgoraWebSDK-NG/js/code-block-buttons.js"></script><script src="/AgoraWebSDK-NG/js/scrollSpy.js"></script><link rel="stylesheet" href="/AgoraWebSDK-NG/css/main.css"/><script src="/AgoraWebSDK-NG/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/AgoraWebSDK-NG/zh-CN"><img class="logo" src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG"/><h2 class="headerTitleWithLogo">Agora Web SDK NG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/AgoraWebSDK-NG/docs/zh-CN/overview" target="_self">文档</a></li><li class=""><a href="/AgoraWebSDK-NG/api/en" target="_self">API</a></li><li class=""><a href="/AgoraWebSDK-NG/docs/zh-CN/migration_guide" target="_self">迁移文档</a></li><li class=""><a href="/AgoraWebSDK-NG/demo" target="_self">Demos</a></li><li class=""><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" target="_self">Github</a></li><li class=""><a href="/AgoraWebSDK-NG/zh-CN/versions" target="_self">版本</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/AgoraWebSDK-NG/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/AgoraWebSDK-NG/docs/en/create_local_track">English</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>入门</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">发版记录</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/release_note">Release Note</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">入门</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/overview">概览</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/setup">集成 SDK</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/basic_call">实现基本通话</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/join_and_leave">加入/离开频道</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/create_local_track">创建本地轨道对象</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/publish_and_subscribe">发布和订阅</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">音频管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/volume">调整通话音量</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/audio_profile">设置音频属性</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/audio_effect_mixing">播放音效/混音</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/custom_audio">自定义音频采集</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">视频管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/video_profile">设置视频属性</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/optimization_mode">清晰优先和流畅优先</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/image_enhancement">美颜</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/screensharing">屏幕共享</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/custom_video">自定义视频采集</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">高级媒体流管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/multi_user_video">七人以上视频场景</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/media_relay">跨直播间连麦</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/cdn_streaming">推流到 CDN</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/inject_stream">输入在线媒体流</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/cloud_proxy">使用云代理</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/channel_encryption">媒体流加密</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">设备管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/test_switch_device">音视频设备测试/切换</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">体验提升</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/call_quality">通话中质量监测</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/stream_fallback">视频流回退</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">创建本地轨道对象</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="简介"></a><a href="#简介" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>简介</h2>
+<p>本文详细介绍如何使用 Agora Web SDK NG 创建本地的音视频轨道对象。在介绍具体的 API 之前，你需要了解本地轨道对象的一些设计细节。</p>
+<p>Agora Web SDK NG 使用了面向对象的设计模式，使用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/ilocaltrack.html">LocalTrack</a> 这一个基础的抽象类来描述所有的本地轨道对象，它定义了本地轨道对象的公共方法和行为，所有的本地轨道对象都继承于 <code>LocalTrack</code>。</p>
+<p><code>publish</code> 方法只要求发布的对象是 <code>LocalTrack</code> ，所以无论通过什么方式创建的本地轨道对象，都满足 <code>publish</code> 方法的参数要求。</p>
+<p>基于 <code>LocalTrack</code>，SDK 定义了 <a href="/AgoraWebSDK-NG/api/cn/interfaces/ilocalaudiotrack.html">LocalAudioTrack</a> 和 <a href="/AgoraWebSDK-NG/api/cn/interfaces/ilocalvideotrack.html">LocalVideoTrack</a>，分别代表本地音频轨道对象和本地视频轨道对象。这两个类分别针对音视频不同的特性增加了不同的方法，比如 <code>LocalAudioTrack</code> 增加了获取和控制音量的方法、<code>LocalVideoTrack</code> 增加了设置美颜功能的方法。</p>
+<p>最后，根据不同的应用场景和创建方式， SDK 基于 <code>LocalAudioTrack</code> 和 <code>LocalVideoTrack</code> 提供了更上层的本地轨道类。比如继承自 <code>LocalVideoTrack</code> 的 <code>CameraVideoTrack</code>，这个类表明这个本地视频轨道是来自于摄像头采集的视频，所以这个类增加了控制摄像头、调整分辨率等方法。</p>
+<p>下图展示了这几个类之间的关系：</p>
+<p><img src="/AgoraWebSDK-NG/docs/assets/local-track-interface-diagram.png" alt="LocalTrack interface diagram"></p>
+<h2><a class="anchor" aria-hidden="true" id="创建轨道"></a><a href="#创建轨道" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>创建轨道</h2>
+<p>SDK 支持通过以下方式创建本地轨道对象。</p>
+<h3><a class="anchor" aria-hidden="true" id="使用麦克风和摄像头"></a><a href="#使用麦克风和摄像头" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>使用麦克风和摄像头</h3>
+<p>最常用的方法是直接通过麦克风或者摄像头采集的音视频来创建本地轨道对象，SDK 提供了三种方法：</p>
+<ul>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createcameravideotrack">createCameraVideoTrack</a>：使用摄像头采集的视频来创建本地视频轨道，返回一个 <a href="/AgoraWebSDK-NG/api/cn/interfaces/icameravideotrack.html">CameraVideoTrack</a> 对象。</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createmicrophoneaudiotrack">createMicrophoneAudioTrack</a>：使用麦克风采集的音频来创建本地音频轨道，返回一个 <a href="/AgoraWebSDK-NG/api/cn/interfaces/imicrophoneaudiotrack.html">MicrophoneAudioTrack</a> 对象。</li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createmicrophoneandcameratracks">createMicrophoneAndCameraTracks</a>：同时使用麦克风和摄像头采集的音视频创建本地轨道，返回一个包含 <a href="/AgoraWebSDK-NG/api/cn/interfaces/icameravideotrack.html">CameraVideoTrack</a> 和 <a href="/AgoraWebSDK-NG/api/cn/interfaces/imicrophoneaudiotrack.html">MicrophoneAudioTrack</a> 的列表。</li>
+</ul>
+<blockquote>
+<p>如果使用 <code>createMicrophoneAndCameraTracks</code> 创建本地轨道，因为音频和视频采集是一次完成的，所以只要摄像头和麦克风其中一个无法完成采集就会导致整个采集的失败，SDK 会抛出错误，详见<a href="#error">错误处理</a>。如果分别调用 <code>createCameraVideoTrack</code> 和 <code>createMicrophoneAudioTrack</code> ，其中一个采集失败不会影响另外一个。请根据你的实际需求选用合适的方法。</p>
+</blockquote>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 采集摄像头</span>
+<span class="hljs-keyword">const</span> cameraTrack = <span class="hljs-keyword">await</span> AgoraRTC.createCameraVideoTrack();
+
+<span class="hljs-comment">// 采集麦克风</span>
+<span class="hljs-keyword">const</span> microphoneTrack = <span class="hljs-keyword">await</span> AgoraRTC.createMicrophoneAudioTrack();
+
+<span class="hljs-comment">// 同时采集摄像头和麦克风</span>
+<span class="hljs-keyword">const</span> [microphoneTrack, cameraTrack] = <span class="hljs-keyword">await</span> AgoraRTC.createMicrophoneAndCameraTracks();
+</code></pre>
+<p>调用以上方法时你可以传入一个配置参数来控制采集的行为，详细的参数定义可以参考 <a href="/AgoraWebSDK-NG/api/cn/interfaces/cameravideotrackinitconfig.html">CameraVideoTrackInitConfig</a> 或者 <a href="/AgoraWebSDK-NG/api/cn/interfaces/microphoneaudiotrackinitconfig.html">MicrophoneAudioTrackInitConfig</a>。</p>
+<blockquote>
+<p>以上方法均为异步方法，使用时需要配合 <code>Promise</code> 或 <code>async/await</code>。</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="使用屏幕画面"></a><a href="#使用屏幕画面" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>使用屏幕画面</h3>
+<p>SDK 提供 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createscreenvideotrack">createScreenVideoTrack</a> 方法来创建屏幕共享轨道，这个方法会返回 <code>LocalVideoTrack</code> 对象。由于 <code>LocalVideoTrack</code> 只实现了视频轨道对象的基础方法，因此通过屏幕创建的轨道无法像摄像头轨道那样控制分辨率或切换设备。</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> screenTrack = <span class="hljs-keyword">await</span> AgoraRTC.createScreenVideoTrack();
+</code></pre>
+<blockquote>
+<p>该方法为异步方法，使用时需要配合 <code>Promise</code> 或 <code>async/await</code>。</p>
+</blockquote>
+<p>如果你需要在 Electron 或较老版本的 Chrome 上使用屏幕共享，或者希望在共享屏幕的同时分享音频，可以参考<a href="/AgoraWebSDK-NG/docs/zh-CN/screensharing">屏幕共享</a>。</p>
+<h3><a class="anchor" aria-hidden="true" id="使用本地或在线的音频文件"></a><a href="#使用本地或在线的音频文件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>使用本地或在线的音频文件</h3>
+<p>SDK 提供 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createbuffersourceaudiotrack">createBufferSourceAudioTrack</a> 方法来通过本地或者在线的音频文件创建本地音频轨道对象。通过该方法创建的对象类型为 <code>BufferSourceAudioTrack</code>，该对象继承自 <code>LocalAudioTrack</code>，在其基础上增加了控制音频文件播放行为的方法，比如暂停播放、跳转播放、循环播放等。</p>
+<p>你可以使用这个方法实现混音或者播放音效的功能，详见<a href="/AgoraWebSDK-NG/docs/zh-CN/audio_effect_mixing">播放音效/混音</a>。</p>
+<blockquote>
+<p>该方法为异步方法，使用时需要配合 <code>Promise</code> 或 <code>async/await</code>。</p>
+</blockquote>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> audioFileTrack = <span class="hljs-keyword">await</span> AgoraRTC.createBufferSourceAudioTrack({
+  <span class="hljs-attr">source</span>: <span class="hljs-string">"https://web-demos-static.agora.io/agora/smlt.flac"</span>,
+});
+
+<span class="hljs-comment">// 在播放之前先调用该方法读取音频文件</span>
+audioFileTrack.startProcessAudioBuffer();
+
+audioFileTrack.play();
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="使用自定义方式"></a><a href="#使用自定义方式" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>使用自定义方式</h3>
+<p>如果你熟悉 WebRTC 或者 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> 相关的 API，你可以通过自己实现采集来完成 <code>MediaStreamTrack</code> 的创建，然后通过 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createcustomaudiotrack">createCustomAudioTrack</a> 或者 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#createcustomvideotrack">createCustomVideoTrack</a> 方法将 <code>MediaStreamTrack</code> 对象转换成 SDK 内部的 <code>LocalAudioTrack</code> 或者 <code>LocalVideoTrack</code> 对象。</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 通过自己实现采集获取 `MediaStreamTrack` 对象</span>
+<span class="hljs-keyword">const</span> customMediaStreamTrack = getMediaStreamTrackFromXXX(<span class="hljs-comment">/* .. */</span>);
+
+<span class="hljs-comment">// 创建自定义的视频轨道</span>
+<span class="hljs-keyword">const</span> customTrack = AgoraRTC.createCustomVideoTrack({
+  <span class="hljs-attr">mediaStreamTrack</span>: customMediaStreamTrack,
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="启用禁用本地轨道"></a><a href="#启用禁用本地轨道" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>启用/禁用本地轨道</h2>
+<p>创建好本地的轨道对象后，如果想要暂时关闭麦克风/摄像头，你可以禁用该轨道。SDK 提供 <a href="/AgoraWebSDK-NG/api/cn/interfaces/ilocaltrack.html#setenabled">LocalTrack.setEnabled</a> 方法来启用或者禁用本地轨道对象。</p>
+<blockquote>
+<p>该方法为异步方法，使用时需要配合 <code>Promise</code> 或 <code>async/await</code>。</p>
+</blockquote>
+<p>调用 <code>setEnabled(true)</code> 禁用本地轨道后，该轨道会停止本地播放。如果该轨道已经发布，发布也会停止，此时远端会收到 <code>user-unpublished</code> 回调；调用 <code>setEnabled(true)</code> 后，SDK 会自动重新发布轨道。</p>
+<p>根据本地轨道类型的不同，调用 <code>setEnabled</code> 后会有一些不同的行为：</p>
+<ul>
+<li>通过设备采集创建的本地轨道（<code>CameraVideoTrack</code>/<code>MicrophoneAudioTrack</code>）：当调用 <code>setEnabled(false)</code> 后，会停止采集并释放其占用的设备。如果摄像头或麦克风有指示灯，此时指示灯会熄灭。当调用 <code>setEnabled(true)</code> 后，会自动恢复采集。</li>
+<li>通过其他方式创建的本地轨道：当调用 <code>setEnabled(false)</code> 后，会默认编码黑屏帧（视频轨道）或者静音包（音频轨道）。当调用 <code>setEnabled(true)</code> 后，会自动恢复正常编码。</li>
+</ul>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> videoTrack = <span class="hljs-keyword">await</span> AgoraRTC.createCameraVideoTrack();
+
+<span class="hljs-comment">// 暂时关闭摄像头采集</span>
+<span class="hljs-keyword">await</span> videoTrack.setEnabled(<span class="hljs-literal">false</span>);
+
+<span class="hljs-comment">// ...</span>
+
+<span class="hljs-comment">// 恢复摄像头采集</span>
+<span class="hljs-keyword">await</span> videoTrack.setEnabled(<span class="hljs-literal">true</span>);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="a-nameerrora错误处理"></a><a href="#a-nameerrora错误处理" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a name="error"></a>错误处理</h2>
+<p>在创建本地音视频对象的过程中，由于不同设备和浏览器之间的差异，SDK 可能在调用上述方法时抛出异常。以下是调用创建轨道的方法时可能会遇到的错误：</p>
+<ul>
+<li><code>NOT_SUPPORTED</code>: 使用的功能在当前浏览器上不支持。</li>
+<li><code>MEDIA_OPTION_INVALID</code>: 指定的采集参数无法被满足，一般是因为设备不支持指定的分辨率或帧率。</li>
+<li><code>DEVICE_NOT_FOUND</code>: 找不到指定的采集设备。</li>
+<li><code>PERMISSION_DENIED</code>: 用户拒绝授予访问摄像头/麦克风的权限，或者屏幕共享选择共享源时，用户没有选择共享源，并关闭了选择窗口。</li>
+<li><code>CONSTRAINT_NOT_SATISFIED</code>: 浏览器不支持指定的采集选项。</li>
+<li><code>SHARE_AUDIO_NOT_ALLOWED</code>: 屏幕共享分享音频时用户没有勾选<strong>分享音频</strong>。</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/AgoraWebSDK-NG/docs/zh-CN/join_and_leave"><span class="arrow-prev">← </span><span>加入/离开频道</span></a><a class="docs-next button" href="/AgoraWebSDK-NG/docs/zh-CN/publish_and_subscribe"><span>发布和订阅</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#简介">简介</a></li><li><a href="#创建轨道">创建轨道</a><ul class="toc-headings"><li><a href="#使用麦克风和摄像头">使用麦克风和摄像头</a></li><li><a href="#使用屏幕画面">使用屏幕画面</a></li><li><a href="#使用本地或在线的音频文件">使用本地或在线的音频文件</a></li><li><a href="#使用自定义方式">使用自定义方式</a></li></ul></li><li><a href="#启用禁用本地轨道">启用/禁用本地轨道</a></li><li><a href="#a-nameerrora错误处理"><a name="error"></a>错误处理</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/" class="nav-home"><img src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/docs/zh-CN/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/api/cn">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Create Local Track · Agora Web SDK NG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Overview"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Create Local Track · Agora Web SDK NG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://agoraio-community.github.io/AgoraWebSDK-NG/"/><meta property="og:description" content="## Overview"/><meta property="og:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/AgoraWebSDK-NG/img/favicon.ico"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/AgoraWebSDK-NG/js/code-block-buttons.js"></script><script src="/AgoraWebSDK-NG/js/scrollSpy.js"></script><link rel="stylesheet" href="/AgoraWebSDK-NG/css/main.css"/><script src="/AgoraWebSDK-NG/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/AgoraWebSDK-NG/en"><img class="logo" src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG"/><h2 class="headerTitleWithLogo">Agora Web SDK NG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/AgoraWebSDK-NG/docs/en/overview" target="_self">Docs</a></li><li class=""><a href="/AgoraWebSDK-NG/api/en" target="_self">API</a></li><li class=""><a href="/AgoraWebSDK-NG/docs/en/migration_guide" target="_self">Migration Guide</a></li><li class=""><a href="/AgoraWebSDK-NG/demo" target="_self">Demos</a></li><li class=""><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" target="_self">Github</a></li><li class=""><a href="/AgoraWebSDK-NG/en/versions" target="_self">Versions</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/AgoraWebSDK-NG/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/AgoraWebSDK-NG/docs/zh-CN/create_local_track">中文</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Get Stated</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Release Note</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/release_note">Release Note</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Get Stated</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/setup">Integrate the SDK</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/basic_call">Implement Basic Call</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/join_and_leave">Join and Leave</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/create_local_track">Create Local Track</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/publish_and_subscribe">Publish and Subscribe</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Audio Management</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/volume">Adjust the Volume</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/audio_profile">Audio Profiles</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/audio_effect_mixing">Audio Effects/Mixing</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/custom_audio">Custom Audio Source</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Video Management</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/video_profile">Video Profiles</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/optimization_mode">OptimizationMode</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/image_enhancement">Image Enhancement</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/screensharing">Share Screen</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/custom_video">Custom Video Source</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Advanced Stream Management</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/multi_user_video">Video for 7+ Users</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/media_relay">Co-host across Channels</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/cdn_streaming">Push Streams to CDN</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/inject_stream">Inject Online Media Stream</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/cloud_proxy">Cloud Proxy</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/channel_encryption">Channel Encryption</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Device Management</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/test_switch_device">Test/Switch a Media Device</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Quality of Experience</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/call_quality">In-call Stats</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/stream_fallback">Video Stream Fallback</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Create Local Track</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="overview"></a><a href="#overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Overview</h2>
+<p>This article covers how to use the Agora Web SDK NG to create local audio and video tracks. Before getting into the specific APIs, you need to understand the design details of the local track objects.</p>
+<p>The SDK uses an object-oriented design pattern. It uses <a href="/AgoraWebSDK-NG/api/en/interfaces/ilocaltrack.html">LocalTrack</a>, a basic abstract class to describe all local track objects, and defines the common methods and behaviors of local track objects. All local track objects inherit from <code>LocalTrack</code>.</p>
+<p>The <code>publish</code> method requires that the published object be <code>LocalTrack</code>, so no matter how the local track object is created, it meets the parameter requirements of the <code>publish</code> method.</p>
+<p>Based on <code>LocalTrack</code>, the SDK defines <a href="/AgoraWebSDK-NG/api/en/interfaces/ilocalaudiotrack.html">LocalAudioTrack</a> and <a href="/AgoraWebSDK-NG/api/en/interfaces/ilocalvideotrack.html">LocalVideoTrack</a>, which represent local audio track objects and local video track objects respectively. These two classes add methods for specific audio and video characteristics. For example, <code>LocalAudioTrack</code> adds methods for getting and controlling volume, and <code>LocalVideoTrack</code> adds methods for setting beauty effects.</p>
+<p>The SDK provides higher-level local track classes based on <code>LocalAudioTrack</code> and <code>LocalVideoTrack</code> for additional application scenarios and creation methods. For example, <code>CameraVideoTrack</code> is inherited from <code>LocalVideoTrack</code>, and indicates that a local video track comes directly from a device's camera. This class adds methods for controlling the camera and adjusting the resolution..</p>
+<p>The following figure shows the relationship between these classes:</p>
+<p><img src="/AgoraWebSDK-NG/docs/assets/local-track-interface-diagram.png" alt="LocalTrack interface diagram"></p>
+<h2><a class="anchor" aria-hidden="true" id="create-tracks"></a><a href="#create-tracks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create tracks</h2>
+<p>The SDK supports the creation of local track objects in the following ways.</p>
+<h3><a class="anchor" aria-hidden="true" id="use-the-microphone-and-camera"></a><a href="#use-the-microphone-and-camera" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use the microphone and camera</h3>
+<p>The most commonly used way is to create a local track object directly through the audio and video captured by the microphone or camera. The SDK provides three methods:</p>
+<ul>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartc.html#createcameravideotrack">createCameraVideoTrack</a>: Uses the video captured by the camera to create a local video track and return a <a href="/AgoraWebSDK-NG/api/en/interfaces/icameravideotrack.html">CameraVideoTrack</a> object.</li>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartc.html#createmicrophoneaudiotrack">createMicrophoneAudioTrack</a>: Uses the audio sampled by the microphone to create a local audio track and return a <a href="/AgoraWebSDK-NG/api/en/interfaces/imicrophoneaudiotrack.html">MicrophoneAudioTrack</a> object.</li>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartc.html#createmicrophoneandcameratracks">createMicrophoneAndCameraTracks</a>: Creates a local track using the audio and video captured by the microphone and camera at the same time, and return a list containing <a href="/AgoraWebSDK-NG/api/en/interfaces/icameravideotrack.html">CameraVideoTrack</a> and of <a href="/AgoraWebSDK-NG/api/en/interfaces/imicrophoneaudiotrack.html">MicrophoneAudioTrack</a>.</li>
+</ul>
+<blockquote>
+<p>When using <code>createMicrophoneAndCameraTracks</code> to create a local track, if either the camera or microphone cannot complete the capture, the entire capture fails, and the SDK throws an error. This is because the audio and video capture is done at the same time, For details, see <a href="#error">Error handling</a>. If you call <code>createCameraVideoTrack</code> and <code>createMicrophoneAudioTrack</code> separately, the failure of one of them does not affect the other. Please choose the appropriate method according to your needs.</p>
+</blockquote>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Capture the video from the camera</span>
+<span class="hljs-keyword">const</span> cameraTrack = <span class="hljs-keyword">await</span> AgoraRTC.createCameraVideoTrack();
+
+<span class="hljs-comment">// Sample the audio from the microphone</span>
+<span class="hljs-keyword">const</span> microphoneTrack = <span class="hljs-keyword">await</span> AgoraRTC.createMicrophoneAudioTrack();
+
+<span class="hljs-comment">// Capture and audio and video at one time</span>
+<span class="hljs-keyword">const</span> [microphoneTrack, cameraTrack] = <span class="hljs-keyword">await</span> AgoraRTC.createMicrophoneAndCameraTracks();
+</code></pre>
+<p>When calling these methods, you can pass in a configuration parameter to control the capture behavior. For detailed parameter definitions, see <a href="/AgoraWebSDK-NG/api/en/interfaces/cameravideotrackinitconfig.html">CameraVideoTrackInitConfig</a> or <a href="/AgoraWebSDK-NG/api/en/interfaces/microphoneaudiotrackinitconfig.html">MicrophoneAudioTrackInitConfig</a>.</p>
+<blockquote>
+<p>These methods are all asynchronous and need to be used with <code>async/await</code> or <code>Promise</code>.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="use-the-screen"></a><a href="#use-the-screen" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use the screen</h3>
+<p>The SDK provides the <a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartc.html#createscreenvideotrack">createScreenVideoTrack</a> method to create a screen-sharing track. This method returns the <code>LocalVideoTrack</code> object. Because <code>LocalVideoTrack</code> only implements the basic methods of the video track object, the track created from the screen cannot control the resolution or switch devices like a camera track.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> screenTrack = <span class="hljs-keyword">await</span> AgoraRTC.createScreenVideoTrack();
+</code></pre>
+<blockquote>
+<p>This method is asynchronous and needs to be used with <code>async/await</code> or <code>Promise</code>.</p>
+</blockquote>
+<p>To share a screen on Electron or older versions of Chrome, or to share audio when sharing your screen, see <a href="/AgoraWebSDK-NG/docs/en/screensharing">Screen Sharing</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="use-a-local-or-online-audio-file"></a><a href="#use-a-local-or-online-audio-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use a local or online audio file</h3>
+<p>The SDK provides the <a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartc.html#createbuffersourceaudiotrack">createBufferSourceAudioTrack</a> method to create a local audio track object from a local or online audio file. This method creates a <code>BufferSourceAudioTrack</code> object, which inherits from <code>LocalAudioTrack</code>, and adds methods to control the playback behavior of audio files, such as pausing, skipping, or looping playback.</p>
+<p>You can use this method for audio mixing or playing audio effects, see <a href="/AgoraWebSDK-NG/docs/en/audio_effect_mixing">Play Audio Effects/Audio Mixing</a> for details.</p>
+<blockquote>
+<p>This method is asynchronous and needs to be used with <code>async/await</code> or <code>Promise</code>.</p>
+</blockquote>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> audioFileTrack = <span class="hljs-keyword">await</span> AgoraRTC.createBufferSourceAudioTrack({
+  <span class="hljs-attr">source</span>: <span class="hljs-string">"https://web-demos-static.agora.io/agora/smlt.flac"</span>,
+});
+
+<span class="hljs-comment">// Read the audio file before playback</span>
+audioFileTrack.startProcessAudioBuffer();
+
+audioFileTrack.play();
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="use-a-custom-method"></a><a href="#use-a-custom-method" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use a custom method</h3>
+<p>If you are familiar with WebRTC or <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack">MediaStreamTrack</a> related APIs, you can create a <code>MediaStreamTrack</code> object by implementing the capture by yourself, and then use <a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartc.html#createcustomaudiotrack">createCustomAudioTrack</a> or <a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartc.html#createcustomvideotrack">createCustomVideoTrack</a> to convert the <code>MediaStreamTrack</code> object into the <code>LocalAudioTrack</code> or <code>LocalVideoTrack</code> object in the SDK.</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Get a `MediaStreamTrack` object by custom capture</span>
+<span class="hljs-keyword">const</span> customMediaStreamTrack = getMediaStreamTrackFromXXX(<span class="hljs-comment">/* .. */</span>);
+
+<span class="hljs-comment">// Create a custom video track</span>
+<span class="hljs-keyword">const</span> customTrack = AgoraRTC.createCustomVideoTrack({
+  <span class="hljs-attr">mediaStreamTrack</span>: customMediaStreamTrack,
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="enabledisable-local-tracks"></a><a href="#enabledisable-local-tracks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Enable/Disable local tracks</h2>
+<p>After creating a local track object, to turn off the microphone or camera temporarily, you can disable the track. The SDK provides the <a href="/AgoraWebSDK-NG/api/en/interfaces/ilocaltrack.html#setenabled">LocalTrack.setEnabled</a> method to enable or disable the local track object.</p>
+<blockquote>
+<p>This method is asynchronous and needs to be used with async/await or Promise.</p>
+</blockquote>
+<p>After you call <code>setEnabled(true)</code> to disable a local track, the track stops local playback. If the track is published, publishing stops and remote users receive the <code>user-unpublished</code> callback; after you call <code>setEnabled(true)</code>, the SDK automatically re-publishes the track.</p>
+<p>Based on the type of the local track, the behaviors vary after the method call of <code>setEnabled</code>:</p>
+<ul>
+<li>Local tracks created by device capture (<code>CameraVideoTrack</code>/<code>MicrophoneAudioTrack</code>): After you call <code>setEnabled(false)</code>, the capture stops and the capture device is released. If the camera or microphone has an indicator light, the light turns off. After you call <code>setEnabled(true)</code>, the capture automatically resumes.</li>
+<li>Local tracks created by other methods: After you call <code>setEnabled(false)</code>, the SDK encodes black frames for video tracks and silenced audio frames for audio tracks by default. After you call <code>setEnabled(true)</code>, the SDK automatically resumes normal encoding.</li>
+</ul>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> videoTrack = <span class="hljs-keyword">await</span> AgoraRTC.createCameraVideoTrack();
+
+<span class="hljs-comment">// Temporarily turn off the camera captrue</span>
+<span class="hljs-keyword">await</span> videoTrack.setEnabled(<span class="hljs-literal">false</span>);
+
+<span class="hljs-comment">// ...</span>
+
+<span class="hljs-comment">// Resumes the camera capture</span>
+<span class="hljs-keyword">await</span> videoTrack.setEnabled(<span class="hljs-literal">true</span>);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="a-nameerroraerror-handling"></a><a href="#a-nameerroraerror-handling" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a name="error"></a>Error handling</h2>
+<p>When creating local audio and video tracks, the SDK may throw the following errors due to the differences between devices and browsers.</p>
+<ul>
+<li><code>NOT_SUPPORTED</code>: The function used is not supported by the current browser.</li>
+<li><code>MEDIA_OPTION_INVALID</code>: The specified capture configurations cannot be satisfied, usually because the device does not support the specified resolution or frame rate.</li>
+<li><code>DEVICE_NOT_FOUND</code>: The specified capture device cannot be found.</li>
+<li><code>PERMISSION_DENIED</code>: The user refuses to grant permission to access the camera or microphone. Or, when selecting a sharing source for screen sharing, the user closes the selection window.</li>
+<li><code>CONSTRAINT_NOT_SATISFIED</code>: The browser does not support the specified capture configurations.</li>
+<li><code>SHARE_AUDIO_NOT_ALLOWED</code>: The user does not check <strong>Share Audio</strong> when sharing audio with screen sharing.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/AgoraWebSDK-NG/docs/en/join_and_leave"><span class="arrow-prev">← </span><span>Join and Leave</span></a><a class="docs-next button" href="/AgoraWebSDK-NG/docs/en/publish_and_subscribe"><span>Publish and Subscribe</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#overview">Overview</a></li><li><a href="#create-tracks">Create tracks</a><ul class="toc-headings"><li><a href="#use-the-microphone-and-camera">Use the microphone and camera</a></li><li><a href="#use-the-screen">Use the screen</a></li><li><a href="#use-a-local-or-online-audio-file">Use a local or online audio file</a></li><li><a href="#use-a-custom-method">Use a custom method</a></li></ul></li><li><a href="#enabledisable-local-tracks">Enable/Disable local tracks</a></li><li><a href="#a-nameerroraerror-handling"><a name="error"></a>Error handling</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/" class="nav-home"><img src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/docs/en/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/api/en">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>
