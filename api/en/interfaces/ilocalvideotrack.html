@@ -593,7 +593,10 @@
 								</div>
 								<p>After a track is disabled, the SDK stops playing and publishing the track.</p>
 								<blockquote>
-									<p>Disabling a track does not trigger the [LocalTrack.on(&quot;track-ended&quot;)]{@link LocalTrack.event_track_ended} event.</p>
+									<ul>
+										<li>Disabling a track does not trigger the <a href="ilocaltrack.html#event_track_ended">LocalTrack.on(&quot;track-ended&quot;)</a> event.</li>
+										<li>If a track is published, disabling this track triggers the <a href="iagorartcclient.html#event_user_unpublished">user-unpublished</a> event on the remote client, and re-enabling this track triggers the <a href="iagorartcclient.html#event_user_published">user-published</a> event.</li>
+									</ul>
 								</blockquote>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>

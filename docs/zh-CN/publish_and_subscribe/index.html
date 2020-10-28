@@ -80,11 +80,11 @@
 </code></pre>
 <p>关于发布，注意事项如下：</p>
 <ul>
-<li>同一时间只能发布一个视频轨道。</li>
-<li>可以同时发布多个音频轨道，SDK 会自动混音。
+<li>一个 <code>AgoraRTCClient</code> 对象可以同时发布多个音频轨道，SDK 会自动混音，将多个音频轨道合并为一个音频轨道。
 <blockquote>
 <p>Safari 12 之前的版本不支持混音，无法使用此特性。</p>
 </blockquote></li>
+<li>一个 <code>AgoraRTCClient</code> 对象同一时间<strong>只能发布一个视频轨道</strong>。如果你想要更换视频轨道，例如已经发布了一个摄像头视频轨道，想要切换为屏幕共享视频轨道，你必须先取消发布。</li>
 <li>可以多次调用该方法来发布不同的轨道，但是不能重复发布同一个轨道对象。</li>
 <li>该方法为异步方法，使用时需要配合 <code>Promise</code> 或 <code>async/await</code>。</li>
 </ul>

@@ -709,7 +709,8 @@ track.setAudioFrameCallback(<span class="hljs-literal">null</span>);</code></pre
 								</div>
 								<p>轨道禁用后，播放和发布都将被停止。</p>
 								<blockquote>
-									<p>禁用轨道不会触发 [LocalTrack.on(&quot;track-ended&quot;)]{@link LocalTrack.event_track_ended} 事件。</p>
+									<p>禁用轨道不会触发 <a href="ilocaltrack.html#event_track_ended">LocalTrack.on(&quot;track-ended&quot;)</a> 事件。
+									如果该轨道已发布，禁用轨道后，远端会触发 <a href="iagorartcclient.html#event_user_unpublished">user-unpublished</a> 事件。重新启用后，远端会触发 <a href="iagorartcclient.html#event_user_published">user-published</a> 事件。</p>
 								</blockquote>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -719,8 +720,8 @@ track.setAudioFrameCallback(<span class="hljs-literal">null</span>);</code></pre
 									<div class="tsd-comment tsd-typography">
 										<p>是否启用该轨道:</p>
 										<ul>
-											<li><code>true</code>: 启用该轨道.</li>
-											<li><code>false</code>: 禁用该轨道.</li>
+											<li><code>true</code>: 启用该轨道。</li>
+											<li><code>false</code>: 禁用该轨道。</li>
 										</ul>
 									</div>
 								</li>
@@ -744,7 +745,7 @@ track.setAudioFrameCallback(<span class="hljs-literal">null</span>);</code></pre
 								<div class="lead">
 									<p>设置音频输出设备，比如扬声器。</p>
 									<blockquote>
-										<p>该方法只支持 Chrome 浏览器，其他浏览器调用将会抛出 <code>NOT_SUPPORT</code> 错误。</p>
+										<p>该方法只支持 Chrome 浏览器，其他浏览器调用将会抛出 <code>NOT_SUPPORTED</code> 错误。</p>
 									</blockquote>
 								</div>
 							</div>
