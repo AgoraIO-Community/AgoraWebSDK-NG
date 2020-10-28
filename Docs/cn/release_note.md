@@ -6,6 +6,14 @@ sidebar_label: Release Note
 
 本页提供 Agora Web SDK NG 的发版说明。
 
+## 4.1.1 版
+Agora Web SDK NG v4.1.1 于 2020 年 10 月 27 日发布。该版本修复了以下问题：
+- 提升了 `event_network_quality` 回调的准确性。
+- Safari 上 SDK 无法找到视频采集设备时， `createCameraVideoTrack` 的调用无法结束。
+- 调用 `unsubscribe` 取消订阅某远端用户的一路未发布的轨道后，后续对该用户的订阅和取消订阅操作都失效。
+- 降低双流模式时频繁调用 `setEnabled` 方法启用和禁用视频轨道的消耗。
+- Safari 14 上调用 `client.getLocalVideoStats` 方法的偶现报错。
+
 ## 4.1.0 版
 
 Agora Web SDK NG v4.1.0 于 2020 年 9 月 4 日发布。
@@ -58,12 +66,9 @@ v4.1.0 新增了以下方法和回调，用于音频播放设备的管理：
 
 ## 4.0.1 版
 
-Agora Web SDK NG v4.0.0 于 2020 年 7 月 18 日发布。
-
-### 问题修复
-
-- 修复 Chrome 70 下发布失败的问题
-- 修复某些情况下离开频道发布操作没有被中止的问题
+Agora Web SDK NG v4.0.0 于 2020 年 7 月 18 日发布，该版本修复了以下问题：
+- 修复 Chrome 70 下发布失败的问题。
+- 修复某些情况下离开频道发布操作没有被中止的问题。
 
 
 ## 4.0.0 版

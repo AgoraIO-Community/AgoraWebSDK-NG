@@ -30,14 +30,14 @@ npm install agora-rtc-sdk-ng --save
 ```js
 import AgoraRTC from "agora-rtc-sdk-ng"
 
-const client = AgoraRTC.createClient({ mode: "live", codec: "vp8" });
+const client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
 ```
 
 If you use Typescript, you can also import the typed objects from the SDK by adding the following code.
 ```typescript
 import AgoraRTC, { IAgoraRTCClient } from "agora-rtc-sdk-ng"
 
-const client: IAgoraRTCClient = AgoraRTC.createClient({ mode: "live", codec: "vp8" });
+const client: IAgoraRTCClient = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
 ```
 
 ### Method 2: Through the CDN

@@ -6,6 +6,14 @@ sidebar_label: Release Note
 
 This page provides the release notes for the Agora Web SDK NG.
 
+## v4.1.1
+Agora Web SDK NG v4.1.1 was released on October 27, 2020. This release fixed the following issues:
+- Improved the accuracy of the `event_network_quality` event.
+- The method call of `createCameraVideoTrack` did not stop on Safari when the SDK cannot find a video capture device.
+- After calling `unsubscribe` to unsubscribing from an unpublished track of a remote user, the subsequent subscribing and unsubscribing operations failed to take effect.
+- Reduced the performance degradation due to frequent method calls of `setEnabled` to enable and disable a video track in dual-stream mode.
+- Occasional errors when `client.getLocalVideoStats` was called on Safari.
+
 ## v4.1.0
 
 Agora Web SDK NG v4.1.0 was released on September 4, 2020.

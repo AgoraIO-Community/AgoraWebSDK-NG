@@ -3,3 +3,4 @@ dist/
 build/
 *.log
 .DS_Store
+package.json

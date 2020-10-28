@@ -29,7 +29,7 @@ npm install agora-rtc-sdk-ng --save
 ```js
 import AgoraRTC from "agora-rtc-sdk-ng"
 
-const client = AgoraRTC.createClient({ mode: "live", codec: "vp8" });
+const client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
 ```
 
 如果你使用 Typescript, 还可以引入 SDK 中的类型对象：
@@ -37,7 +37,7 @@ const client = AgoraRTC.createClient({ mode: "live", codec: "vp8" });
 ```typescript
 import AgoraRTC, { IAgoraRTCClient } from "agora-rtc-sdk-ng"
 
-const client: IAgoraRTCClient = AgoraRTC.createClient({ mode: "live", codec: "vp8" });
+const client: IAgoraRTCClient = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
 ```
 
 ### 方法 2. 使用 CDN 方法获取 SDK
