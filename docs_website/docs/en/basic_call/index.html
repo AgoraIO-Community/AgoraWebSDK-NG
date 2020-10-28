@@ -1,0 +1,261 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Implement the Basic Video Call · Agora Web SDK NG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This article introduces how to use the Agora Web SDK NG to implement a basic video call."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Implement the Basic Video Call · Agora Web SDK NG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://agoraio-community.github.io/AgoraWebSDK-NG/"/><meta property="og:description" content="This article introduces how to use the Agora Web SDK NG to implement a basic video call."/><meta property="og:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/AgoraWebSDK-NG/img/favicon.ico"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/AgoraWebSDK-NG/js/code-block-buttons.js"></script><script src="/AgoraWebSDK-NG/js/scrollSpy.js"></script><link rel="stylesheet" href="/AgoraWebSDK-NG/css/main.css"/><script src="/AgoraWebSDK-NG/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/AgoraWebSDK-NG/en"><img class="logo" src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG"/><h2 class="headerTitleWithLogo">Agora Web SDK NG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/AgoraWebSDK-NG/docs/en/overview" target="_self">Docs</a></li><li class=""><a href="/AgoraWebSDK-NG/api/en" target="_self">API</a></li><li class=""><a href="/AgoraWebSDK-NG/docs/en/migration_guide" target="_self">Migration Guide</a></li><li class=""><a href="/AgoraWebSDK-NG/demo" target="_self">Demos</a></li><li class=""><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" target="_self">Github</a></li><li class=""><a href="/AgoraWebSDK-NG/en/versions" target="_self">Versions</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/AgoraWebSDK-NG/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/AgoraWebSDK-NG/docs/zh-CN/basic_call">中文</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Get Stated</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Release Note</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/release_note">Release Note</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Get Stated</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/setup">Integrate the SDK</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/basic_call">Implement Basic Call</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/join_and_leave">Join and Leave</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/create_local_track">Create Local Track</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/publish_and_subscribe">Publish and Subscribe</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Audio Management</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/volume">Adjust the Volume</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/audio_profile">Audio Profiles</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/audio_effect_mixing">Audio Effects/Mixing</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/custom_audio">Custom Audio Source</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Video Management</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/video_profile">Video Profiles</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/optimization_mode">OptimizationMode</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/image_enhancement">Image Enhancement</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/screensharing">Share Screen</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/custom_video">Custom Video Source</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Advanced Stream Management</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/multi_user_video">Video for 7+ Users</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/media_relay">Co-host across Channels</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/cdn_streaming">Push Streams to CDN</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/inject_stream">Inject Online Media Stream</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/cloud_proxy">Cloud Proxy</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/channel_encryption">Channel Encryption</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Device Management</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/test_switch_device">Test/Switch a Media Device</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Quality of Experience</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/call_quality">In-call Stats</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/stream_fallback">Video Stream Fallback</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Implement the Basic Video Call</h1></header><article><div><span><p>This article introduces how to use the Agora Web SDK NG to implement a basic video call.</p>
+<blockquote>
+<p>Due to security limits on HTTP addresses except 127.0.0.1, the Agora Web SDK NG only supports HTTPS or <a href="http://localhost">http://localhost</a> (<a href="http://127.0.0.1">http://127.0.0.1</a>). If you deploy your project over HTTP, you can only visit your project at <a href="http://localhost">http://localhost</a>（<a href="http://127.0.0.1">http://127.0.0.1</a>).</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="commonly-used-objects"></a><a href="#commonly-used-objects" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Commonly-used objects</h2>
+<p>When using the Agora Web SDK NG, you need to work with the following two types of objects:</p>
+<ul>
+<li>The <a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartcclient.html">AgoraRTCClient</a> object, which represents a local user in the call. The <code>AgoraRTCClient</code> interface provides methods for implementing the major functions required for a video call, such as joining a channel and publishing local audio and video tracks.</li>
+<li>The <a href="/AgoraWebSDK-NG/api/en/interfaces/ilocalaudiotrack.html">LocalTrack</a> and <a href="/AgoraWebSDK-NG/api/en/interfaces/iremotetrack.html">RemoteTrack</a> objects, which represents the local and remote tracks. The <code>LocalTrack</code> and <code>RemoteTrack</code> interfaces provide methods for controlling audio and video, such as playback control.</li>
+</ul>
+<blockquote>
+<p>A media stream consists of an audio track and/or a video track. The Agora Web SDK NG controls the stream by operating the tracks.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="basic-process"></a><a href="#basic-process" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic process</h2>
+<p>The process of implementing a basic video call is as follows:</p>
+<ol>
+<li>Call <code>createClient</code> to create an <code>AgoraRTCClient</code> object with your App ID.</li>
+<li>Call <code>AgoraRTCClient.join</code> to join a specified channel.</li>
+<li>Call <code>createMicrophoneAudioTrack</code> to create a <code>MicrophoneAudioTrack</code> object and call <code>createCameraVideoTrack</code> to create a <code>CameraVideoTrack</code> object.</li>
+<li>Call <code>AgoraRTCClient.publish</code> to publish the local audio and video tracks that you have created to the channel.</li>
+</ol>
+<p>Perform the following steps when a remote user joins the channel and publishes tracks:</p>
+<ol>
+<li>Get an <code>AgoraRTCRemoteUser</code> object when the SDK triggers the <code>AgoraRTCClient.on(&quot;user-published&quot;)</code> event.</li>
+<li>Call <code>AgoraRTCClient.subscribe</code> to subscribe to the <code>AgoraRTCRemoteUser</code> object that you get in the previous step.</li>
+<li>Visit <code>AgoraRTCRemoteUser.audioTrack</code> and <code>AgoraRTCRemoteUser.videoTrack</code> to get the <code>RemoteAudioTrack</code> and <code>RemoteVideoTrack</code> objects of the remote user.</li>
+</ol>
+<p>For convenience, we define two variables and a function for the following code snippets. You can wrap all the following code snippets in the function. This is not mandatory and you can follow your own implementation preferences.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> rtc = {
+  <span class="hljs-comment">// For the local client.</span>
+  <span class="hljs-attr">client</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-comment">// For the local audio and video tracks.</span>
+  <span class="hljs-attr">localAudioTrack</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">localVideoTrack</span>: <span class="hljs-literal">null</span>,
+};
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-comment">// Pass your app ID here.</span>
+  <span class="hljs-attr">appId</span>: <span class="hljs-string">"&lt;YOUR APP ID&gt;"</span>,
+  <span class="hljs-comment">// Set the channel name.</span>
+  <span class="hljs-attr">channel</span>: <span class="hljs-string">"demo_channel_name"</span>,
+  <span class="hljs-comment">// Pass a token if your project enables the App Certificate.</span>
+  <span class="hljs-attr">token</span>: <span class="hljs-literal">null</span>,
+};
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">startBasicCall</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">/**
+   * Put the following code snippets here.
+   */</span>
+}
+
+startBasicCall();
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="1create-a-local-client"></a><a href="#1create-a-local-client" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.Create a local client</h3>
+<pre><code class="hljs css language-js">rtc.client = AgoraRTC.createClient({ <span class="hljs-attr">mode</span>: <span class="hljs-string">"rtc"</span>, <span class="hljs-attr">codec</span>: <span class="hljs-string">"h264"</span> });
+</code></pre>
+<p>Call <code>createClient</code> to create a local client object.
+Pay attention to the settings of the <code>mode</code> and <code>codec</code> parameters when creating the client:</p>
+<ul>
+<li><code>mode</code> determines the <a href="https://docs.agora.io/en/Agora%20Platform/terms?platform=All%20Platforms#channel-profile">channel profile</a>. Agora recommends using the <code>&quot;rtc&quot;</code> mode for one-to-one or group calls and the <code>&quot;live&quot;</code> mode for live broadcasts. The SDK applies different optimization methods according to the channel profile.</li>
+<li><code>codec</code> specifies the codec that the web browser uses for encoding and decoding. If Safari 12.1 or earlier is involved in the call, set <code>codec</code> as <code>&quot;h264&quot;</code>. In all other cases, Agora recommends setting <code>codec</code> as <code>&quot;vp8&quot;</code>.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="2join-a-channel"></a><a href="#2join-a-channel" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.Join a channel</h3>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> uid = <span class="hljs-keyword">await</span> rtc.client.join(options.appId, options.channel, options.token, <span class="hljs-literal">null</span>);
+</code></pre>
+<p>Call <code>join</code> to join a specified channel. This method returns a <code>Promise</code> object. Returning a <code>Promise.resolve</code> object means the client joins the channel successfully; returning a <code>Promise.reject</code> object means an error occurs when the client joins the channel. You can also use <code>async/await</code> to simplify your code.</p>
+<p>Pay attention to the following parameters when joining the channel:</p>
+<ul>
+<li><code>appid</code>: The App ID you get when creating a project in Agora Console. See <a href="/AgoraWebSDK-NG/docs/en/setup#Prerequisites">Prerequisites</a>.</li>
+<li><code>channel</code>: The channel name, a string within 64 bytes. In our sample project, we set <code>channel</code> as <code>demo_channel_name</code>.</li>
+<li><code>token</code>: (Optional) A token that identifies the role and privilege of the user if your project enables the App Certificate. See <a href="https://docs.agora.io/en/Agora%20Platform/token#Token">Use a token for authentication</a> for details.
+<ul>
+<li>For testing, Agora recommends using a Temp Token generated in Agora Console. See <a href="https://docs.agora.io/en/Agora%20Platform/token?platform=All%20Platforms#get-a-temporary-token">Get a Temp Token</a>.</li>
+<li>For production, Agora recommends using a token generated at your server. For details on how to generate a token, see <a href="https://docs.agora.io/en/Interactive%20Broadcast/token_server_cpp">Generate a token from your server</a>.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>For simplicity, we do not enable the App Certificate and set <code>token</code> as <code>null</code> in our sample project. If your project enables the App Certificate, ensure the value of <code>channel</code> you set here is the same as the value you use when generating a token at your server.</p>
+</blockquote>
+<ul>
+<li><code>uid</code>: The user ID, which should be unique in a channel. If you set <code>uid</code> as <code>null</code>, Agora automatically assigns a user ID and returns it in the result of <code>join</code>.</li>
+</ul>
+<p>For more details on the parameter settings, see <a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartcclient.html#join">AgoraRTCClient.join</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="3create-and-publish-the-local-tracks"></a><a href="#3create-and-publish-the-local-tracks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.Create and publish the local tracks</h3>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Create an audio track from the audio sampled by a microphone.</span>
+rtc.localAudioTrack = <span class="hljs-keyword">await</span> AgoraRTC.createMicrophoneAudioTrack();
+<span class="hljs-comment">// Create a video track from the video captured by a camera.</span>
+rtc.localVideoTrack = <span class="hljs-keyword">await</span> AgoraRTC.createCameraVideoTrack();
+<span class="hljs-comment">// Publish the local audio and video tracks to the channel.</span>
+<span class="hljs-keyword">await</span> rtc.client.publish([rtc.localAudioTrack, rtc.localVideoTrack]);
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"publish success!"</span>);
+</code></pre>
+<p>The above code snippet shows the whole process of creating and publishing the local audio and video tracks:</p>
+<ol>
+<li>Call <code>createMicrophoneAudioTrack</code> to create a local audio object from the audio sampled by a microphone and call <code>createCameraVideoTrack</code> to create a local video track from the video captured by a camera.</li>
+<li>Call <code>publish</code> and pass the local audio and video tracks that you created in the previous step as parameters to publish these tracks to the channel that you joined.</li>
+</ol>
+<blockquote>
+<ul>
+<li>The above three methods all return a <code>Promise</code> object. Returning a <code>Promise.resolve</code> object means the method call succeeds; returning a <code>Promise.reject</code> object means the method call fails. You can also use <code>async/await</code> to simplify your code.</li>
+<li>You can use the <code>Promise.all</code> method for multiple asynchronous tasks such as joining a channel and creating audio and video tracks because these asynchronous tasks have no dependency.</li>
+</ul>
+</blockquote>
+<p>For more details on how to set the parameters, see:</p>
+<ul>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartc.html#createmicrophoneaudiotrack">createMicrophoneAudioTrack</a></li>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartc.html#createcameravideotrack">createCameraVideoTrack</a></li>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartcclient.html#publish">publish</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="4subscribe-to-a-remote-user"></a><a href="#4subscribe-to-a-remote-user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.Subscribe to a remote user</h3>
+<p>When a remote user publishes media tracks, the SDK triggers the <code>client.on(&quot;user-published&quot;)</code> event, from which you can get an <code>AgoraRTCRemoteUser</code> object. Listen for this event with <code>client.on</code> and call <code>AgoraRTCClient.subscribe</code> in the callback to subscribe to this remote user.</p>
+<blockquote>
+<p>Agora recommends listening for events <strong>immediately after creating the client</strong> to ensure we do not miss any event.</p>
+</blockquote>
+<p>Add the following code snippet after calling<code>createClient</code> to listen for the <code>client.on(&quot;user-published&quot;)</code> event, subscribe to the remote user who publishes media tracks, and automatically play the media tracks.</p>
+<pre><code class="hljs css language-js">rtc.client.on(<span class="hljs-string">"user-published"</span>, <span class="hljs-keyword">async</span> (user, mediaType) =&gt; {
+  <span class="hljs-comment">// Subscribe to a remote user.</span>
+  <span class="hljs-keyword">await</span> rtc.client.subscribe(user, mediaType);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"subscribe success"</span>);
+
+  <span class="hljs-comment">// If the subscribed track is video.</span>
+  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"video"</span>) {
+    <span class="hljs-comment">// Get `RemoteVideoTrack` in the `user` object.</span>
+    <span class="hljs-keyword">const</span> remoteVideoTrack = user.videoTrack;
+    <span class="hljs-comment">// Dynamically create a container in the form of a DIV element for playing the remote video track.</span>
+    <span class="hljs-keyword">const</span> playerContainer = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>);
+    <span class="hljs-comment">// Specify the ID of the DIV container. You can use the `uid` of the remote user.</span>
+    playerContainer.id = user.uid.toString();
+    playerContainer.style.width = <span class="hljs-string">"640px"</span>;
+    playerContainer.style.height = <span class="hljs-string">"480px"</span>;
+    <span class="hljs-built_in">document</span>.body.append(playerContainer);
+
+    <span class="hljs-comment">// Play the remote video track.</span>
+    <span class="hljs-comment">// Pass the DIV container and the SDK dynamically creates a player in the container for playing the remote video track.</span>
+    remoteVideoTrack.play(playerContainer);
+
+    <span class="hljs-comment">// Or just pass the ID of the DIV container.</span>
+    <span class="hljs-comment">// remoteVideoTrack.play(playerContainer.id);</span>
+  }
+
+  <span class="hljs-comment">// If the subscribed track is audio.</span>
+  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"audio"</span>) {
+    <span class="hljs-comment">// Get `RemoteAudioTrack` in the `user` object.</span>
+    <span class="hljs-keyword">const</span> remoteAudioTrack = user.audioTrack;
+    <span class="hljs-comment">// Play the audio track. No need to pass any DOM element.</span>
+    remoteAudioTrack.play();
+  }
+});
+</code></pre>
+<p>Pay attention to the <code>mediaType</code> parameter of the <code>client.on(&quot;user-published&quot;)</code> event, which marks the type of the current track the remote user publishes:</p>
+<ul>
+<li><code>&quot;audio&quot;</code>: The remote user publishes an audio track.</li>
+<li><code>&quot;video&quot;</code>: The remote user publishes a video track.</li>
+</ul>
+<p>When the remote user unpublishes a media track or leaves the channel, the SDK triggers the <code>client.on(&quot;user-unpublished&quot;)</code> event. You need to destroy the dynamically created DIV container.</p>
+<p>Add the following code snippet after listening for the <code>client.on(&quot;user-published&quot;)</code> event to listen for the <code>client.on(&quot;user-unpublished&quot;)</code> event.</p>
+<pre><code class="hljs css language-js">rtc.client.on(<span class="hljs-string">"user-unpublished"</span>, user =&gt; {
+  <span class="hljs-comment">// Get the dynamically created DIV container.</span>
+  <span class="hljs-keyword">const</span> playerContainer = <span class="hljs-built_in">document</span>.getElementById(user.uid);
+  <span class="hljs-comment">// Destroy the container.</span>
+  playerContainer.remove();
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="5leave-the-channel"></a><a href="#5leave-the-channel" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.Leave the channel</h3>
+<p>Follow these steps to leave the channel:</p>
+<ol>
+<li>Destroy the local audio and video tracks that you have created and disable access to the camera and microphone.</li>
+<li>Destroy the dynamically created DIV container.</li>
+<li>Call <code>leave</code> to leave the channel.</li>
+</ol>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">leaveCall</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// Destroy the local audio and video tracks.</span>
+  rtc.localAudioTrack.close();
+  rtc.localVideoTrack.close();
+
+  <span class="hljs-comment">// Traverse all remote users.</span>
+  rtc.client.remoteUsers.forEach(<span class="hljs-function"><span class="hljs-params">user</span> =&gt;</span> {
+    <span class="hljs-comment">// Destroy the dynamically created DIV container.</span>
+    <span class="hljs-keyword">const</span> playerContainer = <span class="hljs-built_in">document</span>.getElementById(user.uid);
+    playerContainer &amp;&amp; playerContainer.remove();
+  });
+
+  <span class="hljs-comment">// Leave the channel.</span>
+  <span class="hljs-keyword">await</span> rtc.client.leave();
+}
+</code></pre>
+<blockquote>
+<p>Neither destroying the local media tracks nor destroying the dynamically created DIV container is mandatory. You can follow your own implementation preferences.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="demo"></a><a href="#demo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Demo</h2>
+<p>We provide an <a href="/AgoraWebSDK-NG/demo/basicVideoCall/index.html">online demo</a> for you to try the video calls implemented by using the Agora Web SDK NG.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/AgoraWebSDK-NG/docs/en/setup"><span class="arrow-prev">← </span><span>Integrate the SDK</span></a><a class="docs-next button" href="/AgoraWebSDK-NG/docs/en/join_and_leave"><span>Join and Leave</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#commonly-used-objects">Commonly-used objects</a></li><li><a href="#basic-process">Basic process</a><ul class="toc-headings"><li><a href="#1create-a-local-client">1.Create a local client</a></li><li><a href="#2join-a-channel">2.Join a channel</a></li><li><a href="#3create-and-publish-the-local-tracks">3.Create and publish the local tracks</a></li><li><a href="#4subscribe-to-a-remote-user">4.Subscribe to a remote user</a></li><li><a href="#5leave-the-channel">5.Leave the channel</a></li></ul></li><li><a href="#demo">Demo</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/" class="nav-home"><img src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/docs/en/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/api/en">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>

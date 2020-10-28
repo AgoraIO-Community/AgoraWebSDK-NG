@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>发布和订阅 · Agora Web SDK NG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## 发布音视频"/><meta name="docsearch:language" content="zh-CN"/><meta property="og:title" content="发布和订阅 · Agora Web SDK NG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://agoraio-community.github.io/AgoraWebSDK-NG/"/><meta property="og:description" content="## 发布音视频"/><meta property="og:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/AgoraWebSDK-NG/img/favicon.ico"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/AgoraWebSDK-NG/js/code-block-buttons.js"></script><script src="/AgoraWebSDK-NG/js/scrollSpy.js"></script><link rel="stylesheet" href="/AgoraWebSDK-NG/css/main.css"/><script src="/AgoraWebSDK-NG/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/AgoraWebSDK-NG/zh-CN"><img class="logo" src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG"/><h2 class="headerTitleWithLogo">Agora Web SDK NG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/AgoraWebSDK-NG/docs/zh-CN/overview" target="_self">文档</a></li><li class=""><a href="/AgoraWebSDK-NG/api/en" target="_self">API</a></li><li class=""><a href="/AgoraWebSDK-NG/docs/zh-CN/migration_guide" target="_self">迁移文档</a></li><li class=""><a href="/AgoraWebSDK-NG/demo" target="_self">Demos</a></li><li class=""><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" target="_self">Github</a></li><li class=""><a href="/AgoraWebSDK-NG/zh-CN/versions" target="_self">版本</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/AgoraWebSDK-NG/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/AgoraWebSDK-NG/docs/en/publish_and_subscribe">English</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>入门</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">发版记录</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/release_note">Release Note</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">入门</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/overview">概览</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/setup">集成 SDK</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/basic_call">实现基本通话</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/join_and_leave">加入/离开频道</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/create_local_track">创建本地轨道对象</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/publish_and_subscribe">发布和订阅</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">音频管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/volume">调整通话音量</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/audio_profile">设置音频属性</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/audio_effect_mixing">播放音效/混音</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/custom_audio">自定义音频采集</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">视频管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/video_profile">设置视频属性</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/optimization_mode">清晰优先和流畅优先</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/image_enhancement">美颜</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/screensharing">屏幕共享</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/custom_video">自定义视频采集</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">高级媒体流管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/multi_user_video">七人以上视频场景</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/media_relay">跨直播间连麦</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/cdn_streaming">推流到 CDN</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/inject_stream">输入在线媒体流</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/cloud_proxy">使用云代理</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/channel_encryption">媒体流加密</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">设备管理</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/test_switch_device">音视频设备测试/切换</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">体验提升</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/call_quality">通话中质量监测</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/zh-CN/stream_fallback">视频流回退</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">发布和订阅</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="发布音视频"></a><a href="#发布音视频" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>发布音视频</h2>
+<p>完成本地轨道的创建并且成功加入频道后，就可以调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#publish">AgoraRTCClient.publish</a> 将本地的音视频数据发布到当前频道，以供频道中的其他用户订阅。</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> localAudioTrack = ...;
+<span class="hljs-keyword">const</span> localVideoTrack = ...;
+
+<span class="hljs-comment">// 你可以多次调用 publish 发布多个轨道</span>
+<span class="hljs-keyword">await</span> client.publish(localAudioTrack);
+<span class="hljs-keyword">await</span> client.publish(localVideoTrack);
+
+<span class="hljs-comment">// 也可以一次性将需要发布的轨道一起发布</span>
+<span class="hljs-keyword">await</span> client.publish([localAudioTrack, localVideoTrack]);
+</code></pre>
+<p>关于发布，注意事项如下：</p>
+<ul>
+<li>一个 <code>AgoraRTCClient</code> 对象可以同时发布多个音频轨道，SDK 会自动混音，将多个音频轨道合并为一个音频轨道。
+<blockquote>
+<p>Safari 12 之前的版本不支持混音，无法使用此特性。</p>
+</blockquote></li>
+<li>一个 <code>AgoraRTCClient</code> 对象同一时间<strong>只能发布一个视频轨道</strong>。如果你想要更换视频轨道，例如已经发布了一个摄像头视频轨道，想要切换为屏幕共享视频轨道，你必须先取消发布。</li>
+<li>可以多次调用该方法来发布不同的轨道，但是不能重复发布同一个轨道对象。</li>
+<li>该方法为异步方法，使用时需要配合 <code>Promise</code> 或 <code>async/await</code>。</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="错误处理"></a><a href="#错误处理" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>错误处理</h3>
+<p>在发布过程中，可能因为网络环境或者 SDK 使用不当抛出以下错误：</p>
+<ul>
+<li><code>INVALID_OPERATION</code>: 非法操作，说明在加入频道成功之前就调用了 <code>publish</code> 方法。</li>
+<li><code>OPERATION_ABORTED</code>: 发布被中止，可能是因为在发布成功之前就主动调用 <code>leave</code> 离开了频道。</li>
+<li><code>INVALID_LOCAL_TRACK</code>: 参数错误，传入了非法的 <code>LocalTrack</code> 对象。</li>
+<li><code>CAN_NOT_PUBLISH_MULTIPLE_VIDEO_TRACKS</code>: 不允许同时发布多个视频轨道。</li>
+<li><code>NOT_SUPPORTED</code>: 发布了多个音频轨道，但是浏览器不支持混音。</li>
+<li><code>UNEXPECTED_RESPONSE</code>: 收到了 Agora 服务器异常的返回，发布轨道失败。建议保留日志，联系 Agora <a href="https://agora-ticket.agora.io/">技术支持</a>。</li>
+<li><code>NO_ICE_CANDIDATE</code>: 找不到本地网络出口，可能是网络防火墙或者启用了禁止 WebRTC 的浏览器插件。详见 <a href="https://docs.agora.io/cn/faq/console_error_web#none-ice-candidate-not-alloweda-namecandidatea">FAQ</a>。</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="取消发布音视频"></a><a href="#取消发布音视频" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>取消发布音视频</h2>
+<p>成功发布本地轨道后，如果想取消发布，可以调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#unpublish">AgoraRTCClient.unpublish</a>。</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 发布音视频</span>
+<span class="hljs-keyword">await</span> client.publish([localAudioTrack, localVideoTrack]);
+
+<span class="hljs-comment">// 取消发布视频，此时音频还在正常发布</span>
+<span class="hljs-keyword">await</span> client.unpublish(localVideoTrack);
+
+<span class="hljs-comment">// 也可以一次将所有正在发布的轨道全部取消发布</span>
+<span class="hljs-keyword">await</span> client.unpublish();
+<span class="hljs-comment">// 或者批量取消发布</span>
+<span class="hljs-keyword">await</span> client.unpublish([localAudioTrack, localVideoTrack]);
+</code></pre>
+<p>关于取消发布，注意事项如下：</p>
+<ul>
+<li>该方法可以多次调用。你可以使用 <code>publish</code> 和 <code>unpublish</code> 实现发布和取消发布某个本地轨道。</li>
+<li>该方法为异步方法，使用时需要配合 <code>Promise</code> 或 <code>async/await</code>。</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="订阅音视频"></a><a href="#订阅音视频" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>订阅音视频</h2>
+<p>当远端用户成功发布音视频轨道之后，SDK 会触发 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_user_published">user-published</a> 事件。这个事件携带两个参数：远端用户对象（<code>user</code>）和远端发布的媒体类型（<code>mediaType</code>）。此时，你可以调用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#subscribe">AgoraRTCClient.subscribe</a> 发起订阅。</p>
+<blockquote>
+<p>该方法为异步方法，使用时需要配合 <code>Promise</code> 或者 <code>async/await</code>。</p>
+</blockquote>
+<pre><code class="hljs css language-js">client.on(<span class="hljs-string">"user-published"</span>, <span class="hljs-keyword">async</span> (user, mediaType) =&gt; {
+  <span class="hljs-comment">// 发起订阅</span>
+  <span class="hljs-keyword">await</span> client.subscribe(user, mediaType);
+
+  <span class="hljs-comment">// 如果订阅的是音频轨道</span>
+  <span class="hljs-keyword">if</span> (mediaType === <span class="hljs-string">"audio"</span>) {
+    <span class="hljs-keyword">const</span> audioTrack = user.audioTrack;
+    <span class="hljs-comment">// 自动播放音频</span>
+    audioTrack.play();
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">const</span> videoTrack = user.videoTrack;
+    <span class="hljs-comment">// 自动播放视频</span>
+    videoTrack.play(DOM_ELEMENT);
+  }
+});
+</code></pre>
+<p>当订阅方法调用完成之后，你可以通过 <code>user.audioTrack</code> 和 <code>user.videoTrack</code> 获取相应的 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iremoteaudiotrack.html">RemoteAudioTrack</a> 和 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iremotevideotrack.html">RemoteVideoTrack</a> 对象。</p>
+<p>订阅和发布不同，每次订阅只能订阅一个音频或视频轨道。即使发布端同时发布了音频轨道和视频轨道，SDK 也会触发两次 <code>user-published</code> 事件：一次 <code>user-published(audio)</code>，一次 <code>user-published(video)</code>。按照上面的代码逻辑，会完成两次订阅。</p>
+<h3><a class="anchor" aria-hidden="true" id="处理-autoplay-问题"></a><a href="#处理-autoplay-问题" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>处理 Autoplay 问题</h3>
+<p>当我们订阅并播放音频轨道时，可能会受到<a href="https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide#Autoplay_and_autoplay_blocking">浏览器音频自动播放限制</a>(以下简称 Autoplay 限制)。Autoplay 限制是指，如果用户在页面上没有发生任何交互动作（如点击、触摸等），这个网页就不能自动播放音频。</p>
+<p>对于 Agora Web SDK NG 来说，如果在发生交互之前调用了 <code>RemoteAudioTrack.play</code> 播放音频，浏览器的 Autoplay 限制可能导致用户听不到声音。但是只要用户在任何时候和页面发生了交互，SDK 会检测到这个行为然后尝试自动恢复播放音频。</p>
+<p>我们推荐你在调用 <code>RemoteAudioTrack.play</code> 之前就确保用户已经和页面发生交互。如果产品设计无法保证这一点，你可以使用 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartc.html#onaudioautoplayfailed">AgoraRTC.onAudioAutoplayFailed</a> 回调，在播放失败时提示用户和页面发生交互。</p>
+<h3><a class="anchor" aria-hidden="true" id="错误处理-1"></a><a href="#错误处理-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>错误处理</h3>
+<p>在订阅过程中，因为网络环境等因素 SDK 可能抛出如下错误：</p>
+<ul>
+<li><code>INVALID_OPERATION</code>: 非法操作，可能在加入频道成功之前就调用了 <code>subscribe</code>。</li>
+<li><code>INVALID_REMOTE_USER</code>: 传入了非法的远端用户对象，例如该用户不在频道内。</li>
+<li><code>REMOTE_USER_IS_NOT_PUBLISHED</code>：传入的远端用户没有发布 <code>subscribe</code> 方法中传入的媒体类型。</li>
+<li><code>UNEXPECTED_RESPONSE</code>: 收到了 Agora 服务器异常的返回，订阅失败。建议保留日志，联系 Agora <a href="https://agora-ticket.agora.io/">技术支持</a>。</li>
+<li><code>OPERATION_ABORTED</code>: 操作中止，可能在订阅成功之前就调用 <code>leave</code> 离开了频道。</li>
+<li><code>NO_ICE_CANDIDATE</code>: 找不到本地网络出口，可能是网络防火墙或者启用了禁止 WebRTC 的浏览器插件。详见 <a href="https://docs.agora.io/cn/faq/console_error_web#none-ice-candidate-not-alloweda-namecandidatea">FAQ</a>。</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="取消订阅音视频"></a><a href="#取消订阅音视频" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>取消订阅音视频</h2>
+<p>你可以通过 <a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#unsubscribe">AgoraRTCClient.unsubscribe</a> 取消订阅远端的音视频。</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 订阅目标用户的音视频</span>
+<span class="hljs-keyword">await</span> client.subscribe(user, <span class="hljs-string">"audio"</span>);
+<span class="hljs-keyword">await</span> client.subscribe(user, <span class="hljs-string">"video"</span>);
+
+<span class="hljs-comment">// 取消订阅视频</span>
+<span class="hljs-keyword">await</span> client.unsubscribe(user, <span class="hljs-string">"video"</span>);
+<span class="hljs-comment">// 也可以取消订阅当前用户的所有媒体类型</span>
+<span class="hljs-keyword">await</span> client.unsubscribe(user);
+</code></pre>
+<p>关于取消订阅，注意事项如下：</p>
+<ul>
+<li>取消订阅成功后，SDK 会释放相应的 <code>RemoteTrack</code> 对象。一旦远端轨道对象被释放，SDK 会自动移除视频的播放元素，音频播放也会停止。</li>
+<li>如果远端用户主动取消发布，本地会收到 <code>user-unpublished</code> 回调，收到该回调时 SDK 会自动释放相应的 <code>RemoteTrack</code> 对象，你无需再调用 <code>unsubscribe</code>。</li>
+<li>该方法为异步方法，使用时需要配合 <code>Promise</code> 或 <code>async/await</code>。</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/AgoraWebSDK-NG/docs/zh-CN/create_local_track"><span class="arrow-prev">← </span><span>创建本地轨道对象</span></a><a class="docs-next button" href="/AgoraWebSDK-NG/docs/zh-CN/volume"><span>调整通话音量</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#发布音视频">发布音视频</a><ul class="toc-headings"><li><a href="#错误处理">错误处理</a></li></ul></li><li><a href="#取消发布音视频">取消发布音视频</a></li><li><a href="#订阅音视频">订阅音视频</a><ul class="toc-headings"><li><a href="#处理-autoplay-问题">处理 Autoplay 问题</a></li><li><a href="#错误处理-1">错误处理</a></li></ul></li><li><a href="#取消订阅音视频">取消订阅音视频</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/" class="nav-home"><img src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/docs/zh-CN/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/api/cn">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>

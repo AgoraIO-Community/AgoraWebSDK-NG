@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Play Audio Effects/Audio Mixing · Agora Web SDK NG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Introduction"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Play Audio Effects/Audio Mixing · Agora Web SDK NG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://agoraio-community.github.io/AgoraWebSDK-NG/"/><meta property="og:description" content="## Introduction"/><meta property="og:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://agoraio-community.github.io/AgoraWebSDK-NG/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/AgoraWebSDK-NG/img/favicon.ico"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/AgoraWebSDK-NG/js/code-block-buttons.js"></script><script src="/AgoraWebSDK-NG/js/scrollSpy.js"></script><link rel="stylesheet" href="/AgoraWebSDK-NG/css/main.css"/><script src="/AgoraWebSDK-NG/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/AgoraWebSDK-NG/en"><img class="logo" src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG"/><h2 class="headerTitleWithLogo">Agora Web SDK NG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/AgoraWebSDK-NG/docs/en/overview" target="_self">Docs</a></li><li class=""><a href="/AgoraWebSDK-NG/api/en" target="_self">API</a></li><li class=""><a href="/AgoraWebSDK-NG/docs/en/migration_guide" target="_self">Migration Guide</a></li><li class=""><a href="/AgoraWebSDK-NG/demo" target="_self">Demos</a></li><li class=""><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" target="_self">Github</a></li><li class=""><a href="/AgoraWebSDK-NG/en/versions" target="_self">Versions</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/AgoraWebSDK-NG/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/AgoraWebSDK-NG/docs/zh-CN/audio_effect_mixing">中文</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Audio Management</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Release Note</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/release_note">Release Note</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Get Stated</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/setup">Integrate the SDK</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/basic_call">Implement Basic Call</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/join_and_leave">Join and Leave</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/create_local_track">Create Local Track</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/publish_and_subscribe">Publish and Subscribe</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Audio Management</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/volume">Adjust the Volume</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/audio_profile">Audio Profiles</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/audio_effect_mixing">Audio Effects/Mixing</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/custom_audio">Custom Audio Source</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Video Management</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/video_profile">Video Profiles</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/optimization_mode">OptimizationMode</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/image_enhancement">Image Enhancement</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/screensharing">Share Screen</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/custom_video">Custom Video Source</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Advanced Stream Management</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/multi_user_video">Video for 7+ Users</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/media_relay">Co-host across Channels</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/cdn_streaming">Push Streams to CDN</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/inject_stream">Inject Online Media Stream</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/cloud_proxy">Cloud Proxy</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/channel_encryption">Channel Encryption</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Device Management</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/test_switch_device">Test/Switch a Media Device</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Quality of Experience</h3><ul class=""><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/call_quality">In-call Stats</a></li><li class="navListItem"><a class="navItem" href="/AgoraWebSDK-NG/docs/en/stream_fallback">Video Stream Fallback</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Play Audio Effects/Audio Mixing</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="introduction"></a><a href="#introduction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>In a call or live broadcast, you may need to play custom sound or music to all the users in the channel. For example, adding sound effects in a game, or playing background music.</p>
+<p>Agora Web SDK NG supports publishing and automatically mixing multiple audio tracks to create and play custom sound or music.</p>
+<p>Before you start, ensure you have implemented real-time communication in your project. See <a href="/AgoraWebSDK-NG/docs/en/basic_call">Implement a Basic Video Call</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="implementation"></a><a href="#implementation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Implementation</h2>
+<p>To play a sound effect or background music, create an audio track from a local or online audio file and publish it together with the audio track from the microphone.</p>
+<h3><a class="anchor" aria-hidden="true" id="create-audio-track-from-audio-file"></a><a href="#create-audio-track-from-audio-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create audio track from audio file</h3>
+<p>The SDK provides <code>createBufferSourceAudioTrack</code> to read a local or online audio file and create an audio track object (<code>BufferSourceAudioTrack</code>).</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Create an audio track from an online music file</span>
+<span class="hljs-keyword">const</span> audioFileTrack = <span class="hljs-keyword">await</span> AgoraRTC.createBufferSourceAudioTrack({
+  <span class="hljs-attr">source</span>: <span class="hljs-string">"https://web-demos-static.agora.io/agora/smlt.flac"</span>,
+});
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"create audio file track success"</span>);
+</code></pre>
+<p>If you call <code>audioFileTrack.play()</code> or <code>client.publish([audioFileTrack])</code> immediately after creating the audio track, your users will not hear anything. This is because the SDK processes the audio track created from an audio file differently from the microphone audio track (<code>MicrophoneAudioTrack</code>).</p>
+<p><strong>MicrophoneAudioTrack</strong>
+<img src="/AgoraWebSDK-NG/docs/assets/microphone_audio_track.png" alt=""></p>
+<p>For the microphone audio track, the SDK keeps sampling the latest audio data (<code>AudioBuffer</code>) from the microphone.</p>
+<ul>
+<li>When you call <code>play()</code>, the SDK sends the audio data to the local playback module (<code>LocalPlayback</code>), then the local user can hear the audio.</li>
+<li>When you call <code>publish()</code>, the SDK sends the audio data to Agora SD-RTN, then the remote users can hear the audio.</li>
+</ul>
+<p>Once the microphone audio track is created, the sampling continues until <code>close()</code> is called, and then the audio track becomes unavailable.</p>
+<p><strong>BufferSourceAudioTrack</strong>
+<img src="/AgoraWebSDK-NG/docs/assets/buffer_source_audio_track.png" alt=""></p>
+<p>For an audio file, the SDK cannot sample the audio data directly, and instead reads the file to achieve similar effects, such as the <code>processing</code> phase in the previous figure.</p>
+<p>Sampling is different from file reading:</p>
+<ul>
+<li>Sampling cannot be paused, because only the latest data can be sampled.</li>
+<li>Reading an audio file enables more control over playback, including pausing, jumping to a different position, looping, and more. These are the core functions of <code>BufferSourceAudioTrack</code>. See <a href="#control-the-playback">Control the playback</a> for details.</li>
+</ul>
+<p>For the audio track created from an audio file, the SDK does not read the file by default. Call <code>BufferSourceAudioTrack.startProcessAudioBuffer()</code> to start reading and processing the audio data, and then call <code>play()</code> and <code>publish()</code> for the local and remote users to hear the audio.</p>
+<h3><a class="anchor" aria-hidden="true" id="publish-multiple-audio-tracks"></a><a href="#publish-multiple-audio-tracks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publish multiple audio tracks</h3>
+<p>To start audio mixing, publish  <code>audioFileTrack</code> and the microphone audio track together.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> microphoneTrack = <span class="hljs-keyword">await</span> AgoraRTC.createMicrophoneAudioTrack();
+
+<span class="hljs-comment">// Start processing the audio data from the audio file</span>
+audioFileTrack.startProcessAudioBuffer();
+
+<span class="hljs-comment">// Publish audioFileTrack and microphoneTrack together</span>
+<span class="hljs-keyword">await</span> client.publish([microphoneTrack, audioFileTrack]);
+
+<span class="hljs-comment">// To stop audio mixing, stop processing the audio data</span>
+audioFileTrack.stopProcessAudioBuffer();
+<span class="hljs-comment">// Or unpublish audioFileTrack</span>
+<span class="hljs-keyword">await</span> client.unpublish([audioFileTrack]);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="control-the-playback"></a><a href="#control-the-playback" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Control the playback</h3>
+<p><code>BufferSourceAudioTrack</code> provides the following methods to control the playback of the audio file:</p>
+<ul>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/ibuffersourceaudiotrack.html#startprocessaudiobuffer"><code>startProcessAudioBuffer</code></a>: Starts reading the audio file and processing data. This method also supports setting loop times and the playback starting position.</li>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/ibuffersourceaudiotrack.html#pauseprocessaudiobuffer"><code>pauseProcessAudioBuffer</code></a>: Pauses processing the audio data to pause the playback.</li>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/ibuffersourceaudiotrack.html#resumeprocessaudiobuffer"><code>resumeProcessAudioBuffer</code></a>: Resumes processing the audio data to resume the playback.</li>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/ibuffersourceaudiotrack.html#stopprocessaudiobuffer"><code>stopProcessAudioBuffer</code></a>: Stops processing the audio data to stop the playback.</li>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/ibuffersourceaudiotrack.html#seekaudiobuffer"><code>seekAudioBuffer</code></a>: Jumps to a specified position.</li>
+</ul>
+<p>After the processing starts, if you have called <code>play()</code> and <code>publish()</code>, calling the above methods affects both the local and remote users.</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Pause processing the audio data</span>
+audioFileTrack.pauseProcessAudioBuffer();
+<span class="hljs-comment">// Resume processing the audio data</span>
+audioFileTrack.resumeProcessAudioBuffer();
+<span class="hljs-comment">// Stop processing the audio data</span>
+audioFileTrack.stopProcessAudioBuffer();
+<span class="hljs-comment">// Start processing the audio data in loops</span>
+audioFileTrack.startProcessAudioBuffer({ <span class="hljs-attr">loop</span>: <span class="hljs-literal">true</span> });
+
+<span class="hljs-comment">// Get the current playback position (seconds)</span>
+audioFileTrack.getCurrentTime();
+<span class="hljs-comment">// The duration of the audio file (seconds)</span>
+audioFileTrack.duration;
+<span class="hljs-comment">// Jump to the playback position of 50 seconds</span>
+audioFileTrack.seekAudioBuffer(<span class="hljs-number">50</span>);
+</code></pre>
+<p>If the local user does not need to hear the audio file, call <code>stop()</code> to stop the local playback, which does not affect the remote users.</p>
+<h3><a class="anchor" aria-hidden="true" id="api-reference"></a><a href="#api-reference" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API reference</h3>
+<ul>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartc.html#createbuffersourceaudiotrack"><code>createBufferSourceAudioTrack</code></a></li>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/ibuffersourceaudiotrack.html"><code>BufferSourceAudioTrack</code></a></li>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartcclient.html#publish"><code>publish</code></a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="considerations"></a><a href="#considerations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Considerations</h2>
+<ul>
+<li>Ensure that you configure <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">CORS</a> if you use online audio files.</li>
+<li>The supported audio formats include MP3, AAC and other audio formats that the browser supports.</li>
+<li>The local audio files must be <a href="https://developer.mozilla.org/en-US/docs/Web/API/File"><code>File</code></a> objects.</li>
+<li>Safari does not support publishing multiple audio tracks on versions earlier than Safari 12.</li>
+<li>No matter how many audio tracks are published, the SDK automatically mixes them into one audio track, therefore the remote users only get one <code>RemoteAudioTrack</code> object.</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/AgoraWebSDK-NG/docs/en/audio_profile"><span class="arrow-prev">← </span><span>Audio Profiles</span></a><a class="docs-next button" href="/AgoraWebSDK-NG/docs/en/custom_audio"><span>Custom Audio Source</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introduction">Introduction</a></li><li><a href="#implementation">Implementation</a><ul class="toc-headings"><li><a href="#create-audio-track-from-audio-file">Create audio track from audio file</a></li><li><a href="#publish-multiple-audio-tracks">Publish multiple audio tracks</a></li><li><a href="#control-the-playback">Control the playback</a></li><li><a href="#api-reference">API reference</a></li></ul></li><li><a href="#considerations">Considerations</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/AgoraWebSDK-NG/" class="nav-home"><img src="/AgoraWebSDK-NG/img/logo.png" alt="Agora Web SDK NG" width="66" height="58"/></a><div><h5>Docs</h5><a href="/AgoraWebSDK-NG/docs/en/overview.html">Getting Started</a><a href="/AgoraWebSDK-NG/api/en">API Reference</a><a href="https://agora.io">Agora.io</a></div><div><h5>More</h5><a href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG">GitHub</a><a class="github-button" href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG" data-icon="octicon-star" data-count-href="/AgoraWebSDK-NG/AgoraIO-Community/AgoraWebSDK-NG/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Agora</section></footer></div></body></html>
