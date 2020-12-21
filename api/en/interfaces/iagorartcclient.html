@@ -1153,7 +1153,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#uid" class="tsd-signature-type">UID</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A Promise object with the user ID.</p>
+							<p>A Promise object with the user ID (number).</p>
 						</li>
 					</ul>
 				</section>
@@ -1198,8 +1198,8 @@
 									<ul>
 										<li>In a live broadcast channel, call <a href="iagorartcclient.html#setclientrole">setClientRole</a> to set the user role as host before calling this method.</li>
 										<li>You can call this method multiple times to add tracks for publishing.</li>
-										<li>An <code>AgoraRTCClient</code> object can publish multiple audio tracks but only one video track. The SDK automatically mixes the audio tracks into one audio track.</li>
-										<li>Safari does not support publishing multiple audio tracks on versions earlier than Safari 12.</li>
+										<li>An <code>AgoraRTCClient</code> object can publish multiple audio tracks. The SDK automatically mixes the audio tracks into one audio track. Exception: Safari does not support publishing multiple audio tracks on versions earlier than Safari 12.</li>
+										<li>An <code>AgoraRTCClient</code> object can publish <strong>only one video track</strong>. If you want to switch the published video track, for example, from a camera video track to a scree-sharing video track, you must unpublish the published video track.</li>
 									</ul>
 								</blockquote>
 							</div>
