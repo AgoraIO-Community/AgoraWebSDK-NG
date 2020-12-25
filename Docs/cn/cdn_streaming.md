@@ -63,13 +63,13 @@ const LiveTranscoding = {
   userConfigExtraInfo: {},
   backgroundColor: 0x000000,
   // 设置水印图片（仅支持在线 PNG 文件），目前只支持一个水印。
-  images: [{
+  watermark: {
           url: "http://www.com/watermark.png",
           x: 0,
           y: 0,
           width: 160,
           height: 160,
-      }],
+  },
   // 分配用户视窗的合图布局。
   transcodingUsers: [{
           x: 0,
@@ -80,7 +80,7 @@ const LiveTranscoding = {
           alpha: 1.0,
           // 下面的 uid 应和 AgoraRTCClient.join 输入的 uid 保持一致。
           uid: 1232,
-        }],
+  }],
 };
 
 // 注意这是一个异步方法，请确保异步操作完成后再进行下一步操作。
@@ -107,9 +107,9 @@ client.on("live-streaming-error", (url, err) => {
 ```
 
 ### API 参考
-- [AgoraRTCClient.setLiveTranscoding](/api/cn/interfaces/iagorartcclient.html#setlivetranscoding)
-- [AgoraRTCClient.startLiveTranscoding](/api/cn/interfaces/iagorartcclient.html#startlivetranscoding)
-- [AgoraRTCClient.stopLiveTranscoding](/api/cn/interfaces/iagorartcclient.html#stoplivetranscoding)
+- [`AgoraRTCClient.setLiveTranscoding`](/api/cn/interfaces/iagorartcclient.html#setlivetranscoding)
+- [`AgoraRTCClient.startLiveStreaming`](/api/cn/interfaces/iagorartcclient.html#startlivestreaming)
+- [`AgoraRTCClient.stopLiveStreaming`](/api/cn/interfaces/iagorartcclient.html#stoplivestreaming)
 - [AgoraRTCClient.on("live-streaming-error")](/api/cn/interfaces/iagorartcclient.html#event_live_streaming_error)
 - [AgoraRTCClient.on("live-streaming-warning")](/api/cn/interfaces/iagorartcclient.html#event_live_streaming_warning)
 

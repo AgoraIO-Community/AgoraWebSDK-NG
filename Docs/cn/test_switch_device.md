@@ -74,6 +74,26 @@ videoTrack.setDevice("<NEW_DEVICE_ID>").then(() => {
 
 > 支持在发布后调用，在部分移动设备上该方法可能不生效。
 
+### 音视频采集设备热插拔
+
+SDK提供了 `AgoraRTC.onMicrophoneChanged` 和 `AgoraRTC.onCameraChanged` 方法来监听并获取音视频设备的插拔状态。如果想要在新设备插入的时候强制使用新设备，你需要监听 `AgoraRTC.onMicrophoneChanged` 或 `AgoraRTC.onCameraChanged`，并在对应的回调函数里调用 `MicrophoneAudioTrack.setDevice` 或 `CameraVideoTrack.setDevice` 来切换音视频采集设备。 
+
+> 如果终端用户使用了虚拟设备或故障设备并进行设备拔插操作时，热拔插的逻辑可能会导致无画面或者无声。
+
+```js
+AgoraRTC.onMicrophoneChanged = async (changedDevice) => {
+  // 插入设备时，切换到新插入的设备
+  if (changedDevice.state === "ACTIVE") {
+    microphoneTrack.setDevice(changedDevice.device.deviceId);
+  // 拔出设备为当前设备时，切换到一个已有的设备
+  } else if (changedDevice.device.label === microphoneTrack.getTrackLabel()) {
+    const oldMicrophones = await AgoraRTC.getMicrophones();
+    oldMicrophones[0] && microphoneTrack.setDevice(oldMicrophones[0].deviceId);
+  }
+}
+```
+
+
 ### API 参考
 - [getDevices](/api/cn/interfaces/iagorartc.html#getdevices)
 - [getCameras](/api/cn/interfaces/iagorartc.html#getcameras)
@@ -82,6 +102,8 @@ videoTrack.setDevice("<NEW_DEVICE_ID>").then(() => {
 - [createCameraVideoTrack](/api/cn/interfaces/iagorartc.html#createcameravideotrack)
 - [CameraVideoTrack](/api/cn/interfaces/icameravideotrack.html)
 - [MicrophoneAudioTrack](/api/cn/interfaces/imicrophoneaudiotrack.html)
+- [onMicrophoneChanged](/api/cn/interfaces/iagorartc.html#onmicrophonechanged)
+- [onCameraChanged](/api/cn/interfaces/iagorartc.html#oncamerachanged)
 
 ## 开发注意事项
 

@@ -6,12 +6,10 @@ sidebar_label: Share Screen
 
 ## Introduction
 
-Sharing the screen during a video call or live broadcast enhances the speaker’s communication experience by displaying their screen on the display of other speakers or audience members in the channel.
+Screen sharing enables the host of a video call or interactive live streaming to display what is on their screen to other users in the channel. This function has many obvious advantages for communicating information, particularly in the following scenarios:
 
-You can use screen sharing in the following scenarios:
-
-- Video conference: The speaker can share an image of a local file, web page, or presentation with other users in the channel.
-- Online class: The teacher can share slides or notes with students.
+- In a video conference, the speaker can share a local image, web page, or full presentation with other participants.
+- In an online class, the teacher can share slides or notes with students.
 
 Before enabling screen sharing, ensure that you have implemented the basic real-time communication functions in your project. For details, see [Implement a Basic Video Call](basic_call.md).
 
@@ -53,7 +51,7 @@ AgoraRTC.createScreenVideoTrack({
 2. Set the `extensionId` parameter when you create a video track for screen sharing.
 
 ```js
-AgoraRTC.createScreenTrack({
+AgoraRTC.createScreenVideoTrack({
   extensionId: 'minllpmhdgpndnkomcoccfekfegnlikg',
 }).then(localScreenTrack => {
   /** ... **/
@@ -69,7 +67,7 @@ This method returns a list containing a video track object for screen sharing an
 ```js
 AgoraRTC.createScreenVideoTrack({
   encoderConfig: "1080p_1",
-}, true).then([screenVideoTrack, screenAudioTrack] => {
+}, "enable").then([screenVideoTrack, screenAudioTrack] => {
   /** ... **/
 });
 ```

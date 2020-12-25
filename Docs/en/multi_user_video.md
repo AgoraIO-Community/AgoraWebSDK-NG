@@ -53,7 +53,7 @@ client.enableDualStream().then(() => {
 });
 
 // Set the stream type of the video streams that the client has subscribed to.
-client.setRemoteVideoStreamType(stream, streamType)
+client.setRemoteVideoStreamType(uid, streamType)
 ```
 
 ### API reference

@@ -3,6 +3,7 @@ id: overview
 title: Agora Web SDK NG Overview
 sidebar_label: Overview
 ---
+> The Agora Web SDK NG is in the beta stage. If you have any problem, you can submit an [issue](https://github.com/AgoraIO-Community/AgoraWebSDK-NG).
 
 ## Introduction
 

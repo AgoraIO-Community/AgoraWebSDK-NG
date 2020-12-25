@@ -12,7 +12,7 @@ sidebar_label: 实现基本通话
 在使用 Agora Web SDK NG 时，你会经常用到以下三种对象：
 
 - [AgoraRTCClient](/api/en/interfaces/iagorartcclient.html) 对象，代表一个本地客户端。`AgoraRTCClient` 类的方法提供了音视频通话的主要功能，例如加入频道、发布音视频轨道等。
-- [LocalTrack](/api/en/interfaces/ilocalaudiotrack.html) 对象和 [RemoteTrack](/api/en/interfaces/iremotetrack.html) 对象，代表本地和远端的音视频轨道对象，用于播放等音视频相关的控制。
+- [LocalTrack](/api/en/interfaces/ilocalaudiotrack.html) 对象和 [RemoteTrack](/api/en/interfaces/iremotetrack.html) 对象，代表本地和远端的音视频轨道对象，用于控制播放、暂停等音视频相关的操作。
 
 > 音视频流由音视频轨道构成。在 Agora Web SDK NG 中，我们通过操作音视频轨道对象来控制音视频流的行为。
 

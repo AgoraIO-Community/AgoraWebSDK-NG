@@ -40,7 +40,7 @@ AgoraRTC.createScreenVideoTrack({
 安装 Agora 提供的 [Chrome 屏幕共享插件](https://docs.agora.io/cn/Interactive%20Broadcast/chrome_screensharing_plugin)，并获取插件的 `extensionId`，在创建轨道时填入 `extensionId`。
 
 ```js
-AgoraRTC.createScreenTrack({
+AgoraRTC.createScreenVideoTrack({
   extensionId: 'minllpmhdgpndnkomcoccfekfegnlikg',
 }).then(localScreenTrack => {
   /** ... **/
@@ -56,7 +56,7 @@ Agora Web SDK NG 支持在 Windows 平台的 Chrome 浏览器上（74 及以上�
 ```js
 AgoraRTC.createScreenVideoTrack({
   encoderConfig: "1080p_1",
-}, true).then([screenVideoTrack, screenAudioTrack] => {
+}, "enable").then([screenVideoTrack, screenAudioTrack] => {
   /** ... **/
 });
 ```

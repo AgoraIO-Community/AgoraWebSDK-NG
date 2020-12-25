@@ -28,6 +28,8 @@ sidebar_label: 清晰优先和流畅优先
 - 对于屏幕共享视频轨道，SDK 默认的优化策略为清晰优先。
 - 对于其他两种类型的本地视频轨道，SDK 默认的优化策略为兼顾清晰和流畅，也就是说弱网条件下，帧率和分辨率都会被调整。
 
+在视频通话、视频直播或屏幕共享过程中，你可以调用 `setOptimizationMode` 方法动态调整视频传输模式。例如你想要把屏幕共享内容从演示文稿切换为视频时，你可以将传输优化模式从 `"detail"` 切换为 `"motion"`，确保视频画面在网络波动时不会出现卡顿。
+
 ### 示例代码
 
 **使用清晰优先**
@@ -53,3 +55,4 @@ const videoTrack2 = await AgoraRTC.createScreenVideoTrack();
 - [CameraVideoTrackInitConfig.optimizationMode](/api/cn/interfaces/cameravideotrackinitconfig.html#optimizationmode)
 - [ScreenVideoTrackInitConfig.optimizationMode](/api/cn/interfaces/screenvideotrackinitconfig.html#optimizationmode)
 - [CustomVideoTrackInitConfig.optimizationMode](/api/cn/interfaces/screenvideotrackinitconfig.html#optimizationmode)
+- [LocalVideoTrack.setOptimizationMode](/api/cn/interfaces/ilocalvideotrack.html#setOptimizationMode)

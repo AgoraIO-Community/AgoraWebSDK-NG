@@ -64,13 +64,13 @@ const LiveTranscoding = {
   userConfigExtraInfo: {},
   backgroundColor: 0x000000,
   // Add an online PNG watermark image to the video. You can add more than one watermark image at the same time.
-  images: [{
+  watermark: {
           url: "http://www.com/watermark.png",
           x: 0,
           y: 0,
           width: 160,
           height: 160,
-      }],
+  },
   // Set the layout for each user.
   transcodingUsers: [{
           x: 0,
@@ -81,7 +81,7 @@ const LiveTranscoding = {
           alpha: 1.0,
           // The uid must be identical to the uid used in AgoraRTCClient.join.
           uid: 1232,
-        }],
+  }],
 };
 
 // This is an asynchronous method. Please ensure that the asynchronous operation completes before conducting the next operation.
@@ -103,8 +103,10 @@ client.stopLiveStreaming("your RTMP URL").then(() => {
 
 ### API reference
 - [`AgoraRTCClient.setLiveTranscoding`](/api/en/interfaces/iagorartcclient.html#setlivetranscoding)
-- [`AgoraRTCClient.startLiveTranscoding`](/api/en/interfaces/iagorartcclient.html#startlivetranscoding)
-- [`AgoraRTCClient.stopLiveTranscoding`](/api/en/interfaces/iagorartcclient.html#stoplivetranscoding)
+- [`AgoraRTCClient.startLiveStreaming`](/api/en/interfaces/iagorartcclient.html#startlivestreaming)
+- [`AgoraRTCClient.stopLiveStreaming`](/api/en/interfaces/iagorartcclient.html#stoplivestreaming)
+- [`AgoraRTCClient.on("live-streaming-error")`](/api/en/interfaces/iagorartcclient.html#event_live_streaming_error)
+- [`AgoraRTCClient.on("live-streaming-warning")`](/api/en/interfaces/iagorartcclient.html#event_live_streaming_warning)
 
 ## Considerations
 - A maximum of 17 hosts can be supported in the same live-broadcast channel.

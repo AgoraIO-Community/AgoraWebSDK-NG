@@ -6,8 +6,74 @@ sidebar_label: Release Note
 
 This page provides the release notes for the Agora Web SDK NG.
 
+## v4.2.0
+
+v4.2.0 was released on December 1, 2020.
+
+### New features
+
+**Regional connection**
+
+This release adds the `AgoraRTC.setArea` method for specifying the region for connection. After specifying the region, the SDK connects to the Agora servers within that region. The following regions are supported:
+
+- China
+- North America
+- Europe
+- Asia, excluding Mainland China
+- Japan
+- India
+- Global
+
+This advanced feature applies to scenarios that have regional restrictions.
+
+**Video transmission optimization strategy**
+
+This release adds the `localVideoTrack.setOptimizationMode` method for setting the video transmission optimization mode:
+
+- `"balanced"`: Uses the default transmission optimization strategy.
+- `"detail"`: Prioritizes clarity.
+- `"motion"`: Prioritizes smoothness.
+
+See the API reference for the introduction to each transmission optimization mode. This method applies to scenarios where you need to dynamically adjust the optimization mode during a video call, live streaming, or screen sharing. For example, during the screen sharing, before you change the shared content from slides to a video, you can change the optimization mode from `"detail"` to `"motion"` to ensure smoothness in poor network conditions.
+
+**Network quality of remote users**
+
+This release adds the `AgoraRTCClient.getRemoteNetworkQuality` method for getting the uplink and downlink network quality of all the remote users to whom the local user subscribes.
+
+**Cloud proxy**
+
+This release changes the `mode` parameter of the `AgoraRTCClient.startProxyServer` method from `boolean` to `number`.
+
+### Improvements
+
+- After disabling an audio or video tracks by calling `setEnabled`, you can still call `setDevice` to switch devices.
+- After you call `AgoraRTCClient.setEncryptionConfig` to enable the built-in encryption, when the user uses a weak secret, the SDK outputs a warning message to the Web Console and prompts the user to use a strong secret. A strong secret must contain at least eight characters and be a combination of uppercase and lowercase letters, numbers, and special characters.
+
+### Fixed issues
+
+- When you disabled a local video track, you could not publish another video track.
+- After enabling dual-stream mode, if you called `setEnabled(false)` to disable a video track during the process of publishing, the publishing failed and could not be recovered.
+- After an audience member tried to publish a local track in live mode but failed, the audience member could not publish this track even after switching the role to host.
+- After dual-stream mode was enabled, a bug during the disconnection would occasionally cause publishing to fail after reconnection.
+- After unpublishing a local camera video track and then publishing a screen-sharing track, the video bitrate was fixed at around 700 Kbps, and the resolution and frame rate dropped.
+- Due to Safari's limited support for WebAudio, the audio of `BufferSourceAudioTrack` could be distorted.
+- When the SDK gained device permission for the first time, it did not trigger the media device change events (`onMicrophoneChanged`, `onCameraChanged`, or `onPlaybackDeviceChanged`). The SDK only triggered these events for a subsequent device change.
+
+### API changes
+
+**Added**
+
+- `AgoraRTC.setArea`
+- `localVideoTrack.setOptimizationMode`
+- `AgoraRTCClient.getRemoteNetworkQuality`
+
+**Changed**
+
+- Changed the type of the `mode` parameter in `AgoraRTCClient.startProxyServer` from `boolean` to `number`
+
 ## v4.1.1
-Agora Web SDK NG v4.1.1 was released on October 27, 2020. This release fixed the following issues:
+v4.1.1 was released on October 27, 2020. This release fixed the following issues:
+
 - Improved the accuracy of the `event_network_quality` event.
 - The method call of `createCameraVideoTrack` did not stop on Safari when the SDK cannot find a video capture device.
 - After calling `unsubscribe` to unsubscribing from an unpublished track of a remote user, the subsequent subscribing and unsubscribing operations failed to take effect.
@@ -16,15 +82,15 @@ Agora Web SDK NG v4.1.1 was released on October 27, 2020. This release fixed the
 
 ## v4.1.0
 
-Agora Web SDK NG v4.1.0 was released on September 4, 2020.
+v4.1.0 was released on September 4, 2020.
 
 ### New features
 
-#### Screenshot capture
+**Screenshot capture**
 
 v4.1.0 adds the `getCurrentFrameData` method which gets the data of the video frame being rendered.
 
-#### Audio playback device management
+**Audio playback device management**
 
 v4.1.0 adds the following APIs to manage audio playback devices:
 
@@ -50,7 +116,7 @@ v4.1.0 adds the following APIs to manage audio playback devices:
 
 ### API changes
 
-#### Added
+**Added**
 
 - `LocalVideoTrack.getCurrentFrameData`
 - `RemoteVideoTrack.getCurrentFrameData`
@@ -63,24 +129,19 @@ v4.1.0 adds the following APIs to manage audio playback devices:
 - `Client.getLocalVideoStats`
 - `Client.getRemoteVideoStats`
 
-#### Deprecated
+**Deprecated**
 
 - The `LocalTrack.getStats` and `RemoteTrack.getStats` methods. Use the `Client.getLocalAudioStats`, `Client.getRemoteAudioStats`, `Client.getLocalVideoStats` and `Client.getRemoteVideoStats` methods instead.
 
 ## v4.0.1
 
-Agora Web SDK NG v4.0.1 was released on July 18, 2020.
-
-### Fixed issues
-
-v4.0.1 fixed the following issues:
-
-- Publishing failure in Chrome 70
-- Publish operation may not be aborted when leaving the channel
+v4.0.1 was released on July 18, 2020. This release fixed the following issues:
+- Failure to publish local tracks on Chrome 70.
+- Publish operation may not be aborted when leaving the channel.
 
 ## v4.0.0
 
-Agora Web SDK NG v4.0.0 was released on July 15, 2020.
+v4.0.0 was released on July 15, 2020.
 
 ### Compatibility changes
 
@@ -95,7 +156,7 @@ v4.0.0 deletes the `LocalTrack.setMute` method and adds the `LocalTrack.setEnabl
 
 ### New features
 
-#### Video encoding strategy
+**Video encoding strategy**
 
 v4.0.0 adds the `optimizationMode` property in the `CameraVideoTrackInitConfig`, `ScreenVideoTrackInitConfig`, and `CustomVideoTrackInitConfig` interfaces. When creating a video track by calling `createCameraVideoTrack`, `createCustomVideoTrack`, or `createScreenVideoTrack`, you can choose whether to prioritize video quality or smoothness by setting optimizationMode as the following:
 
@@ -126,26 +187,26 @@ v4.0.0 fixed the following issues:
 
 ### API changes
 
-#### Added
+**Added**
 
 - The `Client.localTracks` interface
 - The `LocalTrack.setEnabled` method
 - The `optimizationMode` property in `CameraVideoTrackInitConfig, ``ScreenVideoTrackInitConfig`, and `CustomVideoTrackInitConfig` interfaces
 
-#### Updated
+**Updated**
 
 - Adds the value of `auto` to the withAudio parameter in `AgoraRTC.createScreenVideoTrack`.
 - Removes the value of `"all"` from the mediaType parameter in `Client.subscribe`.
 - The `mediaType` parameter in the `Client.on("user-published")` and `Client.on("user-unpublished")` callbacks does report `"all"`
 
-#### Deprecated
+**Deprecated**
 
 - The `LocalAudioTrackStats.muteState` property
 - The `LocalVideoTrackStats.muteState` property
 - The `RemoteAudioTrackStats.muteState` property
 - The `RemoteVideoTrackStats.muteState` property
 
-#### Deleted
+**Deleted**
 
 - The `Client.on("user-mute-updated")` callback
 - The `LocalTrack.setMute` method

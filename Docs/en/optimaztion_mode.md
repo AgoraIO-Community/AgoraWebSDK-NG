@@ -28,6 +28,8 @@ When calling `createCameraVideoTrack`, `createCustomVideoTrack`, or `createScree
 If you leave this parameter empty, the SDK uses the default transmission optimization strategy:
 - For a screen-sharing video track, the default transmission optimization strategy is to prioritizes video quality.
 - For the rest two kinds of video tracks, the SDK may reduce the frame rate or the sending resolution in poor network conditions.
+- During a video call, a live streaming or screen sharing, you can call `setOptimizationMode` to dynamically change the optimization mode. For example, during the screen sharing, before you change the shared content from slides to a video, you can change the optimization mode from `"detail"` to `"motion"` to ensure smoothness in poor network conditions.
+
 
 ### Sample code
 
@@ -55,3 +57,4 @@ const videoTrack2 = await AgoraRTC.createScreenVideoTrack();
 - [CameraVideoTrackInitConfig.optimizationMode](/api/en/interfaces/cameravideotrackinitconfig.html#optimizationmode)
 - [ScreenVideoTrackInitConfig.optimizationMode](/api/en/interfaces/screenvideotrackinitconfig.html#optimizationmode)
 - [CustomVideoTrackInitConfig.optimizationMode](/api/en/interfaces/screenvideotrackinitconfig.html#optimizationmode)
+- [LocalVideoTrack.setOptimizationMode](/api/en/interfaces/ilocalvideotrack.html#setOptimizationMode)

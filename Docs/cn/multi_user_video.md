@@ -52,7 +52,7 @@ client.enableDualStream().then(() => {
 });
 
 // 将订阅的该路视频流设置为大流/小流。
-client.setRemoteVideoStreamType(stream, streamType)
+client.setRemoteVideoStreamType(uid, streamType)
 ```
 
 ### API 参考

@@ -3,6 +3,8 @@ id: overview
 title: Agora Web SDK NG 概述
 sidebar_label: 概述
 ---
+> Agora Web SDK NG 当前处于 Beta 阶段，如有问题，可直接提交 [Issue](https://github.com/AgoraIO-Community/AgoraWebSDK-NG)。
+
 ## 简介
 Agora Web SDK NG 是基于 [Agora Web SDK](https://docs.agora.io/cn/Video/start_call_web?platform=Web) 开发的下一代 SDK，能实现基于 Agora SD-RTN™ 的实时音视频通信功能，支持语音通话、视频通话、音频互动直播、视频互动直播等场景。Agora Web SDK NG 是一个全量重构的版本，主要针对 API 的易用性和内部架构做了较大的调整。
 

@@ -1,4 +1,5 @@
-var client; // Agora client
+// create Agora client
+var client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
 var localTracks = {
   videoTrack: null,
   audioTrack: null
@@ -71,9 +72,6 @@ $("#leave").click(function (e) {
 })
 
 async function join () {
-  // create Agora client
-  client = AgoraRTC.createClient({ mode: "rtc", codec: "h264" });
-
   // add event listener to play remote tracks when remote user publishs.
   client.on("user-published", handleUserPublished);
   client.on("user-unpublished", handleUserUnpublished);
@@ -84,7 +82,7 @@ async function join () {
     client.join(options.appid, options.channel, options.token || null),
     // create local tracks, using microphone and camera
     AgoraRTC.createMicrophoneAudioTrack(),
-    AgoraRTC.createCameraVideoTrack()
+    AgoraRTC.createCameraVideoTrack({ encoderConfig: curVideoProfile.value })
   ]);
 
   // play local video track
