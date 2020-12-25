@@ -55,7 +55,10 @@
 						<p>The last-mile network quality.</p>
 					</div>
 					<p>Last mile refers to the connection between the local device and Agora edge server.</p>
-					<p>After the user joins the channel, the SDK triggers the <a href="iagorartcclient.html#event_network_quality">AgoraRTCClient.on(&quot;network-quality&quot;)</a> callback once every two seconds and provides the uplink and downlink last-mile network conditions of the user through this interface.</p>
+					<ul>
+						<li>After the local user joins the channel, the SDK triggers the <a href="iagorartcclient.html#event_network_quality">AgoraRTCClient.on(&quot;network-quality&quot;)</a> callback once every two seconds and provides the uplink and downlink last-mile network conditions of the user through this interface.</li>
+						<li>You can call <a href="iagorartcclient.html#getremotenetworkquality">AgoraRTCClient.getRemoteNetworkQuality</a> to get the network quality of all remote users to whom the local user subscribes.</li>
+					</ul>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">

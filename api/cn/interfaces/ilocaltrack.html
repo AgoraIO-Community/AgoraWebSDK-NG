@@ -268,16 +268,15 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取本地轨道相关信息。</p>
+									<p><strong>DEPRECATED</strong>
+									自 v4.1.0 起废弃，请使用 <a href="iagorartcclient.html#getlocalvideostats">AgoraRTCClient.getLocalVideoStats</a> 和 <a href="iagorartcclient.html#getlocalaudiostats">AgoraRTCClient.getLocalAudioStats</a>。</p>
 								</div>
-								<p><strong>DEPRECATED</strong></p>
-								<p>自 v4.1.0 起废弃，请使用 <a href="iagorartcclient.html#getlocalvideostats">AgoraRTCClient.getLocalVideoStats</a> 和 <a href="iagorartcclient.html#getlocalaudiostats">AgoraRTCClient.getLocalAudioStats</a>。</p>
+								<p>获取本地轨道相关信息。</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="localvideotrackstats.html" class="tsd-signature-type">LocalVideoTrackStats</a>
 								<span class="tsd-signature-symbol"> | </span>
 								<a href="localaudiotrackstats.html" class="tsd-signature-type">LocalAudioTrackStats</a>
 							</h4>
-							<p><a href="localvideotrackstats.html">LocalVideoTrackStats</a> 或 <a href="localaudiotrackstats.html">LocalAudioTrackStats</a> 对象。</p>
 						</li>
 					</ul>
 				</section>
@@ -496,8 +495,10 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>启用/禁用该轨道。</p>
+									<p><strong>自从</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.0.0</em></p>
 								</div>
+								<p>启用/禁用该轨道。</p>
 								<p>轨道禁用后，播放和发布都将被停止。</p>
 								<blockquote>
 									<p>禁用轨道不会触发 <a href="ilocaltrack.html#event_track_ended">LocalTrack.on(&quot;track-ended&quot;)</a> 事件。

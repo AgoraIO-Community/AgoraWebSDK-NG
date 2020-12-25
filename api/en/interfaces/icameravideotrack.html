@@ -100,6 +100,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="icameravideotrack.html#setdevice" class="tsd-kind-icon">set<wbr>Device</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite"><a href="icameravideotrack.html#setenabled" class="tsd-kind-icon">set<wbr>Enabled</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="icameravideotrack.html#setencoderconfiguration" class="tsd-kind-icon">set<wbr>Encoder<wbr>Configuration</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="icameravideotrack.html#setoptimizationmode" class="tsd-kind-icon">set<wbr>Optimization<wbr>Mode</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="icameravideotrack.html#stop" class="tsd-kind-icon">stop</a></li>
 							</ul>
 						</section>
@@ -179,8 +180,10 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets the data of the video frame being rendered.</p>
+									<p><strong>Since</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.1.0</em></p>
 								</div>
+								<p>Gets the data of the video frame being rendered.</p>
 								<blockquote>
 									<p>You should call this method after calling <a href="icameravideotrack.html#play">play</a>. Otherwise, the method call returns null.</p>
 								</blockquote>
@@ -256,9 +259,9 @@
 								<div class="lead">
 									<p>Gets the statistics of a local video track.</p>
 								</div>
+								<p><strong>DEPRECATED</strong> from v4.1.0. Use <a href="iagorartcclient.html#getlocalvideostats">AgoraRTCClient.getLocalVideoStats</a> and <a href="iagorartcclient.html#getlocalaudiostats">AgoraRTCClient.getLocalAudioStats</a> instead.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="localvideotrackstats.html" class="tsd-signature-type">LocalVideoTrackStats</a></h4>
-							<p>A <a href="localvideotrackstats.html">LocalVideoTrackStats</a> object.</p>
 						</li>
 					</ul>
 				</section>
@@ -586,8 +589,10 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Enables/Disables the track.</p>
+									<p><strong>Since</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.0.0</em></p>
 								</div>
+								<p>Enables/Disables the track.</p>
 								<p>After a track is disabled, the SDK stops playing and publishing the track.</p>
 								<blockquote>
 									<ul>
@@ -634,6 +639,50 @@
 									<h5>config: <a href="videoencoderconfiguration.html" class="tsd-signature-type">VideoEncoderConfiguration</a><span class="tsd-signature-symbol"> | </span><a href="../globals.html#videoencoderconfigurationpreset" class="tsd-signature-type">VideoEncoderConfigurationPreset</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The video encoder configurations. You can pass either <a href="../globals.html#videoencoderconfigurationpreset">VideoEncoderConfigurationPreset</a> or a customized <a href="videoencoderconfiguration.html">VideoEncoderConfiguration</a> object.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<a name="setoptimizationmode" class="tsd-anchor"></a>
+					<h3>set<wbr>Optimization<wbr>Mode</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Optimization<wbr>Mode<span class="tsd-signature-symbol">(</span>mode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"balanced"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"motion"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"detail"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="ilocalvideotrack.html">ILocalVideoTrack</a>.<a href="ilocalvideotrack.html#setoptimizationmode">setOptimizationMode</a></p>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><strong>Since</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.2.0</em></p>
+								</div>
+								<p>Sets the video transmission optimization mode.</p>
+								<p>You can call this method during a video call, a live streaming or screen sharing to dynamically change the optimization mode. For example, during the screen sharing, before you change the shared content from text to video, you can change the optimization mode from <code>&quot;detail&quot;</code> to <code>&quot;motion&quot;</code> to ensure smoothness in poor network conditions.</p>
+								<blockquote>
+									<p>Note: This method supports Chrome only.</p>
+								</blockquote>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>mode: <span class="tsd-signature-type">"balanced"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"motion"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"detail"</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The video transmission optimization mode:
+											- <code>&quot;balanced&quot;</code>: Uses the default optimization mode.
+											- For a screen-sharing video track, the default transmission optimization strategy is to prioritizes clarity.
+											- For the other types of video tracks, the SDK may reduce the frame rate or the sending resolution in poor network conditions.
+											- <code>&quot;detail&quot;</code>: Prioritizes video quality.
+											- The SDK ensures high-quality images by automatically calculating a minimum bitrate based on the capturing resolution and frame rate. No matter how poor the network condition is, the sending bitrate will never be lower than the minimum value.
+											- In most cases, the SDK does not reduce the sending resolution, but may reduce the frame rate.
+											-  <code>&quot;motion&quot;</code>: Prioritizes video smoothness.
+											- In poor network conditions, the SDK reduces the sending bitrate to minimize video freezes.
+										- In most cases, the SDK does not reduce the frame rate, but may reduce the sending resolution.</p>
 									</div>
 								</li>
 							</ul>
@@ -731,6 +780,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="icameravideotrack.html#setencoderconfiguration" class="tsd-kind-icon">set<wbr>Encoder<wbr>Configuration</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+								<a href="icameravideotrack.html#setoptimizationmode" class="tsd-kind-icon">set<wbr>Optimization<wbr>Mode</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="icameravideotrack.html#stop" class="tsd-kind-icon">stop</a>

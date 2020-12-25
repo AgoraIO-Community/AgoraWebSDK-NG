@@ -116,13 +116,13 @@
   <span class="hljs-attr">userConfigExtraInfo</span>: {},
   <span class="hljs-attr">backgroundColor</span>: <span class="hljs-number">0x000000</span>,
   <span class="hljs-comment">// Add an online PNG watermark image to the video. You can add more than one watermark image at the same time.</span>
-  <span class="hljs-attr">images</span>: [{
+  <span class="hljs-attr">watermark</span>: {
           <span class="hljs-attr">url</span>: <span class="hljs-string">"http://www.com/watermark.png"</span>,
           <span class="hljs-attr">x</span>: <span class="hljs-number">0</span>,
           <span class="hljs-attr">y</span>: <span class="hljs-number">0</span>,
           <span class="hljs-attr">width</span>: <span class="hljs-number">160</span>,
           <span class="hljs-attr">height</span>: <span class="hljs-number">160</span>,
-      }],
+  },
   <span class="hljs-comment">// Set the layout for each user.</span>
   <span class="hljs-attr">transcodingUsers</span>: [{
           <span class="hljs-attr">x</span>: <span class="hljs-number">0</span>,
@@ -133,7 +133,7 @@
           <span class="hljs-attr">alpha</span>: <span class="hljs-number">1.0</span>,
           <span class="hljs-comment">// The uid must be identical to the uid used in AgoraRTCClient.join.</span>
           <span class="hljs-attr">uid</span>: <span class="hljs-number">1232</span>,
-        }],
+  }],
 };
 
 <span class="hljs-comment">// This is an asynchronous method. Please ensure that the asynchronous operation completes before conducting the next operation.</span>
@@ -155,8 +155,10 @@ client.stopLiveStreaming(<span class="hljs-string">"your RTMP URL"</span>).then(
 <h3><a class="anchor" aria-hidden="true" id="api-reference"></a><a href="#api-reference" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API reference</h3>
 <ul>
 <li><a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartcclient.html#setlivetranscoding"><code>AgoraRTCClient.setLiveTranscoding</code></a></li>
-<li><a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartcclient.html#startlivetranscoding"><code>AgoraRTCClient.startLiveTranscoding</code></a></li>
-<li><a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartcclient.html#stoplivetranscoding"><code>AgoraRTCClient.stopLiveTranscoding</code></a></li>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartcclient.html#startlivestreaming"><code>AgoraRTCClient.startLiveStreaming</code></a></li>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartcclient.html#stoplivestreaming"><code>AgoraRTCClient.stopLiveStreaming</code></a></li>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartcclient.html#event_live_streaming_error"><code>AgoraRTCClient.on(&quot;live-streaming-error&quot;)</code></a></li>
+<li><a href="/AgoraWebSDK-NG/api/en/interfaces/iagorartcclient.html#event_live_streaming_warning"><code>AgoraRTCClient.on(&quot;live-streaming-warning&quot;)</code></a></li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="considerations"></a><a href="#considerations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Considerations</h2>
 <ul>

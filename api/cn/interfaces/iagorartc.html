@@ -79,6 +79,7 @@
 							<h3>Other Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iagorartc.html#version" class="tsd-kind-icon">VERSION</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iagorartc.html#setarea" class="tsd-kind-icon">set<wbr>Area</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -171,6 +172,9 @@
 							<p>视频采集设备状态变化回调。</p>
 						</div>
 						<p>该回调提示有摄像头被添加或移除。</p>
+						<blockquote>
+							<p>注意事项：当该回调提示有设备被添加时，如果该设备是虚拟设备，可能无法采集到音频或视频。</p>
+						</blockquote>
 						<pre><code class="language-javascript">AgoraRTC.onCameraChanged = <span class="hljs-function">(<span class="hljs-params">info</span>) =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"camera changed!"</span>, info.state, info.device);
 };</code></pre>
@@ -191,6 +195,9 @@
 							<p>音频采集设备状态变化回调。</p>
 						</div>
 						<p>该回调提示有麦克风被添加或移除。</p>
+						<blockquote>
+							<p>注意事项：当该回调提示有设备被添加时，如果该设备是虚拟设备，可能无法采集到音频或视频。</p>
+						</blockquote>
 						<pre><code class="language-javascript">AgoraRTC.onMicrophoneChanged = <span class="hljs-function">(<span class="hljs-params">info</span>) =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"microphone changed!"</span>, info.state, info.device);
 };</code></pre>
@@ -208,8 +215,10 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>音频播放设备状态变化回调。</p>
+							<p><strong>自从</strong>
+							<br>&emsp;&emsp;&emsp;<em>4.1.0</em></p>
 						</div>
+						<p>音频播放设备状态变化回调。</p>
 						<p>该回调提示有音频播放设备被添加或移除。</p>
 						<pre><code class="language-javascript">AgoraRTC.onPlaybackDeviceChanged = <span class="hljs-function">(<span class="hljs-params">info</span>) =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"speaker changed!"</span>, info.state, info.device);
@@ -233,6 +242,51 @@
 						<div class="lead">
 							<p>Agora Web SDK NG 的版本信息。</p>
 						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="setarea" class="tsd-anchor"></a>
+					<h3>set<wbr>Area</h3>
+					<div class="tsd-signature tsd-kind-icon">set<wbr>Area<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p><strong>自从</strong>
+							<br>&emsp;&emsp;&emsp;<em>4.2.0</em></p>
+						</div>
+						<p>设置访问区域。</p>
+						<p>该功能为高级设置，适用于有访问安全限制的场景。</p>
+						<p>默认情况下，SDK 会就近选择 Agora 服务器进行连接。设置访问区域之后，SDK 只会连接到指定区域内的 Agora 服务器。</p>
+						<blockquote>
+							<p>注意事项：仅支持指定单个访问区域。</p>
+						</blockquote>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>服务器的访问区域，详见 <a href="../enums/areas.html">AREAS</a>。</p>
+							</dd>
+						</dl>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>area<span class="tsd-signature-symbol">: </span><a href="../enums/areas.html" class="tsd-signature-type">AREAS</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>area: <a href="../enums/areas.html" class="tsd-signature-type">AREAS</a><span class="tsd-signature-symbol">[]</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
 					</div>
 				</section>
 			</section>
@@ -526,11 +580,6 @@
 								<div class="lead">
 									<p>创建用于屏幕共享的视频轨道。</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>category</dt>
-									<dd><p>Local Track</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -578,11 +627,6 @@
 								<div class="lead">
 									<p>创建用于屏幕共享的视频轨道。</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>category</dt>
-									<dd><p>Local Track</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -865,8 +909,10 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>该方法枚举可用的音频播放设备，比如扬声器。</p>
+									<p><strong>自从</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.1.0</em></p>
 								</div>
+								<p>该方法枚举可用的音频播放设备，比如扬声器。</p>
 								<p>调用成功后 SDK 会通过 <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo">MediaDeviceInfo</a> 对象返回可用的音频播放设备。</p>
 								<blockquote>
 									<p>调用本方法会暂时打开麦克风以触发浏览器的媒体设备权限申请。在 Chrome 81+、Firefox、 Safari 等浏览器上，没有媒体设备权限时无法获取到准确的设备信息。</p>
@@ -1113,6 +1159,9 @@ AgoraRTC.checkVideoTrackIsActive(videoTrack).then(<span class="hljs-function"><s
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="iagorartc.html#onplaybackdevicechanged" class="tsd-kind-icon">on<wbr>Playback<wbr>Device<wbr>Changed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="iagorartc.html#setarea" class="tsd-kind-icon">set<wbr>Area</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartc.html#checkaudiotrackisactive" class="tsd-kind-icon">check<wbr>Audio<wbr>Track<wbr>IsActive</a>

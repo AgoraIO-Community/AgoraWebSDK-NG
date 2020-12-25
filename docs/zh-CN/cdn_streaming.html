@@ -117,13 +117,13 @@
   <span class="hljs-attr">userConfigExtraInfo</span>: {},
   <span class="hljs-attr">backgroundColor</span>: <span class="hljs-number">0x000000</span>,
   <span class="hljs-comment">// 设置水印图片（仅支持在线 PNG 文件），目前只支持一个水印。</span>
-  <span class="hljs-attr">images</span>: [{
+  <span class="hljs-attr">watermark</span>: {
           <span class="hljs-attr">url</span>: <span class="hljs-string">"http://www.com/watermark.png"</span>,
           <span class="hljs-attr">x</span>: <span class="hljs-number">0</span>,
           <span class="hljs-attr">y</span>: <span class="hljs-number">0</span>,
           <span class="hljs-attr">width</span>: <span class="hljs-number">160</span>,
           <span class="hljs-attr">height</span>: <span class="hljs-number">160</span>,
-      }],
+  },
   <span class="hljs-comment">// 分配用户视窗的合图布局。</span>
   <span class="hljs-attr">transcodingUsers</span>: [{
           <span class="hljs-attr">x</span>: <span class="hljs-number">0</span>,
@@ -134,7 +134,7 @@
           <span class="hljs-attr">alpha</span>: <span class="hljs-number">1.0</span>,
           <span class="hljs-comment">// 下面的 uid 应和 AgoraRTCClient.join 输入的 uid 保持一致。</span>
           <span class="hljs-attr">uid</span>: <span class="hljs-number">1232</span>,
-        }],
+  }],
 };
 
 <span class="hljs-comment">// 注意这是一个异步方法，请确保异步操作完成后再进行下一步操作。</span>
@@ -161,9 +161,9 @@ client.on(<span class="hljs-string">"live-streaming-error"</span>, (url, err) =&
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="api-参考"></a><a href="#api-参考" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API 参考</h3>
 <ul>
-<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#setlivetranscoding">AgoraRTCClient.setLiveTranscoding</a></li>
-<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#startlivetranscoding">AgoraRTCClient.startLiveTranscoding</a></li>
-<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#stoplivetranscoding">AgoraRTCClient.stopLiveTranscoding</a></li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#setlivetranscoding"><code>AgoraRTCClient.setLiveTranscoding</code></a></li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#startlivestreaming"><code>AgoraRTCClient.startLiveStreaming</code></a></li>
+<li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#stoplivestreaming"><code>AgoraRTCClient.stopLiveStreaming</code></a></li>
 <li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_live_streaming_error">AgoraRTCClient.on(&quot;live-streaming-error&quot;)</a></li>
 <li><a href="/AgoraWebSDK-NG/api/cn/interfaces/iagorartcclient.html#event_live_streaming_warning">AgoraRTCClient.on(&quot;live-streaming-warning&quot;)</a></li>
 </ul>

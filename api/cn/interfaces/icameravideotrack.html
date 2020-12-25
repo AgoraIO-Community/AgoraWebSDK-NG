@@ -100,6 +100,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="icameravideotrack.html#setdevice" class="tsd-kind-icon">set<wbr>Device</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite"><a href="icameravideotrack.html#setenabled" class="tsd-kind-icon">set<wbr>Enabled</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="icameravideotrack.html#setencoderconfiguration" class="tsd-kind-icon">set<wbr>Encoder<wbr>Configuration</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="icameravideotrack.html#setoptimizationmode" class="tsd-kind-icon">set<wbr>Optimization<wbr>Mode</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="icameravideotrack.html#stop" class="tsd-kind-icon">stop</a></li>
 							</ul>
 						</section>
@@ -179,8 +180,10 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取当前渲染的视频帧数据。</p>
+									<p><strong>自从</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.1.0</em></p>
 								</div>
+								<p>获取当前渲染的视频帧数据。</p>
 								<blockquote>
 									<p>只有在播放后才能调用此方法，如果没有调用 <a href="icameravideotrack.html#play">play</a> 则返回空数据。</p>
 								</blockquote>
@@ -256,10 +259,10 @@
 								<div class="lead">
 									<p>获取本地视频轨道的相关信息。</p>
 								</div>
-								<p><strong>不推荐使用</strong> 请使用 <a href="iagorartcclient.html#getlocalvideostats">AgoraRTCClient.getLocalVideoStats</a> 获取本地视频轨道的相关信息。</p>
+								<p><strong>DEPRECATED</strong>
+								自 v4.1.0 起废弃，请使用 <a href="iagorartcclient.html#getlocalvideostats">AgoraRTCClient.getLocalVideoStats</a> 和 <a href="iagorartcclient.html#getlocalaudiostats">AgoraRTCClient.getLocalAudioStats</a>。</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="localvideotrackstats.html" class="tsd-signature-type">LocalVideoTrackStats</a></h4>
-							<p><a href="localvideotrackstats.html">LocalVideoTrackStats</a> 对象。</p>
 						</li>
 					</ul>
 				</section>
@@ -588,8 +591,10 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>启用/禁用该轨道。</p>
+									<p><strong>自从</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.0.0</em></p>
 								</div>
+								<p>启用/禁用该轨道。</p>
 								<p>轨道禁用后，播放和发布都将被停止。</p>
 								<blockquote>
 									<ul>
@@ -636,6 +641,50 @@
 									<h5>config: <a href="videoencoderconfiguration.html" class="tsd-signature-type">VideoEncoderConfiguration</a><span class="tsd-signature-symbol"> | </span><a href="../globals.html#videoencoderconfigurationpreset" class="tsd-signature-type">VideoEncoderConfigurationPreset</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>你可以传入 SDK 预设的视频编码配置 <a href="../globals.html#videoencoderconfigurationpreset">VideoEncoderConfigurationPreset</a>，也可以传入自定义的 <a href="videoencoderconfiguration.html">VideoEncoderConfiguration</a> 对象。</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<a name="setoptimizationmode" class="tsd-anchor"></a>
+					<h3>set<wbr>Optimization<wbr>Mode</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Optimization<wbr>Mode<span class="tsd-signature-symbol">(</span>mode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"balanced"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"motion"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"detail"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="ilocalvideotrack.html">ILocalVideoTrack</a>.<a href="ilocalvideotrack.html#setoptimizationmode">setOptimizationMode</a></p>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><strong>自从</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.2.0</em></p>
+								</div>
+								<p>设置视频传输优化模式。</p>
+								<p>你可以在视频通话、视频直播或屏幕共享过程中调用此方法动态调整视频的传输优化模式。例如你想要把屏幕共享内容从演示文稿切换为视频时，你可以将传输优化模式从 <code>&quot;detail&quot;</code> 切换为 <code>&quot;motion&quot;</code>，确保视频画面在网络波动时不会出现卡顿。</p>
+								<blockquote>
+									<p>注意事项：该方法只支持 Chrome 浏览器。</p>
+								</blockquote>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>mode: <span class="tsd-signature-type">"balanced"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"motion"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"detail"</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>视频传输优化模式：
+											- <code>&quot;balanced&quot;</code>: 使用默认的传输优化模式：
+											- 对于屏幕共享视频流，SDK 默认的优化策略为清晰优先。
+											- 对于其他视频流，SDK 默认的优化策略为兼顾清晰和流畅，弱网条件下，帧率和分辨率都会被调整。
+											- <code>&quot;detail&quot;</code>: 清晰优先。
+											- SDK 会自动根据你的采集分辨率和帧率设定一个最小码率。即使遭遇网络波动，发送码率也不会低于这个值，从而确保清晰的视频画面。
+											- 大部分情况下，SDK 不会降低发送分辨率，但是可能会降低帧率。
+											- <code>&quot;motion&quot;</code>: 流畅优先。
+											- SDK 不会启用最小码率策略。遭遇网络波动时，发送端会降低码率来确保接收端的视频画面不会出现中断和卡顿。
+										- 大部分情况下，SDK 不会降低帧率，但是可能会降低发送分辨率。</p>
 									</div>
 								</li>
 							</ul>
@@ -733,6 +782,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="icameravideotrack.html#setencoderconfiguration" class="tsd-kind-icon">set<wbr>Encoder<wbr>Configuration</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+								<a href="icameravideotrack.html#setoptimizationmode" class="tsd-kind-icon">set<wbr>Optimization<wbr>Mode</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="icameravideotrack.html#stop" class="tsd-kind-icon">stop</a>

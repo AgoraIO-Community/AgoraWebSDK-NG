@@ -233,10 +233,10 @@
 								<div class="lead">
 									<p>获取本地音频轨道的质量相关信息。</p>
 								</div>
-								<p><strong>不推荐使用</strong> 请使用 <a href="iagorartcclient.html#getlocalaudiostats">AgoraRTCClient.getLocalAudioStats</a> 获取本地音频轨道的质量相关信息。</p>
+								<p><strong>DEPRECATED</strong>
+								自 v4.1.0 起废弃，请使用 <a href="iagorartcclient.html#getlocalvideostats">AgoraRTCClient.getLocalVideoStats</a> 和 <a href="iagorartcclient.html#getlocalaudiostats">AgoraRTCClient.getLocalAudioStats</a>。</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="localaudiotrackstats.html" class="tsd-signature-type">LocalAudioTrackStats</a></h4>
-							<p><a href="localaudiotrackstats.html">LocalAudioTrackStats</a> 对象。</p>
 						</li>
 					</ul>
 				</section>
@@ -551,8 +551,10 @@ track.setAudioFrameCallback(<span class="hljs-literal">null</span>);</code></pre
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>启用/禁用该轨道。</p>
+									<p><strong>自从</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.0.0</em></p>
 								</div>
+								<p>启用/禁用该轨道。</p>
 								<p>轨道禁用后，播放和发布都将被停止。</p>
 								<blockquote>
 									<ul>
@@ -591,11 +593,13 @@ track.setAudioFrameCallback(<span class="hljs-literal">null</span>);</code></pre
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>设置音频输出设备，比如扬声器。</p>
-									<blockquote>
-										<p>该方法只支持 Chrome 浏览器，其他浏览器调用将会抛出 <code>NOT_SUPPORTED</code> 错误。</p>
-									</blockquote>
+									<p><strong>自从</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.1.0</em></p>
 								</div>
+								<p>设置音频输出设备，比如扬声器。</p>
+								<blockquote>
+									<p>该方法只支持 Chrome 浏览器，其他浏览器调用将会抛出 <code>NOT_SUPPORTED</code> 错误。</p>
+								</blockquote>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">

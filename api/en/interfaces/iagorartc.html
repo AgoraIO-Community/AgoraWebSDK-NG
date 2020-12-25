@@ -79,6 +79,7 @@
 							<h3>Other Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iagorartc.html#version" class="tsd-kind-icon">VERSION</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iagorartc.html#setarea" class="tsd-kind-icon">set<wbr>Area</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -208,8 +209,10 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Occurs when an audio playback device is added or removed.</p>
+							<p><strong>Since</strong>
+							<br>&emsp;&emsp;&emsp;<em>4.1.0</em></p>
 						</div>
+						<p>Occurs when an audio playback device is added or removed.</p>
 						<pre><code class="language-javascript">AgoraRTC.onPlaybackDeviceChanged = <span class="hljs-function">(<span class="hljs-params">info</span>) =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"speaker changed!"</span>, info.state, info.device);
 };</code></pre>
@@ -232,6 +235,51 @@
 						<div class="lead">
 							<p>The version of the Agora Web SDK NG.</p>
 						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="setarea" class="tsd-anchor"></a>
+					<h3>set<wbr>Area</h3>
+					<div class="tsd-signature tsd-kind-icon">set<wbr>Area<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p><strong>Since</strong>
+							<br>&emsp;&emsp;&emsp;<em>4.2.0</em></p>
+						</div>
+						<p>Sets the region for connection.</p>
+						<p>This advanced feature applies to scenarios that have regional restrictions.</p>
+						<p>By default, the SDK connects to nearby Agora servers. After specifying the region, the SDK connects to the Agora servers within that region.</p>
+						<blockquote>
+							<p>Note: The SDK supports specifying only one region.</p>
+						</blockquote>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>The region for connection. For details, see <a href="../enums/areas.html">AREAS</a>.</p>
+							</dd>
+						</dl>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>area<span class="tsd-signature-symbol">: </span><a href="../enums/areas.html" class="tsd-signature-type">AREAS</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>area: <a href="../enums/areas.html" class="tsd-signature-type">AREAS</a><span class="tsd-signature-symbol">[]</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
 					</div>
 				</section>
 			</section>
@@ -485,11 +533,6 @@
 								<div class="lead">
 									<p>Creates a video track for screen sharing.</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>category</dt>
-									<dd><p>Local Track</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -538,11 +581,6 @@
 								<div class="lead">
 									<p>Creates a video track for screen sharing.</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>category</dt>
-									<dd><p>Local Track</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -827,8 +865,10 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Enumerates the audio playback devices available, such as speakers.</p>
+									<p><strong>Since</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.1.0</em></p>
 								</div>
+								<p>Enumerates the audio playback devices available, such as speakers.</p>
 								<p>If this method call succeeds, the SDK returns a list of audio playback devices in an array of <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo">MediaDeviceInfo</a> objects.</p>
 								<blockquote>
 									<p>Calling this method turns on the microphone briefly for the device permission request. On browsers including Chrome 81 or later, Firefox, and Safari, the SDK cannot get accurate device information without permission for the media device.</p>
@@ -1125,6 +1165,9 @@ console.log(`</span>Supported audio codec: ${result.audio.join(<span class="hljs
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="iagorartc.html#onplaybackdevicechanged" class="tsd-kind-icon">on<wbr>Playback<wbr>Device<wbr>Changed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="iagorartc.html#setarea" class="tsd-kind-icon">set<wbr>Area</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartc.html#checkaudiotrackisactive" class="tsd-kind-icon">check<wbr>Audio<wbr>Track<wbr>IsActive</a>

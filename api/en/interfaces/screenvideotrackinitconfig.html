@@ -108,7 +108,7 @@
 						<p>You can set the video encoder configurations in either of the following ways:</p>
 						<ul>
 							<li>Pass the preset video encoder configurations by using <a href="../globals.html#screenencoderconfigurationpreset">ScreenEncoderConfigurationPreset</a>.</li>
-							<li>Pass your customized audio encoder configurations by using <a href="videoencoderconfiguration.html">VideoEncoderConfiguration</a>.</li>
+							<li>Pass your customized video encoder configurations by using <a href="videoencoderconfiguration.html">VideoEncoderConfiguration</a>.</li>
 						</ul>
 					</div>
 				</section>
@@ -132,20 +132,25 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Transmission optimization mode. Whether to prioritize video quality or smoothness:</p>
-							<ul>
-								<li><code>&quot;detail&quot;</code>: (Default) Prioritizes video quality.<ul>
-										<li>The SDK ensures high-quality images by automatically calculating a minimum bitrate based on the capturing resolution and frame rate. No matter how poor the network condition is, the sending bitrate will never be lower than the minimum value.</li>
-										<li>In most cases, the SDK does not reduce the sending resolution, but may reduce the frame rate.</li>
-									</ul>
-								</li>
-								<li><code>&quot;motion&quot;</code>: Prioritizes video smoothness.<ul>
-										<li>In poor network conditions, the SDK reduces the sending bitrate to minimize video freezes.</li>
-										<li>In most cases, the SDK does not reduce the frame rate, but may reduce the sending resolution.</li>
-									</ul>
-								</li>
-							</ul>
+							<p><strong>Since</strong>
+							<br>&emsp;&emsp;&emsp;<em>4.0.0</em></p>
 						</div>
+						<p>Transmission optimization mode. Whether to prioritize video quality or smoothness:</p>
+						<ul>
+							<li><code>&quot;detail&quot;</code>: (Default) Prioritizes video quality.<ul>
+									<li>The SDK ensures high-quality images by automatically calculating a minimum bitrate based on the capturing resolution and frame rate. No matter how poor the network condition is, the sending bitrate will never be lower than the minimum value.</li>
+									<li>In most cases, the SDK does not reduce the sending resolution, but may reduce the frame rate.</li>
+								</ul>
+							</li>
+							<li><code>&quot;motion&quot;</code>: Prioritizes video smoothness.<ul>
+									<li>In poor network conditions, the SDK reduces the sending bitrate to minimize video freezes.</li>
+									<li>In most cases, the SDK does not reduce the frame rate, but may reduce the sending resolution.</li>
+								</ul>
+							</li>
+						</ul>
+						<blockquote>
+							<p>Note: This method is only supported on Chrome.</p>
+						</blockquote>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">

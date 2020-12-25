@@ -152,6 +152,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#getlocalvideostats" class="tsd-kind-icon">get<wbr>Local<wbr>Video<wbr>Stats</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#getrtcstats" class="tsd-kind-icon">getRTCStats</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#getremoteaudiostats" class="tsd-kind-icon">get<wbr>Remote<wbr>Audio<wbr>Stats</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#getremotenetworkquality" class="tsd-kind-icon">get<wbr>Remote<wbr>Network<wbr>Quality</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#getremotevideostats" class="tsd-kind-icon">get<wbr>Remote<wbr>Video<wbr>Stats</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iagorartcclient.html#off" class="tsd-kind-icon">off</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite"><a href="iagorartcclient.html#on" class="tsd-kind-icon">on</a></li>
@@ -1094,8 +1095,10 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>保存当前正在发布的本地轨道对象列表。</p>
+							<p><strong>自从</strong>
+							<br>&emsp;&emsp;&emsp;<em>4.0.0</em></p>
 						</div>
+						<p>保存当前正在发布的本地轨道对象列表。</p>
 						<ul>
 							<li>调用 <a href="iagorartcclient.html#publish">publish</a> 成功后，发布的轨道对象会自动添加到这个列表中。</li>
 							<li>调用 <a href="iagorartcclient.html#unpublish">unpublish</a> 成功后，取消发布的轨道对象会自动从这个列表中移除。</li>
@@ -1934,8 +1937,10 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取本地音频相关信息。</p>
+									<p><strong>自从</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.1.0</em></p>
 								</div>
+								<p>获取本地音频相关信息。</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="localaudiotrackstats.html" class="tsd-signature-type">LocalAudioTrackStats</a></h4>
 						</li>
@@ -1992,13 +1997,41 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取远端用户的音频相关信息。</p>
+									<p><strong>自从</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.1.0</em></p>
 								</div>
+								<p>获取远端用户的音频相关信息。</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
 							<ul class="tsd-parameters">
 								<li class="tsd-parameter-index-signature">
 									<h5><span class="tsd-signature-symbol">[</span>uid: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="remoteaudiotrackstats.html" class="tsd-signature-type">RemoteAudioTrackStats</a></h5>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="getremotenetworkquality" class="tsd-anchor"></a>
+					<h3>get<wbr>Remote<wbr>Network<wbr>Quality</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Remote<wbr>Network<wbr>Quality<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><strong>自从</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.2.0</em></p>
+								</div>
+								<p>获取本地订阅的所有远端用户的上下行网络质量。</p>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-index-signature">
+									<h5><span class="tsd-signature-symbol">[</span>uid: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="networkquality.html" class="tsd-signature-type">NetworkQuality</a></h5>
 								</li>
 							</ul>
 						</li>
@@ -2016,8 +2049,10 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取远端用户的视频相关信息。</p>
+									<p><strong>自从</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.1.0</em></p>
 								</div>
+								<p>获取远端用户的视频相关信息。</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
 							<ul class="tsd-parameters">
@@ -2621,7 +2656,9 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								<li>
 									<h5>secret: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>加密密钥。ASCII 字符。</p>
+										<p>加密密钥。ASCII 字符。当用户设置的密码为弱密码时，SDK 会在控制台打印警告信息，提醒用户设置强密码，即密码必须满足以下要求：
+											- 包含大写字母、小写字母、数字和特殊字符。
+										- 长度至少 8 位。</p>
 									</div>
 								</li>
 							</ul>
@@ -2636,7 +2673,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 					<a name="startproxyserver" class="tsd-anchor"></a>
 					<h3>start<wbr>Proxy<wbr>Server</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">start<wbr>Proxy<wbr>Server<span class="tsd-signature-symbol">(</span>use443OnlyMode<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">start<wbr>Proxy<wbr>Server<span class="tsd-signature-symbol">(</span>mode<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -2647,14 +2684,15 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<p>开启云代理服务。</p>
 								</div>
 								<p>该方法必须在加入频道前或离开频道后调用。</p>
-								<p>使用云代理服务还需要一些额外设置，详见使用<a href="https://docs.agora.io/cn/Interactive%20Broadcast/cloud_proxy_web?platform=Web">云代理服务</a>。</p>
+								<p>对于使用云代理服务所需的一些额外设置以及云代理模式介绍，详见<a href="https://docs.agora.io/cn/Interactive%20Broadcast/cloud_proxy_web?platform=Web">使用云代理服务</a>。</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> use443OnlyMode: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mode: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>在有些企业防火墙配置中，只打开了 TCP 443 和 80 端口，此时可以将这个参数设置为 <code>true</code> 来确保只会通过 443 端口通信。默认为 <code>false</code>。</p>
+										<p>云代理模式。
+										- 1: （默认）模式一。</p>
 									</div>
 								</li>
 							</ul>
@@ -2800,6 +2838,9 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartcclient.html#getremoteaudiostats" class="tsd-kind-icon">get<wbr>Remote<wbr>Audio<wbr>Stats</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="iagorartcclient.html#getremotenetworkquality" class="tsd-kind-icon">get<wbr>Remote<wbr>Network<wbr>Quality</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartcclient.html#getremotevideostats" class="tsd-kind-icon">get<wbr>Remote<wbr>Video<wbr>Stats</a>

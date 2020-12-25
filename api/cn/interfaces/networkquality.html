@@ -55,7 +55,10 @@
 						<p>上下行 last mile 网络质量。</p>
 					</div>
 					<p>last mile 是指设备到 Agora 边缘服务器的网络连接。</p>
-					<p>用户加入频道后，SDK 会每两秒触发一次 <a href="iagorartcclient.html#event_network_quality">AgoraRTCClient.on(&quot;network-quality&quot;)</a> 回调，并通过该接口提供上下行网络质量水平。</p>
+					<ul>
+						<li>本地用户加入频道后，SDK 会每两秒触发一次 <a href="iagorartcclient.html#event_network_quality">AgoraRTCClient.on(&quot;network-quality&quot;)</a> 回调报告本地用户的上下行网络质量。</li>
+						<li>可以调用 <a href="iagorartcclient.html#getremotenetworkquality">AgoraRTCClient.getRemoteNetworkQuality</a> 方法获取本地订阅的所有远端主播的上下行网络质量。</li>
+					</ul>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">

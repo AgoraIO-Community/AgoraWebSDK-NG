@@ -151,6 +151,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#getlocalvideostats" class="tsd-kind-icon">get<wbr>Local<wbr>Video<wbr>Stats</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#getrtcstats" class="tsd-kind-icon">getRTCStats</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#getremoteaudiostats" class="tsd-kind-icon">get<wbr>Remote<wbr>Audio<wbr>Stats</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#getremotenetworkquality" class="tsd-kind-icon">get<wbr>Remote<wbr>Network<wbr>Quality</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iagorartcclient.html#getremotevideostats" class="tsd-kind-icon">get<wbr>Remote<wbr>Video<wbr>Stats</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iagorartcclient.html#off" class="tsd-kind-icon">off</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite"><a href="iagorartcclient.html#on" class="tsd-kind-icon">on</a></li>
@@ -1051,8 +1052,10 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The list of the local tracks that the local user is publishing.</p>
+							<p><strong>Since</strong>
+							<br>&emsp;&emsp;&emsp;<em>4.0.0</em></p>
 						</div>
+						<p>The list of the local tracks that the local user is publishing.</p>
 						<ul>
 							<li>After a success method call of <a href="iagorartcclient.html#publish">publish</a>, the published track object is added to this list automatically.</li>
 							<li>After a success method call of <a href="iagorartcclient.html#unpublish">unpublish</a>, the unpublished track object is removed from this list automatically.</li>
@@ -1897,8 +1900,10 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets the statistics of a local audio track.</p>
+									<p><strong>Since</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.1.0</em></p>
 								</div>
+								<p>Gets the statistics of a local audio track.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="localaudiotrackstats.html" class="tsd-signature-type">LocalAudioTrackStats</a></h4>
 						</li>
@@ -1916,8 +1921,10 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets the statistics of a local video track.</p>
+									<p><strong>Since</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.1.0</em></p>
 								</div>
+								<p>Gets the statistics of a local video track.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="localvideotrackstats.html" class="tsd-signature-type">LocalVideoTrackStats</a></h4>
 						</li>
@@ -1955,13 +1962,41 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets the statistics of remote audio tracks.</p>
+									<p><strong>Since</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.1.0</em></p>
 								</div>
+								<p>Gets the statistics of remote audio tracks.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
 							<ul class="tsd-parameters">
 								<li class="tsd-parameter-index-signature">
 									<h5><span class="tsd-signature-symbol">[</span>uid: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="remoteaudiotrackstats.html" class="tsd-signature-type">RemoteAudioTrackStats</a></h5>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="getremotenetworkquality" class="tsd-anchor"></a>
+					<h3>get<wbr>Remote<wbr>Network<wbr>Quality</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Remote<wbr>Network<wbr>Quality<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><strong>Since</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.2.0</em></p>
+								</div>
+								<p>Gets the network quality of all the remote users to whom the local user subscribes.</p>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-index-signature">
+									<h5><span class="tsd-signature-symbol">[</span>uid: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="networkquality.html" class="tsd-signature-type">NetworkQuality</a></h5>
 								</li>
 							</ul>
 						</li>
@@ -1979,8 +2014,10 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets the statistics of remote video tracks.</p>
+									<p><strong>Since</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.1.0</em></p>
 								</div>
+								<p>Gets the statistics of remote video tracks.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
 							<ul class="tsd-parameters">
@@ -2583,7 +2620,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 								<li>
 									<h5>secret: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The encryption secret. ASCII characters only.</p>
+										<p>The encryption secret. ASCII characters only. When a user uses a weak secret, the SDK outputs a warning message to the Web Console and prompts the users to set a strong secret. A strong secret must contain at least eight characters and be a combination of uppercase and lowercase letters, numbers, and special characters.</p>
 									</div>
 								</li>
 							</ul>
@@ -2598,7 +2635,7 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 					<a name="startproxyserver" class="tsd-anchor"></a>
 					<h3>start<wbr>Proxy<wbr>Server</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">start<wbr>Proxy<wbr>Server<span class="tsd-signature-symbol">(</span>use443OnlyMode<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">start<wbr>Proxy<wbr>Server<span class="tsd-signature-symbol">(</span>mode<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -2609,14 +2646,15 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 									<p>Enables cloud proxy.</p>
 								</div>
 								<p>You must call this method before joining the channel or after leaving the channel.</p>
-								<p>To use the cloud proxy service, extra settings are needed. See <a href="https://docs.agora.io/en/Interactive%20Broadcast/cloud_proxy_web?platform=Web">Use Cloud Proxy</a> for details.</p>
+								<p>For the extra settings required for using the cloud proxy service and introduction to cloud proxy mode, see <a href="https://docs.agora.io/en/Interactive%20Broadcast/cloud_proxy_web?platform=Web">Use Cloud Proxy</a>.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> use443OnlyMode: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mode: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Set this parameter as <code>true</code> to transmit data only through the TCP 443 ports in scenarios when the firewall only opens TCP 443 and 80 ports. The default vaule is <code>false</code>.</p>
+										<p>Cloud proxy mode.
+										- 1: (Default) Mode one.</p>
 									</div>
 								</li>
 							</ul>
@@ -2759,6 +2797,9 @@ client.on(<span class="hljs-string">"volume-indicator"</span>, volumes =&gt; {
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartcclient.html#getremoteaudiostats" class="tsd-kind-icon">get<wbr>Remote<wbr>Audio<wbr>Stats</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="iagorartcclient.html#getremotenetworkquality" class="tsd-kind-icon">get<wbr>Remote<wbr>Network<wbr>Quality</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iagorartcclient.html#getremotevideostats" class="tsd-kind-icon">get<wbr>Remote<wbr>Video<wbr>Stats</a>

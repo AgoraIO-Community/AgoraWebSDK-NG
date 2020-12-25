@@ -233,9 +233,9 @@
 								<div class="lead">
 									<p>Gets the statistics of a local audio track.</p>
 								</div>
+								<p><strong>DEPRECATED</strong> from v4.1.0. Use <a href="iagorartcclient.html#getlocalvideostats">AgoraRTCClient.getLocalVideoStats</a> and <a href="iagorartcclient.html#getlocalaudiostats">AgoraRTCClient.getLocalAudioStats</a> instead.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="localaudiotrackstats.html" class="tsd-signature-type">LocalAudioTrackStats</a></h4>
-							<p>An <a href="localaudiotrackstats.html">LocalAudioTrackStats</a> object.</p>
 						</li>
 					</ul>
 				</section>
@@ -550,8 +550,10 @@ track.setAudioFrameCallback(<span class="hljs-literal">null</span>);</code></pre
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Enables/Disables the track.</p>
+									<p><strong>Since</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.0.0</em></p>
 								</div>
+								<p>Enables/Disables the track.</p>
 								<p>After a track is disabled, the SDK stops playing and publishing the track.</p>
 								<blockquote>
 									<ul>
@@ -590,11 +592,13 @@ track.setAudioFrameCallback(<span class="hljs-literal">null</span>);</code></pre
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the audio playback device, for example, the speaker.</p>
-									<blockquote>
-										<p>This method supports Chrome only. Other browsers throw a &#39;<code>NOT_SUPPORTED</code> error when calling this method.</p>
-									</blockquote>
+									<p><strong>Since</strong>
+									<br>&emsp;&emsp;&emsp;<em>4.1.0</em></p>
 								</div>
+								<p>Sets the audio playback device, for example, the speaker.</p>
+								<blockquote>
+									<p>This method supports Chrome only. Other browsers throw a &#39;<code>NOT_SUPPORTED</code> error when calling this method.</p>
+								</blockquote>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
