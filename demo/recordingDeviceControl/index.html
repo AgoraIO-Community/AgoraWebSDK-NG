@@ -29,7 +29,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  
+
   <div class="container">
     <form id="join-form">
       <div class="row join-info-group">
@@ -64,7 +64,7 @@
         </div>
         <input type="text" class="mic-input form-control" aria-label="Text input with dropdown button" readonly>
       </div>
-  
+
       <div class="input-group">
         <div class="input-group-prepend">
           <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cams</button>
@@ -96,7 +96,7 @@
         <div class="modal-body">
           <div class="container">
             <h5 class="device-name">Microphone</h5>
-            <p id="device-intro">Produce sounds to check if the mic works.</p>
+            <p class="device-intro">Produce sounds to check if the mic works.</p>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mics</button>
@@ -115,6 +115,18 @@
                 <div class="cam-list dropdown-menu"></div>
               </div>
               <input type="text" class="cam-input form-control" aria-label="Text input with dropdown button" readonly>
+            </div>
+            <h5 class="device-name">Speaker</h5>
+            <p class="device-intro">Play sound to test if the speaker works.(Switching speakers works only on Chrome).</p>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Speakers</button>
+                <div class="speaker-list dropdown-menu"></div>
+              </div>
+              <input type="text" class="speaker-input form-control" aria-label="Text input with dropdown button" readonly>
+              <button class="speaker-play btn btn-primary btn-sm">play</button>
+            </div>
+            <div class="button">
             </div>
             <div id="pre-local-player" class="player"></div>
           </div>
