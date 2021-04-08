@@ -1,6 +1,6 @@
 # AgoraWebSDK NG
 
-# **This Project has been deprecated and archived. We will stop maintain it. Please look at https://github.com/AgoraIO/API-Examples-Web for latest Agora Samples.**
+# **AS Web NG SDK have been offically released from [here](https://docs.agora.io/en/Interactive%20Broadcast/release_web_ng?platform=Web). This Demo Project has been deprecated and archived. We will stop maintain it. Please look at https://github.com/AgoraIO/API-Examples-Web for latest Agora Web SDK Samples.**
 
 
 *English | [简体中文](README.cn.md)*
