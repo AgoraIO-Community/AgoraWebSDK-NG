@@ -1,5 +1,8 @@
 # AgoraWebSDK NG
 
+# **This Project has been deprecated and archived. We will stop maintain it. Please look at https://github.com/AgoraIO/API-Examples-Web for latest Agora Samples.**
+
+
 *English | [简体中文](README.cn.md)*
 
 The Agora Web SDK NG is the next-generation SDK of the current Agora Web SDK, enabling audio and video real-time communications based on Agora SD-RTN™ and implementing scenarios such as voice-only calls, video call, voice-only interactive broadcast, and video interactive broadcast. The Agora Web SDK NG makes full-scale refactoring to the internal architecture of the Agora Web SDK and improves usability of APIs.
