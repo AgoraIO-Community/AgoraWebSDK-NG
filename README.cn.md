@@ -1,4 +1,5 @@
 # AgoraWebSDK NG
+# **由于WEB NG SDK已经在[官网](https://docs.agora.io/cn/Interactive%20Broadcast/release_web_ng?platform=Web)正式发布,本项目会在接下去归档并停止维护. 最新的示例代码请参考 https://github.com/AgoraIO/API-Examples-Web**
 
 *[English](README.md) | 简体中文*
 
